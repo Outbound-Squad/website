@@ -3,10 +3,2150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outbound Squad | Dev</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <!-- CRITICAL: Block search engine crawling on all pages -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Outbound Squad | Fix Your Outbound</title>
+  <meta name="description" content="Outbound isn't dead, but it's broken. The 6-part framework we've built across 250+ sales teams and 20,000+ reps.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       Outbound Squad Homepage
+       Design system matches masterclass landing page
+       ======================================== */
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444444;
+      background: #FFFFFF;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #00A2FF;
+      text-decoration: none;
+    }
+
+    /* ========================================
+       Scroll Animations
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       Layout
+       ======================================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-wide {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .text-center { text-align: center; }
+    .text-white { color: #FFFFFF; }
+
+    /* ========================================
+       Sections
+       ======================================== */
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-white { background: #FFFFFF; }
+
+    .section-lightblue {
+      background: linear-gradient(180deg, #FFFFFF 0%, #E6F0FA 40%, #d4e5f7 100%);
+    }
+
+    .section-lightorange {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F9EBE7 40%, #f2ddd6 100%);
+    }
+
+    .section-navy {
+      background: #1B2235;
+    }
+
+    .section-headline {
+      font-size: 40px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: #666666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========================================
+       Buttons
+       ======================================== */
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-orange {
+      background: #F86A3E;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(248, 106, 62, 0.3);
+    }
+
+    .btn-orange:hover {
+      background: #e55a2e;
+      box-shadow: 0 6px 20px rgba(248, 106, 62, 0.4);
+    }
+
+    .btn-navy-outline {
+      background: transparent;
+      color: #1B2235;
+      border: 2px solid #1B2235;
+      padding: 12px 26px;
+    }
+
+    .btn-navy-outline:hover {
+      background: #1B2235;
+      color: #FFFFFF;
+    }
+
+    .btn-lg {
+      font-size: 18px;
+      padding: 16px 36px;
+    }
+
+    .btn-nav {
+      font-size: 15px;
+      padding: 10px 20px;
+    }
+
+    /* Force white text on nav Book A Call button (desktop + mobile) */
+    .nav-cta .btn-orange,
+    .nav-cta a.btn-orange,
+    .nav-links .btn-orange {
+      color: #FFFFFF !important;
+    }
+
+    .nav-cta .btn-orange:hover,
+    .nav-cta a.btn-orange:hover,
+    .nav-links .btn-orange:hover {
+      color: #FFFFFF !important;
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      box-shadow: 0 1px 0 rgba(27, 34, 53, 0.08);
+      padding: 10px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1B2235;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #00A2FF;
+    }
+
+    .nav-cta {
+      margin-left: 8px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1B2235;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      background: linear-gradient(180deg, #FFFFFF 0%, #E6F0FA 55%, #d0e2f4 100%);
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-headline {
+      font-size: 52px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 19px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0 auto 36px;
+      max-width: 720px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    /* Marquee */
+    .marquee-wrap {
+      margin-top: 48px;
+    }
+
+    .marquee-label {
+      font-size: 12px;
+      color: #7a8299;
+      text-align: center;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .marquee {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 72px;
+      width: max-content;
+      animation: marquee-scroll 28s linear infinite;
+    }
+
+    .marquee-item {
+      font-size: 26px;
+      font-weight: 700;
+      color: #8a93a8;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
+      transition: color 0.2s;
+    }
+
+    .marquee-item:hover {
+      color: #1B2235;
+    }
+
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ========================================
+       PROBLEM CARDS
+       ======================================== */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 16px;
+    }
+
+    .problem-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 36px 30px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .problem-icon {
+      margin-bottom: 20px;
+    }
+
+    .problem-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1B2235;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    .problem-card p {
+      font-size: 16px;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       SHIFT SECTION
+       ======================================== */
+    .shift-block {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .shift-headline {
+      font-size: 44px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.15;
+      margin-bottom: 28px;
+      letter-spacing: -0.8px;
+    }
+
+    .shift-body {
+      font-size: 19px;
+      color: #444444;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .shift-meta {
+      font-size: 15px;
+      color: #7a8299;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+
+    /* ========================================
+       FRAMEWORK
+       ======================================== */
+    .framework-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px;
+    }
+
+    /* Sticky timeline */
+    .timeline-wrap {
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      padding: 16px 0;
+      margin-bottom: 56px;
+      background: rgba(230, 240, 250, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-radius: 16px;
+      box-shadow: 0 2px 20px rgba(27, 34, 53, 0.06);
+    }
+
+    .timeline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .timeline::-webkit-scrollbar { display: none; }
+
+    .timeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      padding: 8px 4px;
+      flex: 1 1 0;
+      min-width: 100px;
+      position: relative;
+    }
+
+    .timeline-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid #d0d6e2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      color: #F86A3E;
+      margin-bottom: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(27, 34, 53, 0.06);
+    }
+
+    .timeline-step:hover .timeline-circle {
+      border-color: #F86A3E;
+      transform: scale(1.05);
+    }
+
+    .timeline-step.active .timeline-circle {
+      background: #F86A3E;
+      border-color: #F86A3E;
+      color: #FFFFFF;
+      transform: scale(1.1);
+      box-shadow: 0 6px 18px rgba(248, 106, 62, 0.35);
+    }
+
+    .timeline-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #7a8299;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.25s;
+      white-space: nowrap;
+    }
+
+    .timeline-step.active .timeline-label {
+      color: #1B2235;
+    }
+
+    .timeline-arrow {
+      flex-shrink: 0;
+      color: #b9c1d1;
+      display: flex;
+      align-items: center;
+      padding-bottom: 22px;
+    }
+
+    /* Step sections */
+    .step {
+      padding: 40px 0 48px;
+      border-bottom: 1px solid rgba(27, 34, 53, 0.08);
+      scroll-margin-top: 160px;
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .step-number {
+      font-size: 56px;
+      font-weight: 800;
+      color: #F86A3E;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .step-name {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.05;
+      letter-spacing: -0.8px;
+    }
+
+    .step-oneliner {
+      font-size: 20px;
+      color: #1B2235;
+      font-weight: 600;
+      margin-bottom: 22px;
+      line-height: 1.4;
+    }
+
+    .step-bullets {
+      list-style: none;
+    }
+
+    .step-bullets li {
+      font-size: 16px;
+      color: #444444;
+      line-height: 1.6;
+      padding: 8px 0 8px 26px;
+      position: relative;
+    }
+
+    .step-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 14px;
+      height: 2px;
+      background: #00A2FF;
+      border-radius: 2px;
+    }
+
+    .step-proof {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px 26px;
+      border-left: 4px solid #F86A3E;
+      box-shadow: 0 4px 20px rgba(27, 34, 53, 0.08);
+      position: relative;
+    }
+
+    .step-proof-quote {
+      font-size: 16px;
+      font-style: italic;
+      color: #1B2235;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .step-proof-author {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1B2235;
+    }
+
+    .step-proof-role {
+      font-size: 13px;
+      color: #7a8299;
+      margin-top: 2px;
+    }
+
+    /* ========================================
+       RESULTS
+       ======================================== */
+    .results-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin: 32px 0 56px;
+    }
+
+    .results-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 8px 40px;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      border-right: 1px solid #e2d5cf;
+    }
+
+    .results-stat:last-child {
+      border-right: none;
+    }
+
+    .results-num {
+      display: block;
+      font-size: 40px;
+      font-weight: 800;
+      color: #F86A3E;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+
+    .results-label {
+      display: block;
+      font-size: 13px;
+      color: #7a8299;
+      line-height: 1.4;
+      font-weight: 500;
+      max-width: 180px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 64px;
+      font-weight: 800;
+      color: #F9EBE7;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-quote {
+      font-size: 15px;
+      font-style: italic;
+      color: #444444;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      border-top: 1px solid #EEEEEE;
+      padding-top: 14px;
+    }
+
+    .testimonial-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1B2235;
+    }
+
+    .testimonial-role {
+      font-size: 13px;
+      color: #7a8299;
+      margin-top: 2px;
+    }
+
+    /* ========================================
+       WHY OS
+       ======================================== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .why-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      border-top: 3px solid #00A2FF;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .why-num {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #00A2FF;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+    }
+
+    .why-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1B2235;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    .why-card p {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       METHODOLOGY (NAVY)
+       ======================================== */
+    .methodology {
+      padding: 104px 0;
+      background: #1B2235;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+    .methodology .section-headline {
+      color: #FFFFFF;
+    }
+
+    .methodology-sub {
+      font-size: 20px;
+      color: #F86A3E;
+      font-weight: 600;
+      margin-bottom: 56px;
+      letter-spacing: 0.3px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .pillar {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 3px solid #00A2FF;
+      border-radius: 16px;
+      padding: 36px 28px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .pillar:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .pillar-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+
+    .pillar p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       FINAL CTA
+       ======================================== */
+    .final-cta {
+      text-align: center;
+    }
+
+    .final-cta .section-headline {
+      margin-bottom: 16px;
+    }
+
+    .final-cta .section-sub {
+      margin-bottom: 32px;
+    }
+
+    .final-cta-note {
+      font-size: 13px;
+      color: #7a8299;
+      margin-top: 16px;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: #FFFFFF;
+      padding: 48px 0 40px;
+      border-top: 1px solid #EEEEEE;
+    }
+
+    .footer-logo {
+      width: 140px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin-bottom: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: #7a8299;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #1B2235;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #999999;
+      text-align: center;
+    }
+
+    /* ========================================
+       TESTIMONIAL SLIDER (HERO)
+       ======================================== */
+    .testimonial-slider {
+      position: relative;
+      max-width: 760px;
+      margin: 56px auto 0;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 4px 28px rgba(27, 34, 53, 0.08);
+      padding: 32px 72px 20px;
+      text-align: center;
+    }
+
+    .ts-track {
+      position: relative;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ts-slide {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      animation: ts-fade 0.5s ease;
+    }
+
+    .ts-slide.active {
+      display: flex;
+    }
+
+    @keyframes ts-fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ts-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(27, 34, 53, 0.12);
+    }
+
+    .ts-quote {
+      font-size: 18px;
+      font-style: italic;
+      color: #1B2235;
+      line-height: 1.55;
+      max-width: 560px;
+      margin: 0 auto 18px;
+    }
+
+    .ts-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1B2235;
+      margin-bottom: 2px;
+    }
+
+    .ts-role {
+      font-size: 14px;
+      color: #7a8299;
+    }
+
+    .ts-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid #e2e6ee;
+      color: #1B2235;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+      z-index: 2;
+    }
+
+    .ts-arrow:hover {
+      background: #F86A3E;
+      border-color: #F86A3E;
+      color: #FFFFFF;
+    }
+
+    .ts-prev { left: 16px; }
+    .ts-next { right: 16px; }
+
+    .ts-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .ts-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d0d6e2;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .ts-dot:hover { background: #9aa3b7; }
+
+    .ts-dot.active {
+      background: #F86A3E;
+      transform: scale(1.25);
+    }
+
+    /* ========================================
+       FRAMEWORK (VERTICAL LAYOUT)
+       ======================================== */
+    .framework-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 4px 28px rgba(27, 34, 53, 0.08);
+    }
+
+    .framework-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: sticky;
+      top: 96px;
+    }
+
+    .fw-step {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      background: none;
+      border: none;
+      border-left: 3px solid transparent;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-align: left;
+      width: 100%;
+      transition: all 0.2s ease;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .fw-step:hover {
+      background: rgba(248, 106, 62, 0.06);
+    }
+
+    .fw-step-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: #b9c1d1;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+
+    .fw-step-label {
+      font-size: 17px;
+      font-weight: 500;
+      color: #7a8299;
+      transition: color 0.2s, font-weight 0.2s;
+      line-height: 1.2;
+    }
+
+    .fw-step.active {
+      border-left-color: #F86A3E;
+      background: rgba(248, 106, 62, 0.08);
+    }
+
+    .fw-step.active .fw-step-num {
+      color: #F86A3E;
+    }
+
+    .fw-step.active .fw-step-label {
+      color: #1B2235;
+      font-weight: 700;
+    }
+
+    .framework-content {
+      min-height: 560px;
+    }
+
+    /* Customer Highlight card (replaces step-proof) */
+    .customer-highlight {
+      background: #FFFFFF;
+      border: 1px solid #E6ECF5;
+      border-radius: 16px;
+      padding: 24px 22px;
+      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.06);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-top: 28px;
+    }
+
+    .ch-photo {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #E6ECF5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b9c1d1;
+    }
+
+    .ch-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ch-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #F86A3E;
+      margin-bottom: 6px;
+    }
+
+    .ch-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1B2235;
+      line-height: 1.3;
+    }
+
+    .ch-role {
+      font-size: 13px;
+      color: #7a8299;
+      margin-top: 2px;
+      margin-bottom: 10px;
+    }
+
+    .ch-text {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .framework-content {
+        min-height: 0;
+      }
+      .customer-highlight {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    .fw-panel {
+      display: none;
+      animation: fw-fade 0.4s ease;
+    }
+
+    .fw-panel.active {
+      display: block;
+    }
+
+    @keyframes fw-fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fw-panel .step-proof {
+      margin-top: 28px;
+    }
+
+    /* ========================================
+       CLIENT RESULTS (2x3)
+       ======================================== */
+    .client-results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .client-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .client-result-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .client-result-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .client-logo-placeholder {
+      font-size: 14px;
+      font-weight: 600;
+      color: #b9c1d1;
+      letter-spacing: 1px;
+      padding: 28px 0;
+      margin-bottom: 14px;
+      border: 1px dashed #d0d6e2;
+      border-radius: 8px;
+    }
+
+    .client-result-text {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       WHY CARD VARIANTS (colored left borders)
+       ======================================== */
+    .why-card {
+      border-top: none;
+      padding: 28px 26px;
+    }
+
+    .why-card-blue {
+      border-left: 4px solid #8ec5ff;
+    }
+
+    .why-card-orange {
+      border-left: 4px solid #ffb398;
+    }
+
+    .why-quote {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .why-attrib {
+      font-size: 14px;
+      color: #1B2235;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .why-attrib em {
+      font-style: italic;
+    }
+
+    /* ========================================
+       COMMON GOALS SECTION
+       ======================================== */
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .goal-card {
+      background: #FFFFFF;
+      border: 1px solid #E6ECF5;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .goal-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1B2235;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .goal-card p {
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    .goals-cta {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 30px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .goals-grid {
+        grid-template-columns: 1fr;
+      }
+      .goals-cta {
+        font-size: 24px;
+        margin-top: 32px;
+      }
+      .goal-title { font-size: 20px; }
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 960px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(320px, 85vw);
+        background: #FFFFFF;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 84px 32px 32px;
+        gap: 20px;
+        box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 18px;
+      }
+
+      .nav-cta {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+
+      .nav-toggle {
+        display: flex;
+        z-index: 110;
+      }
+
+      .step-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+
+      .hero {
+        padding: 120px 0 72px;
+      }
+
+      .hero-headline { font-size: 38px; letter-spacing: -0.6px; }
+      .hero-sub { font-size: 17px; }
+
+      .section-headline { font-size: 30px; }
+
+      .shift-headline { font-size: 30px; }
+      .shift-body { font-size: 17px; }
+
+      .problem-grid,
+      .testimonial-grid,
+      .why-grid,
+      .pillars,
+      .client-results-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .results-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .results-stat {
+        border-right: none;
+        border-bottom: 1px solid #e2d5cf;
+        padding: 12px 0;
+      }
+
+      .results-stat:last-child {
+        border-bottom: none;
+      }
+
+      .results-num { font-size: 36px; }
+
+      .framework-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px;
+      }
+
+      .framework-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .fw-step {
+        flex: 1 1 calc(50% - 3px);
+        padding: 10px 12px;
+        border-radius: 8px;
+        border-left: 3px solid transparent;
+      }
+
+      .fw-step-num { font-size: 18px; }
+      .fw-step-label { font-size: 15px; }
+
+      .testimonial-slider {
+        padding: 32px 24px 24px;
+        margin-top: 40px;
+      }
+
+      .ts-quote { font-size: 16px; }
+
+      .ts-arrow {
+        width: 34px;
+        height: 34px;
+      }
+
+      .ts-prev { left: 6px; }
+      .ts-next { right: 6px; }
+
+      .step-number { font-size: 44px; }
+      .step-name { font-size: 28px; }
+      .step-oneliner { font-size: 17px; }
+
+      .timeline-wrap {
+        top: 64px;
+        border-radius: 12px;
+      }
+
+      .timeline {
+        padding: 0 8px;
+        justify-content: flex-start;
+      }
+
+      .timeline-step {
+        min-width: 88px;
+        flex: 0 0 auto;
+      }
+
+      .timeline-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+      }
+
+      .timeline-label {
+        font-size: 10px;
+      }
+
+      .timeline-arrow {
+        padding-bottom: 16px;
+      }
+
+      .marquee-track { gap: 48px; }
+      .marquee-item { font-size: 20px; }
+
+      .methodology { padding: 72px 0; }
+      .methodology-sub { font-size: 17px; margin-bottom: 40px; }
+
+      .btn-lg { font-size: 16px; padding: 14px 28px; }
+
+      .hero-ctas { gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 30px; }
+      .section-headline { font-size: 26px; }
+      .shift-headline { font-size: 26px; }
+      .step-name { font-size: 24px; }
+      .step-number { font-size: 36px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Dev site is live</h1>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Outbound Squad home">
+        <img src="logo.png" alt="Outbound Squad">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/resources/">Insights</a></li>
+        <li><a href="/our-team/">Our Team</a></li>
+        <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================
+       1. HERO
+       ======================================== -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-headline">Outbound isn't dead, but it's broken.</h1>
+      <p class="hero-sub">Let's be real: you don't answer cold calls, but it's exactly what you're asking reps to do. And it isn't working. The outbound playbook has fundamentally changed. Not incrementally. Fundamentally.</p>
+      <div class="hero-ctas">
+        <a href="#framework" class="btn btn-navy-outline btn-lg">See the Framework</a>
+        <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
+      </div>
+
+      <div class="marquee-wrap">
+        <p class="marquee-label">Trusted by world-class sales teams</p>
+        <div class="marquee">
+          <div class="marquee-track">
+            <!-- Loop set 1 -->
+            <span class="marquee-item">Shopify</span>
+            <span class="marquee-item">Gong</span>
+            <span class="marquee-item">Zoom</span>
+            <span class="marquee-item">Rippling</span>
+            <span class="marquee-item">iHeartMedia</span>
+            <span class="marquee-item">GoGuardian</span>
+            <span class="marquee-item">Carta</span>
+            <!-- Loop set 2 (duplicate for seamless scroll) -->
+            <span class="marquee-item">Shopify</span>
+            <span class="marquee-item">Gong</span>
+            <span class="marquee-item">Zoom</span>
+            <span class="marquee-item">Rippling</span>
+            <span class="marquee-item">iHeartMedia</span>
+            <span class="marquee-item">GoGuardian</span>
+            <span class="marquee-item">Carta</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial slider -->
+      <div class="testimonial-slider reveal" id="testimonialSlider" aria-roledescription="carousel" aria-label="Client testimonials">
+        <button class="ts-arrow ts-prev" aria-label="Previous testimonial" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="ts-track">
+          <div class="ts-slide active">
+            <img class="ts-photo" src="Diana-Gates-6.jpg" alt="Diana Gates" width="100" height="100">
+            <p class="ts-quote">"As a direct result of the training, we've seen a 25% increase in conversion rates across all teams! The adoption of these new tactics has been off the charts."</p>
+            <p class="ts-name">Diana Gates</p>
+            <p class="ts-role">Head of Sales Development, Shopify</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="Bert-Brokaw-5.jpg" alt="Bert Brokaw" width="100" height="100">
+            <p class="ts-quote">"When building out our SDR outbound team at Rippling, we shopped around for a variety of sales trainers, but were unable to find a solution that was TRULY tailored towards outbound SDRs, then we found Outbound Squad."</p>
+            <p class="ts-name">Bert Brokaw</p>
+            <p class="ts-role">Senior Director of Sales Development, Rippling</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="Kris-Foley-4.jpg" alt="Kris Foley" width="100" height="100">
+            <p class="ts-quote">"They'll flip the way your team starts new conversations. You'll see lights go off when you apply their approach."</p>
+            <p class="ts-name">Kris Foley</p>
+            <p class="ts-role">Division President, iHeartMedia</p>
+          </div>
+        </div>
+
+        <button class="ts-arrow ts-next" aria-label="Next testimonial" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="ts-dots" role="tablist" aria-label="Select testimonial">
+          <button class="ts-dot active" data-index="0" aria-label="Testimonial 1" type="button"></button>
+          <button class="ts-dot" data-index="1" aria-label="Testimonial 2" type="button"></button>
+          <button class="ts-dot" data-index="2" aria-label="Testimonial 3" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       COMMON GOALS
+       ======================================== -->
+  <section class="section section-white">
+    <div class="container">
+      <h2 class="section-headline text-center reveal">You want to...</h2>
+      <div class="goals-grid reveal">
+        <div class="goal-card">
+          <h3 class="goal-title">Pivot to outbound.</h3>
+          <p>Inbound won't get you to the next level. More of your revenue mix needs to come from outbound to hit growth targets.</p>
+        </div>
+        <div class="goal-card">
+          <h3 class="goal-title">Move up-market.</h3>
+          <p>Landing larger logos is key to growth. And decision-makers at larger enterprise accounts don't fill out demo requests.</p>
+        </div>
+        <div class="goal-card">
+          <h3 class="goal-title">Expand and cross-sell.</h3>
+          <p>You need to grow the base. Reps need to excel at opening expansion opportunities within customer accounts.</p>
+        </div>
+        <div class="goal-card">
+          <h3 class="goal-title">Get Account Executives self-sourcing.</h3>
+          <p>AEs need to self-source more pipeline to reduce reliance on marketing and SDRs to hit their number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       2. THE PROBLEM
+       ======================================== -->
+  <section class="section section-lightorange">
+    <div class="container">
+      <h2 class="section-headline text-center reveal">The old way isn't working anymore...</h2>
+      <div class="problem-grid reveal">
+        <div class="problem-card">
+          <div class="problem-icon">
+            <!-- Circle with X icon -->
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="22" stroke="#F86A3E" stroke-width="2"/>
+              <line x1="16" y1="16" x2="32" y2="32" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
+              <line x1="32" y1="16" x2="16" y2="32" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="problem-title">Predictable Revenue is dead</h3>
+          <p>SDRs can no longer do all the outbound for Account Executives. Everyone needs to own pipeline generation.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <!-- Email icon -->
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="12" width="36" height="24" rx="3" stroke="#F86A3E" stroke-width="2"/>
+              <path d="M6 15l18 12 18-12" stroke="#F86A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="6" y1="8" x2="42" y2="42" stroke="#F86A3E" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="problem-title">Mass blast is over</h3>
+          <p>More emails and phone calls is no longer the answer. Reps must be more skilled than ever to punch through the noise.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <!-- AI / Robot icon -->
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="14" width="28" height="22" rx="4" stroke="#F86A3E" stroke-width="2"/>
+              <line x1="24" y1="8" x2="24" y2="14" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="24" cy="7" r="1.8" fill="#F86A3E"/>
+              <circle cx="18" cy="24" r="2.2" fill="#F86A3E"/>
+              <circle cx="30" cy="24" r="2.2" fill="#F86A3E"/>
+              <line x1="19" y1="30" x2="29" y2="30" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
+              <line x1="6" y1="22" x2="10" y2="22" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
+              <line x1="38" y1="22" x2="42" y2="22" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="problem-title">AI has changed the game</h3>
+          <p>But hasn't taken over (yet). The best teams are 'human-led and AI-assisted.'</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       3. 6-PART FRAMEWORK
+       ======================================== -->
+  <section class="section section-lightblue" id="framework">
+    <div class="container-wide">
+      <div class="framework-intro reveal">
+        <h2 class="section-headline">How world-class teams build pipeline</h2>
+        <p class="section-sub">The best sales teams approach outbound in a radically different way from their average-performing peers. We've seen this firsthand, working with 250+ sales teams and 20,000+ reps at companies like Shopify, iHeartMedia, Gong, Zoom, Rippling, and much more.</p>
+      </div>
+
+      <!-- Vertical framework nav + content -->
+      <div class="framework-layout reveal">
+        <nav class="framework-nav" id="frameworkNav" aria-label="Framework steps">
+          <button class="fw-step active" data-target="fw-1">
+            <span class="fw-step-num">1.</span>
+            <span class="fw-step-label">Story</span>
+          </button>
+          <button class="fw-step" data-target="fw-2">
+            <span class="fw-step-num">2.</span>
+            <span class="fw-step-label">Strategy</span>
+          </button>
+          <button class="fw-step" data-target="fw-3">
+            <span class="fw-step-num">3.</span>
+            <span class="fw-step-label">Infrastructure</span>
+          </button>
+          <button class="fw-step" data-target="fw-4">
+            <span class="fw-step-num">4.</span>
+            <span class="fw-step-label">Oversight</span>
+          </button>
+          <button class="fw-step" data-target="fw-5">
+            <span class="fw-step-num">5.</span>
+            <span class="fw-step-label">Visibility</span>
+          </button>
+          <button class="fw-step" data-target="fw-6">
+            <span class="fw-step-num">6.</span>
+            <span class="fw-step-label">Enablement</span>
+          </button>
+        </nav>
+
+        <div class="framework-content">
+          <div class="fw-panel active" id="fw-1">
+            <div class="step-header">
+              <span class="step-number">01</span>
+              <h3 class="step-name">Story</h3>
+            </div>
+            <p class="step-oneliner">Create belief that outbound is essential for the business.</p>
+            <ul class="step-bullets">
+              <li>Senior leadership needs to champion outbound, not just tolerate it.</li>
+              <li>The narrative has to shift from "outbound is an SDR thing" to "outbound is how we win."</li>
+              <li>When the CRO talks about outbound in all-hands, reps listen.</li>
+            </ul>
+            <div class="customer-highlight">
+              <div class="ch-photo" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ch-body">
+                <span class="ch-label">Customer Highlight</span>
+                <p class="ch-name">[Name]</p>
+                <p class="ch-role">[Role, Company]</p>
+                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-panel" id="fw-2">
+            <div class="step-header">
+              <span class="step-number">02</span>
+              <h3 class="step-name">Strategy</h3>
+            </div>
+            <p class="step-oneliner">Give reps the golden path for what good looks like.</p>
+            <ul class="step-bullets">
+              <li>Define your ICP with ruthless clarity. Most teams target too broadly.</li>
+              <li>Build messaging that speaks the buyer's language, not yours.</li>
+              <li>Create a repeatable playbook, not a collection of random templates.</li>
+            </ul>
+            <div class="customer-highlight">
+              <div class="ch-photo" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ch-body">
+                <span class="ch-label">Customer Highlight</span>
+                <p class="ch-name">[Name]</p>
+                <p class="ch-role">[Role, Company]</p>
+                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-panel" id="fw-3">
+            <div class="step-header">
+              <span class="step-number">03</span>
+              <h3 class="step-name">Infrastructure</h3>
+            </div>
+            <p class="step-oneliner">Optimize the tech stack and make execution simple.</p>
+            <ul class="step-bullets">
+              <li>Audit your tools. Most teams have 8+ tools that don't talk to each other.</li>
+              <li>Reduce friction. If it takes a rep 15 clicks to make a call, they won't call.</li>
+              <li>Align your tech to your methodology, not the other way around.</li>
+            </ul>
+            <div class="customer-highlight">
+              <div class="ch-photo" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ch-body">
+                <span class="ch-label">Customer Highlight</span>
+                <p class="ch-name">[Name]</p>
+                <p class="ch-role">[Role, Company]</p>
+                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-panel" id="fw-4">
+            <div class="step-header">
+              <span class="step-number">04</span>
+              <h3 class="step-name">Oversight</h3>
+            </div>
+            <p class="step-oneliner">Ensure leaders are leaning in and rubbing shoulders.</p>
+            <ul class="step-bullets">
+              <li>Managers should be coaching outbound weekly, not quarterly.</li>
+              <li>The best managers can pick up the phone and demo the methodology themselves.</li>
+              <li>Reps forget 70% of training the week they learn it (Gartner). Managers are the fix.</li>
+            </ul>
+            <div class="customer-highlight">
+              <div class="ch-photo" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ch-body">
+                <span class="ch-label">Customer Highlight</span>
+                <p class="ch-name">[Name]</p>
+                <p class="ch-role">[Role, Company]</p>
+                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-panel" id="fw-5">
+            <div class="step-header">
+              <span class="step-number">05</span>
+              <h3 class="step-name">Visibility</h3>
+            </div>
+            <p class="step-oneliner">Get meaningful insights into activity and performance.</p>
+            <ul class="step-bullets">
+              <li>Track the metrics that matter: connect rates, conversion rates, show rates.</li>
+              <li>Make data visible to reps, not just leadership.</li>
+              <li>Benchmark against peers so reps know where they stand.</li>
+            </ul>
+            <div class="customer-highlight">
+              <div class="ch-photo" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ch-body">
+                <span class="ch-label">Customer Highlight</span>
+                <p class="ch-name">[Name]</p>
+                <p class="ch-role">[Role, Company]</p>
+                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-panel" id="fw-6">
+            <div class="step-header">
+              <span class="step-number">06</span>
+              <h3 class="step-name">Enablement</h3>
+            </div>
+            <p class="step-oneliner">Upskill reps and managers with modern tactics.</p>
+            <ul class="step-bullets">
+              <li>Training shouldn't be a one-time event. It's an ongoing operating rhythm.</li>
+              <li>Reps need to practice, get coached, and iterate weekly.</li>
+              <li>Managers need to be trained just as much as reps.</li>
+            </ul>
+            <div class="customer-highlight">
+              <div class="ch-photo" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ch-body">
+                <span class="ch-label">Customer Highlight</span>
+                <p class="ch-name">[Name]</p>
+                <p class="ch-role">[Role, Company]</p>
+                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       5. WHY OUTBOUND SQUAD
+       ======================================== -->
+  <section class="section section-white">
+    <div class="container">
+      <h2 class="section-headline text-center reveal">Why not do this yourself?</h2>
+      <p class="section-sub text-center">Here's why our best clients choose Outbound Squad to partner with.</p>
+
+      <div class="why-grid reveal">
+        <div class="why-card why-card-blue">
+          <h3 class="why-title">Outside voice needed</h3>
+          <p class="why-quote">"Our enablement team is world-class, but they're not (nor is any rep or leader) doing outbound every day in a world-class way. To build this right, we needed an outside voice"</p>
+          <p class="why-attrib">Jonas Master, VP of Enablement, <em>Rippling</em></p>
+        </div>
+        <div class="why-card why-card-orange">
+          <h3 class="why-title">Programmatic approach</h3>
+          <p class="why-quote">"We were executing a number of disparate trainings with pieced together outbound tactics. We needed a standardized outbound methodology."</p>
+          <p class="why-attrib">Siobhan Sweeney, previous Head of Enablement, <em>Shopify</em></p>
+        </div>
+        <div class="why-card why-card-blue">
+          <h3 class="why-title">Faster time to value</h3>
+          <p class="why-quote">"If we did this ourselves, it would've taken 6+ months to build, get approval, roll out, iterate, and see measurable results. We saw impact with Outbound Squad within 90 days."</p>
+          <p class="why-attrib">Jonas Master, VP of Enablement, <em>Rippling</em></p>
+        </div>
+        <div class="why-card why-card-orange">
+          <h3 class="why-title">Stronger field buy in</h3>
+          <p class="why-quote">"Many of our reps and managers already follow Outbound Squad. Oftentimes reps prefer to learn from peers and experts, than from internal resources. It's also great for their career development."</p>
+          <p class="why-attrib">Nate Vogel, previous VP of Enablement, <em>Gong</em></p>
+        </div>
+        <div class="why-card why-card-blue">
+          <h3 class="why-title">Front-line leader reinforcement</h3>
+          <p class="why-quote">"Managers are the end customer in any enablement initiative to make it stick. Many of our managers last sold pre-AI and if we're being honest, cannot outbound proficiently themselves!"</p>
+          <p class="why-attrib">Siobhan Sweeney, previous Head of Enablement, <em>Shopify</em></p>
+        </div>
+        <div class="why-card why-card-orange">
+          <h3 class="why-title">Stay current as outbound changes</h3>
+          <p class="why-quote">"GenAI has completely changed the way outbound is done. What worked last year won't work next year. We needed a partner to stay on top of what modern outbound looks like in today's world."</p>
+          <p class="why-attrib">Nate Vogel, previous VP of Enablement, <em>Gong</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       6. RESULTS
+       ======================================== -->
+  <section class="section section-lightorange">
+    <div class="container">
+      <h2 class="section-headline text-center reveal">The results speak for themselves</h2>
+
+      <div class="results-stats reveal">
+        <div class="results-stat">
+          <span class="results-num">22.3%</span>
+          <span class="results-label">Average pipeline increase within 90 days</span>
+        </div>
+        <div class="results-stat">
+          <span class="results-num">250+</span>
+          <span class="results-label">Sales teams transformed</span>
+        </div>
+        <div class="results-stat">
+          <span class="results-num">20,000+</span>
+          <span class="results-label">Reps trained</span>
+        </div>
+      </div>
+
+      <div class="client-results-grid reveal">
+        <div class="client-result-card">
+          <div class="client-logo-placeholder">[Company Logo]</div>
+          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-logo-placeholder">[Company Logo]</div>
+          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-logo-placeholder">[Company Logo]</div>
+          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-logo-placeholder">[Company Logo]</div>
+          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-logo-placeholder">[Company Logo]</div>
+          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-logo-placeholder">[Company Logo]</div>
+          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 48px;">
+        <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       7. FINAL CTA
+       ======================================== -->
+  <section class="section section-lightblue">
+    <div class="container final-cta">
+      <h2 class="section-headline reveal">Ready to fix your outbound?</h2>
+      <p class="section-sub">Book a call with our team to see how we've helped 250+ sales teams generate more pipeline.</p>
+      <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
+      <p class="final-cta-note">Programs start at $64.5k</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="container text-center">
+      <img src="logo.png" alt="Outbound Squad" class="footer-logo">
+      <ul class="footer-links">
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/resources/">Insights</a></li>
+        <li><a href="/our-team/">Our Team</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Outbound Squad</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========================================
+       Sticky nav background on scroll
+       ======================================== */
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        if (window.scrollY > 12) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* ========================================
+       Mobile hamburger menu
+       ======================================== */
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      toggle.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      // Close on link click (mobile)
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (links.classList.contains('open')) {
+            links.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+
+    /* ========================================
+       Smooth scroll for in-page anchor links
+       ======================================== */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (href === '#' || href.length < 2) return;
+        var target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* ========================================
+       Scroll reveal
+       ======================================== */
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* ========================================
+       Framework vertical nav: tab switching
+       ======================================== */
+    (function () {
+      var navBtns = document.querySelectorAll('.fw-step');
+      var panels = document.querySelectorAll('.fw-panel');
+      if (!navBtns.length) return;
+
+      navBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var targetId = btn.dataset.target;
+          navBtns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+          panels.forEach(function (p) { p.classList.toggle('active', p.id === targetId); });
+        });
+      });
+    })();
+
+    /* ========================================
+       Testimonial slider (hero)
+       ======================================== */
+    (function () {
+      var slider = document.getElementById('testimonialSlider');
+      if (!slider) return;
+      var slides = slider.querySelectorAll('.ts-slide');
+      var dots = slider.querySelectorAll('.ts-dot');
+      var prev = slider.querySelector('.ts-prev');
+      var next = slider.querySelector('.ts-next');
+      var current = 0;
+      var total = slides.length;
+      var autoplayTimer = null;
+
+      function show(i) {
+        current = (i + total) % total;
+        slides.forEach(function (s, idx) { s.classList.toggle('active', idx === current); });
+        dots.forEach(function (d, idx) { d.classList.toggle('active', idx === current); });
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(function () { show(current + 1); }, 5000);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+      }
+
+      prev.addEventListener('click', function () { show(current - 1); startAutoplay(); });
+      next.addEventListener('click', function () { show(current + 1); startAutoplay(); });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () {
+          show(parseInt(d.dataset.index, 10));
+          startAutoplay();
+        });
+      });
+
+      slider.addEventListener('mouseenter', stopAutoplay);
+      slider.addEventListener('mouseleave', startAutoplay);
+
+      startAutoplay();
+    })();
+  </script>
+
 </body>
 </html>
