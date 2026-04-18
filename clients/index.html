@@ -296,6 +296,20 @@
     .logo-pill.sz-sm { font-size: 16px; }
     .logo-pill.italic { font-style: italic; }
 
+    .logo-pill img {
+      max-height: 32px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.75;
+      transition: filter 0.2s, opacity 0.2s;
+    }
+    .logo-pill:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
     /* ========================================
        VIDEO INTERVIEWS
        ======================================== */
@@ -372,13 +386,23 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      text-decoration: none;
     }
 
-    .video-thumb::before {
+    .video-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-thumb::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06), transparent 60%);
+      background: linear-gradient(180deg, rgba(27,34,53,0) 50%, rgba(27,34,53,0.25) 100%);
+      pointer-events: none;
     }
 
     .play-btn {
@@ -415,16 +439,18 @@
     }
 
     .video-name {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: #1B2235;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
+      line-height: 1.35;
+      letter-spacing: -0.2px;
     }
 
     .video-title {
       font-size: 14px;
       color: #7a8299;
-      margin-bottom: 14px;
+      line-height: 1.5;
     }
 
     .video-quote {
@@ -513,7 +539,8 @@
     .icp-logos {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 20px;
+      align-items: center;
+      gap: 16px 24px;
       padding: 20px 0;
       border-top: 1px solid #EDF0F5;
       margin-bottom: 20px;
@@ -524,6 +551,19 @@
       font-weight: 600;
       color: #8a93a8;
       letter-spacing: -0.2px;
+    }
+
+    .icp-logo-img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.7;
+      transition: filter 0.2s, opacity 0.2s;
+    }
+    .icp-card:hover .icp-logo-img {
+      filter: grayscale(0);
+      opacity: 1;
     }
 
     .icp-stat {
@@ -913,10 +953,8 @@
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="/reviews/">Reviews</a></li>
-        <li><a href="/resources/">Insights</a></li>
+        <li><a href="/clients/" class="active">Our Clients</a></li>
         <li><a href="/our-team/">Our Team</a></li>
-        <li><a href="/clients/" class="active">Clients</a></li>
         <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
       </ul>
     </div>
@@ -928,7 +966,7 @@
   <section class="hero">
     <div class="container">
       <h1 class="hero-headline">Meet Our Clients</h1>
-      <p class="hero-sub">We've helped 250+ sales teams build pipeline that compounds. Here's what that looks like.</p>
+      <p class="hero-sub">Meet the leaders who partnered with Outbound Squad to build a lasting outbound process that generates quality pipeline for their orgs.</p>
     </div>
   </section>
 
@@ -939,16 +977,16 @@
     <div class="container-wide">
       <p class="logo-wall-label reveal">Trusted by world-class sales teams</p>
       <div class="logo-wall-grid reveal">
-        <div class="logo-pill sz-lg">Shopify</div>
-        <div class="logo-pill w-700">Gong</div>
-        <div class="logo-pill">Zoom</div>
-        <div class="logo-pill sz-lg">Rippling</div>
-        <div class="logo-pill w-500">iHeartMedia</div>
-        <div class="logo-pill">GoGuardian</div>
+        <div class="logo-pill"><img src="../logos/logo-shopify.svg" alt="Shopify"></div>
+        <div class="logo-pill"><img src="../logos/logo-gong.svg" alt="Gong"></div>
+        <div class="logo-pill"><img src="../logos/logo-zoom.svg" alt="Zoom"></div>
+        <div class="logo-pill"><img src="../logos/logo-rippling.svg" alt="Rippling"></div>
+        <div class="logo-pill"><img src="../logos/logo-iheart.svg" alt="iHeartMedia"></div>
+        <div class="logo-pill"><img src="../logos/logo-goguardian.svg" alt="GoGuardian"></div>
+        <div class="logo-pill"><img src="../logos/logo-optimizely.png" alt="Optimizely"></div>
         <div class="logo-pill w-700">Carta</div>
         <div class="logo-pill sz-sm">Neo4j</div>
         <div class="logo-pill">Houzz</div>
-        <div class="logo-pill w-500">Optimizely</div>
         <div class="logo-pill sz-lg">Varonis</div>
         <div class="logo-pill">Transect</div>
         <div class="logo-pill w-700">Wonolo</div>
@@ -972,92 +1010,92 @@
        ======================================== -->
   <section class="section section-lightblue">
     <div class="container-wide">
-      <h2 class="section-headline text-center reveal">Hear it directly from our clients</h2>
-      <p class="section-sub text-center reveal">Real stories from sales leaders who transformed their outbound motion.</p>
+      <h2 class="section-headline text-center reveal">Hear directly from our clients</h2>
+      <p class="section-sub text-center reveal">We've had the privilege of working with some of the most successful revenue leaders in the game.</p>
 
       <div class="filter-tabs reveal" role="tablist" aria-label="Filter video interviews">
         <button class="filter-tab active" data-filter="all" type="button">All</button>
         <button class="filter-tab" data-filter="sdr" type="button">SDR Leaders</button>
         <button class="filter-tab" data-filter="sales" type="button">Sales Leaders</button>
-        <button class="filter-tab" data-filter="enablement" type="button">Enablement Leaders</button>
+        <button class="filter-tab" data-filter="enablement" type="button">Sales Enablement</button>
       </div>
 
       <div class="video-grid reveal" id="videoGrid">
         <article class="video-card" data-category="sdr">
-          <div class="video-thumb">
+          <a class="video-thumb" href="https://youtu.be/fVY6pWPRPm0" target="_blank" rel="noopener noreferrer" aria-label="Watch: How to crush the Director of SDR role">
+            <img src="https://img.youtube.com/vi/fVY6pWPRPm0/maxresdefault.jpg" alt="" loading="lazy">
             <div class="play-btn" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
             </div>
-          </div>
+          </a>
           <div class="video-body">
-            <p class="video-name">Diana Gates</p>
-            <p class="video-title">Head of Sales Development, Shopify</p>
-            <p class="video-quote">"25% increase in conversion rates across all teams."</p>
+            <p class="video-name">How to crush the Director of SDR role</p>
+            <p class="video-title">Bert Brokaw, Senior Director of Sales Development @ Rippling</p>
           </div>
         </article>
 
         <article class="video-card" data-category="sales">
-          <div class="video-thumb">
+          <a class="video-thumb" href="https://youtu.be/tfVg5j7oJmo" target="_blank" rel="noopener noreferrer" aria-label="Watch: From IC to SVP of Sales">
+            <img src="https://img.youtube.com/vi/tfVg5j7oJmo/maxresdefault.jpg" alt="" loading="lazy">
             <div class="play-btn" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
             </div>
-          </div>
+          </a>
           <div class="video-body">
-            <p class="video-name">Kris Foley</p>
-            <p class="video-title">Division President, iHeartMedia</p>
-            <p class="video-quote">"They'll flip the way your team starts new conversations."</p>
+            <p class="video-name">From IC to SVP of Sales</p>
+            <p class="video-title">Aaron Rissler, SVP of Sales @ Buyer's Edge Platform</p>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="sales">
+          <a class="video-thumb" href="https://youtu.be/oLTHwEcnQuo" target="_blank" rel="noopener noreferrer" aria-label="Watch: From Rep To Sales Exec">
+            <img src="https://img.youtube.com/vi/oLTHwEcnQuo/maxresdefault.jpg" alt="" loading="lazy">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </a>
+          <div class="video-body">
+            <p class="video-name">From Rep To Sales Exec</p>
+            <p class="video-title">Bryan Evans, VP of Sales @ Neo4j</p>
           </div>
         </article>
 
         <article class="video-card" data-category="enablement">
-          <div class="video-thumb">
+          <a class="video-thumb" href="https://youtu.be/ogMjsLPaTEA" target="_blank" rel="noopener noreferrer" aria-label="Watch: Sales Enablement Masterclass">
+            <img src="https://img.youtube.com/vi/ogMjsLPaTEA/maxresdefault.jpg" alt="" loading="lazy">
             <div class="play-btn" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
             </div>
-          </div>
+          </a>
           <div class="video-body">
-            <p class="video-name">Siobhan Sweeney</p>
-            <p class="video-title">Head of Enablement, Shopify</p>
-            <p class="video-quote">"We needed a standardized outbound methodology."</p>
+            <p class="video-name">Sales Enablement Masterclass</p>
+            <p class="video-title">Jonas Master, VP of Sales Enablement @ Rippling</p>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="sales">
+          <a class="video-thumb" href="https://youtu.be/YsLRbL64bYc" target="_blank" rel="noopener noreferrer" aria-label="Watch: Learning Lessons From Zoom's Top Sales Manager">
+            <img src="https://img.youtube.com/vi/YsLRbL64bYc/maxresdefault.jpg" alt="" loading="lazy">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </a>
+          <div class="video-body">
+            <p class="video-name">Learning Lessons From Zoom's Top Sales Manager</p>
+            <p class="video-title">Garrett Graston, Sales Manager @ Zoom</p>
           </div>
         </article>
 
         <article class="video-card" data-category="sdr">
-          <div class="video-thumb">
+          <a class="video-thumb" href="https://youtu.be/2ULhIFHc_Hs" target="_blank" rel="noopener noreferrer" aria-label="Watch: My journey as a front-line sales leader">
+            <img src="https://img.youtube.com/vi/2ULhIFHc_Hs/maxresdefault.jpg" alt="" loading="lazy">
             <div class="play-btn" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
             </div>
-          </div>
+          </a>
           <div class="video-body">
-            <p class="video-name">Bert Brokaw</p>
-            <p class="video-title">Sr. Director of Sales Development, Rippling</p>
-            <p class="video-quote">"TRULY tailored towards outbound SDRs."</p>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="enablement">
-          <div class="video-thumb">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </div>
-          <div class="video-body">
-            <p class="video-name">Nate Vogel</p>
-            <p class="video-title">VP of Enablement, Gong</p>
-            <p class="video-quote">"Reps prefer to learn from peers and experts."</p>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="sales">
-          <div class="video-thumb">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </div>
-          <div class="video-body">
-            <p class="video-name">Jonas Master</p>
-            <p class="video-title">VP of Enablement, Rippling</p>
-            <p class="video-quote">"We saw impact within 90 days."</p>
+            <p class="video-name">My journey as a front-line sales leader</p>
+            <p class="video-title">Eric Delaune, SDR Manager @ Taulia</p>
           </div>
         </article>
       </div>
@@ -1073,32 +1111,30 @@
 
       <div class="icp-grid reveal">
         <article class="icp-card scaling">
-          <h3 class="icp-title">Scaling Orgs</h3>
-          <p class="icp-subtitle">1,000+ employees &nbsp;|&nbsp; 50-500+ reps</p>
+          <h3 class="icp-title">Late Stage</h3>
+          <p class="icp-subtitle">Public or Series D+ &nbsp;|&nbsp; 50-500+ reps</p>
           <ul class="icp-bullets">
-            <li>You have an outbound motion, but it's inconsistent across teams</li>
-            <li>You've invested in tools, but reps aren't fully utilizing them</li>
-            <li>You need a common methodology and language across the org</li>
-            <li>Front-line managers need coaching frameworks, not just reps</li>
+            <li>Inbound won't scale your growth to the next level</li>
+            <li>A common outbound approach is needed (that works)</li>
+            <li>Front-line managers aren't equipped to reinforce and hold reps accountable</li>
           </ul>
           <div class="icp-logos">
-            <span class="icp-logo">Shopify</span>
-            <span class="icp-logo">Gong</span>
-            <span class="icp-logo">Zoom</span>
-            <span class="icp-logo">Rippling</span>
-            <span class="icp-logo">iHeartMedia</span>
+            <img class="icp-logo-img" src="../logos/logo-shopify.svg" alt="Shopify">
+            <img class="icp-logo-img" src="../logos/logo-gong.svg" alt="Gong">
+            <img class="icp-logo-img" src="../logos/logo-zoom.svg" alt="Zoom">
+            <img class="icp-logo-img" src="../logos/logo-rippling.svg" alt="Rippling">
+            <img class="icp-logo-img" src="../logos/logo-iheart.svg" alt="iHeartMedia">
           </div>
           <div class="icp-stat">22.3% average pipeline increase within 90 days</div>
         </article>
 
         <article class="icp-card building">
-          <h3 class="icp-title">Building Orgs</h3>
-          <p class="icp-subtitle">50-1,000 employees &nbsp;|&nbsp; 5-50 reps</p>
+          <h3 class="icp-title">Earlier Stage</h3>
+          <p class="icp-subtitle">Seed to Series C &nbsp;|&nbsp; 5-50 reps</p>
           <ul class="icp-bullets">
             <li>You're standing up or scaling outbound for the first time</li>
             <li>Reps are figuring it out on their own with no playbook</li>
-            <li>You need to prove outbound works before hiring more</li>
-            <li>Every rep matters. There's no room for ramp time.</li>
+            <li>Your enablement team has limited bandwidth to support</li>
           </ul>
           <div class="icp-logos">
             <span class="icp-logo">Wonolo</span>
