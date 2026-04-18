@@ -412,6 +412,466 @@
     }
 
     /* ========================================
+       OLD WAY vs NEW WAY (INTERACTIVE)
+       ======================================== */
+    .comparison-section {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 100%);
+      padding: 96px 0 80px;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      position: relative;
+      margin-top: 40px;
+      align-items: start;
+    }
+
+    .comparison-col {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 40px 32px 36px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comparison-col::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    .comparison-col.old::before { background: #E04A3C; }
+    .comparison-col.new::before { background: #2BAE66; }
+
+    .comp-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+    .comparison-col.old .comp-title { color: #E04A3C; }
+    .comparison-col.new .comp-title { color: #2BAE66; }
+
+    .comp-subtitle {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    /* VS Divider */
+    .vs-divider {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #1B2235;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 20px rgba(27, 34, 53, 0.25);
+      z-index: 5;
+    }
+
+    /* Step cards (Old Way) */
+    .step-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      background: #F8F9FB;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .step-card.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .step-card.highlight {
+      background: #FDECEA;
+      border-left: 4px solid #E04A3C;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 24px;
+      border-radius: 999px;
+      background: #E5E7EB;
+      color: #555;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .step-card.highlight .step-num {
+      background: #E04A3C;
+      color: #FFFFFF;
+    }
+
+    .step-body h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1B2235;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .step-body p {
+      font-size: 13.5px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14.5px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .result-box.red {
+      background: #FDECEA;
+      color: #B02A1C;
+      border: 1px solid #F5C5BF;
+    }
+
+    .result-box.green {
+      background: #E6F6EC;
+      color: #1E7A45;
+      border: 1px solid #B9E3C8;
+    }
+
+    /* New Way diagram */
+    .new-way-wrap {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    }
+
+    .new-way-wrap.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .hub-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 8px 0 20px;
+      padding: 6px 0;
+    }
+
+    .hub-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #EAF2FB;
+      border: 2px solid #3A7BD5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      box-shadow: 0 4px 20px rgba(58, 123, 213, 0.15);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hub-circle strong {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1B2235;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .hub-circle span {
+      font-size: 11.5px;
+      color: #666;
+      line-height: 1.35;
+    }
+
+    .hub-labels {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hub-label {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #555;
+      background: #FFFFFF;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid #E2E6EC;
+      white-space: nowrap;
+    }
+
+    .hub-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3A7BD5;
+    }
+
+    .hub-label.l1 { top: 8%; left: 2%; }
+    .hub-label.l2 { top: 8%; right: 2%; }
+    .hub-label.l3 { top: 46%; left: 0%; }
+    .hub-label.l4 { top: 46%; right: 0%; }
+    .hub-label.l5 { bottom: 8%; left: 6%; }
+    .hub-label.l6 { bottom: 8%; right: 6%; }
+
+    .flow-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 4px 0;
+    }
+
+    .flow-arrow .line {
+      width: 2px;
+      height: 18px;
+      background: #C9D1DB;
+    }
+
+    .flow-arrow .tip {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid #C9D1DB;
+    }
+
+    .flow-label {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin: 4px 0;
+      letter-spacing: 0.2px;
+    }
+
+    .flow-label.orange {
+      background: #FFE8DB;
+      color: #D84F17;
+    }
+
+    .flow-label.navy-tag {
+      background: #E8ECF5;
+      color: #1B2235;
+    }
+
+    .os-box {
+      background: #1B2235;
+      border-radius: 14px;
+      padding: 18px 20px;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .os-box .os-brand {
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: #F86A3E;
+      margin-bottom: 4px;
+    }
+
+    .os-box .os-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .os-box .os-sub {
+      font-size: 12.5px;
+      color: #9BA3B4;
+      line-height: 1.4;
+    }
+
+    .output-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .output-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-top: 3px solid #999;
+      border-radius: 10px;
+      padding: 12px 12px 14px;
+    }
+
+    .output-card.o-orange { border-top-color: #F86A3E; }
+    .output-card.o-green  { border-top-color: #2BAE66; }
+    .output-card.o-blue   { border-top-color: #3A7BD5; }
+
+    .output-card h5 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1B2235;
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .output-card p {
+      font-size: 11.5px;
+      color: #666;
+      line-height: 1.45;
+    }
+
+    /* Bottom comparison stats bar */
+    .comp-stats-bar {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .comp-stats-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .comp-stats-col .stat {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comp-stats-col.red .stat { color: #E04A3C; }
+    .comp-stats-col.green .stat { color: #2BAE66; }
+
+    .comp-stats-col .stat::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    @media (max-width: 860px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .vs-divider {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: -8px auto;
+      }
+      .comp-stats-bar {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .hub-label { font-size: 10.5px; padding: 3px 7px; }
+      .output-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .hub-wrap { padding: 80px 0 70px; }
+      .hub-circle { width: 150px; height: 150px; padding: 12px; }
+      .hub-circle strong { font-size: 12.5px; }
+      .hub-circle span { font-size: 10.5px; }
+      .hub-label { font-size: 10px; padding: 2px 6px; }
+      .hub-label.l1 { top: 0; left: 4%; }
+      .hub-label.l2 { top: 0; right: 4%; }
+      .hub-label.l3 { top: 30px; left: 50%; transform: translateX(-50%); }
+      .hub-label.l4 { bottom: 30px; left: 50%; transform: translateX(-50%); }
+      .hub-label.l5 { bottom: 0; left: 4%; }
+      .hub-label.l6 { bottom: 0; right: 4%; }
+    }
+
+    /* ========================================
+       AI MANIFESTO SECTION
+       ======================================== */
+    .ai-section {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 55%, #EEF4FC 100%);
+      padding: 96px 0 112px;
+    }
+
+    .ai-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .ai-wrap h2 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 32px;
+    }
+
+    .ai-wrap p {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .ai-callout {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin: 56px 0 8px;
+    }
+
+    @media (max-width: 768px) {
+      .ai-wrap h2 { font-size: 30px; }
+      .ai-wrap p { font-size: 16px; }
+      .ai-callout { font-size: 26px; margin: 40px 0 4px; }
+    }
+
+    /* ========================================
        SHIFT SECTION
        ======================================== */
     .shift-block {
@@ -1652,52 +2112,145 @@
   <!-- ========================================
        2. THE PROBLEM
        ======================================== -->
-  <section class="section section-lightorange">
-    <div class="container">
-      <h2 class="section-headline text-center reveal">The old way isn't working anymore...</h2>
-      <div class="problem-grid reveal">
-        <div class="problem-card">
-          <div class="problem-icon">
-            <!-- Circle with X icon -->
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="22" stroke="#F86A3E" stroke-width="2"/>
-              <line x1="16" y1="16" x2="32" y2="32" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
-              <line x1="32" y1="16" x2="16" y2="32" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+  <section class="comparison-section" id="comparison">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">Two ways to build an outbound engine</h2>
+      <p class="section-sub text-center reveal">One is how most teams do it. The other is how world-class teams do it.</p>
+
+      <div class="comparison-grid" id="comparisonGrid">
+        <!-- OLD WAY -->
+        <div class="comparison-col old">
+          <h3 class="comp-title">The Old Way</h3>
+          <p class="comp-subtitle">Build from scratch. Scale what's broken.</p>
+
+          <div class="step-card" data-step="1">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <h4>Start with generic templates</h4>
+              <p>Build from the Predictable Revenue playbook, vendor templates, or what worked at your last company. No actual customer conversation data.</p>
+            </div>
           </div>
-          <h3 class="problem-title">Predictable Revenue is dead</h3>
-          <p>SDRs can no longer do all the outbound for Account Executives. Everyone needs to own pipeline generation.</p>
+
+          <div class="step-card" data-step="2">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <h4>Months to customize</h4>
+              <p>3-6+ months to build, get internal approval, customize messaging, and pilot. Flying blind with no benchmarks from comparable teams.</p>
+            </div>
+          </div>
+
+          <div class="step-card" data-step="3">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <h4>One-time training event</h4>
+              <p>SKO session or workshop. Reps nod along, then go back to what they were doing. 70% is forgotten within a week.</p>
+            </div>
+          </div>
+
+          <div class="step-card" data-step="4">
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <h4>Layer on disconnected tools</h4>
+              <p>8+ tools that don't talk to each other. Sequencers, dialers, intent platforms. Each configured in isolation, none aligned to a methodology.</p>
+            </div>
+          </div>
+
+          <div class="step-card highlight" data-step="5">
+            <div class="step-num">05</div>
+            <div class="step-body">
+              <h4>Bolt AI on at the end</h4>
+              <p>AI used to send more emails and automate follow-ups. Amplifying the same broken playbook at scale. Faster noise, not better signal.</p>
+            </div>
+          </div>
+
+          <div class="result-box red">Massive effort scaling a system that never worked in the first place</div>
         </div>
-        <div class="problem-card">
-          <div class="problem-icon">
-            <!-- Email icon -->
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="12" width="36" height="24" rx="3" stroke="#F86A3E" stroke-width="2"/>
-              <path d="M6 15l18 12 18-12" stroke="#F86A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="6" y1="8" x2="42" y2="42" stroke="#F86A3E" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
+
+        <!-- VS DIVIDER -->
+        <div class="vs-divider" aria-hidden="true">VS</div>
+
+        <!-- NEW WAY -->
+        <div class="comparison-col new">
+          <h3 class="comp-title">The New Way</h3>
+          <p class="comp-subtitle">Extract from reality. Build from evidence. Compound.</p>
+
+          <div class="new-way-wrap" id="newWayWrap">
+            <div class="hub-wrap">
+              <div class="hub-circle">
+                <strong>Your Customer Interactions</strong>
+                <span>The answers are already sitting inside.</span>
+              </div>
+              <div class="hub-labels">
+                <div class="hub-label l1">Gong Calls</div>
+                <div class="hub-label l2">CRM Data</div>
+                <div class="hub-label l3">Email Sequences</div>
+                <div class="hub-label l4">Win/Loss Data</div>
+                <div class="hub-label l5">Rep Feedback</div>
+                <div class="hub-label l6">Market Signals</div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">
+              <div class="flow-label orange">AI extracts the insights</div>
+              <div class="line"></div>
+              <div class="tip"></div>
+            </div>
+
+            <div class="os-box">
+              <div class="os-brand">OUTBOUND SQUAD</div>
+              <div class="os-title">The Extraction Layer</div>
+              <div class="os-sub">Battle-tested process from 250+ real sales teams</div>
+            </div>
+
+            <div class="flow-arrow">
+              <div class="flow-label navy-tag">We build the strategy</div>
+              <div class="line"></div>
+              <div class="tip"></div>
+            </div>
+
+            <div class="output-grid">
+              <div class="output-card o-orange">
+                <h5>Tailored Playbook</h5>
+                <p>A custom strategy built from YOUR data, not generic templates. Messaging, targeting, and offers benchmarked against 250+ teams.</p>
+              </div>
+              <div class="output-card o-green">
+                <h5>Train &amp; Enable</h5>
+                <p>Reps and managers learn the methodology through ongoing coaching, not one-time events. Reinforced weekly so it sticks.</p>
+              </div>
+              <div class="output-card o-blue">
+                <h5>Always On</h5>
+                <p>PipeGen becomes part of your culture. Your AI tools are trained on what good looks like. The system compounds.</p>
+              </div>
+            </div>
           </div>
-          <h3 class="problem-title">Mass blast is over</h3>
-          <p>More emails and phone calls is no longer the answer. Reps must be more skilled than ever to punch through the noise.</p>
-        </div>
-        <div class="problem-card">
-          <div class="problem-icon">
-            <!-- AI / Robot icon -->
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="14" width="28" height="22" rx="4" stroke="#F86A3E" stroke-width="2"/>
-              <line x1="24" y1="8" x2="24" y2="14" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="24" cy="7" r="1.8" fill="#F86A3E"/>
-              <circle cx="18" cy="24" r="2.2" fill="#F86A3E"/>
-              <circle cx="30" cy="24" r="2.2" fill="#F86A3E"/>
-              <line x1="19" y1="30" x2="29" y2="30" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
-              <line x1="6" y1="22" x2="10" y2="22" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
-              <line x1="38" y1="22" x2="42" y2="22" stroke="#F86A3E" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3 class="problem-title">AI has changed the game</h3>
-          <p>But hasn't taken over (yet). The best teams are 'human-led and AI-assisted.'</p>
+
+          <div class="result-box green">A compounding outbound engine that gets smarter every quarter</div>
         </div>
       </div>
+
+      <div class="comp-stats-bar reveal">
+        <div class="comp-stats-col red">
+          <div class="stat">6+ months to build</div>
+          <div class="stat">Generic playbook</div>
+        </div>
+        <div class="comp-stats-col green">
+          <div class="stat">90 days to impact</div>
+          <div class="stat">Your real data</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       AI MANIFESTO SECTION
+       ======================================== -->
+  <section class="ai-section">
+    <div class="ai-wrap">
+      <h2 class="reveal">AI hasn't replaced outbound. It raised the stakes.</h2>
+      <p class="reveal">81% of sales teams are using AI for outbound. Most are using it to send more emails faster, repeating the same mistake the industry has made twice before.</p>
+      <p class="reveal">The problem isn't the tool. It's the input. AI doesn't know what good looks like for your buyer, your market, your motion.</p>
+      <p class="reveal">We do. We've accumulated the playbooks from 250+ real sales teams. We train your people on the methodology, then give your AI the same knowledge so everything compounds.</p>
+      <div class="ai-callout reveal">Human-led. AI-assisted.</div>
     </div>
   </section>
 
@@ -2084,6 +2637,35 @@
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* ========================================
+       Old vs New: staggered step animation + new-way reveal
+       ======================================== */
+    (function () {
+      var stepCards = document.querySelectorAll('.comparison-col.old .step-card');
+      var newWay = document.getElementById('newWayWrap');
+      if (!stepCards.length && !newWay) return;
+
+      var triggered = false;
+      function trigger() {
+        if (triggered) return;
+        triggered = true;
+        stepCards.forEach(function (card, i) {
+          setTimeout(function () { card.classList.add('in'); }, i * 200);
+        });
+        // New way fades in after left side finishes (5 * 200ms = 1000ms, start ~600ms)
+        setTimeout(function () {
+          if (newWay) newWay.classList.add('in');
+        }, 600);
+      }
+
+      var sentinel = document.getElementById('comparisonGrid');
+      if (!sentinel) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { trigger(); io.disconnect(); } });
+      }, { threshold: 0.15 });
+      io.observe(sentinel);
     })();
 
     /* ========================================

@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Our Clients | Outbound Squad</title>
+  <meta name="description" content="Meet the 250+ sales teams we've helped build pipeline that compounds.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       Outbound Squad - Our Clients
+       Matches homepage design system
+       ======================================== */
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444444;
+      background: #FFFFFF;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: #00A2FF; text-decoration: none; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container-wide {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .text-center { text-align: center; }
+
+    /* Sections */
+    .section { padding: 96px 0; }
+    .section-white { background: #FFFFFF; }
+    .section-lightblue {
+      background: linear-gradient(180deg, #FFFFFF 0%, #E6F0FA 40%, #d4e5f7 100%);
+    }
+    .section-lightorange {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F9EBE7 40%, #f2ddd6 100%);
+    }
+
+    .section-headline {
+      font-size: 40px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: #666666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-orange {
+      background: #F86A3E;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(248, 106, 62, 0.3);
+    }
+    .btn-orange:hover {
+      background: #e55a2e;
+      box-shadow: 0 6px 20px rgba(248, 106, 62, 0.4);
+    }
+
+    .btn-lg { font-size: 18px; padding: 16px 36px; }
+    .btn-nav { font-size: 15px; padding: 10px 20px; }
+
+    .nav-cta .btn-orange,
+    .nav-cta a.btn-orange,
+    .nav-links .btn-orange {
+      color: #FFFFFF !important;
+    }
+    .nav-cta .btn-orange:hover,
+    .nav-cta a.btn-orange:hover,
+    .nav-links .btn-orange:hover {
+      color: #FFFFFF !important;
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      box-shadow: 0 1px 0 rgba(27, 34, 53, 0.08);
+      padding: 10px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo img { height: 36px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1B2235;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #00A2FF; }
+    .nav-links a.active { color: #00A2FF; font-weight: 700; }
+
+    .nav-cta { margin-left: 8px; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1B2235;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      background: linear-gradient(180deg, #FFFFFF 0%, #E6F0FA 55%, #d0e2f4 100%);
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-headline {
+      font-size: 52px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 19px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 720px;
+    }
+
+    /* ========================================
+       LOGO WALL
+       ======================================== */
+    .logo-wall-label {
+      font-size: 12px;
+      color: #7a8299;
+      text-align: center;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .logo-wall-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F7F8FB;
+      border: 1px solid #EDF0F5;
+      border-radius: 10px;
+      padding: 22px 16px;
+      text-align: center;
+      font-weight: 600;
+      color: #8a93a8;
+      letter-spacing: -0.3px;
+      font-size: 18px;
+      transition: color 0.2s, background 0.2s, transform 0.15s;
+      min-height: 72px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .logo-pill:hover {
+      color: #1B2235;
+      background: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* Organic weight/size variations */
+    .logo-pill.w-700 { font-weight: 700; }
+    .logo-pill.w-500 { font-weight: 500; font-size: 17px; }
+    .logo-pill.sz-lg { font-size: 20px; font-weight: 700; }
+    .logo-pill.sz-sm { font-size: 16px; }
+    .logo-pill.italic { font-style: italic; }
+
+    /* ========================================
+       VIDEO INTERVIEWS
+       ======================================== */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 48px;
+    }
+
+    .filter-tab {
+      background: transparent;
+      color: #1B2235;
+      border: 2px solid #d0d6e2;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-tab:hover {
+      border-color: #1B2235;
+    }
+
+    .filter-tab.active {
+      background: #1B2235;
+      color: #FFFFFF;
+      border-color: #1B2235;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .video-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(27, 34, 53, 0.12);
+    }
+
+    .video-card.hidden {
+      display: none;
+    }
+
+    .video-card.fade-in {
+      animation: fadeInUp 0.4s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #2a324a 0%, #1B2235 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06), transparent 60%);
+    }
+
+    .play-btn {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .video-card:hover .play-btn {
+      transform: scale(1.08);
+      background: #F86A3E;
+    }
+
+    .play-btn svg {
+      transition: transform 0.2s ease;
+    }
+
+    .video-card:hover .play-btn svg path {
+      fill: #FFFFFF;
+    }
+
+    .video-body {
+      padding: 24px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .video-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1B2235;
+      margin-bottom: 2px;
+    }
+
+    .video-title {
+      font-size: 14px;
+      color: #7a8299;
+      margin-bottom: 14px;
+    }
+
+    .video-quote {
+      font-size: 15px;
+      font-style: italic;
+      color: #444444;
+      line-height: 1.55;
+      border-left: 3px solid #F86A3E;
+      padding-left: 14px;
+      margin-top: auto;
+    }
+
+    /* ========================================
+       ICP SEGMENTS
+       ======================================== */
+    .icp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .icp-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 24px rgba(27, 34, 53, 0.06);
+      border-top: 6px solid transparent;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .icp-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(27, 34, 53, 0.1);
+    }
+
+    .icp-card.scaling { border-top-color: #F86A3E; }
+    .icp-card.building { border-top-color: #00A2FF; }
+
+    .icp-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+
+    .icp-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: #7a8299;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .icp-bullets {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .icp-bullets li {
+      position: relative;
+      padding-left: 26px;
+      font-size: 16px;
+      color: #444444;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    .icp-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .icp-card.scaling .icp-bullets li::before { background: #F86A3E; }
+    .icp-card.building .icp-bullets li::before { background: #00A2FF; }
+
+    .icp-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding: 20px 0;
+      border-top: 1px solid #EDF0F5;
+      margin-bottom: 20px;
+    }
+
+    .icp-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: #8a93a8;
+      letter-spacing: -0.2px;
+    }
+
+    .icp-stat {
+      margin-top: auto;
+      padding: 18px 20px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .icp-card.scaling .icp-stat {
+      background: #FDF0EC;
+      color: #F86A3E;
+    }
+
+    .icp-card.building .icp-stat {
+      background: #E6F0FA;
+      color: #00A2FF;
+    }
+
+    /* ========================================
+       CASE STUDY SLIDER
+       ======================================== */
+    .cs-slider {
+      position: relative;
+      max-width: 1100px;
+      margin: 32px auto 0;
+      padding: 0 60px;
+    }
+
+    .cs-viewport {
+      overflow: hidden;
+    }
+
+    .cs-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 24px;
+    }
+
+    .cs-card {
+      flex: 0 0 calc(50% - 12px);
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 32px 30px;
+      box-shadow: 0 4px 22px rgba(27, 34, 53, 0.07);
+      display: flex;
+      flex-direction: column;
+      min-height: 320px;
+    }
+
+    .cs-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #8a93a8;
+      letter-spacing: -0.3px;
+      margin-bottom: 16px;
+    }
+
+    .cs-problem {
+      font-size: 15px;
+      color: #7a8299;
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .cs-stat {
+      font-size: 34px;
+      font-weight: 800;
+      color: #F86A3E;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .cs-how {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .cs-link {
+      margin-top: auto;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00A2FF;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s ease;
+      align-self: flex-start;
+    }
+
+    .cs-link:hover { gap: 8px; }
+
+    .cs-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid #e2d5cf;
+      color: #1B2235;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      z-index: 2;
+    }
+
+    .cs-arrow:hover {
+      background: #F86A3E;
+      border-color: #F86A3E;
+      color: #FFFFFF;
+    }
+
+    .cs-prev { left: 0; }
+    .cs-next { right: 0; }
+
+    .cs-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .cs-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d4c5be;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .cs-dot:hover { background: #b39d93; }
+
+    .cs-dot.active {
+      background: #F86A3E;
+      transform: scale(1.25);
+    }
+
+    /* ========================================
+       REVIEWS
+       ======================================== */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 36px 32px 32px;
+      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.06);
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(27, 34, 53, 0.1);
+    }
+
+    .review-card.hidden { display: none; }
+
+    .review-card.fade-in {
+      animation: fadeInUp 0.4s ease forwards;
+    }
+
+    .review-quote-mark {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 72px;
+      font-weight: 800;
+      color: #F9EBE7;
+      line-height: 1;
+      position: absolute;
+      top: 14px;
+      left: 22px;
+      z-index: 0;
+      user-select: none;
+    }
+
+    .review-text {
+      position: relative;
+      z-index: 1;
+      font-size: 16px;
+      color: #1B2235;
+      line-height: 1.6;
+      margin-bottom: 22px;
+      flex: 1;
+    }
+
+    .review-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1B2235;
+    }
+
+    .review-role {
+      font-size: 14px;
+      color: #7a8299;
+      margin-top: 2px;
+    }
+
+    /* ========================================
+       FINAL CTA
+       ======================================== */
+    .final-cta { text-align: center; }
+    .final-cta .section-headline { margin-bottom: 16px; }
+    .final-cta .section-sub { margin-bottom: 32px; }
+    .final-cta-note {
+      font-size: 13px;
+      color: #7a8299;
+      margin-top: 16px;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: #FFFFFF;
+      padding: 48px 0 40px;
+      border-top: 1px solid #EEEEEE;
+    }
+
+    .footer-logo {
+      width: 140px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin-bottom: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: #7a8299;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #1B2235; }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #999999;
+      text-align: center;
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 960px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(320px, 85vw);
+        background: #FFFFFF;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 84px 32px 32px;
+        gap: 20px;
+        box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 18px; }
+      .nav-cta { margin-left: 0; margin-top: 8px; }
+      .nav-toggle { display: flex; z-index: 110; }
+
+      .logo-wall-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .icp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-card {
+        flex: 0 0 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+
+      .hero { padding: 120px 0 72px; }
+      .hero-headline { font-size: 38px; letter-spacing: -0.6px; }
+      .hero-sub { font-size: 17px; }
+
+      .section-headline { font-size: 30px; }
+
+      .logo-wall-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .logo-pill {
+        font-size: 15px;
+        padding: 18px 10px;
+        min-height: 60px;
+      }
+      .logo-pill.sz-lg { font-size: 16px; }
+      .logo-pill.sz-sm { font-size: 14px; }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .icp-card {
+        padding: 32px 24px;
+      }
+
+      .icp-title { font-size: 24px; }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .cs-slider { padding: 0 16px; }
+      .cs-card { padding: 28px 22px; min-height: auto; }
+      .cs-stat { font-size: 28px; }
+
+      .cs-arrow {
+        width: 36px;
+        height: 36px;
+        top: auto;
+        bottom: -54px;
+        transform: none;
+      }
+
+      .cs-prev { left: calc(50% - 50px); }
+      .cs-next { right: calc(50% - 50px); }
+
+      .cs-dots { margin-top: 64px; }
+
+      .btn-lg { font-size: 16px; padding: 14px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 30px; }
+      .section-headline { font-size: 26px; }
+      .filter-tab { font-size: 13px; padding: 8px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Outbound Squad home">
+        <img src="../logo.png" alt="Outbound Squad">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/resources/">Insights</a></li>
+        <li><a href="/our-team/">Our Team</a></li>
+        <li><a href="/clients/" class="active">Clients</a></li>
+        <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================
+       1. HERO
+       ======================================== -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-headline">Meet Our Clients</h1>
+      <p class="hero-sub">We've helped 250+ sales teams build pipeline that compounds. Here's what that looks like.</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       2. LOGO WALL
+       ======================================== -->
+  <section class="section section-white">
+    <div class="container-wide">
+      <p class="logo-wall-label reveal">Trusted by world-class sales teams</p>
+      <div class="logo-wall-grid reveal">
+        <div class="logo-pill sz-lg">Shopify</div>
+        <div class="logo-pill w-700">Gong</div>
+        <div class="logo-pill">Zoom</div>
+        <div class="logo-pill sz-lg">Rippling</div>
+        <div class="logo-pill w-500">iHeartMedia</div>
+        <div class="logo-pill">GoGuardian</div>
+        <div class="logo-pill w-700">Carta</div>
+        <div class="logo-pill sz-sm">Neo4j</div>
+        <div class="logo-pill">Houzz</div>
+        <div class="logo-pill w-500">Optimizely</div>
+        <div class="logo-pill sz-lg">Varonis</div>
+        <div class="logo-pill">Transect</div>
+        <div class="logo-pill w-700">Wonolo</div>
+        <div class="logo-pill">Nextroll</div>
+        <div class="logo-pill w-500">Armis</div>
+        <div class="logo-pill sz-lg">Paddle</div>
+        <div class="logo-pill">Litmos</div>
+        <div class="logo-pill w-700">Knak</div>
+        <div class="logo-pill sz-sm">People.ai</div>
+        <div class="logo-pill">Anaplan</div>
+        <div class="logo-pill w-500">YesWeHack</div>
+        <div class="logo-pill sz-sm">Prepared by Axon</div>
+        <div class="logo-pill w-700">Mimecast</div>
+        <div class="logo-pill sz-lg">Drata</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       3. VIDEO INTERVIEWS
+       ======================================== -->
+  <section class="section section-lightblue">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">Hear it directly from our clients</h2>
+      <p class="section-sub text-center reveal">Real stories from sales leaders who transformed their outbound motion.</p>
+
+      <div class="filter-tabs reveal" role="tablist" aria-label="Filter video interviews">
+        <button class="filter-tab active" data-filter="all" type="button">All</button>
+        <button class="filter-tab" data-filter="sdr" type="button">SDR Leaders</button>
+        <button class="filter-tab" data-filter="sales" type="button">Sales Leaders</button>
+        <button class="filter-tab" data-filter="enablement" type="button">Enablement Leaders</button>
+      </div>
+
+      <div class="video-grid reveal" id="videoGrid">
+        <article class="video-card" data-category="sdr">
+          <div class="video-thumb">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </div>
+          <div class="video-body">
+            <p class="video-name">Diana Gates</p>
+            <p class="video-title">Head of Sales Development, Shopify</p>
+            <p class="video-quote">"25% increase in conversion rates across all teams."</p>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="sales">
+          <div class="video-thumb">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </div>
+          <div class="video-body">
+            <p class="video-name">Kris Foley</p>
+            <p class="video-title">Division President, iHeartMedia</p>
+            <p class="video-quote">"They'll flip the way your team starts new conversations."</p>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="enablement">
+          <div class="video-thumb">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </div>
+          <div class="video-body">
+            <p class="video-name">Siobhan Sweeney</p>
+            <p class="video-title">Head of Enablement, Shopify</p>
+            <p class="video-quote">"We needed a standardized outbound methodology."</p>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="sdr">
+          <div class="video-thumb">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </div>
+          <div class="video-body">
+            <p class="video-name">Bert Brokaw</p>
+            <p class="video-title">Sr. Director of Sales Development, Rippling</p>
+            <p class="video-quote">"TRULY tailored towards outbound SDRs."</p>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="enablement">
+          <div class="video-thumb">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </div>
+          <div class="video-body">
+            <p class="video-name">Nate Vogel</p>
+            <p class="video-title">VP of Enablement, Gong</p>
+            <p class="video-quote">"Reps prefer to learn from peers and experts."</p>
+          </div>
+        </article>
+
+        <article class="video-card" data-category="sales">
+          <div class="video-thumb">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
+            </div>
+          </div>
+          <div class="video-body">
+            <p class="video-name">Jonas Master</p>
+            <p class="video-title">VP of Enablement, Rippling</p>
+            <p class="video-quote">"We saw impact within 90 days."</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       4. TWO ICP SEGMENTS
+       ======================================== -->
+  <section class="section section-white">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">We work with two types of teams</h2>
+
+      <div class="icp-grid reveal">
+        <article class="icp-card scaling">
+          <h3 class="icp-title">Scaling Orgs</h3>
+          <p class="icp-subtitle">1,000+ employees &nbsp;|&nbsp; 50-500+ reps</p>
+          <ul class="icp-bullets">
+            <li>You have an outbound motion, but it's inconsistent across teams</li>
+            <li>You've invested in tools, but reps aren't fully utilizing them</li>
+            <li>You need a common methodology and language across the org</li>
+            <li>Front-line managers need coaching frameworks, not just reps</li>
+          </ul>
+          <div class="icp-logos">
+            <span class="icp-logo">Shopify</span>
+            <span class="icp-logo">Gong</span>
+            <span class="icp-logo">Zoom</span>
+            <span class="icp-logo">Rippling</span>
+            <span class="icp-logo">iHeartMedia</span>
+          </div>
+          <div class="icp-stat">22.3% average pipeline increase within 90 days</div>
+        </article>
+
+        <article class="icp-card building">
+          <h3 class="icp-title">Building Orgs</h3>
+          <p class="icp-subtitle">50-1,000 employees &nbsp;|&nbsp; 5-50 reps</p>
+          <ul class="icp-bullets">
+            <li>You're standing up or scaling outbound for the first time</li>
+            <li>Reps are figuring it out on their own with no playbook</li>
+            <li>You need to prove outbound works before hiring more</li>
+            <li>Every rep matters. There's no room for ramp time.</li>
+          </ul>
+          <div class="icp-logos">
+            <span class="icp-logo">Wonolo</span>
+            <span class="icp-logo">Nextroll</span>
+            <span class="icp-logo">Transect</span>
+            <span class="icp-logo">GoGuardian</span>
+            <span class="icp-logo">Carta</span>
+          </div>
+          <div class="icp-stat">Full outbound playbook built in under 90 days</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       5. CASE STUDY SLIDER
+       ======================================== -->
+  <section class="section section-lightorange">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">Client Results</h2>
+      <p class="section-sub text-center reveal">Quick snapshots of what we've built together.</p>
+
+      <div class="cs-slider reveal" id="csSlider">
+        <button class="cs-arrow cs-prev" aria-label="Previous case study" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="cs-viewport">
+          <div class="cs-track" id="csTrack">
+            <article class="cs-card">
+              <p class="cs-logo">Shopify</p>
+              <p class="cs-problem">Needed to standardize outbound across 200+ SDRs globally.</p>
+              <p class="cs-stat">25% conversion increase</p>
+              <p class="cs-how">Custom messaging matrices and talk tracks for every persona.</p>
+              <a href="#" class="cs-link">Read full story →</a>
+            </article>
+            <article class="cs-card">
+              <p class="cs-logo">Rippling</p>
+              <p class="cs-problem">Scaling SDR team from 10 to 50 with no playbook.</p>
+              <p class="cs-stat">42% QoQ pipeline growth</p>
+              <p class="cs-how">Full playbook build, training, and manager coaching program.</p>
+              <a href="#" class="cs-link">Read full story →</a>
+            </article>
+            <article class="cs-card">
+              <p class="cs-logo">iHeartMedia</p>
+              <p class="cs-problem">Sales team transitioning from inbound-heavy to outbound-first.</p>
+              <p class="cs-stat">3x cold call conversions</p>
+              <p class="cs-how">6-part framework implementation across all divisions.</p>
+              <a href="#" class="cs-link">Read full story →</a>
+            </article>
+            <article class="cs-card">
+              <p class="cs-logo">GoGuardian</p>
+              <p class="cs-problem">SDRs booking meetings that weren't converting to pipeline.</p>
+              <p class="cs-stat">59% meeting-to-opp improvement</p>
+              <p class="cs-how">ICP refinement, messaging overhaul, and ongoing enablement.</p>
+              <a href="#" class="cs-link">Read full story →</a>
+            </article>
+            <article class="cs-card">
+              <p class="cs-logo">Gong</p>
+              <p class="cs-problem">Inconsistent outbound execution across enterprise team.</p>
+              <p class="cs-stat">9x meetings increase</p>
+              <p class="cs-how">Methodology rollout with weekly reinforcement coaching.</p>
+              <a href="#" class="cs-link">Read full story →</a>
+            </article>
+            <article class="cs-card">
+              <p class="cs-logo">Carta</p>
+              <p class="cs-problem">AEs not self-sourcing, over-reliant on marketing.</p>
+              <p class="cs-stat">47% MoM pipeline growth</p>
+              <p class="cs-how">AE-specific outbound training and accountability system.</p>
+              <a href="#" class="cs-link">Read full story →</a>
+            </article>
+          </div>
+        </div>
+
+        <button class="cs-arrow cs-next" aria-label="Next case study" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="cs-dots" id="csDots" role="tablist" aria-label="Select case study">
+          <!-- dots injected by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       6. REVIEWS
+       ======================================== -->
+  <section class="section section-white">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">What reps and leaders are saying</h2>
+
+      <div class="filter-tabs reveal" role="tablist" aria-label="Filter reviews">
+        <button class="filter-tab active" data-review-filter="all" type="button">All</button>
+        <button class="filter-tab" data-review-filter="reps" type="button">From Reps</button>
+        <button class="filter-tab" data-review-filter="leaders" type="button">From Leaders</button>
+      </div>
+
+      <div class="reviews-grid reveal" id="reviewsGrid">
+        <article class="review-card" data-review-category="leaders">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-text">Above and Beyond. Outbound Squad's training was the most practical, useful, and created the least amount of friction to enforce.</p>
+          <p class="review-name">Jim Vandy</p>
+          <p class="review-role">Director of Sales, GoGuardian</p>
+        </article>
+
+        <article class="review-card" data-review-category="leaders">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-text">Outbound Squad set aside additional time with leaders to make sure we understood how to properly enable and coach our reps.</p>
+          <p class="review-name">Bert Brokaw</p>
+          <p class="review-role">Director of Sales Development, Rippling</p>
+        </article>
+
+        <article class="review-card" data-review-category="leaders">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-text">We saw a bump remarkably fast, both in the number of meetings booked and the size of the opportunities generated.</p>
+          <p class="review-name">Lydia Winn</p>
+          <p class="review-role">Sales Development Director, GoGuardian</p>
+        </article>
+
+        <article class="review-card" data-review-category="reps">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-text">The training completely changed how I approach cold calls. I went from dreading the phone to looking forward to it.</p>
+          <p class="review-name">[Rep Name Placeholder]</p>
+          <p class="review-role">SDR, [Company Placeholder]</p>
+        </article>
+
+        <article class="review-card" data-review-category="reps">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-text">I booked more meetings in the first two weeks after training than I had in the previous two months.</p>
+          <p class="review-name">[Rep Name Placeholder]</p>
+          <p class="review-role">BDR, [Company Placeholder]</p>
+        </article>
+
+        <article class="review-card" data-review-category="reps">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-text">The messaging framework gave me confidence. I finally know what to say and why it works.</p>
+          <p class="review-name">[Rep Name Placeholder]</p>
+          <p class="review-role">AE, [Company Placeholder]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       7. FINAL CTA
+       ======================================== -->
+  <section class="section section-lightblue">
+    <div class="container final-cta">
+      <h2 class="section-headline reveal">Ready to join them?</h2>
+      <p class="section-sub">Book a call with our team to see how we've helped 250+ sales teams generate more pipeline.</p>
+      <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
+      <p class="final-cta-note">Programs start at $64.5k</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="container text-center">
+      <img src="../logo.png" alt="Outbound Squad" class="footer-logo">
+      <ul class="footer-links">
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/resources/">Insights</a></li>
+        <li><a href="/our-team/">Our Team</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Outbound Squad</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Sticky nav background on scroll */
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        if (window.scrollY > 12) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* Mobile hamburger menu */
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      toggle.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (links.classList.contains('open')) {
+            links.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+
+    /* Scroll reveal */
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* Video filter tabs */
+    (function () {
+      var tabs = document.querySelectorAll('.filter-tab[data-filter]');
+      var cards = document.querySelectorAll('#videoGrid .video-card');
+      if (!tabs.length) return;
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var filter = tab.dataset.filter;
+          tabs.forEach(function (t) { t.classList.toggle('active', t === tab); });
+          cards.forEach(function (card) {
+            var match = filter === 'all' || card.dataset.category === filter;
+            if (match) {
+              card.classList.remove('hidden');
+              card.classList.remove('fade-in');
+              // force reflow
+              void card.offsetWidth;
+              card.classList.add('fade-in');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+
+    /* Reviews filter tabs */
+    (function () {
+      var tabs = document.querySelectorAll('.filter-tab[data-review-filter]');
+      var cards = document.querySelectorAll('#reviewsGrid .review-card');
+      if (!tabs.length) return;
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var filter = tab.dataset.reviewFilter;
+          tabs.forEach(function (t) { t.classList.toggle('active', t === tab); });
+          cards.forEach(function (card) {
+            var match = filter === 'all' || card.dataset.reviewCategory === filter;
+            if (match) {
+              card.classList.remove('hidden');
+              card.classList.remove('fade-in');
+              void card.offsetWidth;
+              card.classList.add('fade-in');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+
+    /* Case study slider */
+    (function () {
+      var slider = document.getElementById('csSlider');
+      if (!slider) return;
+      var track = document.getElementById('csTrack');
+      var cards = track.querySelectorAll('.cs-card');
+      var prev = slider.querySelector('.cs-prev');
+      var next = slider.querySelector('.cs-next');
+      var dotsWrap = document.getElementById('csDots');
+
+      var cardsPerView = window.innerWidth <= 960 ? 1 : 2;
+      var totalPages = Math.ceil(cards.length / cardsPerView);
+      var current = 0;
+      var autoplayTimer = null;
+
+      // Build dots
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < totalPages; i++) {
+          var b = document.createElement('button');
+          b.className = 'cs-dot' + (i === 0 ? ' active' : '');
+          b.type = 'button';
+          b.setAttribute('aria-label', 'Go to page ' + (i + 1));
+          b.dataset.index = i;
+          b.addEventListener('click', function (e) {
+            show(parseInt(e.currentTarget.dataset.index, 10));
+            startAutoplay();
+          });
+          dotsWrap.appendChild(b);
+        }
+      }
+
+      function show(i) {
+        current = (i + totalPages) % totalPages;
+        var offsetPercent = -(current * 100);
+        track.style.transform = 'translateX(' + offsetPercent + '%)';
+        dotsWrap.querySelectorAll('.cs-dot').forEach(function (d, idx) {
+          d.classList.toggle('active', idx === current);
+        });
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(function () { show(current + 1); }, 6000);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+      }
+
+      prev.addEventListener('click', function () { show(current - 1); startAutoplay(); });
+      next.addEventListener('click', function () { show(current + 1); startAutoplay(); });
+
+      slider.addEventListener('mouseenter', stopAutoplay);
+      slider.addEventListener('mouseleave', startAutoplay);
+
+      // Handle viewport resize (recalc cardsPerView)
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          var newCardsPerView = window.innerWidth <= 960 ? 1 : 2;
+          if (newCardsPerView !== cardsPerView) {
+            cardsPerView = newCardsPerView;
+            totalPages = Math.ceil(cards.length / cardsPerView);
+            current = 0;
+            buildDots();
+            show(0);
+          }
+        }, 150);
+      });
+
+      buildDots();
+      show(0);
+      startAutoplay();
+    })();
+  </script>
+
+</body>
+</html>
