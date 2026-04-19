@@ -249,52 +249,65 @@
     }
 
     /* ========================================
-       LOGO WALL
+       MARQUEE
        ======================================== */
-    .logo-wall-label {
+    .marquee-wrap {
+      margin-top: 0;
+    }
+
+    .marquee-label {
       font-size: 12px;
       color: #7a8299;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       font-weight: 600;
     }
 
-    .logo-wall-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 32px 48px;
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 8px;
+    .marquee {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
     }
 
-    .logo-item {
+    .marquee-track {
+      display: flex;
+      gap: 72px;
+      width: max-content;
+      animation: marquee-scroll 56s linear infinite;
+    }
+
+    .marquee-item {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      height: 60px;
-      flex: 0 0 auto;
+      flex-shrink: 0;
+      height: 48px;
+      background: transparent;
     }
 
-    .logo-item img {
-      max-width: 100px;
-      max-height: 50px;
+    .marquee-item img {
+      height: 30px;
       width: auto;
-      height: auto;
+      max-width: 160px;
       object-fit: contain;
-      filter: grayscale(1);
-      opacity: 0.75;
+      background: transparent;
       mix-blend-mode: multiply;
+      filter: grayscale(1);
+      opacity: 0.8;
       transition: filter 0.25s ease, opacity 0.25s ease;
     }
 
-    .logo-item:hover img {
+    .marquee-item:hover img {
       filter: grayscale(0);
       opacity: 1;
+    }
+
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* ========================================
@@ -915,13 +928,30 @@
     }
 
     .footer-links a {
-      font-size: 14px;
-      color: #7a8299;
+      font-size: 15px;
+      color: #1B2235;
       font-weight: 500;
+      text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: #1B2235; }
+    .footer-links a:hover { color: #00A2FF; text-decoration: underline; }
+
+    .footer-legal {
+      gap: 8px 20px;
+      margin-bottom: 16px;
+    }
+
+    .footer-legal a {
+      font-size: 13px;
+      color: #7a8299;
+      font-weight: 400;
+    }
+
+    .footer-legal a:hover {
+      color: #1B2235;
+      text-decoration: underline;
+    }
 
     .footer-copy {
       font-size: 13px;
@@ -954,9 +984,7 @@
       .nav-cta { margin-left: 0; margin-top: 8px; }
       .nav-toggle { display: flex; z-index: 110; }
 
-      .logo-wall-grid {
-        gap: 20px 32px;
-      }
+      .marquee-track { gap: 56px; }
 
       .video-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -980,12 +1008,8 @@
 
       .section-headline { font-size: 30px; }
 
-      .logo-wall-grid {
-        gap: 16px 24px;
-      }
-      .logo-item { font-size: 15px; }
-      .logo-item.sz-lg { font-size: 17px; }
-      .logo-item.sz-sm { font-size: 13px; }
+      .marquee-track { gap: 48px; }
+      .marquee-item img { height: 30px; }
 
       .video-grid {
         grid-template-columns: 1fr;
@@ -1067,51 +1091,153 @@
   </section>
 
   <!-- ========================================
-       2. LOGO WALL
+       2. LOGO MARQUEE
        ======================================== -->
   <section class="section section-white">
     <div class="container-wide">
-      <p class="logo-wall-label reveal">Trusted by world-class sales teams</p>
-      <div class="logo-wall-grid reveal">
-        <span class="logo-item"><img src="../logos/shopify.jpg" alt="Shopify" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/gong.jpg" alt="Gong" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/zoom.jpg" alt="Zoom" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/rippling.jpg" alt="Rippling" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/goguardian.jpg" alt="GoGuardian" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/optimizely.jpg" alt="Optimizely" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/varonis.jpg" alt="Varonis" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/digicert.jpg" alt="Digicert" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/hyland.jpg" alt="Hyland" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/carta.jpg" alt="Carta" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/neo4j.jpg" alt="Neo4j" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/armis.jpg" alt="Armis" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/medallia.jpg" alt="Medallia" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/commvault.jpg" alt="Commvault" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/anaplan.jpg" alt="Anaplan" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/paddle.jpg" alt="Paddle" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/wonolo.jpg" alt="Wonolo" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/nextroll.jpg" alt="NextRoll" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/yeswehack.jpg" alt="YesWeHack" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/houzz.jpg" alt="Houzz" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/buildops.jpg" alt="BuildOps" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/servicetrade.jpg" alt="ServiceTrade" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/brooksource.jpg" alt="Brooksource" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/ch-robinson.jpg" alt="CH Robinson" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/ezcater.jpg" alt="ezCater" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/staffbase.jpg" alt="Staffbase" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/seon.jpg" alt="SEON" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/path-robotics.jpg" alt="Path Robotics" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/polyai.jpg" alt="PolyAI" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/proshop.jpg" alt="ProShop" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/medidata.jpg" alt="Medidata" loading="lazy"></span>
-        <span class="logo-item"><img src="../logos/castor.jpg" alt="Castor" loading="lazy"></span>
+      <div class="marquee-wrap reveal">
+        <p class="marquee-label">Trusted by world-class sales teams</p>
+        <div class="marquee">
+          <div class="marquee-track">
+            <!-- Loop set 1 -->
+            <span class="marquee-item"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/gong.png" alt="Gong" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/zoom.png" alt="Zoom" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/goguardian.png" alt="GoGuardian" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/optimizely.png" alt="Optimizely" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/varonis.png" alt="Varonis" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/digicert.png" alt="Digicert" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/hyland.png" alt="Hyland" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/carta.png" alt="Carta" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/neo4j.png" alt="Neo4j" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/armis.png" alt="Armis" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/medallia.png" alt="Medallia" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/commvault.png" alt="Commvault" loading="lazy"></span>
+            <span class="marquee-item"><img src="../logos/anaplan.png" alt="Anaplan" loading="lazy"></span>
+            <!-- Loop set 2 (duplicate for seamless scroll) -->
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/shopify.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/gong.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/zoom.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/rippling.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/iheartmedia.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/goguardian.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/optimizely.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/varonis.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/digicert.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/hyland.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/carta.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/neo4j.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/armis.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/medallia.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/commvault.png" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="../logos/anaplan.png" alt="" loading="lazy"></span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========================================
-       3. VIDEO INTERVIEWS
+       3. TWO ICP SEGMENTS
+       ======================================== -->
+  <section class="section section-white">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">The types of sales orgs we partner with</h2>
+
+      <div class="icp-grid reveal">
+        <article class="icp-card building">
+          <h3 class="icp-title">Early Stage</h3>
+          <p class="icp-subtitle">Seed to Series C &nbsp;|&nbsp; 5-99 reps</p>
+          <ul class="icp-bullets">
+            <li>You're standing up or scaling outbound for the first time</li>
+            <li>Reps are figuring it out on their own with no playbook</li>
+            <li>Your enablement team has limited bandwidth to support</li>
+          </ul>
+          <div class="icp-logos">
+            <span class="icp-logo"><img src="../logos/wonolo.png" alt="Wonolo" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/nextroll.png" alt="NextRoll" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/goguardian.png" alt="GoGuardian" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/carta.png" alt="Carta" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/paddle.png" alt="Paddle" loading="lazy"></span>
+          </div>
+        </article>
+
+        <article class="icp-card scaling">
+          <h3 class="icp-title">Late Stage</h3>
+          <p class="icp-subtitle">Series D+ or Public &nbsp;|&nbsp; 100-1,000+ reps</p>
+          <ul class="icp-bullets">
+            <li>Inbound won't scale your growth to the next level</li>
+            <li>A common outbound approach is needed (that works)</li>
+            <li>Front-line managers aren't equipped to reinforce and hold reps accountable</li>
+          </ul>
+          <div class="icp-logos">
+            <span class="icp-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/gong.png" alt="Gong" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/zoom.png" alt="Zoom" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       4. CASE STUDY SLIDER
+       ======================================== -->
+  <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FCEFE9 30%, #FCEFE9 70%, #FFFFFF 100%);">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">Client Results</h2>
+
+      <div class="cs-slider reveal" id="csSlider">
+        <button class="cs-arrow cs-prev" aria-label="Previous case study" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="cs-viewport">
+          <div class="cs-track" id="csTrack">
+            <article class="cs-card">
+              <div class="cs-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></div>
+              <p class="cs-result">AE team increased meetings set/held by 29.8%</p>
+            </article>
+            <article class="cs-card">
+              <div class="cs-logo"><img src="../logos/digicert.png" alt="Digicert" loading="lazy"></div>
+              <p class="cs-result">SDR team increased outbound opps created by 54%</p>
+            </article>
+            <article class="cs-card">
+              <div class="cs-logo"><img src="../logos/varonis.png" alt="Varonis" loading="lazy"></div>
+              <p class="cs-result">SDR team increased pipeline sourced by 21% YoY</p>
+            </article>
+            <article class="cs-card">
+              <div class="cs-logo"><img src="../logos/optimizely.png" alt="Optimizely" loading="lazy"></div>
+              <p class="cs-result">SDR team increased pipeline sourced per rep by 20.8%</p>
+            </article>
+            <article class="cs-card">
+              <div class="cs-logo"><img src="../logos/hyland.png" alt="Hyland" loading="lazy"></div>
+              <p class="cs-result">SDR team had their biggest month of pipeline generated by 270%+</p>
+            </article>
+            <article class="cs-card">
+              <div class="cs-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></div>
+              <p class="cs-result">AE/SDR mid-market team increased qualified opps created by 38%+</p>
+            </article>
+          </div>
+        </div>
+
+        <button class="cs-arrow cs-next" aria-label="Next case study" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="cs-dots" id="csDots" role="tablist" aria-label="Select case study">
+          <!-- dots injected by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       5. VIDEO INTERVIEWS
        ======================================== -->
   <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 25%, #EAF1FA 75%, #FFFFFF 100%);">
     <div class="container-wide">
@@ -1208,103 +1334,6 @@
   </section>
 
   <!-- ========================================
-       4. TWO ICP SEGMENTS
-       ======================================== -->
-  <section class="section section-white">
-    <div class="container-wide">
-      <h2 class="section-headline text-center reveal">The types of sales orgs we partner with</h2>
-
-      <div class="icp-grid reveal">
-        <article class="icp-card building">
-          <h3 class="icp-title">Early Stage</h3>
-          <p class="icp-subtitle">Seed to Series C &nbsp;|&nbsp; 5-99 reps</p>
-          <ul class="icp-bullets">
-            <li>You're standing up or scaling outbound for the first time</li>
-            <li>Reps are figuring it out on their own with no playbook</li>
-            <li>Your enablement team has limited bandwidth to support</li>
-          </ul>
-          <div class="icp-logos">
-            <span class="icp-logo"><img src="../logos/wonolo.jpg" alt="Wonolo" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/nextroll.jpg" alt="NextRoll" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/goguardian.jpg" alt="GoGuardian" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/carta.jpg" alt="Carta" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/paddle.jpg" alt="Paddle" loading="lazy"></span>
-          </div>
-        </article>
-
-        <article class="icp-card scaling">
-          <h3 class="icp-title">Late Stage</h3>
-          <p class="icp-subtitle">Series D+ or Public &nbsp;|&nbsp; 100-1,000+ reps</p>
-          <ul class="icp-bullets">
-            <li>Inbound won't scale your growth to the next level</li>
-            <li>A common outbound approach is needed (that works)</li>
-            <li>Front-line managers aren't equipped to reinforce and hold reps accountable</li>
-          </ul>
-          <div class="icp-logos">
-            <span class="icp-logo"><img src="../logos/shopify.jpg" alt="Shopify" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/gong.jpg" alt="Gong" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/zoom.jpg" alt="Zoom" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/rippling.jpg" alt="Rippling" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       5. CASE STUDY SLIDER
-       ======================================== -->
-  <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FCEFE9 30%, #FCEFE9 70%, #FFFFFF 100%);">
-    <div class="container-wide">
-      <h2 class="section-headline text-center reveal">Client Results</h2>
-
-      <div class="cs-slider reveal" id="csSlider">
-        <button class="cs-arrow cs-prev" aria-label="Previous case study" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="cs-viewport">
-          <div class="cs-track" id="csTrack">
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></div>
-              <p class="cs-result">AE team increased meetings set/held by 29.8%</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/digicert.jpg" alt="Digicert" loading="lazy"></div>
-              <p class="cs-result">SDR team increased outbound opps created by 54%</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/varonis.jpg" alt="Varonis" loading="lazy"></div>
-              <p class="cs-result">SDR team increased pipeline sourced by 21% YoY</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/optimizely.jpg" alt="Optimizely" loading="lazy"></div>
-              <p class="cs-result">SDR team increased pipeline sourced per rep by 20.8%</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/hyland.jpg" alt="Hyland" loading="lazy"></div>
-              <p class="cs-result">SDR team had their biggest month of pipeline generated by 270%+</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/shopify.jpg" alt="Shopify" loading="lazy"></div>
-              <p class="cs-result">AE/SDR mid-market team increased qualified opps created by 38%+</p>
-            </article>
-          </div>
-        </div>
-
-        <button class="cs-arrow cs-next" aria-label="Next case study" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="cs-dots" id="csDots" role="tablist" aria-label="Select case study">
-          <!-- dots injected by JS -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
        6. REVIEWS
        ======================================== -->
   <section class="section section-white">
@@ -1312,8 +1341,7 @@
       <h2 class="section-headline text-center reveal">What reps and leaders are saying</h2>
 
       <div class="filter-tabs reveal" role="tablist" aria-label="Filter reviews">
-        <button class="filter-tab active" data-review-filter="all" type="button">All</button>
-        <button class="filter-tab" data-review-filter="reps" type="button">From Reps</button>
+        <button class="filter-tab active" data-review-filter="reps" type="button">From Reps</button>
         <button class="filter-tab" data-review-filter="leaders" type="button">From Leaders</button>
       </div>
 
@@ -1323,7 +1351,7 @@
           frameborder="0" scrolling="no" width="100%"></iframe>
       </div>
 
-      <div class="testimonial-embed active reveal" id="embedLeaders">
+      <div class="testimonial-embed reveal" id="embedLeaders">
         <iframe id="testimonialto-a52acec9-c85e-41f5-8b05-47be4aff771a"
           src="https://embed-v2.testimonial.to/w/outbound-squad-b2b?id=a52acec9-c85e-41f5-8b05-47be4aff771a"
           frameborder="0" scrolling="no" width="100%"></iframe>
@@ -1349,15 +1377,18 @@
   <footer class="footer">
     <div class="container text-center">
       <img src="../logo.png" alt="Outbound Squad" class="footer-logo">
-      <ul class="footer-links">
-        <li><a href="/reviews/">Reviews</a></li>
-        <li><a href="/resources/">Insights</a></li>
+      <ul class="footer-links footer-nav">
+        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
+        <li><a href="/clients/">Our Clients</a></li>
         <li><a href="/our-team/">Our Team</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/podcast/">Podcast</a></li>
+        <li><a href="/contact/">Book A Call</a></li>
       </ul>
-      <p class="footer-copy">&copy; 2026 Outbound Squad</p>
+      <ul class="footer-links footer-legal">
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms-of-service/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">2026 Outbound Squad</p>
     </div>
   </footer>
 
@@ -1469,15 +1500,12 @@
         tab.addEventListener('click', function () {
           var filter = tab.dataset.reviewFilter;
           tabs.forEach(function (t) { t.classList.toggle('active', t === tab); });
-          if (filter === 'reps') {
-            embedReps.classList.add('active');
-            embedLeaders.classList.remove('active');
-          } else if (filter === 'leaders') {
+          if (filter === 'leaders') {
             embedReps.classList.remove('active');
             embedLeaders.classList.add('active');
           } else {
             embedReps.classList.add('active');
-            embedLeaders.classList.add('active');
+            embedLeaders.classList.remove('active');
           }
         });
       });

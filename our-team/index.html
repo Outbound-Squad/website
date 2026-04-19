@@ -443,7 +443,7 @@
       color: #F86A3E;
       text-transform: uppercase;
       letter-spacing: 1.2px;
-      margin-bottom: 18px;
+      margin-bottom: 6px;
     }
 
     .tm-bio {
@@ -503,29 +503,34 @@
       line-height: 1.45;
     }
 
-    /* LinkedIn button */
+    /* LinkedIn inline link (under the title) */
     .tm-linkedin {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #1B2235;
-      border: 1.5px solid #1B2235;
-      border-radius: 8px;
-      padding: 9px 16px;
-      transition: background 0.2s, color 0.2s, transform 0.15s;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #7a8299;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin-bottom: 18px;
+      transition: color 0.2s;
     }
 
     .tm-linkedin:hover {
-      background: #1B2235;
-      color: #FFFFFF;
-      transform: translateY(-2px);
+      color: #1B2235;
+      background: transparent;
+      transform: none;
     }
 
     .tm-linkedin svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
+    }
+
+    .tm-title {
+      margin-bottom: 6px;
     }
 
     /* ========================================
@@ -581,6 +586,12 @@
       overflow: hidden;
       margin: 0 auto 20px;
       box-shadow: 0 0 0 3px #FFFFFF, 0 0 0 6px #E6F0FA;
+    }
+
+    .support-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .support-photo .tm-placeholder {
@@ -652,14 +663,32 @@
     }
 
     .footer-links a {
-      font-size: 14px;
-      color: #7a8299;
+      font-size: 15px;
+      color: #1B2235;
       font-weight: 500;
+      text-decoration: none;
       transition: color 0.2s;
     }
 
     .footer-links a:hover {
+      color: #00A2FF;
+      text-decoration: underline;
+    }
+
+    .footer-legal {
+      gap: 8px 20px;
+      margin-bottom: 16px;
+    }
+
+    .footer-legal a {
+      font-size: 13px;
+      color: #7a8299;
+      font-weight: 400;
+    }
+
+    .footer-legal a:hover {
       color: #1B2235;
+      text-decoration: underline;
     }
 
     .footer-copy {
@@ -795,7 +824,7 @@
     <div class="container">
       <span class="hero-eyebrow reveal">The Squad</span>
       <h1 class="hero-headline reveal">Meet the Team</h1>
-      <p class="hero-sub reveal">We're a team of active sales practitioners, not career trainers. We make cold calls, send cold emails, and coach reps every single week.</p>
+      <p class="hero-sub reveal">Meet our world-class team of trainers and supporting staff to help you execute the Outbound Squad methodology, pack your pipeline with qualified meetings, and win more deals.</p>
     </div>
   </section>
 
@@ -804,102 +833,6 @@
        ======================================== -->
   <section class="team-section">
     <div class="container">
-
-      <!-- Clara Johnson - photo left, orange border -->
-      <article class="team-member photo-left">
-        <div class="tm-photo tm-photo-orange reveal-left">
-          <div class="tm-photo-inner">
-            <div class="tm-placeholder" aria-label="Clara Johnson">CJ</div>
-          </div>
-        </div>
-        <div class="tm-content reveal-right">
-          <h2 class="tm-name">Clara Johnson</h2>
-          <p class="tm-title">Head of Client Transformation</p>
-          <p class="tm-bio">Clara has a track record of winning President's Club, hitting 200%+ quota as a rep, and managing top teams as a leader at companies like Outreach, Catalyst, and more. At Outbound Squad, she leads our client transformation team.</p>
-          <div class="tm-facts">
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💰</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Largest Deal Closed</span>
-                <span class="tm-fact-value">$480k (multi-year agreement)</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Outbound Channel of Choice</span>
-                <span class="tm-fact-value">Honestly, ALL OF THEM :)</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📚</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Favorite Sales Book</span>
-                <span class="tm-fact-value">The Power of One More by Ed Mylett</span>
-              </div>
-            </div>
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Best Sales Advice</span>
-                <span class="tm-fact-value">Focus on the things you don't want to do first, that's where you grow the most.</span>
-              </div>
-            </div>
-          </div>
-          <a href="http://linkedin.com/in/clarahughesjohnson/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Clara Johnson on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn
-          </a>
-        </div>
-      </article>
-
-      <!-- Amanda Long - photo right, blue border -->
-      <article class="team-member photo-right">
-        <div class="tm-photo tm-photo-blue reveal-right">
-          <div class="tm-photo-inner">
-            <div class="tm-placeholder" aria-label="Amanda Long">AL</div>
-          </div>
-        </div>
-        <div class="tm-content reveal-left">
-          <h2 class="tm-name">Amanda Long</h2>
-          <p class="tm-title">Pipeline Consultant</p>
-          <p class="tm-bio">Amanda has 10+ years of sales experience as a top-performing Account Executive, front-line leader, and building world-class enablement programs. At Outbound Squad, she leads training engagements with SDR teams, AE teams, and front-line leaders.</p>
-          <div class="tm-facts">
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💰</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Largest Deal Closed</span>
-                <span class="tm-fact-value">$420K</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📞</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Outbound Channel of Choice</span>
-                <span class="tm-fact-value">Phone &amp; Social</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📚</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Favorite Sales Book</span>
-                <span class="tm-fact-value">Trillion Dollar Coach by Eric Schmidt, Jonathan Rosenberg, &amp; Alan Eagle</span>
-              </div>
-            </div>
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Best Sales Advice</span>
-                <span class="tm-fact-value">Complacency is what digs the rut for you. If you want to be successful, you can never get too comfortable with your pipeline.</span>
-              </div>
-            </div>
-          </div>
-          <a href="https://www.linkedin.com/in/its-amandalong/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Amanda Long on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn
-          </a>
-        </div>
-      </article>
 
       <!-- Jason Bay - photo left, orange border -->
       <article class="team-member photo-left">
@@ -911,6 +844,10 @@
         <div class="tm-content reveal-right">
           <h2 class="tm-name">Jason Bay</h2>
           <p class="tm-title">CEO &amp; Founder</p>
+          <a href="https://www.linkedin.com/in/jasondbay/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Jason Bay on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn &rarr;
+          </a>
           <p class="tm-bio">Jason has over a decade and a half of experience selling and leading sales teams. He led many of the training engagements with AEs and SDRs at Gong, Zoom, Medallia, Rippling, and many more prior to stepping into a CEO role to help Outbound Squad scale.</p>
           <div class="tm-facts">
             <div class="tm-fact">
@@ -942,10 +879,102 @@
               </div>
             </div>
           </div>
-          <a href="https://www.linkedin.com/in/jasondbay/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Jason Bay on LinkedIn">
+        </div>
+      </article>
+
+      <!-- Clara Johnson - photo right, blue border -->
+      <article class="team-member photo-right">
+        <div class="tm-photo tm-photo-blue reveal-right">
+          <div class="tm-photo-inner">
+            <img src="../headshots/clara-johnson.jpg" alt="Clara Johnson">
+          </div>
+        </div>
+        <div class="tm-content reveal-left">
+          <h2 class="tm-name">Clara Johnson</h2>
+          <p class="tm-title">Head of Client Transformation</p>
+          <a href="http://linkedin.com/in/clarahughesjohnson/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Clara Johnson on LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn
+            Connect on LinkedIn &rarr;
           </a>
+          <p class="tm-bio">Clara has a track record of winning President's Club, hitting 200%+ quota as a rep, and managing top teams as a leader at companies like Outreach, Catalyst, and more. At Outbound Squad, she leads our client transformation team.</p>
+          <div class="tm-facts">
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💰</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Largest Deal Closed</span>
+                <span class="tm-fact-value">$480k (multi-year agreement)</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📱</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Outbound Channel of Choice</span>
+                <span class="tm-fact-value">Honestly, ALL OF THEM :)</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📚</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Favorite Sales Book</span>
+                <span class="tm-fact-value">The Power of One More by Ed Mylett</span>
+              </div>
+            </div>
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💡</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Best Sales Advice</span>
+                <span class="tm-fact-value">Focus on the things you don't want to do first, that's where you grow the most.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Amanda Long - photo left, orange border -->
+      <article class="team-member photo-left">
+        <div class="tm-photo tm-photo-orange reveal-left">
+          <div class="tm-photo-inner">
+            <img src="../headshots/amanda-long.jpg" alt="Amanda Long">
+          </div>
+        </div>
+        <div class="tm-content reveal-right">
+          <h2 class="tm-name">Amanda Long</h2>
+          <p class="tm-title">Pipeline Consultant</p>
+          <a href="https://www.linkedin.com/in/its-amandalong/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Amanda Long on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn &rarr;
+          </a>
+          <p class="tm-bio">Amanda has 10+ years of sales experience as a top-performing Account Executive, front-line leader, and building world-class enablement programs. At Outbound Squad, she leads training engagements with SDR teams, AE teams, and front-line leaders.</p>
+          <div class="tm-facts">
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💰</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Largest Deal Closed</span>
+                <span class="tm-fact-value">$420K</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📞</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Outbound Channel of Choice</span>
+                <span class="tm-fact-value">Phone &amp; Social</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📚</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Favorite Sales Book</span>
+                <span class="tm-fact-value">Trillion Dollar Coach by Eric Schmidt, Jonathan Rosenberg, &amp; Alan Eagle</span>
+              </div>
+            </div>
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💡</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Best Sales Advice</span>
+                <span class="tm-fact-value">Complacency is what digs the rut for you. If you want to be successful, you can never get too comfortable with your pipeline.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -953,12 +982,16 @@
       <article class="team-member photo-right">
         <div class="tm-photo tm-photo-blue reveal-right">
           <div class="tm-photo-inner">
-            <div class="tm-placeholder" aria-label="Dan Strauss">DS</div>
+            <img src="../headshots/dan-strauss.jpg" alt="Dan Strauss">
           </div>
         </div>
         <div class="tm-content reveal-left">
           <h2 class="tm-name">Dan Strauss</h2>
           <p class="tm-title">Advisor</p>
+          <a href="https://www.linkedin.com/in/ciguy/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Dan Strauss on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn &rarr;
+          </a>
           <p class="tm-bio">Dan has a track record of closing the largest deals in previous roles at ZoomInfo, OpenGov, Chorus.ai, and many others. He's personally closed deals with Adobe, Uber, DocuSign, Zoom, Motorola, Toast, Qualtrics, The City of Seattle, BMC Software and many more. Dan advises Outbound Squad on the latest and greatest strategies world-class sales teams are using to open and close more deals.</p>
           <div class="tm-facts">
             <div class="tm-fact">
@@ -990,10 +1023,6 @@
               </div>
             </div>
           </div>
-          <a href="https://www.linkedin.com/in/ciguy/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Dan Strauss on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn
-          </a>
         </div>
       </article>
 
@@ -1010,7 +1039,7 @@
       <div class="support-grid">
         <div class="support-card reveal">
           <div class="support-photo">
-            <div class="tm-placeholder" aria-label="Marga Adarlo">MA</div>
+            <img src="../headshots/marga-adarlo.jpg" alt="Marga Adarlo">
           </div>
           <h3 class="support-name">Marga Adarlo</h3>
           <p class="support-title">Client Ops Manager</p>
@@ -1018,7 +1047,7 @@
         </div>
         <div class="support-card reveal">
           <div class="support-photo">
-            <div class="tm-placeholder" aria-label="Lica Mojica">LM</div>
+            <img src="../headshots/lica-mojica.jpg" alt="Lica Mojica">
           </div>
           <h3 class="support-name">Lica Mojica</h3>
           <p class="support-title">Revenue Ops Manager</p>
@@ -1029,31 +1058,23 @@
   </section>
 
   <!-- ========================================
-       FINAL CTA
-       ======================================== -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="section-headline reveal">Want to work with us?</h2>
-      <p class="section-sub reveal">Book a call to learn more about how we can help your sales team.</p>
-      <a href="/contact/" class="btn btn-orange btn-lg reveal">Book a Call</a>
-    </div>
-  </section>
-
-  <!-- ========================================
        FOOTER
        ======================================== -->
   <footer class="footer">
     <div class="container text-center">
       <img src="../logo.png" alt="Outbound Squad" class="footer-logo">
-      <ul class="footer-links">
-        <li><a href="/reviews/">Reviews</a></li>
-        <li><a href="/resources/">Insights</a></li>
+      <ul class="footer-links footer-nav">
+        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
+        <li><a href="/clients/">Our Clients</a></li>
         <li><a href="/our-team/">Our Team</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/podcast/">Podcast</a></li>
+        <li><a href="/contact/">Book A Call</a></li>
       </ul>
-      <p class="footer-copy">&copy; 2026 Outbound Squad</p>
+      <ul class="footer-links footer-legal">
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms-of-service/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">2026 Outbound Squad</p>
     </div>
   </footer>
 
