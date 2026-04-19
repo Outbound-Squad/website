@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Outbound Squad Podcast | Hosted by Jason Bay</title>
+  <meta name="description" content="The Outbound Squad podcast with Jason Bay. 399+ episodes interviewing sales experts, leaders, and top-performing reps. Cold calling, cold email, prospecting, and outbound strategy for B2B sales teams.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       Outbound Squad - Podcast Page
+       Matches homepage design system
+       ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444444;
+      background: #FFFFFF;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #00A2FF;
+      text-decoration: none;
+    }
+
+    /* ========================================
+       Scroll Animations
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal.delay-1 { transition-delay: 0.08s; }
+    .reveal.delay-2 { transition-delay: 0.16s; }
+    .reveal.delay-3 { transition-delay: 0.24s; }
+    .reveal.delay-4 { transition-delay: 0.32s; }
+    .reveal.delay-5 { transition-delay: 0.40s; }
+
+    /* ========================================
+       Layout
+       ======================================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-wide {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .text-center { text-align: center; }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-headline {
+      font-size: 40px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: #666666;
+      margin-bottom: 48px;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========================================
+       Buttons
+       ======================================== */
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-orange {
+      background: #F86A3E;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(248, 106, 62, 0.3);
+    }
+
+    .btn-orange:hover {
+      background: #e55a2e;
+      box-shadow: 0 6px 20px rgba(248, 106, 62, 0.4);
+    }
+
+    .btn-nav {
+      font-size: 15px;
+      padding: 10px 20px;
+    }
+
+    .nav-cta .btn-orange,
+    .nav-cta a.btn-orange,
+    .nav-links .btn-orange {
+      color: #FFFFFF !important;
+    }
+
+    .nav-cta .btn-orange:hover,
+    .nav-cta a.btn-orange:hover,
+    .nav-links .btn-orange:hover {
+      color: #FFFFFF !important;
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav.on-dark .nav-links a { color: #FFFFFF; }
+    .nav.on-dark .nav-links a:hover,
+    .nav.on-dark .nav-links a.active { color: #00A2FF; }
+    .nav.on-dark .nav-toggle span { background: #FFFFFF; }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      box-shadow: 0 1px 0 rgba(27, 34, 53, 0.08);
+      padding: 10px 0;
+    }
+
+    .nav.scrolled .nav-links a { color: #1B2235; }
+    .nav.scrolled .nav-links a:hover,
+    .nav.scrolled .nav-links a.active { color: #00A2FF; }
+    .nav.scrolled .nav-toggle span { background: #1B2235; }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1B2235;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #00A2FF; }
+    .nav-links a.active { color: #00A2FF; }
+
+    .nav-cta { margin-left: 8px; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1B2235;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s, background 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ========================================
+       HERO (DARK STUDIO)
+       ======================================== */
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(0, 162, 255, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 10% 110%, rgba(248, 106, 62, 0.15), transparent 60%),
+        linear-gradient(180deg, #0E1424 0%, #131A2D 60%, #1B2235 100%);
+      color: #FFFFFF;
+      padding: 160px 0 120px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Soft waveform pattern in the background */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #F86A3E;
+      background: rgba(248, 106, 62, 0.14);
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(248, 106, 62, 0.3);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #F86A3E;
+      box-shadow: 0 0 0 0 rgba(248, 106, 62, 0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(248, 106, 62, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(248, 106, 62, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(248, 106, 62, 0); }
+    }
+
+    .hero-headline {
+      font-size: 88px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.0;
+      letter-spacing: -2.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero-sub-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #F86A3E;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: #C9D1E0;
+      line-height: 1.65;
+      margin: 0 auto 40px;
+      max-width: 780px;
+    }
+
+    .hero-host {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8FA0BF;
+      letter-spacing: 0.3px;
+      margin-bottom: 36px;
+    }
+
+    .hero-host strong { color: #FFFFFF; font-weight: 700; }
+
+    /* Platform buttons row */
+    .platform-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .platform-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      min-height: 56px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .platform-btn svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .platform-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      color: #FFFFFF;
+    }
+
+    .platform-btn.spotify {
+      background: #1DB954;
+      box-shadow: 0 8px 24px rgba(29, 185, 84, 0.35);
+      border-color: transparent;
+    }
+
+    .platform-btn.apple {
+      background: #9933CC;
+      box-shadow: 0 8px 24px rgba(153, 51, 204, 0.35);
+      border-color: transparent;
+    }
+
+    .platform-btn.iheart {
+      background: #C6002B;
+      box-shadow: 0 8px 24px rgba(198, 0, 43, 0.35);
+      border-color: transparent;
+    }
+
+    /* Outlined variant (for CTA section) */
+    .platform-btn.outline {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .platform-btn.outline.spotify {
+      border: 2px solid #1DB954;
+      color: #1DB954;
+    }
+    .platform-btn.outline.spotify:hover {
+      background: #1DB954;
+      color: #FFFFFF;
+    }
+
+    .platform-btn.outline.apple {
+      border: 2px solid #B461E5;
+      color: #D29EF0;
+    }
+    .platform-btn.outline.apple:hover {
+      background: #9933CC;
+      border-color: #9933CC;
+      color: #FFFFFF;
+    }
+
+    .platform-btn.outline.iheart {
+      border: 2px solid #FF4757;
+      color: #FF8A95;
+    }
+    .platform-btn.outline.iheart:hover {
+      background: #C6002B;
+      border-color: #C6002B;
+      color: #FFFFFF;
+    }
+
+    .youtube-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #8FA0BF;
+      transition: color 0.2s;
+    }
+
+    .youtube-link:hover { color: #FFFFFF; }
+
+    .youtube-link svg {
+      width: 18px;
+      height: 18px;
+      fill: #FF0000;
+    }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      min-width: 140px;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .stat-value.accent { color: #F86A3E; }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8FA0BF;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .stat-stars {
+      display: inline-flex;
+      gap: 2px;
+      color: #FFC33D;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* ========================================
+       FEATURED EPISODE
+       ======================================== */
+    .featured-section {
+      padding: 96px 0;
+      background: #FFFFFF;
+    }
+
+    .featured-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .featured-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #00A2FF;
+      background: rgba(0, 162, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .featured-card {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 12px 48px rgba(27, 34, 53, 0.10);
+      border: 1px solid #EFF2F7;
+    }
+
+    .featured-card iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    .featured-note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #7a8299;
+    }
+
+    .featured-note a {
+      color: #00A2FF;
+      font-weight: 600;
+    }
+
+    .featured-note a:hover { text-decoration: underline; }
+
+    /* ========================================
+       STARTER PACKS
+       ======================================== */
+    .packs-section {
+      padding: 96px 0;
+      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 40%, #F3F7FC 100%);
+    }
+
+    .packs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .pack-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(27, 34, 53, 0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pack-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #F86A3E, #00A2FF);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .pack-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(27, 34, 53, 0.12);
+    }
+
+    .pack-card:hover::before { opacity: 1; }
+
+    .pack-emoji {
+      font-size: 36px;
+      line-height: 1;
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #F4F8FD 0%, #E6F0FA 100%);
+    }
+
+    .pack-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.3px;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .pack-desc {
+      font-size: 15px;
+      color: #5a6478;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .pack-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1DB954;
+      text-transform: none;
+    }
+
+    .pack-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pack-link:hover { color: #169c46; }
+
+    /* ========================================
+       POPULAR EPISODES
+       ======================================== */
+    .popular-section {
+      padding: 96px 0;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .slider-wrap {
+      position: relative;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .slider-viewport {
+      overflow: hidden;
+      padding: 8px 0;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ep-card {
+      flex: 0 0 calc(25% - 18px);
+      min-width: 0;
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 3px 16px rgba(27, 34, 53, 0.06);
+      border-left: 4px solid #F86A3E;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+
+    .ep-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(27, 34, 53, 0.10);
+    }
+
+    .ep-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: #F86A3E;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 12px;
+    }
+
+    .ep-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.2px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .ep-desc {
+      font-size: 14px;
+      color: #7a8299;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .ep-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #00A2FF;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .ep-link:hover { color: #0080cc; }
+
+    /* Slider controls */
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .slider-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #E4E8F0;
+      background: #FFFFFF;
+      color: #1B2235;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .slider-btn:hover:not(:disabled) {
+      border-color: #1B2235;
+      background: #1B2235;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .slider-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .slider-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #D8DEE8;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .slider-dot.active {
+      background: #F86A3E;
+      transform: scale(1.3);
+    }
+
+    /* ========================================
+       SUBSCRIBE CTA (DARK)
+       ======================================== */
+    .subscribe-section {
+      position: relative;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(0, 162, 255, 0.15), transparent 60%),
+        radial-gradient(800px 500px at 90% 110%, rgba(248, 106, 62, 0.12), transparent 60%),
+        linear-gradient(180deg, #1B2235 0%, #131A2D 100%);
+      padding: 96px 0;
+      text-align: center;
+      color: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .subscribe-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    .subscribe-inner { position: relative; z-index: 2; }
+
+    .subscribe-section .section-headline {
+      color: #FFFFFF;
+      font-size: 44px;
+      letter-spacing: -0.8px;
+    }
+
+    .subscribe-sub {
+      font-size: 18px;
+      color: #C9D1E0;
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .subscribe-foot {
+      margin-top: 28px;
+      font-size: 14px;
+      color: #8FA0BF;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: #FFFFFF;
+      padding: 48px 0 40px;
+      border-top: 1px solid #EEEEEE;
+    }
+
+    .footer-logo {
+      width: 140px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin-bottom: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 15px;
+      color: #1B2235;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #00A2FF;
+      text-decoration: underline;
+    }
+
+    .footer-legal {
+      gap: 8px 20px;
+      margin-bottom: 16px;
+    }
+
+    .footer-legal a {
+      font-size: 13px;
+      color: #7a8299;
+      font-weight: 400;
+    }
+
+    .footer-legal a:hover {
+      color: #1B2235;
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #999999;
+      text-align: center;
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 960px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(320px, 85vw);
+        background: #FFFFFF;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 84px 32px 32px;
+        gap: 20px;
+        box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-links.open { transform: translateX(0); }
+      .nav.on-dark .nav-links a { color: #1B2235; }
+      .nav.on-dark .nav-links.open a { color: #1B2235; }
+      .nav-links a { font-size: 18px; }
+      .nav-cta { margin-left: 0; margin-top: 8px; }
+      .nav-toggle { display: flex; z-index: 110; }
+
+      .packs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ep-card {
+        flex: 0 0 calc(50% - 12px);
+      }
+
+      .hero-headline { font-size: 64px; letter-spacing: -1.5px; }
+      .hero-sub-title { font-size: 22px; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+
+      .hero {
+        padding: 130px 0 80px;
+      }
+
+      .hero-headline { font-size: 48px; letter-spacing: -1px; line-height: 1.05; }
+      .hero-sub-title { font-size: 20px; margin-bottom: 22px; }
+      .hero-desc { font-size: 16px; }
+      .section-headline { font-size: 30px; }
+      .subscribe-section .section-headline { font-size: 32px; }
+
+      .featured-section,
+      .packs-section,
+      .popular-section,
+      .subscribe-section {
+        padding: 64px 0;
+      }
+
+      .featured-card { padding: 18px; border-radius: 16px; }
+
+      .packs-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .ep-card {
+        flex: 0 0 calc(100% - 0px);
+      }
+
+      .platform-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+      }
+
+      .platform-row { gap: 10px; }
+
+      .hero-stats {
+        gap: 16px;
+        padding-top: 32px;
+        margin-top: 36px;
+      }
+
+      .stat-divider { display: none; }
+
+      .stat { min-width: 100px; }
+      .stat-value { font-size: 24px; }
+
+      .slider-track { gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <nav class="nav on-dark" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Outbound Squad home">
+        <img src="../logo.png" alt="Outbound Squad">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
+        <li><a href="/clients/">Our Clients</a></li>
+        <li><a href="/our-team/">Our Team</a></li>
+        <li><a href="/podcast/" class="active">Podcast</a></li>
+        <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================
+       HERO
+       ======================================== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="hero-eyebrow reveal">
+        <span class="live-dot"></span>
+        New Episode Weekly
+      </span>
+      <h1 class="hero-headline reveal">Outbound Squad</h1>
+      <p class="hero-sub-title reveal delay-1">The Podcast</p>
+      <p class="hero-host reveal delay-1">Hosted by <strong>Jason Bay</strong> (call him JBay)</p>
+      <p class="hero-desc reveal delay-2">This sales podcast is for B2B reps and sales teams who want to turn complete strangers into paying customers. Join me (you can call me JBay) as I interview sales experts, leaders, and top-performing reps to learn the stories, secrets, and skills of the world's most successful sales professionals.</p>
+
+      <div class="platform-row reveal delay-3">
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="platform-btn spotify" aria-label="Listen on Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="#FFFFFF">
+            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/>
+          </svg>
+          Listen on Spotify
+        </a>
+        <a href="https://podcasts.apple.com/us/podcast/outbound-squad/id1502265369" target="_blank" rel="noopener" class="platform-btn apple" aria-label="Listen on Apple Podcasts">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="#FFFFFF">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3.2a2.4 2.4 0 110 4.8 2.4 2.4 0 010-4.8zm-4.8 9.6c0-2.65 2.15-4.8 4.8-4.8s4.8 2.15 4.8 4.8c0 .42-.06.83-.17 1.22a.8.8 0 01-.78.58h-.08a.8.8 0 01-.72-1.1c.08-.23.15-.5.15-.7 0-1.77-1.43-3.2-3.2-3.2s-3.2 1.43-3.2 3.2c0 .2.07.47.15.7a.8.8 0 01-.72 1.1h-.08a.8.8 0 01-.78-.58 4.79 4.79 0 01-.17-1.22zm3.15 3.05a.8.8 0 01.78-.65h1.74a.8.8 0 01.78.65l.48 3.2a.8.8 0 01-.79.95h-2.68a.8.8 0 01-.79-.95l.48-3.2zm1.65-4.65a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+          </svg>
+          Listen on Apple Podcasts
+        </a>
+        <a href="https://www.iheart.com/podcast/269-outbound-squad-280225920/" target="_blank" rel="noopener" class="platform-btn iheart" aria-label="Listen on iHeartRadio">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="#FFFFFF">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          Listen on iHeartRadio
+        </a>
+      </div>
+
+      <a href="https://www.youtube.com/@jasondbay" target="_blank" rel="noopener" class="youtube-link reveal delay-4">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
+        </svg>
+        Also available on YouTube
+      </a>
+
+      <div class="hero-stats reveal delay-5">
+        <div class="stat">
+          <span class="stat-value accent">399+</span>
+          <span class="stat-label">Episodes</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">4.9</span>
+          <span class="stat-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+          <span class="stat-label">127 Ratings</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value accent">Weekly</span>
+          <span class="stat-label">New Drops</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FEATURED EPISODE
+       ======================================== -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="featured-head">
+        <span class="featured-eyebrow reveal">Now Playing</span>
+        <h2 class="section-headline reveal">Latest Episode</h2>
+        <p class="section-sub reveal">Press play on the most recent episode of Outbound Squad, or browse the full catalog inside the player.</p>
+      </div>
+
+      <div class="featured-card reveal">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/3M48nC6r29rITjQ1wFccdN?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Outbound Squad Spotify Player"></iframe>
+      </div>
+
+      <p class="featured-note reveal">Prefer a different app? <a href="https://podcasts.apple.com/us/podcast/outbound-squad/id1502265369" target="_blank" rel="noopener">Open in Apple Podcasts</a> or <a href="https://www.iheart.com/podcast/269-outbound-squad-280225920/" target="_blank" rel="noopener">iHeartRadio</a>.</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       STARTER PACKS
+       ======================================== -->
+  <section class="packs-section">
+    <div class="container">
+      <div class="featured-head">
+        <span class="featured-eyebrow reveal">Curated Playlists</span>
+        <h2 class="section-headline reveal">Not sure where to start?</h2>
+        <p class="section-sub reveal">We've curated starter packs for every role and topic so you can hit the ground running.</p>
+      </div>
+
+      <div class="packs-grid">
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="pack-card reveal">
+          <span class="pack-emoji" aria-hidden="true">🎯</span>
+          <h3 class="pack-title">SDR Starter Pack</h3>
+          <p class="pack-desc">Everything you need to crush it as an SDR. Cold calling, cold email, and pipeline fundamentals.</p>
+          <span class="pack-link">
+            <svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/></svg>
+            Listen on Spotify
+          </span>
+        </a>
+
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="pack-card reveal delay-1">
+          <span class="pack-emoji" aria-hidden="true">💼</span>
+          <h3 class="pack-title">Account Executive Starter Pack</h3>
+          <p class="pack-desc">Self-sourcing, discovery, deal strategy, and moving up-market.</p>
+          <span class="pack-link">
+            <svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/></svg>
+            Listen on Spotify
+          </span>
+        </a>
+
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="pack-card reveal delay-2">
+          <span class="pack-emoji" aria-hidden="true">📞</span>
+          <h3 class="pack-title">Cold Calling Starter Pack</h3>
+          <p class="pack-desc">Master the phone. Openers, hooks, objection handling, and frameworks that book meetings.</p>
+          <span class="pack-link">
+            <svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/></svg>
+            Listen on Spotify
+          </span>
+        </a>
+
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="pack-card reveal">
+          <span class="pack-emoji" aria-hidden="true">✉️</span>
+          <h3 class="pack-title">Cold Email Starter Pack</h3>
+          <p class="pack-desc">Subject lines, body copy, sequences, and data-backed strategies from 85M+ emails.</p>
+          <span class="pack-link">
+            <svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/></svg>
+            Listen on Spotify
+          </span>
+        </a>
+
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="pack-card reveal delay-1">
+          <span class="pack-emoji" aria-hidden="true">👥</span>
+          <h3 class="pack-title">Sales Leadership</h3>
+          <p class="pack-desc">Coaching frameworks, accountability systems, and building high-performing teams.</p>
+          <span class="pack-link">
+            <svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/></svg>
+            Listen on Spotify
+          </span>
+        </a>
+
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="pack-card reveal delay-2">
+          <span class="pack-emoji" aria-hidden="true">⚡</span>
+          <h3 class="pack-title">Productivity for Sales Reps</h3>
+          <p class="pack-desc">Time management, territory planning, and systems for consistent pipeline generation.</p>
+          <span class="pack-link">
+            <svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/></svg>
+            Listen on Spotify
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       POPULAR EPISODES
+       ======================================== -->
+  <section class="popular-section">
+    <div class="container">
+      <div class="featured-head">
+        <span class="featured-eyebrow reveal">Most Loved</span>
+        <h2 class="section-headline reveal">Fan Favorites</h2>
+        <p class="section-sub reveal">Our most popular episodes across 399+ episodes.</p>
+      </div>
+    </div>
+
+    <div class="slider-wrap reveal">
+      <div class="slider-viewport">
+        <div class="slider-track" id="sliderTrack">
+          <!-- Episode 1 -->
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 01</span>
+            <h3 class="ep-title">[Playbook] Cold Email: Analyzing 85M+ cold emails to find what's working</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 02</span>
+            <h3 class="ep-title">Steal this cold calling framework to book 2-3x more meetings</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 03</span>
+            <h3 class="ep-title">[Playbook] No, cold calling isn't dead (how to land meetings in 2025)</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 04</span>
+            <h3 class="ep-title">The Offer: Why no one responds to your cold outreach</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 05</span>
+            <h3 class="ep-title">[Playbook] How to build and scale a world-class outbound program</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 06</span>
+            <h3 class="ep-title">AI Masterclass: THE guide on how to leverage AI for outbound</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 07</span>
+            <h3 class="ep-title">Cold Calling Sucks and That's Why It Works</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 08</span>
+            <h3 class="ep-title">[Playbook] Multi-threading: Get to power, win bigger deals</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 09</span>
+            <h3 class="ep-title">7 hard truths about outbound in 2025</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
+            <span class="ep-num">Episode 10</span>
+            <h3 class="ep-title">Expert Techniques for Selling to the C-Suite</h3>
+            <span class="ep-link">Listen Now →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" id="sliderPrev" aria-label="Previous episodes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="slider-dots" id="sliderDots" aria-hidden="true"></div>
+        <button class="slider-btn" id="sliderNext" aria-label="Next episodes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SUBSCRIBE CTA
+       ======================================== -->
+  <section class="subscribe-section">
+    <div class="container subscribe-inner">
+      <h2 class="section-headline reveal">Never miss an episode</h2>
+      <p class="subscribe-sub reveal">New episodes every week. Subscribe on your favorite platform so the next playbook lands the moment it drops.</p>
+
+      <div class="platform-row reveal delay-1">
+        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="platform-btn outline spotify" aria-label="Subscribe on Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/>
+          </svg>
+          Subscribe on Spotify
+        </a>
+        <a href="https://podcasts.apple.com/us/podcast/outbound-squad/id1502265369" target="_blank" rel="noopener" class="platform-btn outline apple" aria-label="Subscribe on Apple Podcasts">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3.2a2.4 2.4 0 110 4.8 2.4 2.4 0 010-4.8zm-4.8 9.6c0-2.65 2.15-4.8 4.8-4.8s4.8 2.15 4.8 4.8c0 .42-.06.83-.17 1.22a.8.8 0 01-.78.58h-.08a.8.8 0 01-.72-1.1c.08-.23.15-.5.15-.7 0-1.77-1.43-3.2-3.2-3.2s-3.2 1.43-3.2 3.2c0 .2.07.47.15.7a.8.8 0 01-.72 1.1h-.08a.8.8 0 01-.78-.58 4.79 4.79 0 01-.17-1.22zm3.15 3.05a.8.8 0 01.78-.65h1.74a.8.8 0 01.78.65l.48 3.2a.8.8 0 01-.79.95h-2.68a.8.8 0 01-.79-.95l.48-3.2zm1.65-4.65a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+          </svg>
+          Subscribe on Apple Podcasts
+        </a>
+        <a href="https://www.iheart.com/podcast/269-outbound-squad-280225920/" target="_blank" rel="noopener" class="platform-btn outline iheart" aria-label="Subscribe on iHeartRadio">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          Subscribe on iHeartRadio
+        </a>
+      </div>
+
+      <p class="subscribe-foot reveal delay-2">New episodes every week. Subscribe on your favorite platform.</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="container text-center">
+      <img src="../logo.png" alt="Outbound Squad" class="footer-logo">
+      <ul class="footer-links footer-nav">
+        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
+        <li><a href="/clients/">Our Clients</a></li>
+        <li><a href="/our-team/">Our Team</a></li>
+        <li><a href="/podcast/">Podcast</a></li>
+        <li><a href="/contact/">Book A Call</a></li>
+      </ul>
+      <ul class="footer-links footer-legal">
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms-of-service/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">2026 Outbound Squad</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Sticky nav background on scroll */
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        if (window.scrollY > 12) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* Mobile hamburger menu */
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      toggle.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (links.classList.contains('open')) {
+            links.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+
+    /* Smooth scroll for in-page anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (href === '#' || href.length < 2) return;
+        var target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* Scroll reveal */
+    (function () {
+      var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* Popular Episodes Slider */
+    (function () {
+      var track = document.getElementById('sliderTrack');
+      var prevBtn = document.getElementById('sliderPrev');
+      var nextBtn = document.getElementById('sliderNext');
+      var dotsWrap = document.getElementById('sliderDots');
+      if (!track) return;
+      var cards = track.querySelectorAll('.ep-card');
+      var totalCards = cards.length;
+      var page = 0;
+
+      function perView() {
+        var w = window.innerWidth;
+        if (w <= 768) return 1;
+        if (w <= 960) return 2;
+        return 4;
+      }
+
+      function totalPages() {
+        return Math.max(1, Math.ceil(totalCards / perView()));
+      }
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        var pages = totalPages();
+        for (var i = 0; i < pages; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'slider-dot' + (i === page ? ' active' : '');
+          dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
+          (function (idx) {
+            dot.addEventListener('click', function () { goTo(idx); });
+          })(i);
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function update() {
+        var pv = perView();
+        var pages = totalPages();
+        if (page >= pages) page = pages - 1;
+        if (page < 0) page = 0;
+
+        // Calculate translation based on the first card of the page
+        var firstIdx = page * pv;
+        if (firstIdx >= totalCards) firstIdx = Math.max(0, totalCards - pv);
+        var card = cards[firstIdx];
+        if (card) {
+          var cardLeft = card.offsetLeft;
+          track.style.transform = 'translateX(' + (-cardLeft) + 'px)';
+        }
+
+        // Update dots
+        var dots = dotsWrap.querySelectorAll('.slider-dot');
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === page);
+        });
+
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page >= pages - 1;
+      }
+
+      function goTo(idx) {
+        page = idx;
+        update();
+      }
+
+      prevBtn.addEventListener('click', function () { page--; update(); });
+      nextBtn.addEventListener('click', function () { page++; update(); });
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          page = 0;
+          buildDots();
+          update();
+        }, 120);
+      });
+
+      buildDots();
+      update();
+    })();
+  </script>
+
+</body>
+</html>
