@@ -96,12 +96,44 @@
 
     .section-white { background: #FFFFFF; }
 
+    /* Gradient section variants for smooth transitions between sections.
+       Use _top / _mid / _bot suffixes to control fade direction. */
     .section-lightblue {
-      background: linear-gradient(180deg, #EAF1FA 0%, #E6F0FA 40%, #d4e5f7 100%);
+      background: linear-gradient(180deg, #EAF1FA 0%, #E6F0FA 50%, #EAF1FA 100%);
+    }
+
+    /* White fading INTO light blue (used at end of a white section before a blue one) */
+    .bg-fade-white-to-blue {
+      background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 100%);
+    }
+
+    /* Light blue fading OUT to white */
+    .bg-fade-blue-to-white {
+      background: linear-gradient(180deg, #EAF1FA 0%, #FFFFFF 100%);
+    }
+
+    /* White fading into light orange */
+    .bg-fade-white-to-orange {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FCEFE9 100%);
+    }
+
+    /* Light orange fading to white */
+    .bg-fade-orange-to-white {
+      background: linear-gradient(180deg, #FCEFE9 0%, #FFFFFF 100%);
+    }
+
+    /* Solid mid-tone light blue (middle of a blue region) */
+    .bg-lightblue-solid {
+      background: #EAF1FA;
+    }
+
+    /* Solid light orange */
+    .bg-lightorange-solid {
+      background: #FCEFE9;
     }
 
     .section-lightorange {
-      background: linear-gradient(180deg, #FFFFFF 0%, #F9EBE7 40%, #f2ddd6 100%);
+      background: linear-gradient(180deg, #FCEFE9 0%, #FCEFE9 100%);
     }
 
     .section-navy {
@@ -287,7 +319,7 @@
        HERO
        ======================================== */
     .hero {
-      background: linear-gradient(180deg, #FFFFFF 0%, #E6F0FA 55%, #d0e2f4 100%);
+      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 35%, #F3F7FC 75%, #FFFFFF 100%);
       padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
@@ -415,7 +447,7 @@
        OLD WAY vs NEW WAY (INTERACTIVE)
        ======================================== */
     .comparison-section {
-      background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 60%, #EEF4FC 100%);
+      background: #FFFFFF;
       padding: 96px 0 80px;
     }
 
@@ -618,8 +650,8 @@
       justify-content: center;
       align-items: center;
       margin: 8px 0 20px;
-      padding: 20px 0;
-      min-height: 260px;
+      padding: 60px 0;
+      min-height: 380px;
     }
 
     .hub-circle {
@@ -661,6 +693,8 @@
 
     .hub-label {
       position: absolute;
+      top: 50%;
+      left: 50%;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -672,6 +706,7 @@
       border-radius: 999px;
       border: 1px solid #E2E6EC;
       white-space: nowrap;
+      box-shadow: 0 1px 3px rgba(27, 34, 53, 0.06);
     }
 
     .hub-label::before {
@@ -680,16 +715,28 @@
       height: 6px;
       border-radius: 50%;
       background: #3A7BD5;
+      flex-shrink: 0;
     }
 
-    .hub-label.l1 { top: 0; left: 20%; }
-    .hub-label.l2 { top: 0; right: 20%; }
-    .hub-label.l3 { top: 36%; left: 0; }
-    .hub-label.l4 { top: 36%; right: 0; }
-    .hub-label.l5 { top: 58%; left: 0; }
-    .hub-label.l6 { top: 58%; right: 0; }
-    .hub-label.l7 { bottom: 0; left: 20%; }
-    .hub-label.l8 { bottom: 0; right: 20%; }
+    /* Position each label on a circle of radius ~150px from center.
+       Angles start at top (-90deg) and go clockwise.
+       --r controls distance; equal for all 8 labels. */
+    .hub-label {
+      --r: 150px;
+      transform: translate(-50%, -50%)
+                 rotate(var(--a))
+                 translate(var(--r))
+                 rotate(calc(-1 * var(--a)));
+    }
+
+    .hub-label.l1 { --a: -67.5deg; }  /* top-left */
+    .hub-label.l2 { --a: -22.5deg; }  /* top-right */
+    .hub-label.l3 { --a:  22.5deg; }  /* right-upper */
+    .hub-label.l4 { --a:  67.5deg; }  /* right-lower */
+    .hub-label.l5 { --a: 112.5deg; }  /* bottom-right */
+    .hub-label.l6 { --a: 157.5deg; }  /* bottom-left */
+    .hub-label.l7 { --a: 202.5deg; }  /* left-lower */
+    .hub-label.l8 { --a: 247.5deg; }  /* left-upper */
 
     .flow-arrow {
       display: flex;
@@ -850,27 +897,23 @@
       .output-grid { grid-template-columns: 1fr; }
     }
 
+    @media (max-width: 860px) {
+      .hub-label { --r: 155px; font-size: 10.5px; padding: 3px 7px; }
+    }
+
     @media (max-width: 520px) {
-      .hub-wrap { padding: 80px 0 70px; }
-      .hub-circle { width: 150px; height: 150px; padding: 12px; }
-      .hub-circle strong { font-size: 12.5px; }
+      .hub-wrap { padding: 80px 0 70px; min-height: 380px; }
+      .hub-circle { width: 130px; height: 130px; padding: 12px; }
+      .hub-circle strong { font-size: 12px; }
       .hub-circle span { font-size: 10.5px; }
-      .hub-label { font-size: 10px; padding: 2px 6px; }
-      .hub-label.l1 { top: 0; left: 4%; }
-      .hub-label.l2 { top: 0; right: 4%; }
-      .hub-label.l3 { top: 28px; left: 4%; }
-      .hub-label.l4 { top: 28px; right: 4%; }
-      .hub-label.l5 { bottom: 28px; left: 4%; }
-      .hub-label.l6 { bottom: 28px; right: 4%; }
-      .hub-label.l7 { bottom: 0; left: 4%; }
-      .hub-label.l8 { bottom: 0; right: 4%; }
+      .hub-label { --r: 125px; font-size: 10px; padding: 2px 6px; }
     }
 
     /* ========================================
        AI MANIFESTO SECTION
        ======================================== */
     .ai-section {
-      background: linear-gradient(180deg, #EEF4FC 0%, #F4F8FD 50%, #EAF1FA 100%);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 70%, #EAF1FA 100%);
       padding: 96px 0 112px;
     }
 
@@ -1759,6 +1802,15 @@
       border-radius: 8px;
     }
 
+    .client-company-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.4px;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
     .client-result-text {
       font-size: 15px;
       color: #444444;
@@ -1814,7 +1866,7 @@
 
     .ws-track {
       position: relative;
-      min-height: 280px;
+      min-height: 320px;
     }
 
     .ws-slide {
@@ -1890,7 +1942,7 @@
     }
 
     .ws-quote-title {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
       color: #1B2235;
       margin-bottom: 8px;
@@ -1898,10 +1950,10 @@
     }
 
     .ws-quote-text {
-      font-size: 14px;
+      font-size: 16px;
       font-style: italic;
       color: #444;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .ws-arrow {
@@ -2341,7 +2393,6 @@
   <section class="comparison-section" id="comparison">
     <div class="container-wide">
       <h2 class="section-headline text-center reveal">But the old playbook isn't working</h2>
-      <p class="section-sub text-center reveal">One is how most teams do it. The other is how world-class teams do it.</p>
 
       <div class="comparison-grid" id="comparisonGrid">
         <!-- OLD WAY -->
@@ -2352,8 +2403,8 @@
           <div class="step-card" data-step="1">
             <div class="step-num">01</div>
             <div class="step-body">
-              <h4>Get the tools</h4>
-              <p>Arm the team with all the bells &amp; whistles...a sales engagement/sequencing tool, emails &amp; phone numbers, intent data, call recordings, ChatGPT/Claude, AI coach, LinkedIn Sales Nav, etc.</p>
+              <h4>Buy the tech</h4>
+              <p>Arm the team with all the bells &amp; whistles...sequencing tools, AI, intent data, you name it</p>
             </div>
           </div>
 
@@ -2361,7 +2412,7 @@
             <div class="step-num">02</div>
             <div class="step-body">
               <h4>Build the content</h4>
-              <p>Replicate what worked at your last company, use the old Predictable Revenue playbook, or piece together online courses and LinkedIn content. Build a slide deck or series of 'plays' with a few scripts and sequence templates.</p>
+              <p>Use old playbooks or piece together courses to build a few scripts and templated sequences</p>
             </div>
           </div>
 
@@ -2369,7 +2420,7 @@
             <div class="step-num">03</div>
             <div class="step-body">
               <h4>Enable the sales org</h4>
-              <p>Make it a company event. Take 1-2 days at SKO to train the team. Or run a virtual, month long boot camp series to get all the content out to the reps.</p>
+              <p>Roll it out at SKO or virtual boot camp to push the content out to all the reps</p>
             </div>
           </div>
 
@@ -2377,15 +2428,15 @@
             <div class="step-num">04</div>
             <div class="step-body">
               <h4>Mandatory prospecting days</h4>
-              <p>Make it mandatory for every rep in the org to attend a 4-hour prospecting day every week. Reps hate it and results are minimal.</p>
+              <p>Required weekly prospecting days for reps. They hate it. Results are minimal.</p>
             </div>
           </div>
 
           <div class="step-card highlight" data-step="5">
             <div class="step-num">05</div>
             <div class="step-body">
-              <h4>Measure results in 90 days</h4>
-              <p>No noticeable change in behaviors or pipeline. Scrap it. Decide that outbound doesn't work for your org and try something else.</p>
+              <h4>Little to no change</h4>
+              <p>Decide that outbound doesn't work for your org and try something else</p>
             </div>
           </div>
 
@@ -2407,6 +2458,7 @@
         <div class="comparison-col new">
           <h3 class="comp-title">The New Way</h3>
           <p class="comp-subtitle">Start with customer-facing insights. Build on modern outbound strategies. See positive results in less than 90 days.</p>
+
 
           <div class="new-way-wrap" id="newWayWrap">
             <div class="hub-wrap">
@@ -2432,13 +2484,12 @@
             </div>
 
             <div class="os-box">
-              <div class="os-brand">OUTBOUND SQUAD</div>
-              <div class="os-title">Apply Modern Best Practices</div>
-              <div class="os-sub">Outbound Squad's battle-tested outbound process from 250+ real sales teams.</div>
+              <div class="os-title">Layer With Proven Strategies</div>
+              <div class="os-sub">Build a custom strategy with Outbound Squad's proprietary data from 250+ real sales teams.</div>
             </div>
 
             <div class="flow-arrow">
-              <div class="flow-label navy-tag">We build the strategy</div>
+              <div class="flow-label navy-tag">Implement in 2-3 weeks</div>
               <div class="line"></div>
               <div class="tip"></div>
             </div>
@@ -2446,15 +2497,15 @@
             <div class="output-grid">
               <div class="output-card o-orange">
                 <h5>Nail Day 1</h5>
-                <p>Reps believe in what works. You can't afford a miss. Roll out a custom strategy from day 1 with YOUR customer-facing data, proven to work in your industry and with your buyers.</p>
+                <p>Use YOUR customer-facing data to roll out an outbound motion proven to work in your industry and with your buyers.</p>
               </div>
               <div class="output-card o-green">
                 <h5>Shift Culture</h5>
-                <p>Create a transformational shift across the sales org. Every rep and manager follows a standardized approach and speaks a common language.</p>
+                <p>Every rep and manager follows a standardized outbound approach and speaks a common language.</p>
               </div>
               <div class="output-card o-blue">
-                <h5>Results</h5>
-                <p>Create 20%+ more qualified pipeline across the sales org and an outbound pipegen system that never stops.</p>
+                <h5>Quick Results</h5>
+                <p>See measurable pipeline lift in less than 90 days and build a pipegen engine that never stops.</p>
               </div>
             </div>
           </div>
@@ -2468,18 +2519,18 @@
        ======================================== -->
   <section class="ai-section">
     <div class="ai-wrap">
-      <h2 class="reveal">AI hasn't replaced outbound. It raised the stakes.</h2>
-      <p class="reveal">81% of sales teams are using AI for outbound (Salesforce, 2024). Most are using it to send more emails faster, repeating the same mistake the industry has made twice before.</p>
-      <p class="reveal">The problem isn't the tool. It's the input. AI doesn't know what good looks like for your buyer, your market, your motion.</p>
-      <p class="reveal">We do. We've accumulated the playbooks from 250+ real sales teams. We train your people on the methodology, then give your AI the same knowledge so everything compounds.</p>
-      <div class="ai-callout reveal">Human-led. AI-assisted.</div>
+      <h2 class="reveal">AI isn't replacing outbound. It's raising the bar.</h2>
+      <p class="reveal">Most sales teams are using AI to solve a volume problem that doesn't exist. Outbound hasn't had a volume problem since the advent of sequences and dialers.</p>
+      <p class="reveal">Outbound has a quality problem. Reps are spending time on the wrong accounts. Sending messaging that doesn't resonate. And using AI to scale playbooks from 2018.</p>
+      <p class="reveal">AI doesn't know what good looks like for your buyer, your market, or your sales motion. We do. And we've done it successfully with 250+ sales teams.</p>
+      <div class="ai-callout reveal">We believe in a "human-led, AI-assisted" approach.</div>
     </div>
   </section>
 
   <!-- ========================================
        3. 6-PART FRAMEWORK
        ======================================== -->
-  <section class="section section-lightblue" id="framework">
+  <section class="section" id="framework" style="background: linear-gradient(180deg, #EAF1FA 0%, #EAF1FA 85%, #FFFFFF 100%);">
     <div class="container-wide">
       <div class="framework-intro reveal">
         <h2 class="section-headline">The 6-part framework</h2>
@@ -2688,8 +2739,8 @@
             </div>
             <div class="ws-quotes">
               <div class="ws-quote-block">
-                <h4 class="ws-quote-title">Outside voice needed</h4>
-                <p class="ws-quote-text">"Our enablement team is world-class, but they're not (nor is any rep or leader) doing outbound every day in a world-class way. To build this right, we needed an outside voice."</p>
+                <h4 class="ws-quote-title">We needed an outside voice</h4>
+                <p class="ws-quote-text">"Our enablement team is world-class, but they're not (nor was any rep or leader) doing outbound every day in a world-class way. To build this right, we needed an outside voice."</p>
               </div>
               <div class="ws-quote-block">
                 <h4 class="ws-quote-title">Faster time to value</h4>
@@ -2755,7 +2806,7 @@
   <!-- ========================================
        6. RESULTS
        ======================================== -->
-  <section class="section section-lightorange">
+  <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FCEFE9 35%, #FCEFE9 100%);">
     <div class="container">
       <h2 class="section-headline text-center reveal">The results speak for themselves</h2>
 
@@ -2776,28 +2827,28 @@
 
       <div class="client-results-grid reveal">
         <div class="client-result-card">
-          <div class="client-logo-placeholder">[Company Logo]</div>
-          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+          <div class="client-company-name">iHeartMedia</div>
+          <p class="client-result-text">AE team increased meetings set/held by 29.8%</p>
         </div>
         <div class="client-result-card">
-          <div class="client-logo-placeholder">[Company Logo]</div>
-          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+          <div class="client-company-name">Digicert</div>
+          <p class="client-result-text">SDR team increased outbound opps created by 54%</p>
         </div>
         <div class="client-result-card">
-          <div class="client-logo-placeholder">[Company Logo]</div>
-          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+          <div class="client-company-name">Varonis</div>
+          <p class="client-result-text">SDR team increased pipeline sourced by 21% YoY</p>
         </div>
         <div class="client-result-card">
-          <div class="client-logo-placeholder">[Company Logo]</div>
-          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+          <div class="client-company-name">Optimizely</div>
+          <p class="client-result-text">SDR team increased pipeline sourced per rep by 20.8%</p>
         </div>
         <div class="client-result-card">
-          <div class="client-logo-placeholder">[Company Logo]</div>
-          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+          <div class="client-company-name">Hyland</div>
+          <p class="client-result-text">SDR team had their biggest month of pipeline generated by 270%+</p>
         </div>
         <div class="client-result-card">
-          <div class="client-logo-placeholder">[Company Logo]</div>
-          <p class="client-result-text">Pipeline increased by X% within 90 days. Y% improvement in cold call conversion rates.</p>
+          <div class="client-company-name">Shopify</div>
+          <p class="client-result-text">AE/SDR mid-market team increased qualified opps created by 38%+</p>
         </div>
       </div>
 
@@ -2810,7 +2861,7 @@
   <!-- ========================================
        7. FINAL CTA
        ======================================== -->
-  <section class="section section-lightblue">
+  <section class="section" style="background: linear-gradient(180deg, #FCEFE9 0%, #FFFFFF 25%, #FFFFFF 100%);">
     <div class="container final-cta">
       <h2 class="section-headline reveal">How it works</h2>
       <p class="section-sub">Our clients increase qualified pipeline created by 22.3% or more within 90 days of working with us. The next step is to meet with our CEO, Jason Bay, to learn more about your situation to see if we can help.</p>
