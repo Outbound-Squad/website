@@ -380,7 +380,7 @@
       display: flex;
       gap: 72px;
       width: max-content;
-      animation: marquee-scroll 28s linear infinite;
+      animation: marquee-scroll 56s linear infinite;
     }
 
     .marquee-item {
@@ -389,15 +389,18 @@
       justify-content: center;
       flex-shrink: 0;
       height: 48px;
+      background: transparent;
     }
 
     .marquee-item img {
-      height: 34px;
+      height: 30px;
       width: auto;
       max-width: 160px;
       object-fit: contain;
+      background: transparent;
+      mix-blend-mode: multiply;
       filter: grayscale(1);
-      opacity: 0.7;
+      opacity: 0.8;
       transition: filter 0.25s ease, opacity 0.25s ease;
     }
 
@@ -466,7 +469,7 @@
       gap: 56px;
       position: relative;
       margin-top: 40px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .comparison-col {
@@ -476,6 +479,9 @@
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .comparison-col::before {
@@ -1810,16 +1816,20 @@
       margin-bottom: 18px;
       padding-bottom: 16px;
       border-bottom: 1px solid #E5E7EB;
+      background: transparent;
     }
 
     .client-company-logo img {
-      max-width: 120px;
-      max-height: 48px;
+      max-height: 36px;
+      max-width: 140px;
       width: auto;
       height: auto;
       object-fit: contain;
+      margin: 0 auto;
+      background: transparent;
+      mix-blend-mode: multiply;
       filter: grayscale(1);
-      opacity: 0.85;
+      opacity: 0.9;
       transition: filter 0.25s ease, opacity 0.25s ease;
     }
 
@@ -2266,7 +2276,7 @@
       }
 
       .marquee-track { gap: 48px; }
-      .marquee-item img { height: 28px; }
+      .marquee-item img { height: 30px; }
 
       .methodology { padding: 72px 0; }
       .methodology-sub { font-size: 17px; margin-bottom: 40px; }

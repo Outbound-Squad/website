@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Terms of Service | Outbound Squad</title>
+  <meta name="description" content="Terms of service for the Outbound Squad website and services.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       Outbound Squad Legal Page
+       Minimal, logo-only header, clean typography
+       ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.65;
+      color: #3d4556;
+      background: #FFFFFF;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #F86A3E;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      word-break: break-word;
+    }
+
+    a:hover {
+      color: #1B2235;
+      text-decoration: underline;
+    }
+
+    /* Page background: subtle light blue gradient at top */
+    .page-bg {
+      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 180px, #FFFFFF 520px);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header (logo only, no nav) */
+    .site-header {
+      padding: 32px 24px;
+    }
+
+    .site-header .logo-link {
+      display: inline-block;
+    }
+
+    .site-header img {
+      height: 44px;
+      width: auto;
+    }
+
+    /* Main container */
+    main {
+      flex: 1;
+      padding: 24px 24px 96px;
+    }
+
+    .hero-block {
+      max-width: 780px;
+      margin: 0 auto 48px;
+      text-align: center;
+      padding-top: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #F86A3E;
+      margin-bottom: 14px;
+    }
+
+    .headline {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.12;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b7280;
+      background: #FFFFFF;
+      border: 1px solid #E5EAF2;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    /* Legal content card */
+    .legal-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #E5EAF2;
+      border-radius: 16px;
+      padding: 56px 56px 48px;
+      box-shadow: 0 4px 24px rgba(27, 34, 53, 0.05);
+    }
+
+    .legal-wrap p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #3d4556;
+      margin: 0 0 18px;
+    }
+
+    .legal-wrap h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.3px;
+      margin: 40px 0 16px;
+      padding-top: 12px;
+      border-top: 1px solid #EEF1F6;
+    }
+
+    .legal-wrap h2:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 8px;
+    }
+
+    .legal-wrap h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1B2235;
+      margin: 22px 0 8px;
+    }
+
+    .legal-wrap ul {
+      margin: 0 0 18px 22px;
+      padding: 0;
+    }
+
+    .legal-wrap ul li {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #3d4556;
+      margin-bottom: 6px;
+    }
+
+    .legal-wrap strong {
+      color: #1B2235;
+      font-weight: 700;
+    }
+
+    .legal-wrap .uppercase-clause {
+      font-size: 14.5px;
+      line-height: 1.7;
+      letter-spacing: 0.1px;
+    }
+
+    .legal-wrap .contact-block {
+      margin-top: 12px;
+      padding: 20px 22px;
+      background: #F4F7FB;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1B2235;
+    }
+
+    .legal-wrap .meta-line {
+      font-size: 14px;
+      color: #6b7280;
+      font-style: italic;
+      margin: 24px 0 8px;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #9aa3b2;
+      border-top: 1px solid #EEF1F6;
+      background: #FFFFFF;
+    }
+
+    .site-footer .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .site-footer a {
+      color: #6b7280;
+      font-weight: 500;
+      margin: 0 10px;
+    }
+
+    .site-footer a:hover {
+      color: #1B2235;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .headline {
+        font-size: 34px;
+        letter-spacing: -0.5px;
+      }
+
+      .site-header {
+        padding: 24px 20px;
+      }
+
+      .site-header img {
+        height: 38px;
+      }
+
+      main {
+        padding: 16px 20px 64px;
+      }
+
+      .hero-block {
+        margin-bottom: 32px;
+        padding-top: 8px;
+      }
+
+      .legal-wrap {
+        padding: 28px 22px 28px;
+        border-radius: 12px;
+      }
+
+      .legal-wrap p,
+      .legal-wrap ul li {
+        font-size: 15.5px;
+      }
+
+      .legal-wrap h2 {
+        font-size: 19px;
+        margin-top: 32px;
+      }
+
+      .legal-wrap .uppercase-clause {
+        font-size: 13.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg">
+    <header class="site-header">
+      <a href="/" class="logo-link" aria-label="Outbound Squad home">
+        <img src="../logo.png" alt="Outbound Squad">
+      </a>
+    </header>
+
+    <main>
+      <section class="hero-block">
+        <div class="eyebrow">Legal</div>
+        <h1 class="headline">Terms of Service</h1>
+        <div class="last-updated">Last Updated: April 18, 2026</div>
+      </section>
+
+      <article class="legal-wrap">
+        <p>These Terms of Service govern your use of the website or web applications located at <a href="https://www.outboundsquad.com">https://www.outboundsquad.com</a> or any subdomain of OutboundSquad.com and any related services provided by Blissful Prospecting, LLC, collectively referred to as the "Sites".</p>
+
+        <p>The most recent version of these Terms of Service will be available at <a href="https://www.outboundsquad.com">https://www.outboundsquad.com</a>, will supersede any previous version of these Terms of Service, and will be considered the current, applicable version of these Terms of Service.</p>
+
+        <p>By accessing the Sites, you agree to abide by these Terms of Service and to comply with all applicable laws and regulations. If you do not agree with these Terms of Service, you are prohibited from using or accessing this website or using any other services provided by Blissful Prospecting, LLC.</p>
+
+        <p>We, Blissful Prospecting, LLC, reserve the right to review and amend any of these Terms of Service at our sole discretion. Upon doing so, we will update this page. Any changes to these Terms of Service will take effect immediately from the date of publication.</p>
+
+        <p class="meta-line">These Terms of Service were last updated on April 18, 2026.</p>
+
+        <h2>Refund and Subscription Cancellation Policy</h2>
+
+        <p><strong>Money-Back Guarantee:</strong> We offer a 30-day money-back guarantee if you are unsatisfied with our platform within the first 30 days of gaining access to your Membership. To request a refund within the guarantee period, please contact Jason Bay at <a href="mailto:jason@outboundsquad.com">jason@outboundsquad.com</a>.</p>
+
+        <p><strong>No Refunds:</strong> Except for the Money-Back Guarantee stated above, payments made for subscriptions are non-refundable. No refunds will be provided for any reason once the 30-day evaluation period has passed.</p>
+
+        <p><strong>Exceptions for Refunds:</strong> Refunds will only be considered in the event of a material failure or defect in the platform that substantially impairs its functionality and cannot be reasonably addressed within a reasonable timeframe.</p>
+
+        <p><strong>Cancellation Notice:</strong> Customers must provide a cancellation notice at least 30 days prior to their subscription anniversary date to avoid automatic renewal.</p>
+
+        <p><strong>Cancellation Fee:</strong> If you choose to cancel your Membership for your convenience during the term of your agreement, a cancellation fee will apply. The cancellation fee is an amount equal to 50% of the balance of your Fees for the remainder of the fixed term of your Agreement.</p>
+
+        <p><strong>Automatic Renewal:</strong> Unless a cancellation notice is received at least 30 days before the subscription anniversary date, the membership will automatically renew on a month-to-month basis at the monthly rate for each subsequent billing period. In the case that you have not provided a notice of intent to cancel, any charges that are incurred as part of the renewal billing will not be refunded.</p>
+
+        <p><strong>Subscription Access:</strong> Upon cancellation, customers will retain access to the platform and associated benefits until the end of the current billing period.</p>
+
+        <p><strong>Pausing Subscription:</strong> Customers have the option to pause their subscription for up to 30 days once during the annual billing period. The paused period will not count towards the subscription duration.</p>
+
+        <h2>Functionality</h2>
+        <p>The Sites are E-Commerce, Systems Administration, Management Portals, and Access Control Systems. Features include but are not limited to those services and tools made available to you through your Membership.</p>
+
+        <h2>Electronic Communications</h2>
+        <p>Visiting the Sites or sending emails to Blissful Prospecting, LLC constitutes electronic communications. You consent to receive electronic communications and you agree that all agreements, notices, disclosures, and other communications that we provide to you electronically, via email, and on the Sites, satisfy any legal requirement that such communications be in writing.</p>
+
+        <h2>Your Account</h2>
+        <p>If you use the Sites, you are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer, and you agree to accept responsibility for all activities that occur under your account or password. You may not assign or otherwise transfer your account to any other person or entity. You acknowledge that Blissful Prospecting, LLC is not responsible for third party access to your account that results from theft or misappropriation of your account. Blissful Prospecting, LLC and its associates reserve the right to refuse or cancel service, terminate accounts, or remove or edit content in our sole discretion.</p>
+
+        <h2>Limitations of Use</h2>
+        <p>By using this website, you warrant on behalf of yourself, your users, and other parties you represent that you will not use the Sites in any manner that is unlawful, infringing, harmful, disruptive, or otherwise in violation of these Terms of Service or applicable law.</p>
+
+        <h2>Intellectual Property</h2>
+        <p>The intellectual property in the materials contained in this website are owned by or licensed to Blissful Prospecting, LLC and are protected by applicable copyright and trademark law. We grant our users permission to download one copy of the materials for personal, non-commercial transitory use.</p>
+        <p>This constitutes the grant of a license, not a transfer of title. This license shall automatically terminate if you violate any of these restrictions or the Terms of Service, and may be terminated by Blissful Prospecting, LLC at any time.</p>
+
+        <h2>Liability</h2>
+        <p>Our website and the materials on our website are provided on an 'as is' basis. To the extent permitted by law, Blissful Prospecting, LLC makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property, or other violation of rights.</p>
+
+        <p class="uppercase-clause">IN NO EVENT SHALL BLISSFUL PROSPECTING, LLC OR ITS SUPPLIERS BE LIABLE FOR ANY CONSEQUENTIAL LOSS SUFFERED OR INCURRED BY YOU OR ANY THIRD PARTY ARISING FROM THE USE OR INABILITY TO USE THIS WEBSITE OR THE MATERIALS ON THIS WEBSITE, EVEN IF BLISSFUL PROSPECTING, LLC OR AN AUTHORIZED REPRESENTATIVE HAS BEEN NOTIFIED, ORALLY OR IN WRITING, OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+        <p>In the context of this agreement, "consequential loss" includes any consequential loss, indirect loss, real or anticipated loss of profit, loss of benefit, loss of revenue, loss of business, loss of goodwill, loss of opportunity, loss of savings, loss of reputation, loss of use and/or loss or corruption of data, whether under statute, contract, equity, tort (including negligence), indemnity, or otherwise.</p>
+
+        <p>Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.</p>
+
+        <h2>Accuracy of Materials</h2>
+        <p>The materials appearing on our website are not comprehensive and are for general information purposes only. Blissful Prospecting, LLC does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on this website, or otherwise relating to such materials or on any resources linked to this website.</p>
+
+        <h2>User Generated Content</h2>
+        <p>Blissful Prospecting, LLC has the right, at any time, to remove content that it views as objectionable. Additionally, if you encounter content that you view as objectionable, please notify <a href="mailto:support@blissfulprospecting.com">support@blissfulprospecting.com</a> for review. Blissful Prospecting, LLC is committed to providing a safe online experience and has the right to revoke and/or limit any account that posts objectionable material to the Sites. Additionally, Blissful Prospecting, LLC is committed to helping Users that have unknowingly posted objectionable content through user feedback, comments, or other mechanisms.</p>
+
+        <p>Objectionable content is defined as, but not limited to, content that is unlawful, harassing, defamatory, obscene, infringing, or otherwise harmful to users or third parties.</p>
+
+        <p>Blissful Prospecting, LLC is not able to preview or control any content submitted by User, and cannot guarantee the accuracy, quality, or adherence to these terms of any posted content. You agree that downloading content from the Sites is at your own risk, and under no circumstances will Blissful Prospecting, LLC assume any liability for any content, loss, or damage of any kind incurred from use of content downloaded from the Sites.</p>
+
+        <h2>Links</h2>
+        <p>Blissful Prospecting, LLC has not reviewed all of the external sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement, approval, or control by Blissful Prospecting, LLC of the site. Use of any such linked site is at your own risk and we strongly advise you make your own investigations with respect to the suitability of those sites.</p>
+
+        <h2>Right to Terminate</h2>
+        <p>We may suspend or terminate your right to use our website and terminate these Terms of Service immediately upon written notice to you for any breach of these Terms of Service.</p>
+
+        <h2>Severance</h2>
+        <p>Any term of these Terms of Service which is wholly or partially void or unenforceable is severed to the extent that it is void or unenforceable. The validity of the remainder of these Terms of Service is not affected.</p>
+
+        <h2>Governing Law</h2>
+        <p>These Terms of Service are governed by and construed in accordance with the laws of the state of Washington, USA. You irrevocably submit to the exclusive jurisdiction of the courts in that state or location.</p>
+
+        <h2>Indemnification</h2>
+        <p class="uppercase-clause">YOU AGREE TO INDEMNIFY, DEFEND AND HOLD HARMLESS BLISSFUL PROSPECTING, LLC, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS AND THIRD PARTIES, FOR ANY LOSSES, COSTS, LIABILITIES AND EXPENSES (INCLUDING REASONABLE ATTORNEY'S FEES) RELATING TO OR ARISING OUT OF YOUR USE OF OR INABILITY TO USE THE SITES OR SERVICES, ANY USER POSTINGS MADE BY YOU, YOUR VIOLATION OF ANY TERMS OF THIS AGREEMENT OR YOUR VIOLATION OF ANY RIGHTS OF A THIRD PARTY, OR YOUR VIOLATION OF ANY APPLICABLE LAWS, RULES OR REGULATIONS. BLISSFUL PROSPECTING, LLC RESERVES THE RIGHT, AT ITS OWN COST, TO ASSUME THE EXCLUSIVE DEFENSE AND CONTROL OF ANY MATTER OTHERWISE SUBJECT TO INDEMNIFICATION BY YOU, IN WHICH EVENT YOU WILL FULLY COOPERATE WITH BLISSFUL PROSPECTING, LLC IN ASSERTING ANY AVAILABLE DEFENSES.</p>
+
+        <h2>Arbitration</h2>
+        <p>In the event the parties are not able to resolve any dispute between them arising out of or concerning these Terms and Conditions, or any provisions hereof, whether in contract, tort, or otherwise at law or in equity for damages or any other relief, then such dispute shall be resolved only by final and binding arbitration pursuant to the Federal Arbitration Act, conducted by a single neutral arbitrator and administered by the American Arbitration Association, or a similar arbitration service selected by the parties, in a location mutually agreed upon by the parties. The arbitrator's award shall be final, and judgment may be entered upon it in any court having jurisdiction. In the event that any legal or equitable action, proceeding or arbitration arises out of or concerns these Terms and Conditions, the prevailing party shall be entitled to recover its costs and reasonable attorney's fees. The parties agree to arbitrate all disputes and claims in regards to these Terms and Conditions or any disputes arising as a result of these Terms and Conditions, whether directly or indirectly, including Tort claims that are a result of these Terms and Conditions. The parties agree that the Federal Arbitration Act governs the interpretation and enforcement of this provision. The entire dispute, including the scope and enforceability of this arbitration provision shall be determined by the Arbitrator. This arbitration provision shall survive the termination of these Terms and Conditions.</p>
+
+        <h2>Class Action Waiver</h2>
+        <p>Any arbitration under these Terms and Conditions will take place on an individual basis; class arbitrations and class/representative/collective actions are not permitted.</p>
+        <p class="uppercase-clause">THE PARTIES AGREE THAT A PARTY MAY BRING CLAIMS AGAINST THE OTHER ONLY IN EACH'S INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PUTATIVE CLASS, COLLECTIVE AND/OR REPRESENTATIVE PROCEEDING, SUCH AS IN THE FORM OF A PRIVATE ATTORNEY GENERAL ACTION AGAINST THE OTHER.</p>
+        <p>Further, unless both you and Blissful Prospecting, LLC agree otherwise, the arbitrator may not consolidate more than one person's claims, and may not otherwise preside over any form of a representative or class proceeding.</p>
+
+        <h2>Liability Disclaimer</h2>
+        <p class="uppercase-clause">THE INFORMATION, CONTENT, PRODUCTS, AND SERVICES INCLUDED IN OR AVAILABLE THROUGH THE SITES MAY INCLUDE INACCURACIES OR TYPOGRAPHICAL ERRORS. CHANGES ARE PERIODICALLY ADDED TO THE INFORMATION HEREIN. BLISSFUL PROSPECTING, LLC MAY MAKE IMPROVEMENTS AND/OR CHANGES IN THE SITES AT ANY TIME.</p>
+
+        <p class="uppercase-clause">BLISSFUL PROSPECTING, LLC MAKE NO REPRESENTATIONS ABOUT THE SUITABILITY, RELIABILITY, AVAILABILITY, TIMELINESS, AND ACCURACY OF THE INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS CONTAINED ON THE SITES FOR ANY PURPOSE. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ALL SUCH INFORMATION, CONTENT, PRODUCTS, SERVICES AND RELATED GRAPHICS ARE PROVIDED "AS IS" WITHOUT WARRANTY OR CONDITION OF ANY KIND. BLISSFUL PROSPECTING, LLC AND/OR ITS SUPPLIERS HEREBY DISCLAIM ALL WARRANTIES AND CONDITIONS WITH REGARD TO THIS INFORMATION, CONTENT, PRODUCTS, SERVICES AND RELATED GRAPHICS, INCLUDING ALL IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT.</p>
+
+        <p class="uppercase-clause">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL BLISSFUL PROSPECTING, LLC AND/OR ITS SUPPLIERS BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF USE, DATA OR PROFITS, ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OR PERFORMANCE OF THE SITES, WITH THE DELAY OR INABILITY TO USE THE SITES OR RELATED SERVICES, THE PROVISION OF OR FAILURE TO PROVIDE SERVICES, OR FOR ANY INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS OBTAINED THROUGH THE SITES, OR OTHERWISE ARISING OUT OF THE USE OF THE SITES, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY OR OTHERWISE, EVEN IF BLISSFUL PROSPECTING, LLC OR ANY OF ITS SUPPLIERS HAS BEEN ADVISED OF THE POSSIBILITY OF DAMAGES. BECAUSE SOME STATES/JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU. IF YOU ARE DISSATISFIED WITH ANY PORTION OF THE SITES, OR WITH ANY OF THESE TERMS OF USE, YOUR SOLE AND EXCLUSIVE REMEDY IS TO DISCONTINUE USING THE SITES.</p>
+
+        <h2>Termination/Access Restriction</h2>
+        <p>Blissful Prospecting, LLC reserves the right, in its sole discretion, to terminate your access to the Sites and the related services or any portion thereof at any time, without notice. To the maximum extent permitted by law, this agreement is governed by the laws of the State of Texas and you hereby consent to the exclusive jurisdiction and venue of courts in Texas in all disputes arising out of or relating to the use of the Sites. Use of the Sites is unauthorized in any jurisdiction that does not give effect to all provisions of these Terms, including, without limitation, this section.</p>
+
+        <p>You agree that no joint venture, partnership, employment, or agency relationship exists between you and Blissful Prospecting, LLC as a result of this agreement or use of the Sites. Blissful Prospecting, LLC's performance of this agreement is subject to existing laws and legal process, and nothing contained in this agreement is in derogation of Blissful Prospecting, LLC's right to comply with governmental, court and law enforcement requests or requirements relating to your use of the Sites or information provided to or gathered by Blissful Prospecting, LLC with respect to such use. If any part of this agreement is determined to be invalid or unenforceable pursuant to applicable law including, but not limited to, the warranty disclaimers and liability limitations set forth above, then the invalid or unenforceable provision will be deemed superseded by a valid, enforceable provision that most closely matches the intent of the original provision and the remainder of the agreement shall continue in effect.</p>
+
+        <p>Unless otherwise specified herein, this agreement constitutes the entire agreement between the user and Blissful Prospecting, LLC with respect to the Sites and it supersedes all prior or contemporaneous communications and proposals, whether electronic, oral or written, between the user and Blissful Prospecting, LLC with respect to the Sites. A printed version of this agreement and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to this agreement to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form. It is the express wish to the parties that this agreement and all related documents be written in English.</p>
+
+        <h2>Contact Us</h2>
+        <div class="contact-block">
+          Blissful Prospecting, LLC welcomes your questions or comments regarding the Terms:<br><br>
+          <strong>Email:</strong> <a href="mailto:jason@outboundsquad.com">jason@outboundsquad.com</a><br>
+          <strong>Telephone:</strong> 503-310-9318
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-of-service/">Terms of Service</a>
+    </div>
+    <div>&copy; 2026 Outbound Squad</div>
+  </footer>
+</body>
+</html>

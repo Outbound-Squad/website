@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Privacy Policy | Outbound Squad</title>
+  <meta name="description" content="How Outbound Squad collects, uses, shares and safeguards your personal data.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       Outbound Squad Legal Page
+       Minimal, logo-only header, clean typography
+       ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.65;
+      color: #3d4556;
+      background: #FFFFFF;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #F86A3E;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #1B2235;
+      text-decoration: underline;
+    }
+
+    /* Page background: subtle light blue gradient at top */
+    .page-bg {
+      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 180px, #FFFFFF 520px);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header (logo only, no nav) */
+    .site-header {
+      padding: 32px 24px;
+    }
+
+    .site-header .logo-link {
+      display: inline-block;
+    }
+
+    .site-header img {
+      height: 44px;
+      width: auto;
+    }
+
+    /* Main container */
+    main {
+      flex: 1;
+      padding: 24px 24px 96px;
+    }
+
+    .hero-block {
+      max-width: 780px;
+      margin: 0 auto 48px;
+      text-align: center;
+      padding-top: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #F86A3E;
+      margin-bottom: 14px;
+    }
+
+    .headline {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.12;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b7280;
+      background: #FFFFFF;
+      border: 1px solid #E5EAF2;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    /* Legal content card */
+    .legal-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #E5EAF2;
+      border-radius: 16px;
+      padding: 56px 56px 48px;
+      box-shadow: 0 4px 24px rgba(27, 34, 53, 0.05);
+    }
+
+    .legal-wrap .effective {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1B2235;
+      background: #F4F7FB;
+      border-left: 3px solid #F86A3E;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+
+    .legal-wrap p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #3d4556;
+      margin: 0 0 18px;
+    }
+
+    .legal-wrap h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.3px;
+      margin: 40px 0 16px;
+      padding-top: 12px;
+      border-top: 1px solid #EEF1F6;
+    }
+
+    .legal-wrap h2:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 8px;
+    }
+
+    .legal-wrap h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1B2235;
+      margin: 22px 0 8px;
+    }
+
+    .legal-wrap ul {
+      margin: 0 0 18px 22px;
+      padding: 0;
+    }
+
+    .legal-wrap ul li {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #3d4556;
+      margin-bottom: 6px;
+    }
+
+    .legal-wrap strong {
+      color: #1B2235;
+      font-weight: 700;
+    }
+
+    .legal-wrap .contact-block {
+      margin-top: 12px;
+      padding: 20px 22px;
+      background: #F4F7FB;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1B2235;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #9aa3b2;
+      border-top: 1px solid #EEF1F6;
+      background: #FFFFFF;
+    }
+
+    .site-footer .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .site-footer a {
+      color: #6b7280;
+      font-weight: 500;
+      margin: 0 10px;
+    }
+
+    .site-footer a:hover {
+      color: #1B2235;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .headline {
+        font-size: 34px;
+        letter-spacing: -0.5px;
+      }
+
+      .site-header {
+        padding: 24px 20px;
+      }
+
+      .site-header img {
+        height: 38px;
+      }
+
+      main {
+        padding: 16px 20px 64px;
+      }
+
+      .hero-block {
+        margin-bottom: 32px;
+        padding-top: 8px;
+      }
+
+      .legal-wrap {
+        padding: 28px 22px 28px;
+        border-radius: 12px;
+      }
+
+      .legal-wrap p,
+      .legal-wrap ul li {
+        font-size: 15.5px;
+      }
+
+      .legal-wrap h2 {
+        font-size: 19px;
+        margin-top: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg">
+    <header class="site-header">
+      <a href="/" class="logo-link" aria-label="Outbound Squad home">
+        <img src="../logo.png" alt="Outbound Squad">
+      </a>
+    </header>
+
+    <main>
+      <section class="hero-block">
+        <div class="eyebrow">Legal</div>
+        <h1 class="headline">Privacy Policy</h1>
+        <div class="last-updated">Last Updated: April 18, 2026</div>
+      </section>
+
+      <article class="legal-wrap">
+        <div class="effective">Effective Date: April 18, 2026</div>
+
+        <p>Your privacy is important to us. This privacy policy ("Policy") explains how Outbound Squad ("we," "us," "our") collects, uses, shares and safeguards your personal data when you visit our website (outboundsquad.com) or use our services.</p>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>Usage Data</h3>
+        <p>We may process data about your use of our website and services ("Usage Data"). This may include your IP address, geographic location, browser type and version, operating system, referral source, length of visit, page views, website navigation paths, timing, frequency and pattern of your service use. The source of this data is Google Analytics and our analytics tracking system. We use Usage Data to analyze how our website and services are used, to improve them, and to tailor our communications with you. The legal basis for this processing is our legitimate interest in improving our business and services.</p>
+
+        <h3>Account Data</h3>
+        <p>We may process your name, email address, company information, contact details and other related data ("Account Data"). The source of this data is generally you or your employer. We use it to provide our services, secure our website, maintain back-ups, and communicate with you. The legal basis for this processing is the performance of a contract between you (or your employer) and us, and/or where applicable, our legitimate interest in operating and improving our business.</p>
+
+        <h3>Service Data</h3>
+        <p>We may process personal data you provide in the course of using our services ("Service Data"). This may include your name, email address, telephone number, and other relevant information. The source is you or your employer. We use it to deliver our services and communicate with you. The legal basis is the performance of a contract between you and us, and/or steps taken at your request to initiate such a contract.</p>
+
+        <h3>Enquiry Data</h3>
+        <p>We may process information contained in any enquiry you submit regarding goods or services ("Enquiry Data"). We use this data to respond to you and potentially offer, market or sell relevant goods or services. The legal basis is consent, which you may withdraw at any time, or our legitimate interest or contract basis if it arises in the context of entering into a contract.</p>
+
+        <h3>Notification Data</h3>
+        <p>We may process information you provide to subscribe to our email notifications and/or newsletters ("Notification Data"). We use this data to send you those notifications and newsletters. The legal basis is consent, which you may withdraw at any time by contacting us.</p>
+
+        <h3>Correspondence Data</h3>
+        <p>We may process information contained in or relating to communications you send us ("Correspondence Data"). This may include your name, email address, the content of your message and metadata. The source is the website contact form or your email. We use this data for communication and record-keeping. The legal basis is our legitimate interest in administering our website and business communications.</p>
+
+        <h3>Public Data</h3>
+        <p>We may process information from publicly available sources such as social networking profiles ("Public Data"). This may include name, employment information, education, job title, etc. We use this data for marketing or business development. The legal basis is our legitimate interest in developing our business and offering relevant goods or services.</p>
+
+        <h2>2. SMS/Mobile</h2>
+        <p>We do not sell or share mobile phone numbers, SMS consent records, or message data with third parties or affiliates for their marketing or promotional purposes. We may share this information only with our service providers (e.g., carriers, messaging platforms) to operate our SMS program. Message frequency may vary. Message &amp; data rates may apply. You may opt-out at any time by replying "STOP"; for help reply "HELP."</p>
+
+        <h2>3. Sharing Your Information</h2>
+        <p>We may share personal data with third-party service providers who perform services on our behalf (e.g., analytics providers, hosting providers, messaging services, payment processors). We require these providers to maintain confidentiality and abide by at least the same level of data protection. We may also share your data if required by law or by a legal process.</p>
+
+        <h2>4. Data Retention</h2>
+        <p>We retain your personal data for as long as necessary to fulfill the purposes outlined in this Policy, unless a longer retention period is required by law. After that period, we securely delete or anonymize your data.</p>
+
+        <h2>5. Security</h2>
+        <p>We implement reasonable administrative, technical and physical safeguards to protect your personal data from unauthorized access, loss, misuse or alteration. While we strive for strong security, no system is completely secure.</p>
+
+        <h2>6. Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have the right to access, correct, update or delete your personal data, object to its processing, request data portability, or withdraw consent where applicable. If you are a California resident, you may have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), including the right to know what personal information we collect and how we share it, and to opt-out of the sale or sharing of your personal information.</p>
+
+        <h2>7. Changes to This Policy</h2>
+        <p>We may update this Policy from time to time. The effective date above reflects the current version. We will notify you of material changes by posting the new version on our website.</p>
+
+        <h2>8. Contact</h2>
+        <div class="contact-block">
+          <strong>Outbound Squad</strong><br>
+          100 N. Howard St. #4138 Spokane, WA 99201<br>
+          Email: <a href="mailto:jb@outboundsquad.com">jb@outboundsquad.com</a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-of-service/">Terms of Service</a>
+    </div>
+    <div>&copy; 2026 Outbound Squad</div>
+  </footer>
+</body>
+</html>
