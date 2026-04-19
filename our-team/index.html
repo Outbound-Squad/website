@@ -3,10 +3,1120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outbound Squad | our-team</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Our Team | Outbound Squad</title>
+  <meta name="description" content="Meet the Outbound Squad team. Active sales practitioners who make cold calls, send cold emails, and coach reps every single week.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       Outbound Squad - Our Team Page
+       Matches homepage design system
+       ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444444;
+      background: #FFFFFF;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #00A2FF;
+      text-decoration: none;
+    }
+
+    /* ========================================
+       Scroll Animations
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ========================================
+       Layout
+       ======================================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-wide {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .text-center { text-align: center; }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-headline {
+      font-size: 40px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: #666666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========================================
+       Buttons
+       ======================================== */
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-orange {
+      background: #F86A3E;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(248, 106, 62, 0.3);
+    }
+
+    .btn-orange:hover {
+      background: #e55a2e;
+      box-shadow: 0 6px 20px rgba(248, 106, 62, 0.4);
+    }
+
+    .btn-navy-outline {
+      background: transparent;
+      color: #1B2235;
+      border: 2px solid #1B2235;
+      padding: 12px 26px;
+    }
+
+    .btn-navy-outline:hover {
+      background: #1B2235;
+      color: #FFFFFF;
+    }
+
+    .btn-lg {
+      font-size: 18px;
+      padding: 16px 36px;
+    }
+
+    .btn-nav {
+      font-size: 15px;
+      padding: 10px 20px;
+    }
+
+    .nav-cta .btn-orange,
+    .nav-cta a.btn-orange,
+    .nav-links .btn-orange {
+      color: #FFFFFF !important;
+    }
+
+    .nav-cta .btn-orange:hover,
+    .nav-cta a.btn-orange:hover,
+    .nav-links .btn-orange:hover {
+      color: #FFFFFF !important;
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      box-shadow: 0 1px 0 rgba(27, 34, 53, 0.08);
+      padding: 10px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1B2235;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #00A2FF;
+    }
+
+    .nav-links a.active {
+      color: #00A2FF;
+    }
+
+    .nav-cta {
+      margin-left: 8px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1B2235;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 35%, #F3F7FC 75%, #FFFFFF 100%);
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #F86A3E;
+      background: rgba(248, 106, 62, 0.1);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-size: 64px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 20px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 720px;
+    }
+
+    /* ========================================
+       TEAM MEMBER CARDS
+       ======================================== */
+    .team-section {
+      padding: 80px 0 40px;
+      background: #FFFFFF;
+    }
+
+    .team-intro {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .team-member {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 56px 0;
+      position: relative;
+    }
+
+    .team-member + .team-member {
+      border-top: 1px solid #F0F2F7;
+    }
+
+    .team-member.photo-right {
+      grid-template-columns: 1fr 320px;
+    }
+
+    .team-member.photo-right .tm-photo {
+      order: 2;
+    }
+
+    .team-member.photo-right .tm-content {
+      order: 1;
+    }
+
+    /* Photo */
+    .tm-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tm-photo-inner {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(27, 34, 53, 0.12);
+    }
+
+    .tm-photo-inner::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      pointer-events: none;
+    }
+
+    .tm-photo-orange .tm-photo-inner {
+      box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 8px #F86A3E, 0 12px 40px rgba(248, 106, 62, 0.18);
+    }
+
+    .tm-photo-blue .tm-photo-inner {
+      box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 8px #00A2FF, 0 12px 40px rgba(0, 162, 255, 0.18);
+    }
+
+    .tm-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Placeholder (initials) */
+    .tm-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #E4E8F0 0%, #CBD3E0 100%);
+      color: #7a8299;
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    /* Content */
+    .tm-content {
+      max-width: 620px;
+    }
+
+    .tm-name {
+      font-size: 34px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.1;
+      letter-spacing: -0.6px;
+      margin-bottom: 6px;
+    }
+
+    .tm-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #F86A3E;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 18px;
+    }
+
+    .tm-bio {
+      font-size: 17px;
+      color: #444444;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    /* Fun facts grid */
+    .tm-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tm-fact {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #F4F8FD;
+      border: 1px solid rgba(0, 162, 255, 0.08);
+    }
+
+    .tm-fact.alt {
+      background: #FDF1EC;
+      border-color: rgba(248, 106, 62, 0.1);
+    }
+
+    .tm-fact-emoji {
+      font-size: 22px;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .tm-fact-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .tm-fact-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1B2235;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .tm-fact-value {
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.45;
+    }
+
+    /* LinkedIn button */
+    .tm-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1B2235;
+      border: 1.5px solid #1B2235;
+      border-radius: 8px;
+      padding: 9px 16px;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .tm-linkedin:hover {
+      background: #1B2235;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .tm-linkedin svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ========================================
+       SUPPORTING TEAM
+       ======================================== */
+    .support-section {
+      padding: 80px 0 96px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F7FAFD 100%);
+    }
+
+    .support-heading {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.3px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .support-kicker {
+      font-size: 16px;
+      color: #7a8299;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .support-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 36px 32px;
+      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.06);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .support-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(27, 34, 53, 0.1);
+    }
+
+    .support-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 0 3px #FFFFFF, 0 0 0 6px #E6F0FA;
+    }
+
+    .support-photo .tm-placeholder {
+      font-size: 34px;
+    }
+
+    .support-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.3px;
+      margin-bottom: 4px;
+    }
+
+    .support-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #F86A3E;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 14px;
+    }
+
+    .support-bio {
+      font-size: 15px;
+      color: #555555;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       FINAL CTA
+       ======================================== */
+    .cta-section {
+      background: linear-gradient(180deg, #FCEFE9 0%, #FDF5F1 55%, #FFFFFF 100%);
+      padding: 96px 0;
+      text-align: center;
+    }
+
+    .cta-section .section-headline {
+      margin-bottom: 16px;
+    }
+
+    .cta-section .section-sub {
+      margin-bottom: 32px;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: #FFFFFF;
+      padding: 48px 0 40px;
+      border-top: 1px solid #EEEEEE;
+    }
+
+    .footer-logo {
+      width: 140px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin-bottom: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: #7a8299;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #1B2235;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #999999;
+      text-align: center;
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 960px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(320px, 85vw);
+        background: #FFFFFF;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 84px 32px 32px;
+        gap: 20px;
+        box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 18px;
+      }
+
+      .nav-cta {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+
+      .nav-toggle {
+        display: flex;
+        z-index: 110;
+      }
+
+      .team-member,
+      .team-member.photo-right {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 48px 0;
+        text-align: center;
+      }
+
+      .team-member.photo-right .tm-photo { order: 0; }
+      .team-member.photo-right .tm-content { order: 0; }
+
+      .tm-content { margin: 0 auto; }
+      .tm-facts { text-align: left; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+
+      .hero {
+        padding: 120px 0 72px;
+      }
+
+      .hero-headline { font-size: 44px; letter-spacing: -1px; }
+      .hero-sub { font-size: 17px; }
+
+      .section-headline { font-size: 30px; }
+
+      .team-section { padding: 48px 0 24px; }
+      .support-section { padding: 56px 0 72px; }
+      .cta-section { padding: 72px 0; }
+
+      .tm-photo-inner {
+        width: 200px;
+        height: 200px;
+      }
+
+      .tm-placeholder { font-size: 56px; }
+
+      .tm-name { font-size: 26px; }
+
+      .tm-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 36px; }
+      .tm-photo-inner { width: 180px; height: 180px; }
+      .tm-placeholder { font-size: 48px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>our-team - coming soon</h1>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Outbound Squad home">
+        <img src="../logo.png" alt="Outbound Squad">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
+        <li><a href="/clients/">Our Clients</a></li>
+        <li><a href="/our-team/" class="active">Our Team</a></li>
+        <li><a href="/podcast/">Podcast</a></li>
+        <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================
+       HERO
+       ======================================== -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow reveal">The Squad</span>
+      <h1 class="hero-headline reveal">Meet the Team</h1>
+      <p class="hero-sub reveal">We're a team of active sales practitioners, not career trainers. We make cold calls, send cold emails, and coach reps every single week.</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       TEAM MEMBERS
+       ======================================== -->
+  <section class="team-section">
+    <div class="container">
+
+      <!-- Clara Johnson - photo left, orange border -->
+      <article class="team-member photo-left">
+        <div class="tm-photo tm-photo-orange reveal-left">
+          <div class="tm-photo-inner">
+            <div class="tm-placeholder" aria-label="Clara Johnson">CJ</div>
+          </div>
+        </div>
+        <div class="tm-content reveal-right">
+          <h2 class="tm-name">Clara Johnson</h2>
+          <p class="tm-title">Head of Client Transformation</p>
+          <p class="tm-bio">Clara has a track record of winning President's Club, hitting 200%+ quota as a rep, and managing top teams as a leader at companies like Outreach, Catalyst, and more. At Outbound Squad, she leads our client transformation team.</p>
+          <div class="tm-facts">
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💰</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Largest Deal Closed</span>
+                <span class="tm-fact-value">$480k (multi-year agreement)</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📡</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Outbound Channel of Choice</span>
+                <span class="tm-fact-value">Honestly, ALL OF THEM :)</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📚</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Favorite Sales Book</span>
+                <span class="tm-fact-value">The Power of One More by Ed Mylett</span>
+              </div>
+            </div>
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💡</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Best Sales Advice</span>
+                <span class="tm-fact-value">Focus on the things you don't want to do first, that's where you grow the most.</span>
+              </div>
+            </div>
+          </div>
+          <a href="http://linkedin.com/in/clarahughesjohnson/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Clara Johnson on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+      </article>
+
+      <!-- Amanda Long - photo right, blue border -->
+      <article class="team-member photo-right">
+        <div class="tm-photo tm-photo-blue reveal-right">
+          <div class="tm-photo-inner">
+            <div class="tm-placeholder" aria-label="Amanda Long">AL</div>
+          </div>
+        </div>
+        <div class="tm-content reveal-left">
+          <h2 class="tm-name">Amanda Long</h2>
+          <p class="tm-title">Pipeline Consultant</p>
+          <p class="tm-bio">Amanda has 10+ years of sales experience as a top-performing Account Executive, front-line leader, and building world-class enablement programs. At Outbound Squad, she leads training engagements with SDR teams, AE teams, and front-line leaders.</p>
+          <div class="tm-facts">
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💰</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Largest Deal Closed</span>
+                <span class="tm-fact-value">$420K</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📞</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Outbound Channel of Choice</span>
+                <span class="tm-fact-value">Phone &amp; Social</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📚</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Favorite Sales Book</span>
+                <span class="tm-fact-value">Trillion Dollar Coach by Eric Schmidt, Jonathan Rosenberg, &amp; Alan Eagle</span>
+              </div>
+            </div>
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💡</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Best Sales Advice</span>
+                <span class="tm-fact-value">Complacency is what digs the rut for you. If you want to be successful, you can never get too comfortable with your pipeline.</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.linkedin.com/in/its-amandalong/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Amanda Long on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+      </article>
+
+      <!-- Jason Bay - photo left, orange border -->
+      <article class="team-member photo-left">
+        <div class="tm-photo tm-photo-orange reveal-left">
+          <div class="tm-photo-inner">
+            <img src="../headshots/jason-bay.jpg" alt="Jason Bay">
+          </div>
+        </div>
+        <div class="tm-content reveal-right">
+          <h2 class="tm-name">Jason Bay</h2>
+          <p class="tm-title">CEO &amp; Founder</p>
+          <p class="tm-bio">Jason has over a decade and a half of experience selling and leading sales teams. He led many of the training engagements with AEs and SDRs at Gong, Zoom, Medallia, Rippling, and many more prior to stepping into a CEO role to help Outbound Squad scale.</p>
+          <div class="tm-facts">
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💰</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Largest Deal Closed</span>
+                <span class="tm-fact-value">$317k</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📞</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Outbound Channel of Choice</span>
+                <span class="tm-fact-value">Phone all day</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📚</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Favorite Sales Book</span>
+                <span class="tm-fact-value">Selling With by Nate Nasralla</span>
+              </div>
+            </div>
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💡</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Best Sales Advice</span>
+                <span class="tm-fact-value">Your pipeline should look less like a pipeline and more like a martini glass. Disqualify early and go deeper on fewer opportunities.</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.linkedin.com/in/jasondbay/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Jason Bay on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+      </article>
+
+      <!-- Dan Strauss - photo right, blue border -->
+      <article class="team-member photo-right">
+        <div class="tm-photo tm-photo-blue reveal-right">
+          <div class="tm-photo-inner">
+            <div class="tm-placeholder" aria-label="Dan Strauss">DS</div>
+          </div>
+        </div>
+        <div class="tm-content reveal-left">
+          <h2 class="tm-name">Dan Strauss</h2>
+          <p class="tm-title">Advisor</p>
+          <p class="tm-bio">Dan has a track record of closing the largest deals in previous roles at ZoomInfo, OpenGov, Chorus.ai, and many others. He's personally closed deals with Adobe, Uber, DocuSign, Zoom, Motorola, Toast, Qualtrics, The City of Seattle, BMC Software and many more. Dan advises Outbound Squad on the latest and greatest strategies world-class sales teams are using to open and close more deals.</p>
+          <div class="tm-facts">
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💰</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Largest Deal Closed</span>
+                <span class="tm-fact-value">$2,004,743.52</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">🎯</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Outbound Channel of Choice</span>
+                <span class="tm-fact-value">Multichannel is the only way!</span>
+              </div>
+            </div>
+            <div class="tm-fact alt">
+              <span class="tm-fact-emoji">📚</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Favorite Sales Book</span>
+                <span class="tm-fact-value">Nudge by Richard Thaler &amp; Cass Sunstein</span>
+              </div>
+            </div>
+            <div class="tm-fact">
+              <span class="tm-fact-emoji">💡</span>
+              <div class="tm-fact-body">
+                <span class="tm-fact-label">Best Sales Advice</span>
+                <span class="tm-fact-value">I've always found I'm at my best when I find clients with real, big problems, and help to solve them, genuinely, with deep curiosity and an outside perspective. Be honest with what you don't know.</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.linkedin.com/in/ciguy/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Dan Strauss on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================
+       SUPPORTING TEAM
+       ======================================== -->
+  <section class="support-section">
+    <div class="container">
+      <h2 class="support-heading reveal">Behind the Scenes</h2>
+      <p class="support-kicker reveal">The operators who keep everything running smoothly.</p>
+      <div class="support-grid">
+        <div class="support-card reveal">
+          <div class="support-photo">
+            <div class="tm-placeholder" aria-label="Marga Adarlo">MA</div>
+          </div>
+          <h3 class="support-name">Marga Adarlo</h3>
+          <p class="support-title">Client Ops Manager</p>
+          <p class="support-bio">Marga has been with the team since 2018 and assists in client delivery initiatives to make sure projects run smoothly.</p>
+        </div>
+        <div class="support-card reveal">
+          <div class="support-photo">
+            <div class="tm-placeholder" aria-label="Lica Mojica">LM</div>
+          </div>
+          <h3 class="support-name">Lica Mojica</h3>
+          <p class="support-title">Revenue Ops Manager</p>
+          <p class="support-bio">Lica has also been with the team since 2018 and assists in marketing &amp; sales projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FINAL CTA
+       ======================================== -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="section-headline reveal">Want to work with us?</h2>
+      <p class="section-sub reveal">Book a call to learn more about how we can help your sales team.</p>
+      <a href="/contact/" class="btn btn-orange btn-lg reveal">Book a Call</a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="container text-center">
+      <img src="../logo.png" alt="Outbound Squad" class="footer-logo">
+      <ul class="footer-links">
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/resources/">Insights</a></li>
+        <li><a href="/our-team/">Our Team</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Outbound Squad</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Sticky nav background on scroll */
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        if (window.scrollY > 12) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* Mobile hamburger menu */
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      toggle.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (links.classList.contains('open')) {
+            links.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+
+    /* Smooth scroll for in-page anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (href === '#' || href.length < 2) return;
+        var target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* Scroll reveal (covers .reveal, .reveal-left, .reveal-right) */
+    (function () {
+      var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
 </body>
 </html>
