@@ -384,17 +384,26 @@
     }
 
     .marquee-item {
-      font-size: 26px;
-      font-weight: 700;
-      color: #8a93a8;
-      letter-spacing: -0.5px;
-      white-space: nowrap;
-      font-family: 'DM Sans', sans-serif;
-      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      height: 48px;
     }
 
-    .marquee-item:hover {
-      color: #1B2235;
+    .marquee-item img {
+      height: 34px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.7;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    .marquee-item:hover img {
+      filter: grayscale(0);
+      opacity: 1;
     }
 
     @keyframes marquee-scroll {
@@ -1793,6 +1802,32 @@
       text-transform: none;
     }
 
+    .client-company-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 64px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .client-company-logo img {
+      max-width: 120px;
+      max-height: 48px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.85;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    .client-result-card:hover .client-company-logo img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
     .client-result-text {
       font-size: 15px;
       color: #444444;
@@ -2231,7 +2266,7 @@
       }
 
       .marquee-track { gap: 48px; }
-      .marquee-item { font-size: 20px; }
+      .marquee-item img { height: 28px; }
 
       .methodology { padding: 72px 0; }
       .methodology-sub { font-size: 17px; margin-bottom: 40px; }
@@ -2290,21 +2325,39 @@
         <div class="marquee">
           <div class="marquee-track">
             <!-- Loop set 1 -->
-            <span class="marquee-item">Shopify</span>
-            <span class="marquee-item">Gong</span>
-            <span class="marquee-item">Zoom</span>
-            <span class="marquee-item">Rippling</span>
-            <span class="marquee-item">iHeartMedia</span>
-            <span class="marquee-item">GoGuardian</span>
-            <span class="marquee-item">Carta</span>
+            <span class="marquee-item"><img src="logos/shopify.jpg" alt="Shopify" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/gong.jpg" alt="Gong" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/zoom.jpg" alt="Zoom" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/rippling.jpg" alt="Rippling" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/goguardian.jpg" alt="GoGuardian" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/optimizely.jpg" alt="Optimizely" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/varonis.jpg" alt="Varonis" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/digicert.jpg" alt="Digicert" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/hyland.jpg" alt="Hyland" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/carta.jpg" alt="Carta" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/neo4j.jpg" alt="Neo4j" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/armis.jpg" alt="Armis" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/medallia.jpg" alt="Medallia" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/commvault.jpg" alt="Commvault" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/anaplan.jpg" alt="Anaplan" loading="lazy"></span>
             <!-- Loop set 2 (duplicate for seamless scroll) -->
-            <span class="marquee-item">Shopify</span>
-            <span class="marquee-item">Gong</span>
-            <span class="marquee-item">Zoom</span>
-            <span class="marquee-item">Rippling</span>
-            <span class="marquee-item">iHeartMedia</span>
-            <span class="marquee-item">GoGuardian</span>
-            <span class="marquee-item">Carta</span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/shopify.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/gong.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/zoom.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/rippling.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/iheartmedia.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/goguardian.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/optimizely.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/varonis.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/digicert.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/hyland.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/carta.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/neo4j.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/armis.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/medallia.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/commvault.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/anaplan.jpg" alt="" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -2317,19 +2370,19 @@
 
         <div class="ts-track">
           <div class="ts-slide active">
-            <img class="ts-photo" src="Diana-Gates-6.jpg" alt="Diana Gates" width="100" height="100">
+            <img class="ts-photo" src="headshots/diana-gates.jpg" alt="Diana Gates" width="100" height="100">
             <p class="ts-quote">"As a direct result of the training, we've seen a 25% increase in conversion rates across all teams! The adoption of these new tactics has been off the charts."</p>
             <p class="ts-name">Diana Gates</p>
             <p class="ts-role">Head of Sales Development, Shopify</p>
           </div>
           <div class="ts-slide">
-            <img class="ts-photo" src="Bert-Brokaw-5.jpg" alt="Bert Brokaw" width="100" height="100">
+            <img class="ts-photo" src="headshots/bert-brokaw-new.jpg" alt="Bert Brokaw" width="100" height="100">
             <p class="ts-quote">"When building out our SDR outbound team at Rippling, we shopped around for a variety of sales trainers, but were unable to find a solution that was TRULY tailored towards outbound SDRs, then we found Outbound Squad."</p>
             <p class="ts-name">Bert Brokaw</p>
             <p class="ts-role">Senior Director of Sales Development, Rippling</p>
           </div>
           <div class="ts-slide">
-            <img class="ts-photo" src="Kris-Foley-4.jpg" alt="Kris Foley" width="100" height="100">
+            <img class="ts-photo" src="headshots/kris-foley.jpg" alt="Kris Foley" width="100" height="100">
             <p class="ts-quote">"They'll flip the way your team starts new conversations. You'll see lights go off when you apply their approach."</p>
             <p class="ts-name">Kris Foley</p>
             <p class="ts-role">Division President, iHeartMedia</p>
@@ -2825,27 +2878,27 @@
 
       <div class="client-results-grid reveal">
         <div class="client-result-card">
-          <div class="client-company-name">iHeartMedia</div>
+          <div class="client-company-logo"><img src="logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></div>
           <p class="client-result-text">AE team increased meetings set/held by <span class="client-result-pct">29.8%</span></p>
         </div>
         <div class="client-result-card">
-          <div class="client-company-name">Digicert</div>
+          <div class="client-company-logo"><img src="logos/digicert.jpg" alt="Digicert" loading="lazy"></div>
           <p class="client-result-text">SDR team increased outbound opps created by <span class="client-result-pct">54%</span></p>
         </div>
         <div class="client-result-card">
-          <div class="client-company-name">Varonis</div>
+          <div class="client-company-logo"><img src="logos/varonis.jpg" alt="Varonis" loading="lazy"></div>
           <p class="client-result-text">SDR team increased pipeline sourced by <span class="client-result-pct">21%</span> YoY</p>
         </div>
         <div class="client-result-card">
-          <div class="client-company-name">Optimizely</div>
+          <div class="client-company-logo"><img src="logos/optimizely.jpg" alt="Optimizely" loading="lazy"></div>
           <p class="client-result-text">SDR team increased pipeline sourced per rep by <span class="client-result-pct">20.8%</span></p>
         </div>
         <div class="client-result-card">
-          <div class="client-company-name">Hyland</div>
+          <div class="client-company-logo"><img src="logos/hyland.jpg" alt="Hyland" loading="lazy"></div>
           <p class="client-result-text">SDR team had their biggest month of pipeline generated by <span class="client-result-pct">270%+</span></p>
         </div>
         <div class="client-result-card">
-          <div class="client-company-name">Shopify</div>
+          <div class="client-company-logo"><img src="logos/shopify.jpg" alt="Shopify" loading="lazy"></div>
           <p class="client-result-text">AE/SDR mid-market team increased qualified opps created by <span class="client-result-pct">38%+</span></p>
         </div>
       </div>

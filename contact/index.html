@@ -3,10 +3,442 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outbound Squad | contact</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Book a Call | Outbound Squad</title>
+  <meta name="description" content="Let's talk about your outbound motion. Fill out the form and our team will be in touch.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       Outbound Squad Contact / Book a Call
+       Minimal, focused, single-purpose page
+       ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444444;
+      background: #FFFFFF;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #F86A3E;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #1B2235;
+    }
+
+    /* ========================================
+       Background: subtle light blue gradient at top
+       ======================================== */
+    .page-bg {
+      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 180px, #FFFFFF 520px);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ========================================
+       Header (logo only, no nav)
+       ======================================== */
+    .site-header {
+      padding: 32px 24px;
+    }
+
+    .site-header .logo-link {
+      display: inline-block;
+    }
+
+    .site-header img {
+      height: 44px;
+      width: auto;
+    }
+
+    /* ========================================
+       Main container
+       ======================================== */
+    main {
+      flex: 1;
+      padding: 24px 24px 96px;
+    }
+
+    .hero-block {
+      max-width: 720px;
+      margin: 0 auto 56px;
+      text-align: center;
+      padding-top: 32px;
+    }
+
+    .headline {
+      font-size: 44px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: 1.55;
+      color: #4a5568;
+      max-width: 580px;
+      margin: 0 auto 20px;
+    }
+
+    .booking-note {
+      display: inline-block;
+      font-size: 14px;
+      color: #6b7280;
+      background: rgba(248, 106, 62, 0.08);
+      border: 1px solid rgba(248, 106, 62, 0.18);
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-top: 8px;
+    }
+
+    /* ========================================
+       Form Section
+       ======================================== */
+    .form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #E5EAF2;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 24px rgba(27, 34, 53, 0.06);
+    }
+
+    /* HubSpot form overrides to match brand */
+    .form-wrap .hs-form-field {
+      margin-bottom: 20px;
+    }
+
+    .form-wrap .hs-form-field > label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1B2235;
+      margin-bottom: 6px;
+    }
+
+    .form-wrap .hs-form-field > label .hs-form-required {
+      color: #F86A3E;
+      margin-left: 2px;
+    }
+
+    .form-wrap input[type="text"],
+    .form-wrap input[type="email"],
+    .form-wrap input[type="tel"],
+    .form-wrap input[type="number"],
+    .form-wrap input[type="url"],
+    .form-wrap textarea,
+    .form-wrap select {
+      width: 100% !important;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: #1B2235;
+      background: #FFFFFF;
+      border: 1px solid #D6DCE6;
+      border-radius: 8px;
+      padding: 12px 14px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-wrap input[type="text"]:focus,
+    .form-wrap input[type="email"]:focus,
+    .form-wrap input[type="tel"]:focus,
+    .form-wrap input[type="number"]:focus,
+    .form-wrap input[type="url"]:focus,
+    .form-wrap textarea:focus,
+    .form-wrap select:focus {
+      outline: none;
+      border-color: #F86A3E;
+      box-shadow: 0 0 0 3px rgba(248, 106, 62, 0.15);
+    }
+
+    .form-wrap textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-wrap .hs-error-msgs {
+      list-style: none;
+      margin-top: 6px;
+      padding: 0;
+    }
+
+    .form-wrap .hs-error-msg,
+    .form-wrap .hs-error-msgs label {
+      color: #dc2626;
+      font-size: 13px;
+    }
+
+    .form-wrap .hs-submit {
+      margin-top: 8px;
+    }
+
+    .form-wrap .hs-button,
+    .form-wrap input[type="submit"] {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: #F86A3E;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+      width: 100%;
+    }
+
+    .form-wrap .hs-button:hover,
+    .form-wrap input[type="submit"]:hover {
+      background: #e85828;
+    }
+
+    .form-wrap .hs-button:active,
+    .form-wrap input[type="submit"]:active {
+      transform: translateY(1px);
+    }
+
+    .form-wrap fieldset {
+      max-width: none !important;
+      border: 0;
+    }
+
+    .form-wrap .hs-richtext,
+    .form-wrap .hs-richtext p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .form-wrap .legal-consent-container {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 16px;
+    }
+
+    .form-wrap .inputs-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .form-wrap .hs-form-checkbox,
+    .form-wrap .hs-form-radio {
+      margin-bottom: 8px;
+    }
+
+    /* HubSpot often uses two-column rows */
+    .form-wrap .form-columns-2 .hs-form-field {
+      float: none;
+      width: 100%;
+    }
+
+    @media (min-width: 600px) {
+      .form-wrap .form-columns-2 {
+        display: flex;
+        gap: 16px;
+      }
+      .form-wrap .form-columns-2 .hs-form-field {
+        flex: 1;
+      }
+    }
+
+    /* ========================================
+       Social Proof Strip
+       ======================================== */
+    .social-proof {
+      max-width: 900px;
+      margin: 72px auto 0;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .social-proof-label {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 24px;
+    }
+
+    .logo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      row-gap: 24px;
+    }
+
+    .logo-row img {
+      height: 28px;
+      width: auto;
+      opacity: 0.55;
+      filter: grayscale(100%);
+      transition: opacity 0.2s ease;
+    }
+
+    .logo-row img:hover {
+      opacity: 0.85;
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #9aa3b2;
+      border-top: 1px solid #EEF1F6;
+      background: #FFFFFF;
+    }
+
+    .site-footer .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .site-footer a {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .site-footer a:hover {
+      color: #1B2235;
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 720px) {
+      .headline {
+        font-size: 32px;
+        letter-spacing: -0.5px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .site-header {
+        padding: 24px 20px;
+      }
+
+      .site-header img {
+        height: 38px;
+      }
+
+      main {
+        padding: 16px 20px 64px;
+      }
+
+      .hero-block {
+        margin-bottom: 40px;
+        padding-top: 16px;
+      }
+
+      .form-wrap {
+        padding: 24px 20px;
+        border-radius: 12px;
+      }
+
+      .social-proof {
+        margin-top: 56px;
+      }
+
+      .logo-row {
+        gap: 28px;
+      }
+
+      .logo-row img {
+        height: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>contact - coming soon</h1>
+  <div class="page-bg">
+    <header class="site-header">
+      <a href="/" class="logo-link" aria-label="Outbound Squad home">
+        <img src="../logo.png" alt="Outbound Squad">
+      </a>
+    </header>
+
+    <main>
+      <section class="hero-block">
+        <h1 class="headline">Let's talk about your outbound motion</h1>
+        <p class="subtitle">If you're a sales, sales development, or enablement leader, fill out the form below and let us know how we can help you and your team.</p>
+        <div class="booking-note">We're typically booked out 6+ weeks. Please plan accordingly.</div>
+      </section>
+
+      <section class="form-wrap" aria-label="Book a call form">
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            region: "na1",
+            portalId: "22498808",
+            formId: "15378ea1-ae60-44e6-85c9-d2e8e08500be"
+          });
+        </script>
+      </section>
+
+      <section class="social-proof" aria-label="Trusted by">
+        <div class="social-proof-label">Trusted by teams at</div>
+        <div class="logo-row">
+          <img src="../logos/shopify.jpg" alt="Shopify">
+          <img src="../logos/gong.jpg" alt="Gong">
+          <img src="../logos/zoom.jpg" alt="Zoom">
+          <img src="../logos/rippling.jpg" alt="Rippling">
+          <img src="../logos/iheartmedia.jpg" alt="iHeartMedia">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Back to homepage</a>
+    </div>
+    <div>&copy; 2026 Outbound Squad</div>
+  </footer>
 </body>
 </html>

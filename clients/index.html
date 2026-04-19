@@ -266,8 +266,8 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 28px 44px;
-      max-width: 1100px;
+      gap: 32px 48px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 0 8px;
     }
@@ -276,24 +276,25 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      color: #9aa3b4;
-      letter-spacing: -0.3px;
-      font-size: 18px;
-      line-height: 1;
-      transition: color 0.2s ease;
-      white-space: nowrap;
+      height: 60px;
+      flex: 0 0 auto;
     }
 
-    .logo-item:hover { color: #1B2235; }
+    .logo-item img {
+      max-width: 100px;
+      max-height: 50px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.75;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
 
-    /* Organic weight/size variations for visual rhythm */
-    .logo-item.w-700 { font-weight: 700; }
-    .logo-item.w-500 { font-weight: 500; }
-    .logo-item.sz-lg { font-size: 22px; font-weight: 700; }
-    .logo-item.sz-sm { font-size: 16px; }
-    .logo-item.italic { font-style: italic; }
+    .logo-item:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
 
     /* ========================================
        VIDEO INTERVIEWS
@@ -614,10 +615,25 @@
     }
 
     .icp-logo {
-      font-size: 15px;
-      font-weight: 600;
-      color: #8a93a8;
-      letter-spacing: -0.2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+    }
+
+    .icp-logo img {
+      height: 24px;
+      width: auto;
+      max-width: 90px;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.75;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    .icp-card:hover .icp-logo img {
+      filter: grayscale(0);
+      opacity: 1;
     }
 
     .icp-logo-img {
@@ -698,6 +714,30 @@
       letter-spacing: -0.6px;
       margin-bottom: 16px;
       line-height: 1.1;
+    }
+
+    .cs-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 70px;
+      margin-bottom: 20px;
+    }
+
+    .cs-logo img {
+      max-width: 160px;
+      max-height: 56px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.85;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    .cs-card:hover .cs-logo img {
+      filter: grayscale(0);
+      opacity: 1;
     }
 
     .cs-result {
@@ -1028,31 +1068,39 @@
     <div class="container-wide">
       <p class="logo-wall-label reveal">Trusted by world-class sales teams</p>
       <div class="logo-wall-grid reveal">
-        <span class="logo-item sz-lg">Shopify</span>
-        <span class="logo-item w-700">Gong</span>
-        <span class="logo-item">Zoom</span>
-        <span class="logo-item sz-lg">Rippling</span>
-        <span class="logo-item w-500">iHeartMedia</span>
-        <span class="logo-item w-700">GoGuardian</span>
-        <span class="logo-item">Carta</span>
-        <span class="logo-item sz-sm">Neo4j</span>
-        <span class="logo-item w-700">Houzz</span>
-        <span class="logo-item">Optimizely</span>
-        <span class="logo-item sz-lg">Varonis</span>
-        <span class="logo-item w-500">Transect</span>
-        <span class="logo-item w-700">Wonolo</span>
-        <span class="logo-item">Nextroll</span>
-        <span class="logo-item sz-sm">Armis</span>
-        <span class="logo-item sz-lg">Paddle</span>
-        <span class="logo-item w-500">Litmos</span>
-        <span class="logo-item w-700">Knak</span>
-        <span class="logo-item">People.ai</span>
-        <span class="logo-item sz-lg">Anaplan</span>
-        <span class="logo-item w-500">YesWeHack</span>
-        <span class="logo-item w-700">Mimecast</span>
-        <span class="logo-item">Drata</span>
-        <span class="logo-item sz-lg">Digicert</span>
-        <span class="logo-item w-700">Hyland</span>
+        <span class="logo-item"><img src="../logos/shopify.jpg" alt="Shopify" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/gong.jpg" alt="Gong" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/zoom.jpg" alt="Zoom" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/rippling.jpg" alt="Rippling" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/goguardian.jpg" alt="GoGuardian" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/optimizely.jpg" alt="Optimizely" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/varonis.jpg" alt="Varonis" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/digicert.jpg" alt="Digicert" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/hyland.jpg" alt="Hyland" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/carta.jpg" alt="Carta" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/neo4j.jpg" alt="Neo4j" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/armis.jpg" alt="Armis" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/medallia.jpg" alt="Medallia" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/commvault.jpg" alt="Commvault" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/anaplan.jpg" alt="Anaplan" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/paddle.jpg" alt="Paddle" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/wonolo.jpg" alt="Wonolo" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/nextroll.jpg" alt="NextRoll" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/yeswehack.jpg" alt="YesWeHack" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/houzz.jpg" alt="Houzz" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/buildops.jpg" alt="BuildOps" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/servicetrade.jpg" alt="ServiceTrade" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/brooksource.jpg" alt="Brooksource" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/ch-robinson.jpg" alt="CH Robinson" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/ezcater.jpg" alt="ezCater" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/staffbase.jpg" alt="Staffbase" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/seon.jpg" alt="SEON" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/path-robotics.jpg" alt="Path Robotics" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/polyai.jpg" alt="PolyAI" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/proshop.jpg" alt="ProShop" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/medidata.jpg" alt="Medidata" loading="lazy"></span>
+        <span class="logo-item"><img src="../logos/castor.jpg" alt="Castor" loading="lazy"></span>
       </div>
     </div>
   </section>
@@ -1171,11 +1219,11 @@
             <li>Your enablement team has limited bandwidth to support</li>
           </ul>
           <div class="icp-logos">
-            <span class="icp-logo">Wonolo</span>
-            <span class="icp-logo">Nextroll</span>
-            <span class="icp-logo">Transect</span>
-            <span class="icp-logo">GoGuardian</span>
-            <span class="icp-logo">Carta</span>
+            <span class="icp-logo"><img src="../logos/wonolo.jpg" alt="Wonolo" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/nextroll.jpg" alt="NextRoll" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/goguardian.jpg" alt="GoGuardian" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/carta.jpg" alt="Carta" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/paddle.jpg" alt="Paddle" loading="lazy"></span>
           </div>
         </article>
 
@@ -1188,11 +1236,11 @@
             <li>Front-line managers aren't equipped to reinforce and hold reps accountable</li>
           </ul>
           <div class="icp-logos">
-            <span class="icp-logo">Shopify</span>
-            <span class="icp-logo">Gong</span>
-            <span class="icp-logo">Zoom</span>
-            <span class="icp-logo">Rippling</span>
-            <span class="icp-logo">iHeartMedia</span>
+            <span class="icp-logo"><img src="../logos/shopify.jpg" alt="Shopify" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/gong.jpg" alt="Gong" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/zoom.jpg" alt="Zoom" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/rippling.jpg" alt="Rippling" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></span>
           </div>
         </article>
       </div>
@@ -1214,27 +1262,27 @@
         <div class="cs-viewport">
           <div class="cs-track" id="csTrack">
             <article class="cs-card">
-              <p class="cs-company">iHeartMedia</p>
+              <div class="cs-logo"><img src="../logos/iheartmedia.jpg" alt="iHeartMedia" loading="lazy"></div>
               <p class="cs-result">AE team increased meetings set/held by 29.8%</p>
             </article>
             <article class="cs-card">
-              <p class="cs-company">Digicert</p>
+              <div class="cs-logo"><img src="../logos/digicert.jpg" alt="Digicert" loading="lazy"></div>
               <p class="cs-result">SDR team increased outbound opps created by 54%</p>
             </article>
             <article class="cs-card">
-              <p class="cs-company">Varonis</p>
+              <div class="cs-logo"><img src="../logos/varonis.jpg" alt="Varonis" loading="lazy"></div>
               <p class="cs-result">SDR team increased pipeline sourced by 21% YoY</p>
             </article>
             <article class="cs-card">
-              <p class="cs-company">Optimizely</p>
+              <div class="cs-logo"><img src="../logos/optimizely.jpg" alt="Optimizely" loading="lazy"></div>
               <p class="cs-result">SDR team increased pipeline sourced per rep by 20.8%</p>
             </article>
             <article class="cs-card">
-              <p class="cs-company">Hyland</p>
+              <div class="cs-logo"><img src="../logos/hyland.jpg" alt="Hyland" loading="lazy"></div>
               <p class="cs-result">SDR team had their biggest month of pipeline generated by 270%+</p>
             </article>
             <article class="cs-card">
-              <p class="cs-company">Shopify</p>
+              <div class="cs-logo"><img src="../logos/shopify.jpg" alt="Shopify" loading="lazy"></div>
               <p class="cs-result">AE/SDR mid-market team increased qualified opps created by 38%+</p>
             </article>
           </div>
