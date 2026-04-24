@@ -68,6 +68,11 @@
       margin: 0 auto;
       padding: 0 24px;
     }
+    .container-xwide {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
     .text-center { text-align: center; }
 
     /* Sections */
@@ -632,18 +637,30 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      height: 28px;
+      height: 36px;
     }
 
     .icp-logo img {
-      height: 24px;
+      height: 30px;
       width: auto;
-      max-width: 90px;
+      max-width: 110px;
       mix-blend-mode: multiply;
       object-fit: contain;
       filter: grayscale(1);
       opacity: 0.75;
       transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    /* Boost tiny square-ish logos so they read at parity with the wider ones */
+    .icp-logo[data-size="tall"] img {
+      height: 44px;
+      max-width: 80px;
+    }
+
+    /* Constrain extra-wide logos so they don't dominate the row */
+    .icp-logo[data-size="wide"] img {
+      height: 26px;
+      max-width: 100px;
     }
 
     .icp-card:hover .icp-logo img {
@@ -681,6 +698,139 @@
     .icp-card.building .icp-stat {
       background: #E6F0FA;
       color: #00A2FF;
+    }
+
+    /* ========================================
+       RESULTS STATS BAR + CLIENT RESULTS GRID
+       ======================================== */
+    .results-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin: 0 0 28px;
+    }
+
+    .results-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 8px 40px;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      border-right: 1px solid #e2d5cf;
+    }
+
+    .results-stat:last-child {
+      border-right: none;
+    }
+
+    .results-num {
+      display: block;
+      font-size: 40px;
+      font-weight: 800;
+      color: #00A2FF;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+
+    .results-label {
+      display: block;
+      font-size: 13px;
+      color: #7a8299;
+      line-height: 1.4;
+      font-weight: 500;
+      max-width: 180px;
+    }
+
+    .client-results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .client-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .client-results-grid {
+        grid-template-columns: 1fr;
+      }
+      .results-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .results-stat {
+        border-right: none;
+        border-bottom: 1px solid #e2d5cf;
+        padding: 12px 0;
+      }
+      .results-stat:last-child { border-bottom: none; }
+      .results-num { font-size: 36px; }
+    }
+
+    .client-result-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .client-result-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .client-company-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 64px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E5E7EB;
+      background: transparent;
+    }
+
+    .client-company-logo img {
+      max-height: 36px;
+      max-width: 140px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      background: transparent;
+      mix-blend-mode: multiply;
+      filter: grayscale(1);
+      opacity: 0.9;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    .client-result-card:hover .client-company-logo img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
+    .client-result-text {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.55;
+    }
+
+    .client-result-pct {
+      color: #00A2FF;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.3px;
     }
 
     /* ========================================
@@ -818,7 +968,7 @@
        TESTIMONIAL.TO EMBEDS
        ======================================== */
     .testimonial-embed {
-      max-width: 1100px;
+      max-width: 1440px;
       margin: 0 auto;
       display: none;
     }
@@ -1091,7 +1241,101 @@
   </section>
 
   <!-- ========================================
-       2. LOGO MARQUEE
+       2. CLIENT RESULTS (stats + 6-tile grid)
+       ======================================== -->
+  <section id="results" class="section" style="background: #FFFFFF; padding: 72px 0 80px;">
+    <div class="container">
+      <div class="results-stats reveal">
+        <div class="results-stat">
+          <span class="results-num">22.3%</span>
+          <span class="results-label">Average pipeline increase within 90 days</span>
+        </div>
+        <div class="results-stat">
+          <span class="results-num">250+</span>
+          <span class="results-label">Sales teams transformed</span>
+        </div>
+        <div class="results-stat">
+          <span class="results-num">20,000+</span>
+          <span class="results-label">Reps trained</span>
+        </div>
+      </div>
+
+      <div class="client-results-grid reveal" style="margin-top: 48px;">
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></div>
+          <p class="client-result-text">AE team increased meetings set/held by <span class="client-result-pct">29.8%</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></div>
+          <p class="client-result-text">AE/SDR mid-market team increased qualified opps created by <span class="client-result-pct">38%+</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="../logos/optimizely.png" alt="Optimizely" loading="lazy"></div>
+          <p class="client-result-text">SDR team increased pipeline sourced per rep by <span class="client-result-pct">20.8%</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="../logos/digicert.png" alt="Digicert" loading="lazy"></div>
+          <p class="client-result-text">SDR team increased outbound opps created by <span class="client-result-pct">54%</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="../logos/varonis.png" alt="Varonis" loading="lazy"></div>
+          <p class="client-result-text">SDR team increased pipeline sourced by <span class="client-result-pct">21%</span> YoY</p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="../logos/hyland.png" alt="Hyland" loading="lazy"></div>
+          <p class="client-result-text">SDR team had their biggest month of pipeline generated by <span class="client-result-pct">270%+</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       3. TWO ICP SEGMENTS
+       ======================================== -->
+  <section class="section section-white">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">The types of sales orgs we partner with</h2>
+
+      <div class="icp-grid reveal">
+        <article class="icp-card building">
+          <h3 class="icp-title">Early Stage</h3>
+          <p class="icp-subtitle">Seed to Series C &nbsp;|&nbsp; 5-99 reps</p>
+          <ul class="icp-bullets">
+            <li>You're standing up or scaling outbound for the first time</li>
+            <li>Reps are figuring it out on their own with no playbook</li>
+            <li>Your enablement team has limited bandwidth to support</li>
+          </ul>
+          <div class="icp-logos">
+            <span class="icp-logo"><img src="../logos/wonolo.png" alt="Wonolo" loading="lazy"></span>
+            <span class="icp-logo" data-size="tall"><img src="../logos/nextroll.png" alt="NextRoll" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/goguardian.png" alt="GoGuardian" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/carta.png" alt="Carta" loading="lazy"></span>
+            <span class="icp-logo" data-size="tall"><img src="../logos/paddle.png" alt="Paddle" loading="lazy"></span>
+          </div>
+        </article>
+
+        <article class="icp-card scaling">
+          <h3 class="icp-title">Late Stage</h3>
+          <p class="icp-subtitle">Series D+ or Public &nbsp;|&nbsp; 100-1,000+ reps</p>
+          <ul class="icp-bullets">
+            <li>Inbound won't scale your growth to the next level</li>
+            <li>A common outbound approach is needed (that works)</li>
+            <li>Front-line managers aren't equipped to reinforce and hold reps accountable</li>
+          </ul>
+          <div class="icp-logos">
+            <span class="icp-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/gong.png" alt="Gong" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/zoom.png" alt="Zoom" loading="lazy"></span>
+            <span class="icp-logo" data-size="wide"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       4. LOGO MARQUEE
        ======================================== -->
   <section class="section section-white">
     <div class="container-wide">
@@ -1142,204 +1386,10 @@
   </section>
 
   <!-- ========================================
-       3. TWO ICP SEGMENTS
+       5. REVIEWS
        ======================================== -->
   <section class="section section-white">
-    <div class="container-wide">
-      <h2 class="section-headline text-center reveal">The types of sales orgs we partner with</h2>
-
-      <div class="icp-grid reveal">
-        <article class="icp-card building">
-          <h3 class="icp-title">Early Stage</h3>
-          <p class="icp-subtitle">Seed to Series C &nbsp;|&nbsp; 5-99 reps</p>
-          <ul class="icp-bullets">
-            <li>You're standing up or scaling outbound for the first time</li>
-            <li>Reps are figuring it out on their own with no playbook</li>
-            <li>Your enablement team has limited bandwidth to support</li>
-          </ul>
-          <div class="icp-logos">
-            <span class="icp-logo"><img src="../logos/wonolo.png" alt="Wonolo" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/nextroll.png" alt="NextRoll" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/goguardian.png" alt="GoGuardian" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/carta.png" alt="Carta" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/paddle.png" alt="Paddle" loading="lazy"></span>
-          </div>
-        </article>
-
-        <article class="icp-card scaling">
-          <h3 class="icp-title">Late Stage</h3>
-          <p class="icp-subtitle">Series D+ or Public &nbsp;|&nbsp; 100-1,000+ reps</p>
-          <ul class="icp-bullets">
-            <li>Inbound won't scale your growth to the next level</li>
-            <li>A common outbound approach is needed (that works)</li>
-            <li>Front-line managers aren't equipped to reinforce and hold reps accountable</li>
-          </ul>
-          <div class="icp-logos">
-            <span class="icp-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/gong.png" alt="Gong" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/zoom.png" alt="Zoom" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       4. CASE STUDY SLIDER
-       ======================================== -->
-  <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FCEFE9 30%, #FCEFE9 70%, #FFFFFF 100%);">
-    <div class="container-wide">
-      <h2 class="section-headline text-center reveal">Client Results</h2>
-
-      <div class="cs-slider reveal" id="csSlider">
-        <button class="cs-arrow cs-prev" aria-label="Previous case study" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="cs-viewport">
-          <div class="cs-track" id="csTrack">
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></div>
-              <p class="cs-result">AE team increased meetings set/held by 29.8%</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/digicert.png" alt="Digicert" loading="lazy"></div>
-              <p class="cs-result">SDR team increased outbound opps created by 54%</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/varonis.png" alt="Varonis" loading="lazy"></div>
-              <p class="cs-result">SDR team increased pipeline sourced by 21% YoY</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/optimizely.png" alt="Optimizely" loading="lazy"></div>
-              <p class="cs-result">SDR team increased pipeline sourced per rep by 20.8%</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/hyland.png" alt="Hyland" loading="lazy"></div>
-              <p class="cs-result">SDR team had their biggest month of pipeline generated by 270%+</p>
-            </article>
-            <article class="cs-card">
-              <div class="cs-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></div>
-              <p class="cs-result">AE/SDR mid-market team increased qualified opps created by 38%+</p>
-            </article>
-          </div>
-        </div>
-
-        <button class="cs-arrow cs-next" aria-label="Next case study" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="cs-dots" id="csDots" role="tablist" aria-label="Select case study">
-          <!-- dots injected by JS -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       5. VIDEO INTERVIEWS
-       ======================================== -->
-  <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 25%, #EAF1FA 75%, #FFFFFF 100%);">
-    <div class="container-wide">
-      <h2 class="section-headline text-center reveal">Hear directly from our clients</h2>
-      <p class="section-sub text-center reveal">We've had the privilege of working with some of the most successful revenue leaders in the game.</p>
-
-      <div class="filter-tabs reveal" role="tablist" aria-label="Filter video interviews">
-        <button class="filter-tab active" data-filter="all" type="button">All</button>
-        <button class="filter-tab" data-filter="sdr" type="button">SDR Leaders</button>
-        <button class="filter-tab" data-filter="sales" type="button">Sales Leaders</button>
-        <button class="filter-tab" data-filter="enablement" type="button">Sales Enablement</button>
-      </div>
-
-      <div class="video-grid reveal" id="videoGrid">
-        <article class="video-card" data-category="sdr">
-          <button class="video-thumb" type="button" data-video-id="fVY6pWPRPm0" aria-label="Watch: How to crush the Director of SDR role">
-            <img src="https://img.youtube.com/vi/fVY6pWPRPm0/maxresdefault.jpg" alt="" loading="lazy">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </button>
-          <div class="video-body">
-            <p class="video-name">How to crush the Director of SDR role</p>
-            <p class="video-title">Bert Brokaw, Senior Director of Sales Development @ Rippling</p>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="sales">
-          <button class="video-thumb" type="button" data-video-id="tfVg5j7oJmo" aria-label="Watch: From IC to SVP of Sales">
-            <img src="https://img.youtube.com/vi/tfVg5j7oJmo/maxresdefault.jpg" alt="" loading="lazy">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </button>
-          <div class="video-body">
-            <p class="video-name">From IC to SVP of Sales</p>
-            <p class="video-title">Aaron Rissler, SVP of Sales @ Buyer's Edge Platform</p>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="sales">
-          <button class="video-thumb" type="button" data-video-id="oLTHwEcnQuo" aria-label="Watch: From Rep To Sales Exec">
-            <img src="https://img.youtube.com/vi/oLTHwEcnQuo/maxresdefault.jpg" alt="" loading="lazy">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </button>
-          <div class="video-body">
-            <p class="video-name">From Rep To Sales Exec</p>
-            <p class="video-title">Bryan Evans, VP of Sales @ Neo4j</p>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="enablement">
-          <button class="video-thumb" type="button" data-video-id="ogMjsLPaTEA" aria-label="Watch: Sales Enablement Masterclass">
-            <img src="https://img.youtube.com/vi/ogMjsLPaTEA/maxresdefault.jpg" alt="" loading="lazy">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </button>
-          <div class="video-body">
-            <p class="video-name">Sales Enablement Masterclass</p>
-            <p class="video-title">Jonas Master, VP of Sales Enablement @ Rippling</p>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="sales">
-          <button class="video-thumb" type="button" data-video-id="YsLRbL64bYc" aria-label="Watch: Learning Lessons From Zoom's Top Sales Manager">
-            <img src="https://img.youtube.com/vi/YsLRbL64bYc/maxresdefault.jpg" alt="" loading="lazy">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </button>
-          <div class="video-body">
-            <p class="video-name">Learning Lessons From Zoom's Top Sales Manager</p>
-            <p class="video-title">Garrett Graston, Sales Manager @ Zoom</p>
-          </div>
-        </article>
-
-        <article class="video-card" data-category="sdr">
-          <button class="video-thumb" type="button" data-video-id="2ULhIFHc_Hs" aria-label="Watch: My journey as a front-line sales leader">
-            <img src="https://img.youtube.com/vi/2ULhIFHc_Hs/maxresdefault.jpg" alt="" loading="lazy">
-            <div class="play-btn" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1B2235"/></svg>
-            </div>
-          </button>
-          <div class="video-body">
-            <p class="video-name">My journey as a front-line sales leader</p>
-            <p class="video-title">Eric Delaune, SDR Manager @ Taulia</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       6. REVIEWS
-       ======================================== -->
-  <section class="section section-white">
-    <div class="container-wide">
+    <div class="container-xwide">
       <h2 class="section-headline text-center reveal">What reps and leaders are saying</h2>
 
       <div class="filter-tabs reveal" role="tablist" aria-label="Filter reviews">
@@ -1362,7 +1412,7 @@
   </section>
 
   <!-- ========================================
-       7. FINAL CTA
+       6. FINAL CTA
        ======================================== -->
   <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 35%, #EAF1FA 100%);">
     <div class="container final-cta">

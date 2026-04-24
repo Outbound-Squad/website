@@ -319,11 +319,18 @@
        HERO
        ======================================== */
     .hero {
-      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 35%, #F3F7FC 75%, #FFFFFF 100%);
-      padding: 160px 0 72px;
+      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 40%, #F3F7FC 80%, #FFFFFF 100%);
+      padding: 140px 0 120px;
       position: relative;
       overflow: hidden;
       text-align: center;
+      display: flex;
+      align-items: center;
+      min-height: calc(100vh - 72px);
+    }
+
+    .hero .container {
+      width: 100%;
     }
 
     .hero-headline {
@@ -331,11 +338,9 @@
       font-weight: 800;
       color: #1B2235;
       line-height: 1.15;
-      margin-bottom: 24px;
+      margin: 0 auto 28px;
       letter-spacing: -0.8px;
       max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
       white-space: nowrap;
     }
 
@@ -343,7 +348,7 @@
       font-size: 19px;
       color: #444444;
       line-height: 1.6;
-      margin: 0 auto 36px;
+      margin: 0 auto 40px;
       max-width: 820px;
     }
 
@@ -352,7 +357,7 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 56px;
+      margin-bottom: 72px;
     }
 
     /* Marquee */
@@ -671,7 +676,7 @@
        TOO GOOD TO IGNORE METHODOLOGY
        ======================================== */
     .tgti-section {
-      background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 45%, #EAF1FA 100%);
+      background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 25%, #EAF1FA 70%, #FFFFFF 100%);
       padding: 96px 0 104px;
     }
 
