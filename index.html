@@ -255,7 +255,7 @@
     }
 
     .nav-logo img {
-      height: 36px;
+      height: 48px;
       width: auto;
     }
 
@@ -456,11 +456,86 @@
     }
 
     /* ========================================
+       PROBLEM: Outbound is harder than it's ever been
+       ======================================== */
+    .stat-cards {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin: 40px 0 48px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 36px 44px;
+      background: #F8F9FB;
+      border-radius: 16px;
+      flex: 0 1 280px;
+      border: 1px solid #EEEEEE;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 56px;
+      font-weight: 800;
+      color: #00A2FF;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 16px;
+      color: #444444;
+    }
+
+    .problem-text {
+      max-width: 660px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    .problem-text p {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .pull-quote {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1B2235;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 860px) {
+      .stat-cards { flex-direction: column; align-items: center; gap: 16px; }
+      .stat-card { flex: 0 1 auto; width: 100%; max-width: 400px; }
+      .stat-number { font-size: 44px; }
+      .pull-quote { font-size: 22px; }
+      .problem-text { text-align: left; }
+    }
+
+    /* ========================================
        OLD WAY vs NEW WAY (INTERACTIVE)
        ======================================== */
     .comparison-section {
       background: #FFFFFF;
       padding: 96px 0 80px;
+    }
+
+    /* Stacked (split) variant: single column, no VS divider, narrower max width */
+    .comparison-section.stacked .comparison-grid {
+      grid-template-columns: 1fr;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 0;
     }
 
     .comparison-grid {
@@ -1191,7 +1266,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 0;
-      margin: 32px 0 56px;
+      margin: 72px 0 28px;
     }
 
     .results-stat {
@@ -2413,7 +2488,7 @@
             <span class="marquee-item"><img src="logos/medallia.png" alt="Medallia" loading="lazy"></span>
             <span class="marquee-item"><img src="logos/commvault.png" alt="Commvault" loading="lazy"></span>
             <span class="marquee-item"><img src="logos/anaplan.png" alt="Anaplan" loading="lazy"></span>
-            <span class="marquee-item"><img src="logos/powerpay.jpg" alt="Powerpay" loading="lazy"></span>
+            <span class="marquee-item"><img src="logos/powerpay.png" alt="Powerpay" loading="lazy"></span>
             <!-- Loop set 2 (duplicate for seamless scroll) -->
             <span class="marquee-item" aria-hidden="true"><img src="logos/shopify.png" alt="" loading="lazy"></span>
             <span class="marquee-item" aria-hidden="true"><img src="logos/gong.png" alt="" loading="lazy"></span>
@@ -2431,7 +2506,7 @@
             <span class="marquee-item" aria-hidden="true"><img src="logos/medallia.png" alt="" loading="lazy"></span>
             <span class="marquee-item" aria-hidden="true"><img src="logos/commvault.png" alt="" loading="lazy"></span>
             <span class="marquee-item" aria-hidden="true"><img src="logos/anaplan.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="logos/powerpay.jpg" alt="" loading="lazy"></span>
+            <span class="marquee-item" aria-hidden="true"><img src="logos/powerpay.png" alt="" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -2443,7 +2518,7 @@
        ======================================== -->
   <section class="section section-white">
     <div class="container">
-      <h2 class="section-headline text-center reveal">You want to...</h2>
+      <h2 class="section-headline text-center reveal">Your pipeline target just got bigger, and you need to...</h2>
       <div class="goals-grid reveal">
         <div class="goal-card">
           <h3 class="goal-title">Pivot to outbound.</h3>
@@ -2466,18 +2541,39 @@
   </section>
 
   <!-- ========================================
-       2. THE PROBLEM
+       2. THE PROBLEM — Outbound is harder than it's ever been
        ======================================== -->
-  <section class="comparison-section" id="comparison">
+  <section class="section section-white">
+    <div class="container">
+      <h2 class="section-headline text-center reveal">Outbound is harder than it's ever been</h2>
+      <div class="stat-cards reveal">
+        <div class="stat-card">
+          <span class="stat-number">&lt;1%</span>
+          <span class="stat-label">cold email reply rates</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">&lt;4%</span>
+          <span class="stat-label">cold call pickup rates</span>
+        </div>
+      </div>
+      <div class="problem-text">
+        <p>It's never been easier for buyers to ignore you and your entire sales org. Your cold calls go straight to voicemail (or AI gatekeepers). And your cold emails end up in spam.</p>
+        <p>The irony is oh so painful...the sales engagement tools (Outreach, Salesloft, etc) designed to make outbound easier have made it exponentially harder. And it feels impossible to get the attention of our buyers right now.</p>
+      </div>
+      <p class="pull-quote">The game has fundamentally changed. Not incrementally. Fundamentally.</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       3. THE OLD WAY DOESN'T WORK ANYMORE
+       ======================================== -->
+  <section class="comparison-section stacked" id="comparison">
     <div class="container-wide">
-      <h2 class="section-headline text-center reveal">But the old playbook isn't working</h2>
+      <h2 class="section-headline text-center reveal">The old way doesn't work anymore</h2>
 
       <div class="comparison-grid" id="comparisonGrid">
         <!-- OLD WAY -->
         <div class="comparison-col old">
-          <h3 class="comp-title">The Old Way</h3>
-          <p class="comp-subtitle">Build from scratch. Gamble on a strategy that may not work. Waste 6+ months you'll never get back.</p>
-
           <div class="step-card" data-step="1">
             <div class="step-num">01</div>
             <div class="step-body">
@@ -2528,16 +2624,20 @@
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- VS DIVIDER -->
-        <div class="vs-divider" aria-hidden="true">VS</div>
+  <!-- ========================================
+       4. THE NEW WAY
+       ======================================== -->
+  <section class="comparison-section stacked">
+    <div class="container-wide">
+      <h2 class="section-headline text-center reveal">The new way</h2>
 
+      <div class="comparison-grid">
         <!-- NEW WAY -->
         <div class="comparison-col new">
-          <h3 class="comp-title">The New Way</h3>
-          <p class="comp-subtitle">Start with customer-facing insights. Build on modern outbound strategies. See positive results in less than 90 days.</p>
-
-
           <div class="new-way-wrap" id="newWayWrap">
             <div class="hub-wrap">
               <div class="hub-col left">
@@ -2591,11 +2691,11 @@
           </div>
         </div>
       </div>
-    </div>
 
       <div class="text-center" style="margin-top: 48px;">
         <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
+    </div>
   </section>
 
   <!-- ========================================
@@ -2603,7 +2703,7 @@
        ======================================== -->
   <section class="ai-section">
     <div class="ai-wrap">
-      <h2 class="reveal">AI isn't replacing outbound. It's raising the bar.</h2>
+      <h2 class="reveal">AI isn't going to fix your problem. It's making it much worse.</h2>
       <p class="reveal">Most sales teams are using AI to solve a volume problem that doesn't exist. Outbound hasn't had a volume problem since the advent of sequences and dialers.</p>
       <p class="reveal">Outbound has a quality problem. Reps are spending time on the wrong accounts. Sending messaging that doesn't resonate. And using AI to scale playbooks from 2018.</p>
       <p class="reveal">AI doesn't know what good looks like for your buyer, your market, or your sales motion. We do. And we've done it successfully with 250+ sales teams.</p>
