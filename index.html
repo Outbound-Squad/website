@@ -320,7 +320,7 @@
        ======================================== */
     .hero {
       background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 35%, #F3F7FC 75%, #FFFFFF 100%);
-      padding: 200px 0 125px;
+      padding: 160px 0 72px;
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -351,12 +351,12 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 80px;
+      margin-bottom: 56px;
     }
 
     /* Marquee */
     .marquee-wrap {
-      margin-top: 48px;
+      margin-top: 0;
     }
 
     .marquee-label {
@@ -523,11 +523,52 @@
     }
 
     /* ========================================
-       OLD WAY HORIZONTAL TIMELINE
+       OLD WAY CARD
        ======================================== */
-    .timeline-wrap {
-      margin: 56px 0 40px;
+    .oldway-card {
+      background: #FFFFFF;
+      border: 1px solid #E6ECF5;
+      border-radius: 20px;
+      padding: 48px 48px 40px;
+      margin: 56px auto 0;
+      max-width: 1040px;
+      box-shadow: 0 8px 32px rgba(27, 34, 53, 0.06);
       position: relative;
+    }
+
+    .oldway-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .oldway-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #E04A3C;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+      padding: 6px 14px;
+      background: #FFF5F4;
+      border-radius: 999px;
+    }
+
+    .oldway-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .oldway-sub {
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.5;
+      max-width: 520px;
+      margin: 0 auto;
     }
 
     .timeline-row {
@@ -540,7 +581,7 @@
     .timeline-row::before {
       content: "";
       position: absolute;
-      top: 38px;
+      top: 30px;
       left: 10%;
       right: 10%;
       height: 2px;
@@ -558,19 +599,19 @@
     }
 
     .tl-num {
-      width: 76px;
-      height: 76px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       background: #FFFFFF;
       border: 2px solid #E6ECF5;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 800;
       color: #1B2235;
-      margin-bottom: 18px;
-      box-shadow: 0 2px 12px rgba(27, 34, 53, 0.06);
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(27, 34, 53, 0.06);
     }
 
     .tl-step.final .tl-num {
@@ -580,33 +621,34 @@
     }
 
     .tl-label {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: #1B2235;
       line-height: 1.35;
-      max-width: 180px;
+      max-width: 160px;
     }
 
     .tl-impact {
       background: #FFF5F4;
-      border: 1px solid #E04A3C;
-      border-radius: 16px;
-      padding: 24px 28px;
+      border: 1px solid #FAD9D3;
+      border-radius: 12px;
+      padding: 18px 24px;
       text-align: center;
-      max-width: 720px;
       margin: 40px auto 0;
       color: #E04A3C;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 17px;
     }
 
-    .tl-impact strong { font-weight: 800; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 14px; }
+    .tl-impact strong { font-weight: 800; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 13px; }
 
     @media (max-width: 860px) {
+      .oldway-card { padding: 32px 24px; }
+      .oldway-title { font-size: 28px; }
       .timeline-row { grid-template-columns: 1fr; gap: 20px; }
       .timeline-row::before { display: none; }
       .tl-step { flex-direction: row; text-align: left; gap: 16px; align-items: center; }
-      .tl-num { margin-bottom: 0; flex-shrink: 0; width: 56px; height: 56px; font-size: 18px; }
+      .tl-num { margin-bottom: 0; flex-shrink: 0; width: 52px; height: 52px; font-size: 18px; }
       .tl-label { max-width: none; }
     }
 
@@ -614,13 +656,13 @@
        TOO GOOD TO IGNORE METHODOLOGY
        ======================================== */
     .tgti-section {
-      background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 60%, #EAF1FA 100%);
-      padding: 96px 0;
+      background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 45%, #EAF1FA 100%);
+      padding: 96px 0 104px;
     }
 
     .tgti-intro {
-      max-width: 780px;
-      margin: 0 auto 56px;
+      max-width: 820px;
+      margin: 0 auto 64px;
       text-align: center;
     }
 
@@ -641,181 +683,275 @@
       margin-top: 16px;
     }
 
-    .tgti-diagram {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1060px;
+    .tgti-descriptor strong {
+      color: #1B2235;
+      font-weight: 700;
+    }
+
+    /* Vertical flow diagram */
+    .tgti-flow {
+      max-width: 900px;
       margin: 0 auto;
       position: relative;
     }
 
-    .tgti-card {
+    .tgti-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      align-items: stretch;
       background: #FFFFFF;
       border-radius: 20px;
-      padding: 36px 32px;
+      padding: 36px 40px 36px 32px;
       border: 1px solid #E6ECF5;
       box-shadow: 0 6px 24px rgba(27, 34, 53, 0.06);
-      text-align: left;
       position: relative;
+      border-left: 6px solid #00A2FF;
     }
 
-    .tgti-card::before {
+    .tgti-row.offer { border-left-color: #F86A3E; }
+    .tgti-row.provoke { border-left-color: #1B2235; }
+
+    .tgti-row + .tgti-row { margin-top: 36px; }
+
+    /* Connector between rows */
+    .tgti-row + .tgti-row::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      border-radius: 20px 20px 0 0;
-      background: #00A2FF;
+      left: 66px;
+      top: -36px;
+      width: 2px;
+      height: 36px;
+      background: linear-gradient(180deg, #CFDDEF 0%, #E6ECF5 100%);
     }
 
-    .tgti-card.offer::before { background: #F86A3E; }
-    .tgti-card.provoke::before { background: #1B2235; }
+    .tgti-row + .tgti-row::after {
+      content: "";
+      position: absolute;
+      left: 60px;
+      top: -16px;
+      width: 14px;
+      height: 14px;
+      background: #FFFFFF;
+      border: 2px solid #CFDDEF;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
 
-    .tgti-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
+    .tgti-disc {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       background: #E6F0FA;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       color: #00A2FF;
       font-weight: 800;
-      margin-bottom: 18px;
-      font-size: 18px;
+      gap: 2px;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 6px #FFFFFF;
     }
 
-    .tgti-card.offer .tgti-badge { background: #FCEFE9; color: #F86A3E; }
-    .tgti-card.provoke .tgti-badge { background: #E6ECF5; color: #1B2235; }
+    .tgti-row.offer .tgti-disc { background: #FCEFE9; color: #F86A3E; }
+    .tgti-row.provoke .tgti-disc { background: #E6ECF5; color: #1B2235; }
+
+    .tgti-step-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .tgti-step-num {
+      font-size: 44px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .tgti-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .tgti-body-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #00A2FF;
+      margin-bottom: 8px;
+    }
+
+    .tgti-row.offer .tgti-body-label { color: #F86A3E; }
+    .tgti-row.provoke .tgti-body-label { color: #1B2235; }
 
     .tgti-name {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 800;
       color: #1B2235;
-      margin-bottom: 8px;
-      letter-spacing: -0.3px;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
     }
 
-    .tgti-oneliner {
-      font-size: 15px;
-      font-weight: 600;
-      color: #00A2FF;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 14px;
-    }
-
-    .tgti-card.offer .tgti-oneliner { color: #F86A3E; }
-    .tgti-card.provoke .tgti-oneliner { color: #1B2235; }
-
-    .tgti-card p {
+    .tgti-row p {
       font-size: 16px;
       color: #444444;
       line-height: 1.6;
+      margin: 0;
     }
 
-    .tgti-arrow {
+    /* Outcome banner */
+    .tgti-outcome {
+      margin-top: 48px;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, #1B2235 0%, #2A344F 100%);
+      border-radius: 20px;
+      text-align: center;
+      color: #FFFFFF;
+      position: relative;
+    }
+
+    .tgti-outcome::before {
+      content: "";
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 24px;
-      height: 24px;
-      background: #FFFFFF;
-      border: 2px solid #E6ECF5;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1B2235;
-      z-index: 2;
-      font-size: 12px;
+      left: 50%;
+      top: -28px;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 28px;
+      background: #CFDDEF;
     }
 
-    .tgti-arrow.a1 { left: calc(33.33% - 12px); }
-    .tgti-arrow.a2 { left: calc(66.66% - 12px); }
+    .tgti-outcome-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7BC4FF;
+      margin-bottom: 8px;
+    }
+
+    .tgti-outcome-text {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
 
     @media (max-width: 860px) {
-      .tgti-diagram { grid-template-columns: 1fr; gap: 20px; }
-      .tgti-arrow { display: none; }
+      .tgti-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 28px 24px;
+        text-align: center;
+      }
+      .tgti-row + .tgti-row::before,
+      .tgti-row + .tgti-row::after { display: none; }
+      .tgti-disc { margin: 0 auto; width: 100px; height: 100px; }
+      .tgti-step-num { font-size: 36px; }
+      .tgti-name { font-size: 26px; }
+      .tgti-outcome-text { font-size: 20px; }
     }
 
     /* ========================================
-       WHY OUTBOUND SQUAD (EXPANDED GRID)
+       WHY OUTBOUND SQUAD (PERSON CARDS)
        ======================================== */
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 28px;
       margin-top: 48px;
     }
 
-    .why-card {
+    .why-person-card {
       background: #FFFFFF;
       border: 1px solid #E6ECF5;
-      border-radius: 16px;
-      padding: 36px 32px;
-      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.04);
+      border-radius: 20px;
+      padding: 32px 32px 36px;
+      box-shadow: 0 4px 24px rgba(27, 34, 53, 0.05);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
 
-    .why-card:hover {
+    .why-person-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(27, 34, 53, 0.08);
+      box-shadow: 0 12px 32px rgba(27, 34, 53, 0.08);
     }
 
-    .why-card-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: #1B2235;
-      letter-spacing: -0.4px;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
-
-    .why-card p {
-      font-size: 16px;
-      color: #444444;
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-
-    .why-card p:last-child { margin-bottom: 0; }
-
-    .why-card-attrib {
+    .why-person-head {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid #EEEEEE;
+      gap: 16px;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #EEEEEE;
     }
 
-    .why-card-attrib img {
-      width: 44px;
-      height: 44px;
+    .why-person-head img {
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       object-fit: cover;
+      flex-shrink: 0;
     }
 
-    .why-card-attrib .wa-name {
-      font-size: 14px;
-      font-weight: 700;
+    .wp-name {
+      font-size: 18px;
+      font-weight: 800;
       color: #1B2235;
-      line-height: 1.3;
+      line-height: 1.25;
+      letter-spacing: -0.2px;
     }
 
-    .why-card-attrib .wa-role {
-      font-size: 13px;
+    .wp-role {
+      font-size: 14px;
       color: #666666;
-      line-height: 1.3;
+      line-height: 1.4;
+      margin-top: 2px;
     }
 
-    @media (max-width: 860px) {
-      .why-grid { grid-template-columns: 1fr; gap: 20px; }
-      .why-card-title { font-size: 24px; }
+    .why-points {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .why-point {
+      position: relative;
+      padding-left: 18px;
+      border-left: 3px solid #00A2FF;
+    }
+
+    .why-point:nth-child(2) { border-left-color: #F86A3E; }
+
+    .why-point-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .why-point p {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: 1fr; gap: 24px; max-width: 720px; margin-left: auto; margin-right: auto; }
+      .why-point-title { font-size: 22px; }
     }
 
     /* ========================================
@@ -2464,24 +2600,30 @@
       background: #FFFFFF;
       border: 1px solid #E6ECF5;
       border-radius: 16px;
-      padding: 32px 28px;
+      padding: 28px 28px;
       box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      align-items: start;
     }
 
     .goal-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
       background: #E6F0FA;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #00A2FF;
-      margin-bottom: 18px;
+      grid-row: span 2;
     }
 
-    .goal-icon svg { width: 28px; height: 28px; stroke: #00A2FF; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .goal-icon svg { width: 30px; height: 30px; stroke: #00A2FF; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .goal-body { min-width: 0; }
 
     .goals-headline {
       font-size: 30px;
@@ -2522,6 +2664,13 @@
       .goals-grid {
         grid-template-columns: 1fr;
       }
+      .goal-card {
+        grid-template-columns: 52px 1fr;
+        gap: 16px;
+        padding: 22px 22px;
+      }
+      .goal-icon { width: 52px; height: 52px; }
+      .goal-icon svg { width: 26px; height: 26px; }
       .goals-cta {
         font-size: 24px;
         margin-top: 32px;
@@ -2743,49 +2892,7 @@
         <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
 
-      <div class="results-stats reveal">
-        <div class="results-stat">
-          <span class="results-num">22.3%</span>
-          <span class="results-label">Average pipeline increase within 90 days</span>
-        </div>
-        <div class="results-stat">
-          <span class="results-num">250+</span>
-          <span class="results-label">Sales teams transformed</span>
-        </div>
-        <div class="results-stat">
-          <span class="results-num">20,000+</span>
-          <span class="results-label">Reps trained</span>
-        </div>
-      </div>
-
-      <div class="client-results-grid reveal">
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></div>
-          <p class="client-result-text">AE team increased meetings set/held by <span class="client-result-pct">29.8%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="logos/shopify.png" alt="Shopify" loading="lazy"></div>
-          <p class="client-result-text">AE/SDR mid-market team increased qualified opps created by <span class="client-result-pct">38%+</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="logos/optimizely.png" alt="Optimizely" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased pipeline sourced per rep by <span class="client-result-pct">20.8%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="logos/digicert.png" alt="Digicert" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased outbound opps created by <span class="client-result-pct">54%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="logos/varonis.png" alt="Varonis" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased pipeline sourced by <span class="client-result-pct">21%</span> YoY</p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="logos/hyland.png" alt="Hyland" loading="lazy"></div>
-          <p class="client-result-text">SDR team had their biggest month of pipeline generated by <span class="client-result-pct">270%+</span></p>
-        </div>
-      </div>
-
-      <div class="marquee-wrap" style="margin-top: 64px;">
+      <div class="marquee-wrap">
         <p class="marquee-label">Trusted by world-class sales teams</p>
         <div class="marquee">
           <div class="marquee-track">
@@ -2832,6 +2939,55 @@
   </section>
 
   <!-- ========================================
+       RESULTS BAR + CLIENT RESULTS GRID
+       ======================================== -->
+  <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%); padding: 72px 0 80px;">
+    <div class="container">
+      <div class="results-stats reveal">
+        <div class="results-stat">
+          <span class="results-num">22.3%</span>
+          <span class="results-label">Average pipeline increase within 90 days</span>
+        </div>
+        <div class="results-stat">
+          <span class="results-num">250+</span>
+          <span class="results-label">Sales teams transformed</span>
+        </div>
+        <div class="results-stat">
+          <span class="results-num">20,000+</span>
+          <span class="results-label">Reps trained</span>
+        </div>
+      </div>
+
+      <div class="client-results-grid reveal" style="margin-top: 48px;">
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></div>
+          <p class="client-result-text">AE team increased meetings set/held by <span class="client-result-pct">29.8%</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="logos/shopify.png" alt="Shopify" loading="lazy"></div>
+          <p class="client-result-text">AE/SDR mid-market team increased qualified opps created by <span class="client-result-pct">38%+</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="logos/optimizely.png" alt="Optimizely" loading="lazy"></div>
+          <p class="client-result-text">SDR team increased pipeline sourced per rep by <span class="client-result-pct">20.8%</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="logos/digicert.png" alt="Digicert" loading="lazy"></div>
+          <p class="client-result-text">SDR team increased outbound opps created by <span class="client-result-pct">54%</span></p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="logos/varonis.png" alt="Varonis" loading="lazy"></div>
+          <p class="client-result-text">SDR team increased pipeline sourced by <span class="client-result-pct">21%</span> YoY</p>
+        </div>
+        <div class="client-result-card">
+          <div class="client-company-logo"><img src="logos/hyland.png" alt="Hyland" loading="lazy"></div>
+          <p class="client-result-text">SDR team had their biggest month of pipeline generated by <span class="client-result-pct">270%+</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
        COMMON GOALS
        ======================================== -->
   <section class="section section-white">
@@ -2840,31 +2996,39 @@
       <div class="goals-grid reveal">
         <div class="goal-card">
           <div class="goal-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <h3 class="goal-title">Pivot to outbound.</h3>
-          <p>Inbound won't get you to the next level. More of your revenue mix needs to come from outbound to hit growth targets.</p>
+          <div class="goal-body">
+            <h3 class="goal-title">Pivot to outbound.</h3>
+            <p>Inbound won't get you to the next level. More of your revenue mix needs to come from outbound to hit growth targets.</p>
+          </div>
         </div>
         <div class="goal-card">
           <div class="goal-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 21V10"/><path d="M12 21V6"/><path d="M18 21V3"/></svg>
           </div>
-          <h3 class="goal-title">Move up-market.</h3>
-          <p>Landing larger logos is key to growth. And decision-makers at larger enterprise accounts don't fill out demo requests.</p>
+          <div class="goal-body">
+            <h3 class="goal-title">Move up-market.</h3>
+            <p>Landing larger logos is key to growth. And decision-makers at larger enterprise accounts don't fill out demo requests.</p>
+          </div>
         </div>
         <div class="goal-card">
           <div class="goal-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="M4.9 4.9l2.1 2.1"/><path d="M17 17l2.1 2.1"/><path d="M4.9 19.1l2.1-2.1"/><path d="M17 7l2.1-2.1"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M11 12H3"/><path d="m7 8-4 4 4 4"/><path d="M13 12h8"/><path d="m17 8 4 4-4 4"/><path d="M12 3v4"/><path d="M12 17v4"/></svg>
           </div>
-          <h3 class="goal-title">Expand and cross-sell.</h3>
-          <p>You need to grow the base. Reps need to excel at opening expansion opportunities within customer accounts.</p>
+          <div class="goal-body">
+            <h3 class="goal-title">Expand and cross-sell.</h3>
+            <p>You need to grow the base. Reps need to excel at opening expansion opportunities within customer accounts.</p>
+          </div>
         </div>
         <div class="goal-card">
           <div class="goal-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </div>
-          <h3 class="goal-title">Get Account Executives self-sourcing.</h3>
-          <p>AEs need to self-source more pipeline to reduce reliance on marketing and SDRs to hit their number.</p>
+          <div class="goal-body">
+            <h3 class="goal-title">Get Account Executives self-sourcing.</h3>
+            <p>AEs need to self-source more pipeline to reduce reliance on marketing and SDRs to hit their number.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2880,11 +3044,11 @@
       <div class="stat-cards reveal">
         <div class="stat-card">
           <span class="stat-number">1.9%</span>
-          <span class="stat-label">The average cold email reply rate. Mass blasting templates or poorly written AI-generated emails isn't working.</span>
+          <span class="stat-label">The average cold email reply rate.</span>
         </div>
         <div class="stat-card">
           <span class="stat-number">5.4%</span>
-          <span class="stat-label">The average cold call connect rate. Fewer buyers answer nowadays, and most have AI gatekeepers to screen calls.</span>
+          <span class="stat-label">The average cold call connect rate. Fewer buyers answer nowadays.</span>
         </div>
       </div>
 
@@ -2894,7 +3058,13 @@
 
       <p class="pull-quote reveal">The game has fundamentally changed.</p>
 
-      <div class="timeline-wrap reveal">
+      <div class="oldway-card reveal">
+        <div class="oldway-head">
+          <span class="oldway-eyebrow">The path most teams take</span>
+          <h3 class="oldway-title">The Old Way</h3>
+          <p class="oldway-sub">A 6+ month slog that ends where it started.</p>
+        </div>
+
         <div class="timeline-row">
           <div class="tl-step">
             <div class="tl-num">1</div>
@@ -2918,7 +3088,7 @@
           </div>
         </div>
 
-        <div class="tl-impact reveal"><strong>Impact:</strong> You miss your pipeline targets</div>
+        <div class="tl-impact"><strong>Impact:</strong> You miss your pipeline targets</div>
       </div>
     </div>
   </section>
@@ -2929,51 +3099,57 @@
   <section class="tgti-section" id="methodology">
     <div class="container-wide">
       <div class="tgti-intro reveal">
-        <span class="tgti-eyebrow">We've entered a new era</span>
+        <span class="tgti-eyebrow">The Methodology</span>
         <h2 class="section-headline">Too Good To Ignore</h2>
-        <p class="tgti-descriptor">The only way out of the noise is to be too good to ignore. That's the new performance bar, and it's the methodology we've built across 250+ sales teams and 20,000+ reps. Everything we teach ladders to three words, in this order.</p>
+        <p class="tgti-descriptor">In our work with 250+ sales teams, we've found that <strong>top reps build 4.3x more pipeline than average reps</strong>. They outbound at a level that's simply too good for their buyers to ignore. So we built a methodology around it called Too Good To Ignore.</p>
       </div>
 
-      <div class="tgti-diagram reveal">
-        <div class="tgti-card disqualify">
-          <div class="tgti-badge">1</div>
-          <p class="tgti-oneliner">Who you pursue</p>
-          <h3 class="tgti-name">Disqualify</h3>
-          <p>Shrink the top of the funnel. Pick fewer accounts and go deeper. Your pipeline should look like a martini glass, not a funnel. Say no to 80 of 100 so you can go harder on the other 20.</p>
+      <div class="tgti-flow reveal">
+        <div class="tgti-row disqualify">
+          <div class="tgti-disc">
+            <span class="tgti-step-label">Step</span>
+            <span class="tgti-step-num">01</span>
+          </div>
+          <div class="tgti-body">
+            <p class="tgti-body-label">Who you pursue</p>
+            <h3 class="tgti-name">Disqualify</h3>
+            <p>Ruthlessly disqualify opportunities unworthy of our energy, time, and attention.</p>
+          </div>
         </div>
-        <div class="tgti-arrow a1" aria-hidden="true">›</div>
 
-        <div class="tgti-card offer">
-          <div class="tgti-badge">2</div>
-          <p class="tgti-oneliner">What you bring</p>
-          <h3 class="tgti-name">Offer</h3>
-          <p>Answer one question: what will the buyer get out of this meeting even if they don't buy? A Blind Date, a one-to-many insight, or a custom audit. Make it irresponsible to say no.</p>
+        <div class="tgti-row offer">
+          <div class="tgti-disc">
+            <span class="tgti-step-label">Step</span>
+            <span class="tgti-step-num">02</span>
+          </div>
+          <div class="tgti-body">
+            <p class="tgti-body-label">What you bring</p>
+            <h3 class="tgti-name">Offer</h3>
+            <p>Be consultative and make strategic “gives” to buyers early and often to earn their time.</p>
+          </div>
         </div>
-        <div class="tgti-arrow a2" aria-hidden="true">›</div>
 
-        <div class="tgti-card provoke">
-          <div class="tgti-badge">3</div>
-          <p class="tgti-oneliner">How you break through</p>
-          <h3 class="tgti-name">Provoke</h3>
-          <p>Create an emotional response using the 3 Ts: Trigger (why now), Tension (the problem they're feeling), and Trust (why you). Hit all three and you're too good to ignore.</p>
+        <div class="tgti-row provoke">
+          <div class="tgti-disc">
+            <span class="tgti-step-label">Step</span>
+            <span class="tgti-step-num">03</span>
+          </div>
+          <div class="tgti-body">
+            <p class="tgti-body-label">How you break through</p>
+            <h3 class="tgti-name">Provoke</h3>
+            <p>Engage buyers with a strong point of view on their problem that compels action now.</p>
+          </div>
+        </div>
+
+        <div class="tgti-outcome">
+          <span class="tgti-outcome-label">The Result</span>
+          <span class="tgti-outcome-text">Outbound that's too good to ignore.</span>
         </div>
       </div>
 
       <div class="text-center" style="margin-top: 56px;">
         <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       AI MANIFESTO SECTION
-       ======================================== -->
-  <section class="ai-section">
-    <div class="ai-wrap">
-      <h2 class="reveal">AI isn't going to fix your problem. It's making it much worse.</h2>
-      <p class="reveal">Most sales teams are using AI to solve a volume problem that doesn't exist. Outbound hasn't had a volume problem since the advent of sequences and dialers.</p>
-      <p class="reveal">Outbound has a quality problem. Reps are spending time on the wrong accounts. Sending messaging that doesn't resonate. And using AI to scale playbooks from 2018.</p>
-      <p class="reveal">AI doesn't know what good looks like for your buyer, your market, or your sales motion. We do. And we've done it successfully with 250+ sales teams.</p>
     </div>
   </section>
 
@@ -2987,74 +3163,62 @@
       <p class="section-sub text-center">Here's why world-class teams choose to partner with Outbound Squad.</p>
 
       <div class="why-grid reveal">
-        <div class="why-card">
-          <h3 class="why-card-title">We needed an outside voice</h3>
-          <p>"Our enablement team is world-class, but they're not (nor was any rep or leader) doing outbound every day in a world-class way. To build this right, we needed an outside voice."</p>
-          <div class="why-card-attrib">
+        <div class="why-person-card">
+          <div class="why-person-head">
             <img src="headshots/jonas-master.jpg" alt="Jonas Master">
             <div>
-              <div class="wa-name">Jonas Master</div>
-              <div class="wa-role">VP of Enablement, Rippling</div>
+              <div class="wp-name">Jonas Master</div>
+              <div class="wp-role">VP of Enablement, Rippling</div>
+            </div>
+          </div>
+          <div class="why-points">
+            <div class="why-point">
+              <h3 class="why-point-title">We needed an outside voice</h3>
+              <p>"Our enablement team is world-class, but they're not (nor was any rep or leader) doing outbound every day in a world-class way. To build this right, we needed an outside voice."</p>
+            </div>
+            <div class="why-point">
+              <h3 class="why-point-title">Faster time to value</h3>
+              <p>"If we did this ourselves, it would've taken 6+ months to build, get approval, roll out, iterate, and see measurable results. We saw impact with Outbound Squad within 90 days."</p>
             </div>
           </div>
         </div>
 
-        <div class="why-card">
-          <h3 class="why-card-title">Faster time to value</h3>
-          <p>"If we did this ourselves, it would've taken 6+ months to build, get approval, roll out, iterate, and see measurable results. We saw impact with Outbound Squad within 90 days."</p>
-          <div class="why-card-attrib">
-            <img src="headshots/jonas-master.jpg" alt="Jonas Master">
-            <div>
-              <div class="wa-name">Jonas Master</div>
-              <div class="wa-role">VP of Enablement, Rippling</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="why-card">
-          <h3 class="why-card-title">Programmatic approach</h3>
-          <p>"We were executing a number of disparate trainings with pieced together outbound tactics. We needed a standardized outbound methodology."</p>
-          <div class="why-card-attrib">
+        <div class="why-person-card">
+          <div class="why-person-head">
             <img src="headshots/siobhan-sweeney.jpg" alt="Siobhan Sweeney">
             <div>
-              <div class="wa-name">Siobhan Sweeney</div>
-              <div class="wa-role">Previous Head of Enablement, Shopify</div>
+              <div class="wp-name">Siobhan Sweeney</div>
+              <div class="wp-role">Previous Head of Enablement, Shopify</div>
+            </div>
+          </div>
+          <div class="why-points">
+            <div class="why-point">
+              <h3 class="why-point-title">Programmatic approach</h3>
+              <p>"We were executing a number of disparate trainings with pieced together outbound tactics. We needed a standardized outbound methodology."</p>
+            </div>
+            <div class="why-point">
+              <h3 class="why-point-title">Front-line leader reinforcement</h3>
+              <p>"Managers are the end customer in any enablement initiative to make it stick. Many of our managers last sold pre-AI and if we're being honest, cannot outbound proficiently themselves!"</p>
             </div>
           </div>
         </div>
 
-        <div class="why-card">
-          <h3 class="why-card-title">Front-line leader reinforcement</h3>
-          <p>"Managers are the end customer in any enablement initiative to make it stick. Many of our managers last sold pre-AI and if we're being honest, cannot outbound proficiently themselves!"</p>
-          <div class="why-card-attrib">
-            <img src="headshots/siobhan-sweeney.jpg" alt="Siobhan Sweeney">
-            <div>
-              <div class="wa-name">Siobhan Sweeney</div>
-              <div class="wa-role">Previous Head of Enablement, Shopify</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="why-card">
-          <h3 class="why-card-title">Stronger field buy-in</h3>
-          <p>"Many of our reps and managers already follow Outbound Squad. Oftentimes reps prefer to learn from peers and experts, than from internal resources. It's also great for their career development."</p>
-          <div class="why-card-attrib">
+        <div class="why-person-card">
+          <div class="why-person-head">
             <img src="headshots/nate-vogel.jpg" alt="Nate Vogel">
             <div>
-              <div class="wa-name">Nate Vogel</div>
-              <div class="wa-role">Previous VP of Enablement, Gong</div>
+              <div class="wp-name">Nate Vogel</div>
+              <div class="wp-role">Previous VP of Enablement, Gong</div>
             </div>
           </div>
-        </div>
-
-        <div class="why-card">
-          <h3 class="why-card-title">Stay current as outbound changes</h3>
-          <p>"GenAI has completely changed the way outbound is done. What worked last year won't work next year. We needed a partner to stay on top of what modern outbound looks like in today's world."</p>
-          <div class="why-card-attrib">
-            <img src="headshots/nate-vogel.jpg" alt="Nate Vogel">
-            <div>
-              <div class="wa-name">Nate Vogel</div>
-              <div class="wa-role">Previous VP of Enablement, Gong</div>
+          <div class="why-points">
+            <div class="why-point">
+              <h3 class="why-point-title">Stronger field buy-in</h3>
+              <p>"Many of our reps and managers already follow Outbound Squad. Oftentimes reps prefer to learn from peers and experts, than from internal resources. It's also great for their career development."</p>
+            </div>
+            <div class="why-point">
+              <h3 class="why-point-title">Stay current as outbound changes</h3>
+              <p>"GenAI has completely changed the way outbound is done. What worked last year won't work next year. We needed a partner to stay on top of what modern outbound looks like in today's world."</p>
             </div>
           </div>
         </div>
