@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Outbound Squad Podcast | Hosted by Jason Bay</title>
-  <meta name="description" content="The Outbound Squad podcast with Jason Bay. 399+ episodes interviewing sales experts, leaders, and top-performing reps. Cold calling, cold email, prospecting, and outbound strategy for B2B sales teams.">
+  <meta name="description" content="The Outbound Squad podcast with Jason Bay. 400+ episodes interviewing sales experts, leaders, and top-performing reps. Cold calling, cold email, prospecting, and outbound strategy for B2B sales teams.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../favicon.png">
@@ -282,7 +282,7 @@
         radial-gradient(900px 500px at 10% 110%, rgba(248, 106, 62, 0.15), transparent 60%),
         linear-gradient(180deg, #0E1424 0%, #131A2D 60%, #1B2235 100%);
       color: #FFFFFF;
-      padding: 160px 0 0;
+      padding: 160px 0 96px;
       overflow: hidden;
       text-align: center;
     }
@@ -478,16 +478,20 @@
       fill: #FF0000;
     }
 
-    /* Stats row */
+    /* Stats row (now lives in its own white section between hero and featured) */
+    .hero-stats-section {
+      background: #FFFFFF;
+      padding: 56px 24px;
+    }
+
     .hero-stats {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 24px;
       flex-wrap: wrap;
-      margin-top: 48px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .stat {
@@ -501,7 +505,7 @@
     .stat-value {
       font-size: 32px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: #1B2235;
       letter-spacing: -0.5px;
       line-height: 1;
     }
@@ -511,7 +515,7 @@
     .stat-label {
       font-size: 12px;
       font-weight: 600;
-      color: #8FA0BF;
+      color: #7a8299;
       text-transform: uppercase;
       letter-spacing: 1.2px;
     }
@@ -527,7 +531,7 @@
     .stat-divider {
       width: 1px;
       height: 36px;
-      background: rgba(255,255,255,0.12);
+      background: #E6ECF5;
     }
 
     /* ========================================
@@ -535,40 +539,8 @@
        ======================================== */
     .featured-section {
       position: relative;
-      padding: 220px 0 96px;
-      margin-top: -120px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FD 60%, #EAF1FA 100%);
-    }
-
-    /* Navy fade at top of Latest Episode section blends from the dark hero */
-    .featured-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 480px;
-      background: linear-gradient(180deg, #1B2235 0%, #1B2235 30%, rgba(27, 34, 53, 0.55) 65%, rgba(255, 255, 255, 0) 100%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .featured-section > .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Latest Episode title sits on the dark fade, so make it light */
-    .featured-section .featured-eyebrow {
-      color: #F86A3E;
-    }
-
-    .featured-section .section-headline {
-      color: #FFFFFF;
-    }
-
-    .featured-section .section-sub {
-      color: #C9D1E0;
+      padding: 64px 0 96px;
+      background: #FFFFFF;
     }
 
     .featured-head {
@@ -625,7 +597,7 @@
        ======================================== */
     .packs-section {
       padding: 96px 0;
-      background: linear-gradient(180deg, #EAF1FA 0%, #E6F0FA 50%, #FFFFFF 100%);
+      background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 30%, #E6F0FA 60%, #FFFFFF 100%);
     }
 
     .packs-grid {
@@ -928,22 +900,28 @@
         Also available on YouTube
       </a>
 
-      <div class="hero-stats reveal delay-5">
-        <div class="stat">
-          <span class="stat-value accent" id="epCount">399+</span>
-          <span class="stat-label">Episodes</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-value" id="ratingValue">4.9</span>
-          <span class="stat-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-          <span class="stat-label" id="ratingCount">127 Ratings</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-value accent">Weekly</span>
-          <span class="stat-label">New Drops</span>
-        </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       STATS ROW (white section, hard stop above)
+       ======================================== -->
+  <section class="hero-stats-section">
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <span class="stat-value accent" id="epCount">400+</span>
+        <span class="stat-label">Episodes</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value" id="ratingValue">4.9</span>
+        <span class="stat-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+        <span class="stat-label" id="ratingCount">201+ Ratings</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value accent">Weekly</span>
+        <span class="stat-label">New Drops</span>
       </div>
     </div>
   </section>
@@ -1135,12 +1113,8 @@
           var epEl = document.getElementById('epCount');
           var rcEl = document.getElementById('ratingCount');
           var rvEl = document.getElementById('ratingValue');
-          if (epEl && show.trackCount) {
-            epEl.textContent = show.trackCount + '+';
-          }
-          if (rcEl && typeof show.userRatingCount === 'number' && show.userRatingCount > 0) {
-            rcEl.textContent = show.userRatingCount + ' Ratings';
-          }
+          /* Episode count + rating count are hardcoded (400+ / 201+ Ratings) per design. */
+          /* Keep averageUserRating live because it matches our 4.9 fallback. */
           if (rvEl && typeof show.averageUserRating === 'number' && show.averageUserRating > 0) {
             rvEl.textContent = show.averageUserRating.toFixed(1);
           }

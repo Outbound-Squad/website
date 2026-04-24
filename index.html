@@ -2013,17 +2013,11 @@
 
     .results-stats {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
       flex-wrap: wrap;
       gap: 0;
-      margin: 48px auto 0;
-      max-width: 960px;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 0;
+      margin: 0 0 28px;
     }
 
     .results-stat {
@@ -2031,12 +2025,11 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 8px 48px;
+      padding: 8px 40px;
       background: transparent;
       border-radius: 0;
       box-shadow: none;
-      border-right: 1px solid #E6ECF5;
-      flex: 1 1 0;
+      border-right: 1px solid #e2d5cf;
     }
 
     .results-stat:last-child {
@@ -2045,35 +2038,39 @@
 
     .results-num {
       display: block;
-      font-size: 44px;
+      font-size: 40px;
       font-weight: 800;
-      color: #1B2235;
+      color: #00A2FF;
       line-height: 1.05;
-      letter-spacing: -1.2px;
-      margin-bottom: 8px;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
     }
 
     .results-label {
       display: block;
       font-size: 13px;
       color: #7a8299;
-      line-height: 1.45;
+      line-height: 1.4;
       font-weight: 500;
-      max-width: 200px;
+      max-width: 180px;
+    }
+
+    @media (max-width: 640px) {
+      .results-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .results-stat {
+        border-right: none;
+        border-bottom: 1px solid #e2d5cf;
+        padding: 12px 0;
+      }
+      .results-stat:last-child { border-bottom: none; }
+      .results-num { font-size: 36px; }
     }
 
     @media (max-width: 768px) {
       .results-section-polished { padding: 64px 0 64px; }
-      .results-stats {
-        flex-direction: column;
-        gap: 28px;
-      }
-      .results-stat {
-        border-right: none;
-        border-bottom: none;
-        padding: 0;
-      }
-      .results-num { font-size: 36px; }
     }
 
     .testimonial-grid {
@@ -2249,7 +2246,7 @@
     /* Final CTA — Navy hero card */
     .final-cta-section {
       padding: 96px 0 112px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F9EBE7 50%, #FFFFFF 100%);
+      background: #FFFFFF;
     }
 
     .final-cta-card {
@@ -2258,10 +2255,10 @@
       margin: 0 auto;
       padding: 72px 56px;
       border-radius: 28px;
-      background: linear-gradient(135deg, #131826 0%, #1B2235 50%, #232C45 100%);
+      background: #F9EBE7;
       overflow: hidden;
-      color: #FFFFFF;
-      box-shadow: 0 30px 80px rgba(27, 34, 53, 0.25);
+      color: #1B2235;
+      box-shadow: 0 20px 60px rgba(248, 106, 62, 0.15);
     }
 
     .final-cta-card::before {
@@ -2271,7 +2268,7 @@
       right: -120px;
       width: 540px;
       height: 540px;
-      background: radial-gradient(circle, rgba(0, 162, 255, 0.35) 0%, rgba(0, 162, 255, 0) 70%);
+      background: radial-gradient(circle, rgba(248, 106, 62, 0.18) 0%, rgba(248, 106, 62, 0) 70%);
       pointer-events: none;
     }
 
@@ -2282,7 +2279,7 @@
       left: -120px;
       width: 480px;
       height: 480px;
-      background: radial-gradient(circle, rgba(248, 106, 62, 0.22) 0%, rgba(248, 106, 62, 0) 70%);
+      background: radial-gradient(circle, rgba(248, 106, 62, 0.12) 0%, rgba(248, 106, 62, 0) 70%);
       pointer-events: none;
     }
 
@@ -2318,7 +2315,7 @@
     .final-cta-headline {
       font-size: 44px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: #1B2235;
       line-height: 1.08;
       letter-spacing: -1px;
       margin: 0 0 20px;
@@ -2331,7 +2328,7 @@
     .final-cta-sub {
       font-size: 17px;
       line-height: 1.6;
-      color: #C8D0E0;
+      color: #444444;
       margin: 0;
     }
 
@@ -2374,7 +2371,7 @@
       gap: 14px;
       padding-top: 18px;
       margin-top: 6px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(27, 34, 53, 0.1);
       width: 100%;
       max-width: 320px;
     }
@@ -2384,19 +2381,19 @@
       height: 44px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.18);
+      border: 2px solid rgba(27, 34, 53, 0.12);
     }
 
     .final-cta-host-name {
       font-size: 14px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #1B2235;
       letter-spacing: -0.1px;
     }
 
     .final-cta-host-role {
       font-size: 12px;
-      color: #9AA3B8;
+      color: #666666;
       margin-top: 2px;
     }
 
