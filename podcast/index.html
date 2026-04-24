@@ -273,27 +273,27 @@
     .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ========================================
-       HERO (LIGHT ORANGE)
+       HERO (DARK STUDIO)
        ======================================== */
     .hero {
       position: relative;
       background:
-        radial-gradient(1100px 580px at 80% -10%, rgba(248, 106, 62, 0.18), transparent 65%),
-        radial-gradient(900px 500px at 10% 110%, rgba(248, 106, 62, 0.12), transparent 65%),
-        linear-gradient(180deg, #FCEFE9 0%, #FAE6DD 60%, #FCEFE9 100%);
-      color: #1B2235;
-      padding: 160px 0 120px;
+        radial-gradient(1200px 600px at 80% -10%, rgba(0, 162, 255, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 10% 110%, rgba(248, 106, 62, 0.15), transparent 60%),
+        linear-gradient(180deg, #0E1424 0%, #131A2D 60%, #1B2235 100%);
+      color: #FFFFFF;
+      padding: 160px 0 0;
       overflow: hidden;
       text-align: center;
     }
 
-    /* Soft dotted pattern in the background */
+    /* Soft dotted pattern */
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(rgba(27,34,53,0.06) 1px, transparent 1px);
+        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
       background-size: 28px 28px;
       opacity: 0.5;
       pointer-events: none;
@@ -338,7 +338,7 @@
     .hero-headline {
       font-size: 88px;
       font-weight: 800;
-      color: #1B2235;
+      color: #FFFFFF;
       line-height: 1.0;
       letter-spacing: -2.5px;
       margin-bottom: 8px;
@@ -354,7 +354,7 @@
 
     .hero-desc {
       font-size: 18px;
-      color: #444444;
+      color: #C9D1E0;
       line-height: 1.65;
       margin: 0 auto 40px;
       max-width: 780px;
@@ -364,12 +364,12 @@
       display: inline-block;
       font-size: 14px;
       font-weight: 600;
-      color: #666666;
+      color: #8FA0BF;
       letter-spacing: 0.3px;
       margin-bottom: 36px;
     }
 
-    .hero-host strong { color: #1B2235; font-weight: 700; }
+    .hero-host strong { color: #FFFFFF; font-weight: 700; }
 
     /* Platform buttons row */
     .platform-row {
@@ -392,7 +392,7 @@
       text-decoration: none;
       transition: transform 0.18s ease, box-shadow 0.2s ease, filter 0.2s ease;
       min-height: 56px;
-      border: 1px solid rgba(27,34,53,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .platform-btn svg {
@@ -466,11 +466,11 @@
       gap: 8px;
       margin-top: 8px;
       font-size: 14px;
-      color: #666666;
+      color: #8FA0BF;
       transition: color 0.2s;
     }
 
-    .youtube-link:hover { color: #1B2235; }
+    .youtube-link:hover { color: #FFFFFF; }
 
     .youtube-link svg {
       width: 18px;
@@ -487,7 +487,7 @@
       flex-wrap: wrap;
       margin-top: 48px;
       padding-top: 40px;
-      border-top: 1px solid rgba(27,34,53,0.10);
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .stat {
@@ -501,7 +501,7 @@
     .stat-value {
       font-size: 32px;
       font-weight: 800;
-      color: #1B2235;
+      color: #FFFFFF;
       letter-spacing: -0.5px;
       line-height: 1;
     }
@@ -511,7 +511,7 @@
     .stat-label {
       font-size: 12px;
       font-weight: 600;
-      color: #666666;
+      color: #8FA0BF;
       text-transform: uppercase;
       letter-spacing: 1.2px;
     }
@@ -527,15 +527,48 @@
     .stat-divider {
       width: 1px;
       height: 36px;
-      background: rgba(27,34,53,0.12);
+      background: rgba(255,255,255,0.12);
     }
 
     /* ========================================
        FEATURED EPISODE
        ======================================== */
     .featured-section {
-      padding: 96px 0;
-      background: linear-gradient(180deg, #FCEFE9 0%, #FFFFFF 100%);
+      position: relative;
+      padding: 220px 0 96px;
+      margin-top: -120px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FD 60%, #EAF1FA 100%);
+    }
+
+    /* Navy fade at top of Latest Episode section blends from the dark hero */
+    .featured-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      background: linear-gradient(180deg, #1B2235 0%, #1B2235 30%, rgba(27, 34, 53, 0.55) 65%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .featured-section > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Latest Episode title sits on the dark fade, so make it light */
+    .featured-section .featured-eyebrow {
+      color: #F86A3E;
+    }
+
+    .featured-section .section-headline {
+      color: #FFFFFF;
+    }
+
+    .featured-section .section-sub {
+      color: #C9D1E0;
     }
 
     .featured-head {
@@ -592,7 +625,7 @@
        ======================================== */
     .packs-section {
       padding: 96px 0;
-      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 40%, #F3F7FC 100%);
+      background: linear-gradient(180deg, #EAF1FA 0%, #E6F0FA 50%, #FFFFFF 100%);
     }
 
     .packs-grid {
@@ -687,7 +720,7 @@
     .footer {
       background: #FFFFFF;
       padding: 48px 0 40px;
-      border-top: 1px solid #EEEEEE;
+
     }
 
     .footer-logo {
