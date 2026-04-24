@@ -273,27 +273,27 @@
     .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ========================================
-       HERO (DARK STUDIO)
+       HERO (LIGHT ORANGE)
        ======================================== */
     .hero {
       position: relative;
       background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(0, 162, 255, 0.18), transparent 60%),
-        radial-gradient(900px 500px at 10% 110%, rgba(248, 106, 62, 0.15), transparent 60%),
-        linear-gradient(180deg, #0E1424 0%, #131A2D 60%, #1B2235 100%);
-      color: #FFFFFF;
+        radial-gradient(1100px 580px at 80% -10%, rgba(248, 106, 62, 0.18), transparent 65%),
+        radial-gradient(900px 500px at 10% 110%, rgba(248, 106, 62, 0.12), transparent 65%),
+        linear-gradient(180deg, #FCEFE9 0%, #FAE6DD 60%, #FCEFE9 100%);
+      color: #1B2235;
       padding: 160px 0 120px;
       overflow: hidden;
       text-align: center;
     }
 
-    /* Soft waveform pattern in the background */
+    /* Soft dotted pattern in the background */
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+        radial-gradient(rgba(27,34,53,0.06) 1px, transparent 1px);
       background-size: 28px 28px;
       opacity: 0.5;
       pointer-events: none;
@@ -338,7 +338,7 @@
     .hero-headline {
       font-size: 88px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: #1B2235;
       line-height: 1.0;
       letter-spacing: -2.5px;
       margin-bottom: 8px;
@@ -354,7 +354,7 @@
 
     .hero-desc {
       font-size: 18px;
-      color: #C9D1E0;
+      color: #444444;
       line-height: 1.65;
       margin: 0 auto 40px;
       max-width: 780px;
@@ -364,12 +364,12 @@
       display: inline-block;
       font-size: 14px;
       font-weight: 600;
-      color: #8FA0BF;
+      color: #666666;
       letter-spacing: 0.3px;
       margin-bottom: 36px;
     }
 
-    .hero-host strong { color: #FFFFFF; font-weight: 700; }
+    .hero-host strong { color: #1B2235; font-weight: 700; }
 
     /* Platform buttons row */
     .platform-row {
@@ -392,7 +392,7 @@
       text-decoration: none;
       transition: transform 0.18s ease, box-shadow 0.2s ease, filter 0.2s ease;
       min-height: 56px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(27,34,53,0.06);
     }
 
     .platform-btn svg {
@@ -466,11 +466,11 @@
       gap: 8px;
       margin-top: 8px;
       font-size: 14px;
-      color: #8FA0BF;
+      color: #666666;
       transition: color 0.2s;
     }
 
-    .youtube-link:hover { color: #FFFFFF; }
+    .youtube-link:hover { color: #1B2235; }
 
     .youtube-link svg {
       width: 18px;
@@ -487,7 +487,7 @@
       flex-wrap: wrap;
       margin-top: 48px;
       padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(27,34,53,0.10);
     }
 
     .stat {
@@ -501,7 +501,7 @@
     .stat-value {
       font-size: 32px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: #1B2235;
       letter-spacing: -0.5px;
       line-height: 1;
     }
@@ -511,7 +511,7 @@
     .stat-label {
       font-size: 12px;
       font-weight: 600;
-      color: #8FA0BF;
+      color: #666666;
       text-transform: uppercase;
       letter-spacing: 1.2px;
     }
@@ -527,7 +527,7 @@
     .stat-divider {
       width: 1px;
       height: 36px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(27,34,53,0.12);
     }
 
     /* ========================================
@@ -535,7 +535,7 @@
        ======================================== */
     .featured-section {
       padding: 96px 0;
-      background: #FFFFFF;
+      background: linear-gradient(180deg, #FCEFE9 0%, #FFFFFF 100%);
     }
 
     .featured-head {
@@ -682,198 +682,6 @@
     .pack-link:hover { color: #169c46; }
 
     /* ========================================
-       POPULAR EPISODES
-       ======================================== */
-    .popular-section {
-      padding: 96px 0;
-      background: #FFFFFF;
-      overflow: hidden;
-    }
-
-    .slider-wrap {
-      position: relative;
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .slider-viewport {
-      overflow: hidden;
-      padding: 8px 0;
-    }
-
-    .slider-track {
-      display: flex;
-      gap: 24px;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .ep-card {
-      flex: 0 0 calc(25% - 18px);
-      min-width: 0;
-      background: #FFFFFF;
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 3px 16px rgba(27, 34, 53, 0.06);
-      border-left: 4px solid #F86A3E;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-
-    .ep-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(27, 34, 53, 0.10);
-    }
-
-    .ep-num {
-      font-size: 11px;
-      font-weight: 700;
-      color: #F86A3E;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      margin-bottom: 12px;
-    }
-
-    .ep-title {
-      font-size: 17px;
-      font-weight: 800;
-      color: #1B2235;
-      letter-spacing: -0.2px;
-      line-height: 1.35;
-      margin-bottom: 12px;
-      flex: 1;
-    }
-
-    .ep-desc {
-      font-size: 14px;
-      color: #7a8299;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-
-    .ep-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #00A2FF;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .ep-link:hover { color: #0080cc; }
-
-    /* Slider controls */
-    .slider-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .slider-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid #E4E8F0;
-      background: #FFFFFF;
-      color: #1B2235;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-    }
-
-    .slider-btn:hover:not(:disabled) {
-      border-color: #1B2235;
-      background: #1B2235;
-      color: #FFFFFF;
-      transform: translateY(-2px);
-    }
-
-    .slider-btn:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-    }
-
-    .slider-btn svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .slider-dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .slider-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #D8DEE8;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .slider-dot.active {
-      background: #F86A3E;
-      transform: scale(1.3);
-    }
-
-    /* ========================================
-       SUBSCRIBE CTA (DARK)
-       ======================================== */
-    .subscribe-section {
-      position: relative;
-      background:
-        radial-gradient(900px 500px at 10% -10%, rgba(0, 162, 255, 0.15), transparent 60%),
-        radial-gradient(800px 500px at 90% 110%, rgba(248, 106, 62, 0.12), transparent 60%),
-        linear-gradient(180deg, #1B2235 0%, #131A2D 100%);
-      padding: 96px 0;
-      text-align: center;
-      color: #FFFFFF;
-      overflow: hidden;
-    }
-
-    .subscribe-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
-    }
-
-    .subscribe-inner { position: relative; z-index: 2; }
-
-    .subscribe-section .section-headline {
-      color: #FFFFFF;
-      font-size: 44px;
-      letter-spacing: -0.8px;
-    }
-
-    .subscribe-sub {
-      font-size: 18px;
-      color: #C9D1E0;
-      max-width: 620px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-    }
-
-    .subscribe-foot {
-      margin-top: 28px;
-      font-size: 14px;
-      color: #8FA0BF;
-    }
-
-    /* ========================================
        FOOTER
        ======================================== */
     .footer {
@@ -983,12 +791,8 @@
       .hero-sub-title { font-size: 20px; margin-bottom: 22px; }
       .hero-desc { font-size: 16px; }
       .section-headline { font-size: 30px; }
-      .subscribe-section .section-headline { font-size: 32px; }
-
       .featured-section,
-      .packs-section,
-      .popular-section,
-      .subscribe-section {
+      .packs-section {
         padding: 64px 0;
       }
 
@@ -997,10 +801,6 @@
       .packs-grid {
         grid-template-columns: 1fr;
         gap: 16px;
-      }
-
-      .ep-card {
-        flex: 0 0 calc(100% - 0px);
       }
 
       .platform-btn {
@@ -1021,8 +821,6 @@
 
       .stat { min-width: 100px; }
       .stat-value { font-size: 24px; }
-
-      .slider-track { gap: 16px; }
     }
 
     @media (max-width: 480px) {
@@ -1067,7 +865,7 @@
       <h1 class="hero-headline reveal">Outbound Squad</h1>
       <p class="hero-sub-title reveal delay-1">The Podcast</p>
       <p class="hero-host reveal delay-1">Hosted by <strong>Jason Bay</strong> (call him JBay)</p>
-      <p class="hero-desc reveal delay-2">This sales podcast is for B2B reps and sales teams who want to turn complete strangers into paying customers. Join me (you can call me JBay) as I interview sales experts, leaders, and top-performing reps to learn the stories, secrets, and skills of the world's most successful sales professionals.</p>
+      <p class="hero-desc reveal delay-2">This podcast is for B2B reps and sales teams who want to turn complete strangers into paying customers. Join Jason Bay as he interviews sales experts, leaders, and top-performing reps to learn the stories, secrets, and skills of the world's most successful sales organizations.</p>
 
       <div class="platform-row reveal delay-3">
         <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="platform-btn spotify" aria-label="Listen on Spotify">
@@ -1099,14 +897,14 @@
 
       <div class="hero-stats reveal delay-5">
         <div class="stat">
-          <span class="stat-value accent">399+</span>
+          <span class="stat-value accent" id="epCount">399+</span>
           <span class="stat-label">Episodes</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-value">4.9</span>
+          <span class="stat-value" id="ratingValue">4.9</span>
           <span class="stat-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-          <span class="stat-label">127 Ratings</span>
+          <span class="stat-label" id="ratingCount">127 Ratings</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
@@ -1212,120 +1010,6 @@
   </section>
 
   <!-- ========================================
-       POPULAR EPISODES
-       ======================================== -->
-  <section class="popular-section">
-    <div class="container">
-      <div class="featured-head">
-        <span class="featured-eyebrow reveal">Most Loved</span>
-        <h2 class="section-headline reveal">Fan Favorites</h2>
-        <p class="section-sub reveal">Our most popular episodes across 399+ episodes.</p>
-      </div>
-    </div>
-
-    <div class="slider-wrap reveal">
-      <div class="slider-viewport">
-        <div class="slider-track" id="sliderTrack">
-          <!-- Episode 1 -->
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 01</span>
-            <h3 class="ep-title">[Playbook] Cold Email: Analyzing 85M+ cold emails to find what's working</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 02</span>
-            <h3 class="ep-title">Steal this cold calling framework to book 2-3x more meetings</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 03</span>
-            <h3 class="ep-title">[Playbook] No, cold calling isn't dead (how to land meetings in 2025)</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 04</span>
-            <h3 class="ep-title">The Offer: Why no one responds to your cold outreach</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 05</span>
-            <h3 class="ep-title">[Playbook] How to build and scale a world-class outbound program</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 06</span>
-            <h3 class="ep-title">AI Masterclass: THE guide on how to leverage AI for outbound</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 07</span>
-            <h3 class="ep-title">Cold Calling Sucks and That's Why It Works</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 08</span>
-            <h3 class="ep-title">[Playbook] Multi-threading: Get to power, win bigger deals</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 09</span>
-            <h3 class="ep-title">7 hard truths about outbound in 2025</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-          <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="ep-card">
-            <span class="ep-num">Episode 10</span>
-            <h3 class="ep-title">Expert Techniques for Selling to the C-Suite</h3>
-            <span class="ep-link">Listen Now →</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="slider-controls">
-        <button class="slider-btn" id="sliderPrev" aria-label="Previous episodes">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <div class="slider-dots" id="sliderDots" aria-hidden="true"></div>
-        <button class="slider-btn" id="sliderNext" aria-label="Next episodes">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       SUBSCRIBE CTA
-       ======================================== -->
-  <section class="subscribe-section">
-    <div class="container subscribe-inner">
-      <h2 class="section-headline reveal">Never miss an episode</h2>
-      <p class="subscribe-sub reveal">New episodes every week. Subscribe on your favorite platform so the next playbook lands the moment it drops.</p>
-
-      <div class="platform-row reveal delay-1">
-        <a href="https://open.spotify.com/show/3M48nC6r29rITjQ1wFccdN" target="_blank" rel="noopener" class="platform-btn outline spotify" aria-label="Subscribe on Spotify">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.34c-.22.36-.68.47-1.04.25-2.85-1.74-6.44-2.13-10.66-1.17-.41.09-.82-.17-.91-.58-.09-.41.17-.82.58-.91 4.62-1.06 8.59-.61 11.79 1.35.36.22.47.69.24 1.06zm1.47-3.27c-.28.45-.87.59-1.32.31-3.26-2-8.22-2.58-12.07-1.41-.5.15-1.04-.13-1.19-.63-.15-.5.13-1.04.63-1.19 4.4-1.34 9.88-.69 13.63 1.6.45.27.59.87.32 1.32zm.13-3.4C15.26 8.39 8.9 8.16 5.34 9.24c-.6.18-1.24-.16-1.42-.76-.18-.6.16-1.24.76-1.42 4.1-1.24 11.12-1 15.49 1.6.54.32.72 1.02.4 1.57-.32.55-1.02.73-1.57.41z"/>
-          </svg>
-          Subscribe on Spotify
-        </a>
-        <a href="https://podcasts.apple.com/us/podcast/outbound-squad/id1502265369" target="_blank" rel="noopener" class="platform-btn outline apple" aria-label="Subscribe on Apple Podcasts">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3.2a2.4 2.4 0 110 4.8 2.4 2.4 0 010-4.8zm-4.8 9.6c0-2.65 2.15-4.8 4.8-4.8s4.8 2.15 4.8 4.8c0 .42-.06.83-.17 1.22a.8.8 0 01-.78.58h-.08a.8.8 0 01-.72-1.1c.08-.23.15-.5.15-.7 0-1.77-1.43-3.2-3.2-3.2s-3.2 1.43-3.2 3.2c0 .2.07.47.15.7a.8.8 0 01-.72 1.1h-.08a.8.8 0 01-.78-.58 4.79 4.79 0 01-.17-1.22zm3.15 3.05a.8.8 0 01.78-.65h1.74a.8.8 0 01.78.65l.48 3.2a.8.8 0 01-.79.95h-2.68a.8.8 0 01-.79-.95l.48-3.2zm1.65-4.65a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
-          </svg>
-          Subscribe on Apple Podcasts
-        </a>
-        <a href="https://www.iheart.com/podcast/269-outbound-squad-280225920/" target="_blank" rel="noopener" class="platform-btn outline iheart" aria-label="Subscribe on iHeartRadio">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-          Subscribe on iHeartRadio
-        </a>
-      </div>
-
-      <p class="subscribe-foot reveal delay-2">New episodes every week. Subscribe on your favorite platform.</p>
-    </div>
-  </section>
-
-  <!-- ========================================
        FOOTER
        ======================================== -->
   <footer class="footer">
@@ -1406,88 +1090,31 @@
       reveals.forEach(function (el) { observer.observe(el); });
     })();
 
-    /* Popular Episodes Slider */
+    /* Sync episode count + ratings from Apple Podcasts (iTunes Lookup API) */
     (function () {
-      var track = document.getElementById('sliderTrack');
-      var prevBtn = document.getElementById('sliderPrev');
-      var nextBtn = document.getElementById('sliderNext');
-      var dotsWrap = document.getElementById('sliderDots');
-      if (!track) return;
-      var cards = track.querySelectorAll('.ep-card');
-      var totalCards = cards.length;
-      var page = 0;
-
-      function perView() {
-        var w = window.innerWidth;
-        if (w <= 768) return 1;
-        if (w <= 960) return 2;
-        return 4;
-      }
-
-      function totalPages() {
-        return Math.max(1, Math.ceil(totalCards / perView()));
-      }
-
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        var pages = totalPages();
-        for (var i = 0; i < pages; i++) {
-          var dot = document.createElement('button');
-          dot.className = 'slider-dot' + (i === page ? ' active' : '');
-          dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
-          (function (idx) {
-            dot.addEventListener('click', function () { goTo(idx); });
-          })(i);
-          dotsWrap.appendChild(dot);
-        }
-      }
-
-      function update() {
-        var pv = perView();
-        var pages = totalPages();
-        if (page >= pages) page = pages - 1;
-        if (page < 0) page = 0;
-
-        // Calculate translation based on the first card of the page
-        var firstIdx = page * pv;
-        if (firstIdx >= totalCards) firstIdx = Math.max(0, totalCards - pv);
-        var card = cards[firstIdx];
-        if (card) {
-          var cardLeft = card.offsetLeft;
-          track.style.transform = 'translateX(' + (-cardLeft) + 'px)';
-        }
-
-        // Update dots
-        var dots = dotsWrap.querySelectorAll('.slider-dot');
-        dots.forEach(function (d, i) {
-          d.classList.toggle('active', i === page);
-        });
-
-        prevBtn.disabled = page === 0;
-        nextBtn.disabled = page >= pages - 1;
-      }
-
-      function goTo(idx) {
-        page = idx;
-        update();
-      }
-
-      prevBtn.addEventListener('click', function () { page--; update(); });
-      nextBtn.addEventListener('click', function () { page++; update(); });
-
-      var resizeTimer;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-          page = 0;
-          buildDots();
-          update();
-        }, 120);
-      });
-
-      buildDots();
-      update();
+      var APPLE_ID = '1502265369';
+      var url = 'https://itunes.apple.com/lookup?id=' + APPLE_ID + '&entity=podcast';
+      fetch(url)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (!data || !data.results || !data.results.length) return;
+          var show = data.results[0];
+          var epEl = document.getElementById('epCount');
+          var rcEl = document.getElementById('ratingCount');
+          var rvEl = document.getElementById('ratingValue');
+          if (epEl && show.trackCount) {
+            epEl.textContent = show.trackCount + '+';
+          }
+          if (rcEl && typeof show.userRatingCount === 'number' && show.userRatingCount > 0) {
+            rcEl.textContent = show.userRatingCount + ' Ratings';
+          }
+          if (rvEl && typeof show.averageUserRating === 'number' && show.averageUserRating > 0) {
+            rvEl.textContent = show.averageUserRating.toFixed(1);
+          }
+        })
+        .catch(function () { /* silently keep fallback values */ });
     })();
+
   </script>
 
 </body>
