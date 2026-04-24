@@ -625,42 +625,34 @@
 
     .icp-logos {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: center;
-      gap: 14px 22px;
+      justify-content: space-between;
+      gap: 16px;
       padding: 22px 0 0;
       border-top: 1px solid #EDF0F5;
       margin-top: auto;
     }
 
     .icp-logo {
+      flex: 1 1 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      height: 36px;
+      height: 32px;
+      min-width: 0;
     }
 
     .icp-logo img {
-      height: 30px;
+      height: 22px;
       width: auto;
-      max-width: 110px;
+      max-width: 100%;
+      max-height: 32px;
       mix-blend-mode: multiply;
       object-fit: contain;
       filter: grayscale(1);
       opacity: 0.75;
       transition: filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    /* Boost tiny square-ish logos so they read at parity with the wider ones */
-    .icp-logo[data-size="tall"] img {
-      height: 44px;
-      max-width: 80px;
-    }
-
-    /* Constrain extra-wide logos so they don't dominate the row */
-    .icp-logo[data-size="wide"] img {
-      height: 26px;
-      max-width: 100px;
     }
 
     .icp-card:hover .icp-logo img {
@@ -1172,6 +1164,16 @@
 
       .icp-title { font-size: 24px; }
 
+      .icp-logos {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 14px 22px;
+      }
+      .icp-logo {
+        flex: 0 0 auto;
+      }
+      .icp-logo img { height: 24px; max-width: 100px; }
+
       .reviews-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -1307,10 +1309,10 @@
           </ul>
           <div class="icp-logos">
             <span class="icp-logo"><img src="../logos/wonolo.png" alt="Wonolo" loading="lazy"></span>
-            <span class="icp-logo" data-size="tall"><img src="../logos/nextroll.png" alt="NextRoll" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/nextroll.png" alt="NextRoll" loading="lazy"></span>
             <span class="icp-logo"><img src="../logos/goguardian.png" alt="GoGuardian" loading="lazy"></span>
             <span class="icp-logo"><img src="../logos/carta.png" alt="Carta" loading="lazy"></span>
-            <span class="icp-logo" data-size="tall"><img src="../logos/paddle.png" alt="Paddle" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/paddle.png" alt="Paddle" loading="lazy"></span>
           </div>
         </article>
 
@@ -1326,61 +1328,10 @@
             <span class="icp-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></span>
             <span class="icp-logo"><img src="../logos/gong.png" alt="Gong" loading="lazy"></span>
             <span class="icp-logo"><img src="../logos/zoom.png" alt="Zoom" loading="lazy"></span>
-            <span class="icp-logo" data-size="wide"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
+            <span class="icp-logo"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
             <span class="icp-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></span>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       4. LOGO MARQUEE
-       ======================================== -->
-  <section class="section section-white">
-    <div class="container-wide">
-      <div class="marquee-wrap reveal">
-        <p class="marquee-label">Trusted by world-class sales teams</p>
-        <div class="marquee">
-          <div class="marquee-track">
-            <!-- Loop set 1 -->
-            <span class="marquee-item"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/gong.png" alt="Gong" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/zoom.png" alt="Zoom" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/goguardian.png" alt="GoGuardian" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/optimizely.png" alt="Optimizely" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/varonis.png" alt="Varonis" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/digicert.png" alt="Digicert" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/hyland.png" alt="Hyland" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/carta.png" alt="Carta" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/neo4j.png" alt="Neo4j" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/armis.png" alt="Armis" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/medallia.png" alt="Medallia" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/commvault.png" alt="Commvault" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/anaplan.png" alt="Anaplan" loading="lazy"></span>
-            <span class="marquee-item"><img src="../logos/powerpay.png" alt="Powerpay" loading="lazy"></span>
-            <!-- Loop set 2 (duplicate for seamless scroll) -->
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/shopify.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/gong.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/zoom.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/rippling.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/iheartmedia.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/goguardian.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/optimizely.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/varonis.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/digicert.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/hyland.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/carta.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/neo4j.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/armis.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/medallia.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/commvault.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/anaplan.png" alt="" loading="lazy"></span>
-            <span class="marquee-item" aria-hidden="true"><img src="../logos/powerpay.png" alt="" loading="lazy"></span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
