@@ -626,31 +626,45 @@
       font-weight: 700;
       color: #1B2235;
       line-height: 1.35;
-      max-width: 160px;
+      max-width: 180px;
+      margin-bottom: 8px;
+    }
+
+    .tl-desc {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.5;
+      max-width: 180px;
+      margin: 0;
+    }
+
+    .tl-impact-wrap {
+      text-align: center;
+      margin: 40px 0 0;
     }
 
     .tl-impact {
+      display: inline-block;
       background: #FFF5F4;
       border: 1px solid #FAD9D3;
-      border-radius: 12px;
-      padding: 18px 24px;
-      text-align: center;
-      margin: 40px auto 0;
+      border-radius: 999px;
+      padding: 12px 24px;
       color: #E04A3C;
       font-weight: 700;
-      font-size: 17px;
+      font-size: 15px;
     }
 
-    .tl-impact strong { font-weight: 800; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 13px; }
+    .tl-impact strong { font-weight: 800; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 12px; }
 
     @media (max-width: 860px) {
       .oldway-card { padding: 32px 24px; }
       .oldway-title { font-size: 28px; }
       .timeline-row { grid-template-columns: 1fr; gap: 20px; }
       .timeline-row::before { display: none; }
-      .tl-step { flex-direction: row; text-align: left; gap: 16px; align-items: center; }
+      .tl-step { flex-direction: row; text-align: left; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
       .tl-num { margin-bottom: 0; flex-shrink: 0; width: 52px; height: 52px; font-size: 18px; }
-      .tl-label { max-width: none; }
+      .tl-label { max-width: none; margin-bottom: 4px; }
+      .tl-desc { max-width: none; padding-left: 68px; margin-top: -4px; }
     }
 
     /* ========================================
@@ -689,176 +703,180 @@
       font-weight: 700;
     }
 
-    /* Vertical flow diagram */
-    .tgti-flow {
-      max-width: 900px;
+    /* Flywheel diagram */
+    .tgti-flywheel {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
       margin: 0 auto;
-      position: relative;
+      aspect-ratio: 1 / 1;
+      max-height: 720px;
     }
 
-    .tgti-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 32px;
-      align-items: stretch;
-      background: #FFFFFF;
-      border-radius: 20px;
-      padding: 36px 40px 36px 32px;
-      border: 1px solid #E6ECF5;
-      box-shadow: 0 6px 24px rgba(27, 34, 53, 0.06);
-      position: relative;
-      border-left: 6px solid #00A2FF;
-    }
-
-    .tgti-row.offer { border-left-color: #F86A3E; }
-    .tgti-row.provoke { border-left-color: #1B2235; }
-
-    .tgti-row + .tgti-row { margin-top: 36px; }
-
-    /* Connector between rows */
-    .tgti-row + .tgti-row::before {
-      content: "";
+    .tgti-flywheel-svg {
       position: absolute;
-      left: 66px;
-      top: -36px;
-      width: 2px;
-      height: 36px;
-      background: linear-gradient(180deg, #CFDDEF 0%, #E6ECF5 100%);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
     }
 
-    .tgti-row + .tgti-row::after {
-      content: "";
+    .tgti-hub {
       position: absolute;
-      left: 60px;
-      top: -16px;
-      width: 14px;
-      height: 14px;
-      background: #FFFFFF;
-      border: 2px solid #CFDDEF;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 34%;
+      max-width: 260px;
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
-      box-sizing: border-box;
-    }
-
-    .tgti-disc {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: #E6F0FA;
+      background: linear-gradient(135deg, #1B2235 0%, #2A344F 100%);
+      color: #FFFFFF;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #00A2FF;
-      font-weight: 800;
-      gap: 2px;
-      flex-shrink: 0;
-      box-shadow: inset 0 0 0 6px #FFFFFF;
-    }
-
-    .tgti-row.offer .tgti-disc { background: #FCEFE9; color: #F86A3E; }
-    .tgti-row.provoke .tgti-disc { background: #E6ECF5; color: #1B2235; }
-
-    .tgti-step-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
-
-    .tgti-step-num {
-      font-size: 44px;
-      line-height: 1;
-      letter-spacing: -1px;
-    }
-
-    .tgti-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-    }
-
-    .tgti-body-label {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #00A2FF;
-      margin-bottom: 8px;
-    }
-
-    .tgti-row.offer .tgti-body-label { color: #F86A3E; }
-    .tgti-row.provoke .tgti-body-label { color: #1B2235; }
-
-    .tgti-name {
-      font-size: 30px;
-      font-weight: 800;
-      color: #1B2235;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-    }
-
-    .tgti-row p {
-      font-size: 16px;
-      color: #444444;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* Outcome banner */
-    .tgti-outcome {
-      margin-top: 48px;
-      padding: 28px 32px;
-      background: linear-gradient(135deg, #1B2235 0%, #2A344F 100%);
-      border-radius: 20px;
       text-align: center;
-      color: #FFFFFF;
-      position: relative;
+      padding: 24px;
+      box-shadow: 0 12px 40px rgba(27, 34, 53, 0.25);
+      z-index: 2;
     }
 
-    .tgti-outcome::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -28px;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 28px;
-      background: #CFDDEF;
-    }
-
-    .tgti-outcome-label {
-      display: block;
+    .tgti-hub-label {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #7BC4FF;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .tgti-outcome-text {
-      font-size: 26px;
+    .tgti-hub-title {
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.3px;
-      line-height: 1.2;
+      line-height: 1.15;
+    }
+
+    .tgti-node {
+      position: absolute;
+      width: 30%;
+      max-width: 280px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 24px 24px 22px;
+      text-align: center;
+      border: 1px solid #E6ECF5;
+      box-shadow: 0 10px 32px rgba(27, 34, 53, 0.08);
+      z-index: 3;
+    }
+
+    .tgti-node.top {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .tgti-node.bottom-right {
+      right: 0;
+      bottom: 6%;
+    }
+
+    .tgti-node.bottom-left {
+      left: 0;
+      bottom: 6%;
+    }
+
+    .tgti-node-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.3px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .tgti-node p {
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .tgti-node-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+    }
+
+    .tgti-node.disqualify .tgti-node-dot { background: #00A2FF; }
+    .tgti-node.offer .tgti-node-dot { background: #F86A3E; }
+    .tgti-node.provoke .tgti-node-dot { background: #1B2235; }
+
+    /* Client logos strip */
+    .tgti-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid #E6ECF5;
+    }
+
+    .tgti-proof-label {
+      flex-basis: 100%;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 4px;
+    }
+
+    .tgti-proof img {
+      height: 36px;
+      width: auto;
+      opacity: 0.75;
+      filter: grayscale(100%);
+      transition: opacity 0.2s ease, filter 0.2s ease;
+      mix-blend-mode: multiply;
+    }
+
+    .tgti-proof img:hover {
+      opacity: 1;
+      filter: grayscale(0%);
     }
 
     @media (max-width: 860px) {
-      .tgti-row {
-        grid-template-columns: 1fr;
+      .tgti-flywheel {
+        aspect-ratio: auto;
+        max-height: none;
+        display: flex;
+        flex-direction: column;
         gap: 20px;
-        padding: 28px 24px;
-        text-align: center;
+        align-items: center;
       }
-      .tgti-row + .tgti-row::before,
-      .tgti-row + .tgti-row::after { display: none; }
-      .tgti-disc { margin: 0 auto; width: 100px; height: 100px; }
-      .tgti-step-num { font-size: 36px; }
-      .tgti-name { font-size: 26px; }
-      .tgti-outcome-text { font-size: 20px; }
+      .tgti-flywheel-svg { display: none; }
+      .tgti-hub {
+        position: static;
+        transform: none;
+        width: 200px;
+        max-width: none;
+        order: 0;
+      }
+      .tgti-node {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 420px;
+      }
+      .tgti-proof { gap: 32px; margin-top: 40px; }
+      .tgti-proof img { height: 28px; }
     }
 
     /* ========================================
@@ -928,11 +946,22 @@
 
     .why-point {
       position: relative;
-      padding-left: 18px;
-      border-left: 3px solid #00A2FF;
+      padding: 20px 20px 20px 22px;
+      background: #F7F9FC;
+      border-radius: 12px;
     }
 
-    .why-point:nth-child(2) { border-left-color: #F86A3E; }
+    .why-point::before {
+      content: "\201C";
+      position: absolute;
+      left: 10px;
+      top: 2px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 44px;
+      line-height: 1;
+      color: #C9D3E0;
+      font-weight: 700;
+    }
 
     .why-point-title {
       font-size: 20px;
@@ -3069,27 +3098,34 @@
         <div class="timeline-row">
           <div class="tl-step">
             <div class="tl-num">1</div>
-            <div class="tl-label">Buy new tech for the team</div>
+            <div class="tl-label">Buy the tech</div>
+            <p class="tl-desc">Arm the team with all the bells and whistles. Sequencing tools, AI, intent data, you name it.</p>
           </div>
           <div class="tl-step">
             <div class="tl-num">2</div>
-            <div class="tl-label">Build training content</div>
+            <div class="tl-label">Build the content</div>
+            <p class="tl-desc">Use old playbooks or piece together courses to build a few scripts and templated sequences.</p>
           </div>
           <div class="tl-step">
             <div class="tl-num">3</div>
             <div class="tl-label">Enable the sales org</div>
+            <p class="tl-desc">Roll it out at SKO or a virtual boot camp to push the content out to all the reps.</p>
           </div>
           <div class="tl-step">
             <div class="tl-num">4</div>
             <div class="tl-label">Mandatory prospecting days</div>
+            <p class="tl-desc">Required weekly prospecting days for reps. They hate it. Results are minimal.</p>
           </div>
           <div class="tl-step final">
             <div class="tl-num">5</div>
-            <div class="tl-label">Little to no results</div>
+            <div class="tl-label">Little to no change</div>
+            <p class="tl-desc">Decide outbound doesn't work for your org and move on to try something else.</p>
           </div>
         </div>
 
-        <div class="tl-impact"><strong>Impact:</strong> You miss your pipeline targets</div>
+        <div class="tl-impact-wrap">
+          <span class="tl-impact"><strong>Impact:</strong> Missed pipeline targets</span>
+        </div>
       </div>
     </div>
   </section>
@@ -3100,52 +3136,52 @@
   <section class="tgti-section" id="methodology">
     <div class="container-wide">
       <div class="tgti-intro reveal">
-        <span class="tgti-eyebrow">The Methodology</span>
         <h2 class="section-headline">Too Good To Ignore</h2>
         <p class="tgti-descriptor">In our work with 250+ sales teams, we've found that <strong>top reps build 4.3x more pipeline than average reps</strong>. They outbound at a level that's simply too good for their buyers to ignore. So we built a methodology around it called Too Good To Ignore.</p>
       </div>
 
-      <div class="tgti-flow reveal">
-        <div class="tgti-row disqualify">
-          <div class="tgti-disc">
-            <span class="tgti-step-label">Step</span>
-            <span class="tgti-step-num">01</span>
-          </div>
-          <div class="tgti-body">
-            <p class="tgti-body-label">Who you pursue</p>
-            <h3 class="tgti-name">Disqualify</h3>
-            <p>Ruthlessly disqualify opportunities unworthy of our energy, time, and attention.</p>
-          </div>
+      <div class="tgti-flywheel reveal">
+        <svg class="tgti-flywheel-svg" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#CFDDEF"/>
+            </marker>
+          </defs>
+          <!-- Three curved arrows forming the flywheel (clockwise from top) -->
+          <path d="M 380 100 A 220 220 0 0 1 470 360" stroke="#CFDDEF" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow)"/>
+          <path d="M 420 430 A 220 220 0 0 1 180 430" stroke="#CFDDEF" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow)"/>
+          <path d="M 130 360 A 220 220 0 0 1 220 100" stroke="#CFDDEF" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow)"/>
+        </svg>
+
+        <div class="tgti-hub">
+          <span class="tgti-hub-label">The Result</span>
+          <span class="tgti-hub-title">Outbound that's too good to ignore</span>
         </div>
 
-        <div class="tgti-row offer">
-          <div class="tgti-disc">
-            <span class="tgti-step-label">Step</span>
-            <span class="tgti-step-num">02</span>
-          </div>
-          <div class="tgti-body">
-            <p class="tgti-body-label">What you bring</p>
-            <h3 class="tgti-name">Offer</h3>
-            <p>Be consultative and make strategic “gives” to buyers early and often to earn their time.</p>
-          </div>
+        <div class="tgti-node top disqualify">
+          <div class="tgti-node-dot"></div>
+          <h3 class="tgti-node-name">Disqualify</h3>
+          <p>Ruthlessly disqualify opportunities unworthy of our energy, time, and attention.</p>
         </div>
 
-        <div class="tgti-row provoke">
-          <div class="tgti-disc">
-            <span class="tgti-step-label">Step</span>
-            <span class="tgti-step-num">03</span>
-          </div>
-          <div class="tgti-body">
-            <p class="tgti-body-label">How you break through</p>
-            <h3 class="tgti-name">Provoke</h3>
-            <p>Engage buyers with a strong point of view on their problem that compels action now.</p>
-          </div>
+        <div class="tgti-node bottom-right offer">
+          <div class="tgti-node-dot"></div>
+          <h3 class="tgti-node-name">Offer</h3>
+          <p>Be consultative and make strategic “gives” to buyers early and often to earn their time.</p>
         </div>
 
-        <div class="tgti-outcome">
-          <span class="tgti-outcome-label">The Result</span>
-          <span class="tgti-outcome-text">Outbound that's too good to ignore.</span>
+        <div class="tgti-node bottom-left provoke">
+          <div class="tgti-node-dot"></div>
+          <h3 class="tgti-node-name">Provoke</h3>
+          <p>Engage buyers with a strong point of view on their problem that compels action now.</p>
         </div>
+      </div>
+
+      <div class="tgti-proof reveal">
+        <span class="tgti-proof-label">The methodology behind</span>
+        <img src="logos/rippling.png" alt="Rippling">
+        <img src="logos/shopify.png" alt="Shopify">
+        <img src="logos/gong.png" alt="Gong">
       </div>
 
       <div class="text-center" style="margin-top: 56px;">
@@ -3281,7 +3317,7 @@
        ======================================== -->
   <section class="section" style="background: linear-gradient(180deg, #FCEFE9 0%, #FFFFFF 25%, #FFFFFF 100%);">
     <div class="container final-cta">
-      <h2 class="section-headline reveal">How it works</h2>
+      <h2 class="section-headline reveal">Next Steps</h2>
       <p class="section-sub">Our clients increase qualified pipeline created by 22.3% or more within 90 days of working with us. The next step is to meet with our CEO, Jason Bay, to learn more about your situation to see if we can help.</p>
       <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
     </div>
