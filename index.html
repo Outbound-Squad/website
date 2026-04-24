@@ -327,15 +327,16 @@
     }
 
     .hero-headline {
-      font-size: 52px;
+      font-size: 44px;
       font-weight: 800;
       color: #1B2235;
-      line-height: 1.1;
+      line-height: 1.15;
       margin-bottom: 24px;
-      letter-spacing: -1px;
-      max-width: 960px;
+      letter-spacing: -0.8px;
+      max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
+      white-space: nowrap;
     }
 
     .hero-sub {
@@ -343,7 +344,7 @@
       color: #444444;
       line-height: 1.6;
       margin: 0 auto 36px;
-      max-width: 720px;
+      max-width: 820px;
     }
 
     .hero-ctas {
@@ -2730,7 +2731,7 @@
         padding: 120px 0 72px;
       }
 
-      .hero-headline { font-size: 38px; letter-spacing: -0.6px; }
+      .hero-headline { font-size: 38px; letter-spacing: -0.6px; white-space: normal; }
       .hero-sub { font-size: 17px; }
 
       .section-headline { font-size: 30px; }
@@ -2847,7 +2848,7 @@
     }
 
     @media (max-width: 480px) {
-      .hero-headline { font-size: 30px; }
+      .hero-headline { font-size: 30px; white-space: normal; }
       .section-headline { font-size: 26px; }
       .shift-headline { font-size: 26px; }
       .step-name { font-size: 24px; }
@@ -2888,7 +2889,7 @@
       <h1 class="hero-headline">Build an unstoppable outbound machine.</h1>
       <p class="hero-sub">Outbound Squad has helped 250+ B2B sales teams build, implement, and scale outbound motions that increase qualified pipeline by 20% or more within 90 days.</p>
       <div class="hero-ctas">
-        <a href="#methodology" class="btn btn-navy-outline btn-lg">See the Framework</a>
+        <a href="#results" class="btn btn-navy-outline btn-lg">See the Results</a>
         <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
 
@@ -2941,7 +2942,7 @@
   <!-- ========================================
        RESULTS BAR + CLIENT RESULTS GRID
        ======================================== -->
-  <section class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%); padding: 72px 0 80px;">
+  <section id="results" class="section" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%); padding: 72px 0 80px;">
     <div class="container">
       <div class="results-stats reveal">
         <div class="results-stat">
