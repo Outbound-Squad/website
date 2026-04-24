@@ -6,7 +6,7 @@
   <!-- CRITICAL: Block search engine crawling on all pages -->
   <meta name="robots" content="noindex, nofollow">
   <title>Outbound Squad | Fix Your Outbound</title>
-  <meta name="description" content="Outbound isn't dead, but it's broken. The 6-part framework we've built across 250+ sales teams and 20,000+ reps.">
+  <meta name="description" content="Build an unstoppable outbound machine. Outbound Squad has helped 250+ B2B sales teams increase qualified pipeline by 20%+ within 90 days.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
@@ -320,7 +320,7 @@
        ======================================== */
     .hero {
       background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 35%, #F3F7FC 75%, #FFFFFF 100%);
-      padding: 160px 0 100px;
+      padding: 200px 0 125px;
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -351,7 +351,7 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 64px;
+      margin-bottom: 80px;
     }
 
     /* Marquee */
@@ -468,20 +468,20 @@
 
     .stat-card {
       text-align: center;
-      padding: 36px 44px;
-      background: #F8F9FB;
+      padding: 36px 32px;
+      background: #FFF5F4;
       border-radius: 16px;
-      flex: 0 1 280px;
-      border: 1px solid #EEEEEE;
+      flex: 0 1 380px;
+      border: 1px solid #FAD9D3;
     }
 
     .stat-number {
       display: block;
-      font-size: 56px;
+      font-size: 64px;
       font-weight: 800;
-      color: #00A2FF;
+      color: #E04A3C;
       line-height: 1.1;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       letter-spacing: -1px;
     }
 
@@ -489,6 +489,7 @@
       display: block;
       font-size: 16px;
       color: #444444;
+      line-height: 1.5;
     }
 
     .problem-text {
@@ -516,9 +517,305 @@
     @media (max-width: 860px) {
       .stat-cards { flex-direction: column; align-items: center; gap: 16px; }
       .stat-card { flex: 0 1 auto; width: 100%; max-width: 400px; }
-      .stat-number { font-size: 44px; }
+      .stat-number { font-size: 48px; }
       .pull-quote { font-size: 22px; }
       .problem-text { text-align: left; }
+    }
+
+    /* ========================================
+       OLD WAY HORIZONTAL TIMELINE
+       ======================================== */
+    .timeline-wrap {
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+
+    .timeline-row::before {
+      content: "";
+      position: absolute;
+      top: 38px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: #E6ECF5;
+      z-index: 0;
+    }
+
+    .tl-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tl-num {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid #E6ECF5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 800;
+      color: #1B2235;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 12px rgba(27, 34, 53, 0.06);
+    }
+
+    .tl-step.final .tl-num {
+      background: #FFF5F4;
+      border-color: #E04A3C;
+      color: #E04A3C;
+    }
+
+    .tl-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1B2235;
+      line-height: 1.35;
+      max-width: 180px;
+    }
+
+    .tl-impact {
+      background: #FFF5F4;
+      border: 1px solid #E04A3C;
+      border-radius: 16px;
+      padding: 24px 28px;
+      text-align: center;
+      max-width: 720px;
+      margin: 40px auto 0;
+      color: #E04A3C;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .tl-impact strong { font-weight: 800; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 14px; }
+
+    @media (max-width: 860px) {
+      .timeline-row { grid-template-columns: 1fr; gap: 20px; }
+      .timeline-row::before { display: none; }
+      .tl-step { flex-direction: row; text-align: left; gap: 16px; align-items: center; }
+      .tl-num { margin-bottom: 0; flex-shrink: 0; width: 56px; height: 56px; font-size: 18px; }
+      .tl-label { max-width: none; }
+    }
+
+    /* ========================================
+       TOO GOOD TO IGNORE METHODOLOGY
+       ======================================== */
+    .tgti-section {
+      background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 60%, #EAF1FA 100%);
+      padding: 96px 0;
+    }
+
+    .tgti-intro {
+      max-width: 780px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+
+    .tgti-eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #00A2FF;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+
+    .tgti-descriptor {
+      font-size: 18px;
+      color: #444444;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    .tgti-diagram {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1060px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .tgti-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 36px 32px;
+      border: 1px solid #E6ECF5;
+      box-shadow: 0 6px 24px rgba(27, 34, 53, 0.06);
+      text-align: left;
+      position: relative;
+    }
+
+    .tgti-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 20px 20px 0 0;
+      background: #00A2FF;
+    }
+
+    .tgti-card.offer::before { background: #F86A3E; }
+    .tgti-card.provoke::before { background: #1B2235; }
+
+    .tgti-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #E6F0FA;
+      color: #00A2FF;
+      font-weight: 800;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    .tgti-card.offer .tgti-badge { background: #FCEFE9; color: #F86A3E; }
+    .tgti-card.provoke .tgti-badge { background: #E6ECF5; color: #1B2235; }
+
+    .tgti-name {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1B2235;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .tgti-oneliner {
+      font-size: 15px;
+      font-weight: 600;
+      color: #00A2FF;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+    }
+
+    .tgti-card.offer .tgti-oneliner { color: #F86A3E; }
+    .tgti-card.provoke .tgti-oneliner { color: #1B2235; }
+
+    .tgti-card p {
+      font-size: 16px;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    .tgti-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background: #FFFFFF;
+      border: 2px solid #E6ECF5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1B2235;
+      z-index: 2;
+      font-size: 12px;
+    }
+
+    .tgti-arrow.a1 { left: calc(33.33% - 12px); }
+    .tgti-arrow.a2 { left: calc(66.66% - 12px); }
+
+    @media (max-width: 860px) {
+      .tgti-diagram { grid-template-columns: 1fr; gap: 20px; }
+      .tgti-arrow { display: none; }
+    }
+
+    /* ========================================
+       WHY OUTBOUND SQUAD (EXPANDED GRID)
+       ======================================== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .why-card {
+      background: #FFFFFF;
+      border: 1px solid #E6ECF5;
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(27, 34, 53, 0.08);
+    }
+
+    .why-card-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1B2235;
+      letter-spacing: -0.4px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .why-card p {
+      font-size: 16px;
+      color: #444444;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .why-card p:last-child { margin-bottom: 0; }
+
+    .why-card-attrib {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #EEEEEE;
+    }
+
+    .why-card-attrib img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .why-card-attrib .wa-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1B2235;
+      line-height: 1.3;
+    }
+
+    .why-card-attrib .wa-role {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 860px) {
+      .why-grid { grid-template-columns: 1fr; gap: 20px; }
+      .why-card-title { font-size: 24px; }
     }
 
     /* ========================================
@@ -2172,6 +2469,27 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
+    .goal-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: #E6F0FA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00A2FF;
+      margin-bottom: 18px;
+    }
+
+    .goal-icon svg { width: 28px; height: 28px; stroke: #00A2FF; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .goals-headline {
+      font-size: 30px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .goal-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -2418,10 +2736,10 @@
        ======================================== -->
   <section class="hero">
     <div class="container">
-      <h1 class="hero-headline">Outbound isn't dead, but it's broken.</h1>
-      <p class="hero-sub">You don't answer cold calls or respond to AI-written cold emails, but it's exactly what you're asking your reps to do. And it isn't working. The outbound playbook has fundamentally changed. Not incrementally. Fundamentally.</p>
+      <h1 class="hero-headline">Build an unstoppable outbound machine.</h1>
+      <p class="hero-sub">Outbound Squad has helped 250+ B2B sales teams build, implement, and scale outbound motions that increase qualified pipeline by 20% or more within 90 days.</p>
       <div class="hero-ctas">
-        <a href="#framework" class="btn btn-navy-outline btn-lg">See the Framework</a>
+        <a href="#methodology" class="btn btn-navy-outline btn-lg">See the Framework</a>
         <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
 
@@ -2518,21 +2836,33 @@
        ======================================== -->
   <section class="section section-white">
     <div class="container">
-      <h2 class="section-headline text-center reveal">Your pipeline target just got bigger, and you need to...</h2>
+      <h2 class="section-headline goals-headline text-center reveal">Your pipeline target just got bigger, and you need to...</h2>
       <div class="goals-grid reveal">
         <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </div>
           <h3 class="goal-title">Pivot to outbound.</h3>
           <p>Inbound won't get you to the next level. More of your revenue mix needs to come from outbound to hit growth targets.</p>
         </div>
         <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 21V10"/><path d="M12 21V6"/><path d="M18 21V3"/></svg>
+          </div>
           <h3 class="goal-title">Move up-market.</h3>
           <p>Landing larger logos is key to growth. And decision-makers at larger enterprise accounts don't fill out demo requests.</p>
         </div>
         <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="M4.9 4.9l2.1 2.1"/><path d="M17 17l2.1 2.1"/><path d="M4.9 19.1l2.1-2.1"/><path d="M17 7l2.1-2.1"/></svg>
+          </div>
           <h3 class="goal-title">Expand and cross-sell.</h3>
           <p>You need to grow the base. Reps need to excel at opening expansion opportunities within customer accounts.</p>
         </div>
         <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
           <h3 class="goal-title">Get Account Executives self-sourcing.</h3>
           <p>AEs need to self-source more pipeline to reduce reliance on marketing and SDRs to hit their number.</p>
         </div>
@@ -2541,158 +2871,95 @@
   </section>
 
   <!-- ========================================
-       2. THE PROBLEM — Outbound is harder than it's ever been
+       2. THE PROBLEM + OLD WAY (MERGED)
        ======================================== -->
-  <section class="section section-white">
+  <section class="section section-white" id="comparison">
     <div class="container">
-      <h2 class="section-headline text-center reveal">Outbound is harder than it's ever been</h2>
+      <h2 class="section-headline text-center reveal">You don't have 6 months to figure this out the old way</h2>
+
       <div class="stat-cards reveal">
         <div class="stat-card">
-          <span class="stat-number">&lt;1%</span>
-          <span class="stat-label">cold email reply rates</span>
+          <span class="stat-number">1.9%</span>
+          <span class="stat-label">The average cold email reply rate. Mass blasting templates or poorly written AI-generated emails isn't working.</span>
         </div>
         <div class="stat-card">
-          <span class="stat-number">&lt;4%</span>
-          <span class="stat-label">cold call pickup rates</span>
+          <span class="stat-number">5.4%</span>
+          <span class="stat-label">The average cold call connect rate. Fewer buyers answer nowadays, and most have AI gatekeepers to screen calls.</span>
         </div>
       </div>
-      <div class="problem-text">
-        <p>It's never been easier for buyers to ignore you and your entire sales org. Your cold calls go straight to voicemail (or AI gatekeepers). And your cold emails end up in spam.</p>
-        <p>The irony is oh so painful...the sales engagement tools (Outreach, Salesloft, etc) designed to make outbound easier have made it exponentially harder. And it feels impossible to get the attention of our buyers right now.</p>
+
+      <div class="problem-text reveal">
+        <p>It's never been easier for buyers to ignore you and your entire sales org. Your cold calls go straight to voicemail (or AI gatekeepers). And your cold emails end up in spam. It feels impossible to get the attention of our buyers right now.</p>
       </div>
-      <p class="pull-quote">The game has fundamentally changed. Not incrementally. Fundamentally.</p>
-    </div>
-  </section>
 
-  <!-- ========================================
-       3. THE OLD WAY DOESN'T WORK ANYMORE
-       ======================================== -->
-  <section class="comparison-section stacked" id="comparison">
-    <div class="container-wide">
-      <h2 class="section-headline text-center reveal">The old way doesn't work anymore</h2>
+      <p class="pull-quote reveal">The game has fundamentally changed.</p>
 
-      <div class="comparison-grid" id="comparisonGrid">
-        <!-- OLD WAY -->
-        <div class="comparison-col old">
-          <div class="step-card" data-step="1">
-            <div class="step-num">01</div>
-            <div class="step-body">
-              <h4>Buy the tech</h4>
-              <p>Arm the team with all the bells &amp; whistles...sequencing tools, AI, intent data, you name it</p>
-            </div>
+      <div class="timeline-wrap reveal">
+        <div class="timeline-row">
+          <div class="tl-step">
+            <div class="tl-num">1</div>
+            <div class="tl-label">Buy new tech for the team</div>
           </div>
-
-          <div class="step-card" data-step="2">
-            <div class="step-num">02</div>
-            <div class="step-body">
-              <h4>Build the content</h4>
-              <p>Use old playbooks or piece together courses to build a few scripts and templated sequences</p>
-            </div>
+          <div class="tl-step">
+            <div class="tl-num">2</div>
+            <div class="tl-label">Build training content</div>
           </div>
-
-          <div class="step-card" data-step="3">
-            <div class="step-num">03</div>
-            <div class="step-body">
-              <h4>Enable the sales org</h4>
-              <p>Roll it out at SKO or virtual boot camp to push the content out to all the reps</p>
-            </div>
+          <div class="tl-step">
+            <div class="tl-num">3</div>
+            <div class="tl-label">Enable the sales org</div>
           </div>
-
-          <div class="step-card" data-step="4">
-            <div class="step-num">04</div>
-            <div class="step-body">
-              <h4>Mandatory prospecting days</h4>
-              <p>Required weekly prospecting days for reps. They hate it. Results are minimal.</p>
-            </div>
+          <div class="tl-step">
+            <div class="tl-num">4</div>
+            <div class="tl-label">Mandatory prospecting days</div>
           </div>
-
-          <div class="step-card highlight" data-step="5">
-            <div class="step-num">05</div>
-            <div class="step-body">
-              <h4>Little to no change</h4>
-              <p>Decide that outbound doesn't work for your org and try something else</p>
-            </div>
-          </div>
-
-          <div class="result-box red">
-            <div class="result-box-label">Impact</div>
-            <ul class="result-box-list">
-              <li>3-6+ months wasted</li>
-              <li>No culture change</li>
-              <li>No measurable results</li>
-              <li>Missed targets</li>
-            </ul>
+          <div class="tl-step final">
+            <div class="tl-num">5</div>
+            <div class="tl-label">Little to no results</div>
           </div>
         </div>
+
+        <div class="tl-impact reveal"><strong>Impact:</strong> You miss your pipeline targets</div>
       </div>
     </div>
   </section>
 
   <!-- ========================================
-       4. THE NEW WAY
+       3. TOO GOOD TO IGNORE METHODOLOGY
        ======================================== -->
-  <section class="comparison-section stacked">
+  <section class="tgti-section" id="methodology">
     <div class="container-wide">
-      <h2 class="section-headline text-center reveal">The new way</h2>
+      <div class="tgti-intro reveal">
+        <span class="tgti-eyebrow">We've entered a new era</span>
+        <h2 class="section-headline">Too Good To Ignore</h2>
+        <p class="tgti-descriptor">The only way out of the noise is to be too good to ignore. That's the new performance bar, and it's the methodology we've built across 250+ sales teams and 20,000+ reps. Everything we teach ladders to three words, in this order.</p>
+      </div>
 
-      <div class="comparison-grid">
-        <!-- NEW WAY -->
-        <div class="comparison-col new">
-          <div class="new-way-wrap" id="newWayWrap">
-            <div class="hub-wrap">
-              <div class="hub-col left">
-                <div class="hub-label">Call recordings</div>
-                <div class="hub-label">Email sequences</div>
-                <div class="hub-label">Rep feedback</div>
-                <div class="hub-label">CRM data</div>
-              </div>
-              <div class="hub-circle">
-                <strong>Customer-facing interactions</strong>
-              </div>
-              <div class="hub-col right">
-                <div class="hub-label">Win/loss data</div>
-                <div class="hub-label">Intent signals</div>
-                <div class="hub-label">Top rep analysis</div>
-                <div class="hub-label">Customer language</div>
-              </div>
-            </div>
+      <div class="tgti-diagram reveal">
+        <div class="tgti-card disqualify">
+          <div class="tgti-badge">1</div>
+          <p class="tgti-oneliner">Who you pursue</p>
+          <h3 class="tgti-name">Disqualify</h3>
+          <p>Shrink the top of the funnel. Pick fewer accounts and go deeper. Your pipeline should look like a martini glass, not a funnel. Say no to 80 of 100 so you can go harder on the other 20.</p>
+        </div>
+        <div class="tgti-arrow a1" aria-hidden="true">›</div>
 
-            <div class="flow-arrow">
-              <div class="flow-label orange">Extract real insights</div>
-              <div class="line"></div>
-              <div class="tip"></div>
-            </div>
+        <div class="tgti-card offer">
+          <div class="tgti-badge">2</div>
+          <p class="tgti-oneliner">What you bring</p>
+          <h3 class="tgti-name">Offer</h3>
+          <p>Answer one question: what will the buyer get out of this meeting even if they don't buy? A Blind Date, a one-to-many insight, or a custom audit. Make it irresponsible to say no.</p>
+        </div>
+        <div class="tgti-arrow a2" aria-hidden="true">›</div>
 
-            <div class="os-box">
-              <div class="os-title">Layer With Proven Strategies</div>
-              <div class="os-sub">Build a custom strategy with Outbound Squad's proprietary data from 250+ real sales teams.</div>
-            </div>
-
-            <div class="flow-arrow">
-              <div class="flow-label navy-tag">Implement in 2-3 weeks</div>
-              <div class="line"></div>
-              <div class="tip"></div>
-            </div>
-
-            <div class="output-grid">
-              <div class="output-card o-orange">
-                <h5>Nail Day 1</h5>
-                <p>Use YOUR customer-facing data to roll out an outbound motion proven to work in your industry and with your buyers.</p>
-              </div>
-              <div class="output-card o-green">
-                <h5>Shift Culture</h5>
-                <p>Every rep and manager follows a standardized outbound approach and speaks a common language.</p>
-              </div>
-              <div class="output-card o-blue">
-                <h5>Quick Results</h5>
-                <p>See measurable pipeline lift in less than 90 days and build a pipegen engine that never stops.</p>
-              </div>
-            </div>
-          </div>
+        <div class="tgti-card provoke">
+          <div class="tgti-badge">3</div>
+          <p class="tgti-oneliner">How you break through</p>
+          <h3 class="tgti-name">Provoke</h3>
+          <p>Create an emotional response using the 3 Ts: Trigger (why now), Tension (the problem they're feeling), and Trust (why you). Hit all three and you're too good to ignore.</p>
         </div>
       </div>
 
-      <div class="text-center" style="margin-top: 48px;">
+      <div class="text-center" style="margin-top: 56px;">
         <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
     </div>
@@ -2710,193 +2977,6 @@
     </div>
   </section>
 
-  <!-- ========================================
-       3. 6-PART FRAMEWORK
-       ======================================== -->
-  <section class="section" id="framework" style="background: linear-gradient(180deg, #EAF1FA 0%, #EAF1FA 85%, #FFFFFF 100%);">
-    <div class="container-wide">
-      <div class="framework-intro reveal">
-        <h2 class="section-headline">The 6-part framework</h2>
-        <p class="section-sub">The best sales teams approach outbound in a radically different way from their average-performing peers. We've seen this firsthand, working with 250+ sales teams and 20,000+ reps at companies like Shopify, iHeartMedia, Gong, Zoom, Rippling, and much more.</p>
-      </div>
-
-      <!-- Vertical framework nav + content -->
-      <div class="framework-layout reveal">
-        <nav class="framework-nav" id="frameworkNav" aria-label="Framework steps">
-          <button class="fw-step active" data-target="fw-1">
-            <span class="fw-step-num">1.</span>
-            <span class="fw-step-label">Story</span>
-          </button>
-          <button class="fw-step" data-target="fw-2">
-            <span class="fw-step-num">2.</span>
-            <span class="fw-step-label">Strategy</span>
-          </button>
-          <button class="fw-step" data-target="fw-3">
-            <span class="fw-step-num">3.</span>
-            <span class="fw-step-label">Infrastructure</span>
-          </button>
-          <button class="fw-step" data-target="fw-4">
-            <span class="fw-step-num">4.</span>
-            <span class="fw-step-label">Oversight</span>
-          </button>
-          <button class="fw-step" data-target="fw-5">
-            <span class="fw-step-num">5.</span>
-            <span class="fw-step-label">Visibility</span>
-          </button>
-          <button class="fw-step" data-target="fw-6">
-            <span class="fw-step-num">6.</span>
-            <span class="fw-step-label">Enablement</span>
-          </button>
-        </nav>
-
-        <div class="framework-content">
-          <div class="fw-panel active" id="fw-1">
-            <div class="step-header">
-              <span class="step-number">01</span>
-              <h3 class="step-name">Story</h3>
-            </div>
-            <p class="step-oneliner">Build a strong narrative around outbound being essential for the business.</p>
-            <ul class="step-bullets">
-              <li>Build a strong narrative around outbound being essential for the business</li>
-              <li>Sells reps on what's in it for them if they adopt this approach</li>
-              <li>Senior leadership fully champions outbound</li>
-            </ul>
-            <div class="customer-highlight">
-              <div class="ch-photo" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="ch-body">
-                <span class="ch-label">Customer Highlight</span>
-                <p class="ch-name">[Name]</p>
-                <p class="ch-role">[Role, Company]</p>
-                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="fw-panel" id="fw-2">
-            <div class="step-header">
-              <span class="step-number">02</span>
-              <h3 class="step-name">Strategy</h3>
-            </div>
-            <p class="step-oneliner">Give reps the gold standard for what good looks like.</p>
-            <ul class="step-bullets">
-              <li>A proven playbook with modern strategies/tactics that work</li>
-              <li>A compensation structure that incentivizes outbound</li>
-              <li>A true understanding of what your buyers care about</li>
-            </ul>
-            <div class="customer-highlight">
-              <div class="ch-photo" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="ch-body">
-                <span class="ch-label">Customer Highlight</span>
-                <p class="ch-name">[Name]</p>
-                <p class="ch-role">[Role, Company]</p>
-                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="fw-panel" id="fw-3">
-            <div class="step-header">
-              <span class="step-number">03</span>
-              <h3 class="step-name">Infrastructure</h3>
-            </div>
-            <p class="step-oneliner">Optimize the tech stack and make execution simple.</p>
-            <ul class="step-bullets">
-              <li>Technology is aligned to the approach, not the other way around</li>
-              <li>Workflows are simple to execute</li>
-              <li>Reps have quality contact data for their buyers</li>
-            </ul>
-            <div class="customer-highlight">
-              <div class="ch-photo" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="ch-body">
-                <span class="ch-label">Customer Highlight</span>
-                <p class="ch-name">[Name]</p>
-                <p class="ch-role">[Role, Company]</p>
-                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="fw-panel" id="fw-4">
-            <div class="step-header">
-              <span class="step-number">04</span>
-              <h3 class="step-name">Oversight</h3>
-            </div>
-            <p class="step-oneliner">Ensure leaders are leaning in and rubbing shoulders.</p>
-            <ul class="step-bullets">
-              <li>Managers are rubbing shoulders and doing outbound with reps</li>
-              <li>Managers are inspecting the quality of rep activity (e.g. call coaching)</li>
-              <li>Managers can execute on the methodology themselves</li>
-            </ul>
-            <div class="customer-highlight">
-              <div class="ch-photo" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="ch-body">
-                <span class="ch-label">Customer Highlight</span>
-                <p class="ch-name">[Name]</p>
-                <p class="ch-role">[Role, Company]</p>
-                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="fw-panel" id="fw-5">
-            <div class="step-header">
-              <span class="step-number">05</span>
-              <h3 class="step-name">Visibility</h3>
-            </div>
-            <p class="step-oneliner">Get meaningful insights into activity and performance.</p>
-            <ul class="step-bullets">
-              <li>Reps &amp; managers can measure detailed activity and pipeline impact</li>
-              <li>Decisions are made with structured, accurate data</li>
-              <li>Every rep &amp; manager can benchmark their performance</li>
-            </ul>
-            <div class="customer-highlight">
-              <div class="ch-photo" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="ch-body">
-                <span class="ch-label">Customer Highlight</span>
-                <p class="ch-name">[Name]</p>
-                <p class="ch-role">[Role, Company]</p>
-                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="fw-panel" id="fw-6">
-            <div class="step-header">
-              <span class="step-number">06</span>
-              <h3 class="step-name">Enablement</h3>
-            </div>
-            <p class="step-oneliner">Upskill reps and managers with modern tactics.</p>
-            <ul class="step-bullets">
-              <li>Training is not a one-time event, but instead an ongoing rhythm</li>
-              <li>Managers are enabled on how to properly reinforce the training</li>
-              <li>Enablement owns the playbook and updates are made quarterly</li>
-            </ul>
-            <div class="customer-highlight">
-              <div class="ch-photo" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="ch-body">
-                <span class="ch-label">Customer Highlight</span>
-                <p class="ch-name">[Name]</p>
-                <p class="ch-role">[Role, Company]</p>
-                <p class="ch-text">[Description of what they did and the results they achieved.]</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ========================================
        5. WHY OUTBOUND SQUAD
@@ -2906,81 +2986,77 @@
       <h2 class="section-headline text-center reveal">Why not do this yourself?</h2>
       <p class="section-sub text-center">Here's why world-class teams choose to partner with Outbound Squad.</p>
 
-      <div class="why-slider reveal" id="whySlider" aria-roledescription="carousel" aria-label="Why Outbound Squad testimonials">
-        <button class="ws-arrow ws-prev" aria-label="Previous" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="ws-track">
-          <div class="ws-slide active">
-            <div class="ws-header">
-              <div class="ws-avatar" aria-hidden="true"><img src="headshots/jonas-master.jpg" alt="Jonas Master" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-              <div class="ws-person">
-                <p class="ws-name">Jonas Master</p>
-                <p class="ws-role">VP of Enablement, Rippling</p>
-              </div>
-            </div>
-            <div class="ws-quotes">
-              <div class="ws-quote-block">
-                <h4 class="ws-quote-title">We needed an outside voice</h4>
-                <p class="ws-quote-text">"Our enablement team is world-class, but they're not (nor was any rep or leader) doing outbound every day in a world-class way. To build this right, we needed an outside voice."</p>
-              </div>
-              <div class="ws-quote-block">
-                <h4 class="ws-quote-title">Faster time to value</h4>
-                <p class="ws-quote-text">"If we did this ourselves, it would've taken 6+ months to build, get approval, roll out, iterate, and see measurable results. We saw impact with Outbound Squad within 90 days."</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ws-slide">
-            <div class="ws-header">
-              <div class="ws-avatar" aria-hidden="true"><img src="headshots/siobhan-sweeney.jpg" alt="Siobhan Sweeney" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-              <div class="ws-person">
-                <p class="ws-name">Siobhan Sweeney</p>
-                <p class="ws-role">Previous Head of Enablement, Shopify</p>
-              </div>
-            </div>
-            <div class="ws-quotes">
-              <div class="ws-quote-block">
-                <h4 class="ws-quote-title">Programmatic approach</h4>
-                <p class="ws-quote-text">"We were executing a number of disparate trainings with pieced together outbound tactics. We needed a standardized outbound methodology."</p>
-              </div>
-              <div class="ws-quote-block">
-                <h4 class="ws-quote-title">Front-line leader reinforcement</h4>
-                <p class="ws-quote-text">"Managers are the end customer in any enablement initiative to make it stick. Many of our managers last sold pre-AI and if we're being honest, cannot outbound proficiently themselves!"</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ws-slide">
-            <div class="ws-header">
-              <div class="ws-avatar" aria-hidden="true"><img src="headshots/nate-vogel.jpg" alt="Nate Vogel" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-              <div class="ws-person">
-                <p class="ws-name">Nate Vogel</p>
-                <p class="ws-role">Previous VP of Enablement, Gong</p>
-              </div>
-            </div>
-            <div class="ws-quotes">
-              <div class="ws-quote-block">
-                <h4 class="ws-quote-title">Stronger field buy in</h4>
-                <p class="ws-quote-text">"Many of our reps and managers already follow Outbound Squad. Oftentimes reps prefer to learn from peers and experts, than from internal resources. It's also great for their career development."</p>
-              </div>
-              <div class="ws-quote-block">
-                <h4 class="ws-quote-title">Stay current as outbound changes</h4>
-                <p class="ws-quote-text">"GenAI has completely changed the way outbound is done. What worked last year won't work next year. We needed a partner to stay on top of what modern outbound looks like in today's world."</p>
-              </div>
+      <div class="why-grid reveal">
+        <div class="why-card">
+          <h3 class="why-card-title">We needed an outside voice</h3>
+          <p>"Our enablement team is world-class, but they're not (nor was any rep or leader) doing outbound every day in a world-class way. To build this right, we needed an outside voice."</p>
+          <div class="why-card-attrib">
+            <img src="headshots/jonas-master.jpg" alt="Jonas Master">
+            <div>
+              <div class="wa-name">Jonas Master</div>
+              <div class="wa-role">VP of Enablement, Rippling</div>
             </div>
           </div>
         </div>
 
-        <button class="ws-arrow ws-next" aria-label="Next" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+        <div class="why-card">
+          <h3 class="why-card-title">Faster time to value</h3>
+          <p>"If we did this ourselves, it would've taken 6+ months to build, get approval, roll out, iterate, and see measurable results. We saw impact with Outbound Squad within 90 days."</p>
+          <div class="why-card-attrib">
+            <img src="headshots/jonas-master.jpg" alt="Jonas Master">
+            <div>
+              <div class="wa-name">Jonas Master</div>
+              <div class="wa-role">VP of Enablement, Rippling</div>
+            </div>
+          </div>
+        </div>
 
-        <div class="ws-dots" role="tablist" aria-label="Select person">
-          <button class="ws-dot active" data-index="0" aria-label="Person 1" type="button"></button>
-          <button class="ws-dot" data-index="1" aria-label="Person 2" type="button"></button>
-          <button class="ws-dot" data-index="2" aria-label="Person 3" type="button"></button>
+        <div class="why-card">
+          <h3 class="why-card-title">Programmatic approach</h3>
+          <p>"We were executing a number of disparate trainings with pieced together outbound tactics. We needed a standardized outbound methodology."</p>
+          <div class="why-card-attrib">
+            <img src="headshots/siobhan-sweeney.jpg" alt="Siobhan Sweeney">
+            <div>
+              <div class="wa-name">Siobhan Sweeney</div>
+              <div class="wa-role">Previous Head of Enablement, Shopify</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title">Front-line leader reinforcement</h3>
+          <p>"Managers are the end customer in any enablement initiative to make it stick. Many of our managers last sold pre-AI and if we're being honest, cannot outbound proficiently themselves!"</p>
+          <div class="why-card-attrib">
+            <img src="headshots/siobhan-sweeney.jpg" alt="Siobhan Sweeney">
+            <div>
+              <div class="wa-name">Siobhan Sweeney</div>
+              <div class="wa-role">Previous Head of Enablement, Shopify</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title">Stronger field buy-in</h3>
+          <p>"Many of our reps and managers already follow Outbound Squad. Oftentimes reps prefer to learn from peers and experts, than from internal resources. It's also great for their career development."</p>
+          <div class="why-card-attrib">
+            <img src="headshots/nate-vogel.jpg" alt="Nate Vogel">
+            <div>
+              <div class="wa-name">Nate Vogel</div>
+              <div class="wa-role">Previous VP of Enablement, Gong</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title">Stay current as outbound changes</h3>
+          <p>"GenAI has completely changed the way outbound is done. What worked last year won't work next year. We needed a partner to stay on top of what modern outbound looks like in today's world."</p>
+          <div class="why-card-attrib">
+            <img src="headshots/nate-vogel.jpg" alt="Nate Vogel">
+            <div>
+              <div class="wa-name">Nate Vogel</div>
+              <div class="wa-role">Previous VP of Enablement, Gong</div>
+            </div>
+          </div>
         </div>
       </div>
 
