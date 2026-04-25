@@ -1,0 +1,30 @@
+# Outbound Squad 301 redirects
+# Migrated from Webflow on 2026-04-25
+# Source of truth: this file. Do not duplicate in Cloudflare dashboard.
+#
+# Format: <source path>  <destination>  <status>
+# Pages evaluates top to bottom and uses the first match.
+
+# --- Internal slug changes ---
+/reviews/reviews-from-reps              /reviews/reps                                                                          301
+/reviews/reviews-from-reps/             /reviews/reps                                                                          301
+/in-development/our-team                /our-team                                                                              301
+/in-development/our-team/               /our-team                                                                              301
+/meet-your-sales-coaches                /our-team                                                                              301
+/meet-your-sales-coaches/               /our-team                                                                              301
+/in-development/daily-linkedin-posts    /bestcontent                                                                           301
+/in-development/daily-linkedin-posts/   /bestcontent                                                                           301
+
+# --- External vanity URLs (sales/proposal links) ---
+/bestcontent                            https://docs.google.com/document/d/1YCJUkXyGNw_tBULJFoDwxAKdymaGhKoa0cnHVFp4w0Y/edit   301
+/bestcontent/                           https://docs.google.com/document/d/1YCJUkXyGNw_tBULJFoDwxAKdymaGhKoa0cnHVFp4w0Y/edit   301
+/ezcater                                https://docs.google.com/document/d/1ghPu-TfTn4owLtPkC0xcoG5mcKcXXEucIMw7_CkLfdo/edit   301
+/ezcater/                               https://docs.google.com/document/d/1ghPu-TfTn4owLtPkC0xcoG5mcKcXXEucIMw7_CkLfdo/edit   301
+/knak                                   https://docs.google.com/document/d/1F9ao9Au98qM3P92ACBfgT8_6InqKdTLjGiR4eY-baJI/edit   301
+/knak/                                  https://docs.google.com/document/d/1F9ao9Au98qM3P92ACBfgT8_6InqKdTLjGiR4eY-baJI/edit   301
+/syntax                                 https://docs.google.com/document/d/1zkUGqQPyQiVDE0uFaUZ77yEBRb4f836s-D3rni_nlT8/edit   301
+/syntax/                                https://docs.google.com/document/d/1zkUGqQPyQiVDE0uFaUZ77yEBRb4f836s-D3rni_nlT8/edit   301
+
+# --- Cross-subdomain ---
+/masterclass                            https://masterclass.outboundsquad.com/                                                 301
+/masterclass/                           https://masterclass.outboundsquad.com/                                                 301
