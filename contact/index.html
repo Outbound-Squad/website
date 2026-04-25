@@ -42,7 +42,10 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
+
+    html { overflow-x: hidden; }
 
     img {
       max-width: 100%;
@@ -287,8 +290,11 @@
     /* Marquee */
     .marquee-section {
       max-width: 1240px;
+      width: 100%;
       margin: 96px auto 0;
       padding: 0 24px;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .marquee-label {

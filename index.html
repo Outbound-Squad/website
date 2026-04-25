@@ -33,6 +33,7 @@
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     body {
@@ -42,6 +43,88 @@
       line-height: 1.6;
       color: #444444;
       background: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* ========================================
+       v8 Polish Layer
+       ======================================== */
+    /* Selection styling */
+    ::selection { background: rgba(248, 106, 62, 0.2); color: #1B2235; }
+
+    /* Smoother focus rings */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 2px solid #F86A3E;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Magnetic CTA hover — applied via existing button classes */
+    .btn-orange, .btn { will-change: transform; }
+    .btn-orange:hover, a.btn-orange:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(248, 106, 62, 0.32); }
+    .btn-orange:active, a.btn-orange:active { transform: translateY(0); }
+
+    /* Card lift on hover — applies to results + why-not + pack cards */
+    .client-result-card,
+    .why-card,
+    .step-card,
+    .pack-card,
+    .tm-card,
+    .case-card,
+    .ep-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+    .client-result-card:hover,
+    .why-card:hover,
+    .step-card:hover,
+    .pack-card:hover,
+    .tm-card:hover,
+    .case-card:hover,
+    .ep-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(27, 34, 53, 0.10);
+    }
+
+    /* Logo hover pop on result cards */
+    .client-result-card .client-company-logo img,
+    .case-card img {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+    }
+    .client-result-card:hover .client-company-logo img {
+      transform: scale(1.06);
+    }
+
+    /* Subtle float for the hero "NEW EPISODE"/"PROVEN RESULTS" eyebrow chips */
+    @keyframes os-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-3px); }
+    }
+    .hero-pill, .badge-pill, .ep-pill {
+      animation: os-float 4.5s ease-in-out infinite;
+    }
+
+    /* Image fade-in once loaded */
+    img { transition: opacity 0.4s ease; }
+
+    /* Stat number pulse on first reveal */
+    @keyframes os-numIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .results-stats .reveal.visible .results-num,
+    .reveal.visible .results-num {
+      animation: os-numIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     img {

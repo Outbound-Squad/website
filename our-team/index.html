@@ -31,6 +31,7 @@
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     body {
@@ -40,6 +41,48 @@
       line-height: 1.6;
       color: #444444;
       background: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* ========================================
+       v8 Polish Layer
+       ======================================== */
+    ::selection { background: rgba(248, 106, 62, 0.2); color: #1B2235; }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 2px solid #F86A3E;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .btn-orange, .btn { will-change: transform; }
+    .btn-orange:hover, a.btn-orange:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(248, 106, 62, 0.32); }
+    .btn-orange:active, a.btn-orange:active { transform: translateY(0); }
+
+    .tm-card, .client-result-card, .why-card, .pack-card, .ep-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+    .tm-card:hover, .client-result-card:hover, .why-card:hover, .pack-card:hover, .ep-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(27, 34, 53, 0.10);
+    }
+
+    @keyframes os-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-3px); }
+    }
+    .hero-pill, .badge-pill, .ep-pill {
+      animation: os-float 4.5s ease-in-out infinite;
     }
 
     img {
