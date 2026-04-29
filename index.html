@@ -32,7 +32,10 @@
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      /* overflow-x: clip prevents horizontal scroll WITHOUT creating a scroll
+         container, so position: sticky still works on descendants (e.g. the
+         goals-left headline). overflow-x: hidden would kill all sticky. */
+      overflow-x: clip;
     }
 
     body {
@@ -42,7 +45,7 @@
       line-height: 1.6;
       color: #444444;
       background: #FFFFFF;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     /* ========================================
