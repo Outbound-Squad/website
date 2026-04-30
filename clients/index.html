@@ -1447,28 +1447,19 @@
     }
     .ts-track {
       position: relative;
-      min-height: 340px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .ts-slide {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
     }
     .ts-slide.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
+      display: flex;
       animation: ts-fade 0.5s ease;
     }
     @keyframes ts-fade {
@@ -1623,15 +1614,53 @@
             <p class="ts-name">Kris Foley</p>
             <p class="ts-role">Division President, iHeartMedia</p>
           </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/eric-burchett.jpg" alt="Eric Burchett" width="100" height="100">
+            <p class="ts-quote">"Outbound Squad gave us a great framework to work from that early on has already shown to be positive. We had the tech/AI pre-built in house that makes PG easy and automated but we lacked a data driven framework to have the right conversations and messaging. Outbound Squad gave us that."</p>
+            <p class="ts-name">Eric Burchett</p>
+            <p class="ts-role">VP of Sales, ServiceTrade</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/rod-harand.jpg" alt="Rod Harand" width="100" height="100">
+            <p class="ts-quote">"Outbound Squad delivered a training course that provided updated perspectives, data-driven insights, and supporting tools. The program effectively addressed key aspects of outbound operations. Definitely a relevant option for organizations or individuals seeking to refresh their outbound processes or bring it to the next level."</p>
+            <p class="ts-name">Rod Harand</p>
+            <p class="ts-role">CRO, YesWeHack</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/chad-oconnor.jpg" alt="Chad O'Connor" width="100" height="100">
+            <p class="ts-quote">"Outbound Squad's innovative prospecting approach and style were well received by all sales generations within our GTM teams, motivating them to learn and implement a revitalized motion of effective prospecting in today's challenging economy."</p>
+            <p class="ts-name">Chad O'Connor</p>
+            <p class="ts-role">Former CRO, People.ai</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/jamie-armstrong.jpg" alt="Jamie Armstrong" width="100" height="100">
+            <p class="ts-quote">"We hired Outbound Squad in Q3 of 2024 to help our team level up OB. They were extremely tactical in their trainings. The real difference maker for me was how deep they got on our product, customer and sales motion. OB is up 100% QoQoQ (Q2&gt;Q3&gt;Q4)!"</p>
+            <p class="ts-name">Jamie Armstrong</p>
+            <p class="ts-role">Director of Revenue Retail, Shopify</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/cary-dunning.jpg" alt="Cary Dunning" width="100" height="100">
+            <p class="ts-quote">"I can't recommend Outbound Squad highly enough for anyone needing outside expertise to improve their team's outbound selling capabilities. Their ability to customize to our organization's unique sales message and their connection to modern outbound selling trends was a great way to refresh our team's approach. Excellent reviews from our team, and we've seen a quick tangible impact."</p>
+            <p class="ts-name">Cary Dunning</p>
+            <p class="ts-role">VP of Sales, Brooksource</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/mark-wilchynski.jpg" alt="Mark Wilchynski" width="100" height="100">
+            <p class="ts-quote">"I've had the pleasure of working with Outbound Squad while at two separate organizations. During both engagements and after, we saw immediate results of improved prospect engagement, conversion rates and just confidence across the team. They're masters of their craft and it's both a pleasure and time well spent!"</p>
+            <p class="ts-name">Mark Wilchynski</p>
+            <p class="ts-role">RVP, Harness</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/rob-anderson.jpg" alt="Rob Anderson" width="100" height="100">
+            <p class="ts-quote">"I highly recommend working with Outbound Squad for Outbound and TOFU consulting. In as little as 8 weeks, our team worked with Outbound Squad to create a new playbook that covers process, phone messaging, email messaging and more that was totally tailored to our business. I have built many teams, and if I could go back and do some things differently, I would have started on day 1 getting a standardized playbook that was this easy to follow along with."</p>
+            <p class="ts-name">Rob Anderson</p>
+            <p class="ts-role">Former Director of Inside Sales, Gong</p>
+          </div>
         </div>
         <button class="ts-arrow ts-next" aria-label="Next testimonial" type="button">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="ts-dots" role="tablist" aria-label="Select testimonial">
-          <button class="ts-dot active" data-index="0" aria-label="Testimonial 1" type="button"></button>
-          <button class="ts-dot" data-index="1" aria-label="Testimonial 2" type="button"></button>
-          <button class="ts-dot" data-index="2" aria-label="Testimonial 3" type="button"></button>
-        </div>
+        <div class="ts-dots" role="tablist" aria-label="Select testimonial"></div>
       </div>
     </div>
   </section>
@@ -2056,12 +2085,23 @@
       var slider = document.getElementById('testimonialSlider');
       if (!slider) return;
       var slides = slider.querySelectorAll('.ts-slide');
-      var dots = slider.querySelectorAll('.ts-dot');
+      var dotsWrap = slider.querySelector('.ts-dots');
       var prev = slider.querySelector('.ts-prev');
       var next = slider.querySelector('.ts-next');
       var current = 0;
       var total = slides.length;
       var autoplayTimer = null;
+
+      // Build dots dynamically
+      for (var i = 0; i < total; i++) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ts-dot' + (i === 0 ? ' active' : '');
+        b.dataset.index = i;
+        b.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+        dotsWrap.appendChild(b);
+      }
+      var dots = slider.querySelectorAll('.ts-dot');
 
       function show(i) {
         current = (i + total) % total;
