@@ -1282,7 +1282,157 @@
       .section-headline { font-size: 26px; }
       .filter-tab { font-size: 13px; padding: 8px 16px; }
     }
-  </style>
+      /* ========================================
+       FINAL CTA (shared homepage style)
+       ======================================== */
+    .final-cta-section {
+      padding: 96px 0 112px;
+      background: #FFFFFF;
+    }
+
+    .final-cta-card {
+      position: relative;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 72px 56px;
+      border-radius: 28px;
+      background: #F9EBE7;
+      overflow: hidden;
+      color: #1B2235;
+      box-shadow: 0 20px 60px rgba(248, 106, 62, 0.15);
+    }
+
+    .final-cta-card::before {
+      content: "";
+      position: absolute;
+      top: -180px;
+      right: -120px;
+      width: 540px;
+      height: 540px;
+      background: radial-gradient(circle, rgba(248, 106, 62, 0.18) 0%, rgba(248, 106, 62, 0) 70%);
+      pointer-events: none;
+    }
+
+    .final-cta-card::after {
+      content: "";
+      position: absolute;
+      bottom: -200px;
+      left: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(248, 106, 62, 0.12) 0%, rgba(248, 106, 62, 0) 70%);
+      pointer-events: none;
+    }
+
+    .final-cta-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .final-cta-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: #F86A3E;
+      margin-bottom: 20px;
+    }
+
+    .final-cta-eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: #F86A3E;
+      border-radius: 2px;
+    }
+
+    .final-cta-headline {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1B2235;
+      line-height: 1.12;
+      letter-spacing: -0.6px;
+      margin: 0 0 20px;
+    }
+
+    .final-cta-headline .accent {
+      color: #F86A3E;
+    }
+
+    .final-cta-sub {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444444;
+      margin: 0;
+    }
+
+    .final-cta-side {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+      padding-top: 52px;
+    }
+
+    .final-cta-side .btn {
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(248, 106, 62, 0.4);
+    }
+
+    .final-cta-host {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-top: 22px;
+      margin-top: 4px;
+      border-top: 1px solid rgba(27, 34, 53, 0.1);
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .final-cta-host img {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(27, 34, 53, 0.12);
+      flex-shrink: 0;
+    }
+
+    .final-cta-host-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1B2235;
+      letter-spacing: -0.1px;
+    }
+
+    .final-cta-host-role {
+      font-size: 13px;
+      color: #666666;
+      margin-top: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .final-cta-section { padding: 64px 0 80px; }
+      .final-cta-card { padding: 48px 28px; border-radius: 22px; }
+      .final-cta-inner { grid-template-columns: 1fr; gap: 36px; }
+      .final-cta-headline { font-size: 26px; }
+      .final-cta-side { padding-top: 0; }
+      .final-cta-side .btn { max-width: 100%; }
+      .final-cta-host { max-width: 100%; }
+    }
+
+</style>
 </head>
 <body>
 
@@ -1411,9 +1561,6 @@
         </article>
       </div>
 
-      <div class="text-center reveal" style="margin-top: 56px;">
-        <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
-      </div>
     </div>
   </section>
 
@@ -1439,6 +1586,33 @@
         <iframe id="testimonialto-a52acec9-c85e-41f5-8b05-47be4aff771a"
           src="https://embed-v2.testimonial.to/w/outbound-squad-b2b?id=a52acec9-c85e-41f5-8b05-47be4aff771a"
           frameborder="0" scrolling="no" width="100%"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FINAL CTA
+       ======================================== -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-card reveal">
+        <div class="final-cta-inner">
+          <div class="final-cta-text">
+            <span class="final-cta-eyebrow">Next Steps</span>
+            <h2 class="final-cta-headline">Ready to <span class="accent">build pipeline</span> like Shopify, iHeartMedia, Rippling, and more?</h2>
+            <p class="final-cta-sub">Our clients increase qualified pipeline by 20% or more within 90 days. The next step is a 30-minute call with our CEO, Jason Bay, to learn about your situation and see if we're a fit.</p>
+          </div>
+          <div class="final-cta-side">
+            <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
+            <div class="final-cta-host">
+              <img src="../headshots/jason-bay.jpg" alt="Jason Bay" loading="lazy">
+              <div>
+                <div class="final-cta-host-name">Jason Bay</div>
+                <div class="final-cta-host-role">CEO, Outbound Squad</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
