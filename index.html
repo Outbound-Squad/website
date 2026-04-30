@@ -859,11 +859,11 @@
     }
 
     .oldway-conseq-eyebrow {
-      font-size: 12px;
+      font-size: 22px;
       font-weight: 800;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: #F86A3E;
+      letter-spacing: -0.3px;
+      text-transform: none;
+      color: #1B2235;
     }
 
     .oldway-conseq-grid {
@@ -875,32 +875,36 @@
     .oldway-conseq-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      background: #FCEFE9;
-      border-radius: 12px;
+      gap: 14px;
+      padding: 20px 22px;
+      background: #FDECEA;
+      border-radius: 14px;
+      border: 1px solid #F5C5BF;
+      box-shadow: 0 6px 18px rgba(176, 42, 28, 0.08);
     }
 
     .oldway-conseq-icon {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: #F86A3E;
+      background: #FFFFFF;
+      border: 2px solid #C8321F;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #FFFFFF;
+      color: #C8321F;
       font-size: 14px;
       font-weight: 800;
       line-height: 1;
     }
 
     .oldway-conseq-label {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 800;
       color: #1B2235;
-      letter-spacing: -0.1px;
+      letter-spacing: -0.2px;
+      line-height: 1.25;
     }
 
     .oldway-tile:hover {
@@ -940,7 +944,8 @@
       .oldway-tile-title { font-size: 20px; }
       .oldway-consequences { padding: 28px 24px; gap: 16px; }
       .oldway-conseq-grid { grid-template-columns: 1fr; gap: 14px; }
-      .oldway-conseq-label { font-size: 13px; }
+      .oldway-conseq-eyebrow { font-size: 20px; }
+      .oldway-conseq-label { font-size: 16px; }
     }
 
     /* ========================================
@@ -1069,12 +1074,23 @@
       border: 1px solid #E6ECF5;
       box-shadow: 0 10px 32px rgba(27, 34, 53, 0.08);
       z-index: 3;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tgti-node:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(27, 34, 53, 0.14);
+      border-color: #CFDDEF;
     }
 
     .tgti-node.top {
       left: 50%;
       top: 0;
       transform: translateX(-50%);
+    }
+
+    .tgti-node.top:hover {
+      transform: translateX(-50%) translateY(-4px);
     }
 
     .tgti-node.bottom-right {
@@ -1186,6 +1202,12 @@
         right: auto;
         top: auto;
         bottom: auto;
+      }
+      .tgti-node:hover,
+      .tgti-node.top:hover,
+      .tgti-node.bottom-right:hover,
+      .tgti-node.bottom-left:hover {
+        transform: translateY(-4px);
       }
       .tgti-proof { gap: 32px; margin-top: 40px; }
       .tgti-proof img { height: 28px; }
@@ -3499,7 +3521,7 @@
         <li><a href="/clients/">Our Clients</a></li>
         <li><a href="/our-team/">Our Team</a></li>
         <li><a href="/podcast/">Podcast</a></li>
-        <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
+        <li class="nav-cta"><a href="#book-a-call" class="btn btn-orange btn-nav">Book A Call</a></li>
       </ul>
     </div>
   </nav>
@@ -3513,7 +3535,7 @@
       <p class="hero-sub">We've built, implemented, and scaled the outbound programs that helped Shopify, iHeartMedia, and many more do it. It's your turn.</p>
       <div class="hero-ctas">
         <a href="#results" class="btn btn-navy-outline btn-lg">See the Results</a>
-        <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
+        <a href="#book-a-call" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
       <p class="hero-trust"><strong>250+</strong> sales teams trained &nbsp;·&nbsp; <strong>20,000+</strong> reps &nbsp;·&nbsp; <strong>22.3%</strong> average pipeline increase in 90 days</p>
 
@@ -3648,7 +3670,7 @@
             </div>
             <div class="goal-body">
               <h3 class="goal-title">Expand and cross-sell.</h3>
-              <p>You need to grow the base. Reps need to excel at opening expansion opportunities within customer accounts.</p>
+              <p>You need to grow the base. Reps (especially Account Managers) need to excel at opening expansion opportunities within customer accounts.</p>
             </div>
           </div>
           <div class="goal-card">
@@ -3693,7 +3715,7 @@
       </div>
 
       <div class="oldway-consequences reveal">
-        <span class="oldway-conseq-eyebrow">And the result</span>
+        <span class="oldway-conseq-eyebrow">And the results never change...</span>
         <div class="oldway-conseq-grid">
           <div class="oldway-conseq-item">
             <span class="oldway-conseq-icon">✕</span>
@@ -3761,7 +3783,7 @@
       </div>
 
       <div class="text-center" style="margin-top: 48px;">
-        <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
+        <a href="#book-a-call" class="btn btn-orange btn-lg">Book a Call</a>
       </div>
     </div>
   </section>
@@ -3845,7 +3867,7 @@
   <!-- ========================================
        FINAL CTA
        ======================================== -->
-  <section class="final-cta-section">
+  <section class="final-cta-section" id="book-a-call">
     <div class="container">
       <div class="final-cta-card reveal">
         <div class="final-cta-inner">
