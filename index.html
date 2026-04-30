@@ -1161,18 +1161,31 @@
         align-items: center;
       }
       .tgti-flywheel-svg { display: none; }
-      .tgti-hub {
+      .tgti-hub,
+      .tgti-hub.tgti-hub-text {
         position: static;
         transform: none;
         width: 200px;
         max-width: none;
         order: 0;
       }
-      .tgti-node {
+      /* Mobile/tablet: stack the 3 nodes vertically.
+         These selectors must match the specificity of .tgti-node.top /
+         .tgti-node.bottom-right / .tgti-node.bottom-left from the desktop
+         flywheel layout, otherwise their position/transform values leak
+         through and push the cards off-screen. */
+      .tgti-node,
+      .tgti-node.top,
+      .tgti-node.bottom-right,
+      .tgti-node.bottom-left {
         position: static;
         transform: none;
         width: 100%;
         max-width: 420px;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
       }
       .tgti-proof { gap: 32px; margin-top: 40px; }
       .tgti-proof img { height: 28px; }
