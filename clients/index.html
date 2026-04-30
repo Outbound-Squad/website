@@ -1447,19 +1447,25 @@
     }
     .ts-track {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
     }
     .ts-slide {
-      display: none;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
     }
     .ts-slide.active {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
       animation: ts-fade 0.5s ease;
     }
     @keyframes ts-fade {
@@ -2102,6 +2108,29 @@
         dotsWrap.appendChild(b);
       }
       var dots = slider.querySelectorAll('.ts-dot');
+      var track = slider.querySelector('.ts-track');
+
+      // Lock track height to the tallest slide so the page doesn't jump
+      function lockHeight() {
+        track.style.minHeight = '';
+        var max = 0;
+        slides.forEach(function (s) {
+          var prevDisplay = s.style.display;
+          var prevVis = s.style.visibility;
+          var prevOpacity = s.style.opacity;
+          var prevPos = s.style.position;
+          s.style.display = 'flex';
+          s.style.visibility = 'hidden';
+          s.style.opacity = '0';
+          s.style.position = 'static';
+          if (s.offsetHeight > max) max = s.offsetHeight;
+          s.style.display = prevDisplay;
+          s.style.visibility = prevVis;
+          s.style.opacity = prevOpacity;
+          s.style.position = prevPos;
+        });
+        track.style.minHeight = max + 'px';
+      }
 
       function show(i) {
         current = (i + total) % total;
@@ -2109,28 +2138,22 @@
         dots.forEach(function (d, idx) { d.classList.toggle('active', idx === current); });
       }
 
-      function startAutoplay() {
-        stopAutoplay();
-        autoplayTimer = setInterval(function () { show(current + 1); }, 5000);
-      }
-
-      function stopAutoplay() {
-        if (autoplayTimer) clearInterval(autoplayTimer);
-      }
-
-      prev.addEventListener('click', function () { show(current - 1); startAutoplay(); });
-      next.addEventListener('click', function () { show(current + 1); startAutoplay(); });
+      prev.addEventListener('click', function () { show(current - 1); });
+      next.addEventListener('click', function () { show(current + 1); });
       dots.forEach(function (d) {
         d.addEventListener('click', function () {
           show(parseInt(d.dataset.index, 10));
-          startAutoplay();
         });
       });
 
-      slider.addEventListener('mouseenter', stopAutoplay);
-      slider.addEventListener('mouseleave', startAutoplay);
-
-      startAutoplay();
+      lockHeight();
+      // Recompute after fonts/images settle and on resize
+      window.addEventListener('load', lockHeight);
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(lockHeight, 150);
+      });
     })();
   </script>
 
