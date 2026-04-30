@@ -1432,6 +1432,130 @@
       .final-cta-host { max-width: 100%; }
     }
 
+    /* ========================================
+       HERO TESTIMONIAL SLIDER
+       ======================================== */
+    .testimonial-slider {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 4px 28px rgba(27, 34, 53, 0.08);
+      padding: 32px 72px 20px;
+      text-align: center;
+    }
+    .ts-track {
+      position: relative;
+      display: block;
+    }
+    .ts-slide {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .ts-slide.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      animation: ts-fade 0.5s ease;
+    }
+    @keyframes ts-fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .ts-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(27, 34, 53, 0.12);
+    }
+    .ts-quote {
+      font-size: 18px;
+      font-style: italic;
+      color: #1B2235;
+      line-height: 1.55;
+      max-width: 560px;
+      margin: 0 auto 18px;
+    }
+    .ts-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1B2235;
+      margin-bottom: 2px;
+    }
+    .ts-role {
+      font-size: 14px;
+      color: #7a8299;
+    }
+    .ts-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid #e2e6ee;
+      color: #1B2235;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+      z-index: 2;
+    }
+    .ts-arrow:hover {
+      background: #F86A3E;
+      border-color: #F86A3E;
+      color: #FFFFFF;
+    }
+    .ts-prev { left: 16px; }
+    .ts-next { right: 16px; }
+    .ts-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .ts-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d0d6e2;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .ts-dot:hover { background: #9aa3b7; }
+    .ts-dot.active {
+      background: #F86A3E;
+      transform: scale(1.25);
+    }
+    @media (max-width: 768px) {
+      .testimonial-slider {
+        padding: 32px 24px 24px;
+      }
+      .ts-quote { font-size: 16px; }
+      .ts-arrow {
+        width: 34px;
+        height: 34px;
+      }
+      .ts-prev { left: 6px; }
+      .ts-next { right: 6px; }
+    }
 </style>
 </head>
 <body>
@@ -1465,7 +1589,86 @@
   <section class="hero">
     <div class="container">
       <h1 class="hero-headline">Meet Our Clients</h1>
-      <p class="hero-sub">Meet the leaders who partnered with Outbound Squad to build a lasting outbound process that generates quality pipeline for their orgs.</p>
+      <p class="hero-sub">Meet the leaders who partnered with Outbound Squad to transform their sales organizations.</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       1B. HERO TESTIMONIAL SLIDER
+       ======================================== -->
+  <section class="section" style="background: #FFFFFF; padding: 0 0 64px;">
+    <div class="container">
+      <div class="testimonial-slider reveal" id="testimonialSlider" aria-roledescription="carousel" aria-label="Client testimonials">
+        <button class="ts-arrow ts-prev" aria-label="Previous testimonial" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="ts-track">
+          <div class="ts-slide active">
+            <img class="ts-photo" src="../headshots/diana-gates.jpg" alt="Diana Gates" width="100" height="100">
+            <p class="ts-quote">"As a direct result of the training, we've seen a 25% increase in conversion rates across all teams! The adoption of these new tactics has been off the charts."</p>
+            <p class="ts-name">Diana Gates</p>
+            <p class="ts-role">Head of Sales Development, Shopify</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/bert-brokaw-new.jpg" alt="Bert Brokaw" width="100" height="100">
+            <p class="ts-quote">"When building out our SDR outbound team at Rippling, we shopped around for a variety of sales trainers, but were unable to find a solution that was TRULY tailored towards outbound SDRs, then we found Outbound Squad."</p>
+            <p class="ts-name">Bert Brokaw</p>
+            <p class="ts-role">Senior Director of Sales Development, Rippling</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/kris-foley.jpg" alt="Kris Foley" width="100" height="100">
+            <p class="ts-quote">"They'll flip the way your team starts new conversations. You'll see lights go off when you apply their approach."</p>
+            <p class="ts-name">Kris Foley</p>
+            <p class="ts-role">Division President, iHeartMedia</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/eric-burchett.jpg" alt="Eric Burchett" width="100" height="100">
+            <p class="ts-quote">"Outbound Squad gave us a great framework to work from that early on has already shown to be positive. We had the tech/AI pre-built in house that makes PG easy and automated but we lacked a data driven framework to have the right conversations and messaging. Outbound Squad gave us that."</p>
+            <p class="ts-name">Eric Burchett</p>
+            <p class="ts-role">VP of Sales, ServiceTrade</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/rod-harand.jpg" alt="Rod Harand" width="100" height="100">
+            <p class="ts-quote">"Outbound Squad delivered a training course that provided updated perspectives, data-driven insights, and supporting tools. The program effectively addressed key aspects of outbound operations. Definitely a relevant option for organizations or individuals seeking to refresh their outbound processes or bring it to the next level."</p>
+            <p class="ts-name">Rod Harand</p>
+            <p class="ts-role">CRO, YesWeHack</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/chad-oconnor.jpg" alt="Chad O'Connor" width="100" height="100">
+            <p class="ts-quote">"Outbound Squad's innovative prospecting approach and style were well received by all sales generations within our GTM teams, motivating them to learn and implement a revitalized motion of effective prospecting in today's challenging economy."</p>
+            <p class="ts-name">Chad O'Connor</p>
+            <p class="ts-role">Former CRO, People.ai</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/jamie-armstrong.jpg" alt="Jamie Armstrong" width="100" height="100">
+            <p class="ts-quote">"We hired Outbound Squad in Q3 of 2024 to help our team level up OB. They were extremely tactical in their trainings. The real difference maker for me was how deep they got on our product, customer and sales motion. OB is up 100% QoQoQ (Q2&gt;Q3&gt;Q4)!"</p>
+            <p class="ts-name">Jamie Armstrong</p>
+            <p class="ts-role">Director of Revenue Retail, Shopify</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/cary-dunning.jpg" alt="Cary Dunning" width="100" height="100">
+            <p class="ts-quote">"I can't recommend Outbound Squad highly enough for anyone needing outside expertise to improve their team's outbound selling capabilities. Their ability to customize to our organization's unique sales message and their connection to modern outbound selling trends was a great way to refresh our team's approach. Excellent reviews from our team, and we've seen a quick tangible impact."</p>
+            <p class="ts-name">Cary Dunning</p>
+            <p class="ts-role">VP of Sales, Brooksource</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/mark-wilchynski.jpg" alt="Mark Wilchynski" width="100" height="100">
+            <p class="ts-quote">"I've had the pleasure of working with Outbound Squad while at two separate organizations. During both engagements and after, we saw immediate results of improved prospect engagement, conversion rates and just confidence across the team. They're masters of their craft and it's both a pleasure and time well spent!"</p>
+            <p class="ts-name">Mark Wilchynski</p>
+            <p class="ts-role">RVP, Harness</p>
+          </div>
+          <div class="ts-slide">
+            <img class="ts-photo" src="../headshots/rob-anderson.jpg" alt="Rob Anderson" width="100" height="100">
+            <p class="ts-quote">"I highly recommend working with Outbound Squad for Outbound and TOFU consulting. In as little as 8 weeks, our team worked with Outbound Squad to create a new playbook that covers process, phone messaging, email messaging and more that was totally tailored to our business. I have built many teams, and if I could go back and do some things differently, I would have started on day 1 getting a standardized playbook that was this easy to follow along with."</p>
+            <p class="ts-name">Rob Anderson</p>
+            <p class="ts-role">Former Director of Inside Sales, Gong</p>
+          </div>
+        </div>
+        <button class="ts-arrow ts-next" aria-label="Next testimonial" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="ts-dots" role="tablist" aria-label="Select testimonial"></div>
+      </div>
     </div>
   </section>
 
@@ -1880,6 +2083,78 @@
 
       buildDots();
       show(0);
+    })();
+
+    /* ========================================
+       Hero testimonial slider
+       ======================================== */
+    (function () {
+      var slider = document.getElementById('testimonialSlider');
+      if (!slider) return;
+      var slides = slider.querySelectorAll('.ts-slide');
+      var dotsWrap = slider.querySelector('.ts-dots');
+      var prev = slider.querySelector('.ts-prev');
+      var next = slider.querySelector('.ts-next');
+      var current = 0;
+      var total = slides.length;
+      var autoplayTimer = null;
+
+      // Build dots dynamically
+      for (var i = 0; i < total; i++) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ts-dot' + (i === 0 ? ' active' : '');
+        b.dataset.index = i;
+        b.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+        dotsWrap.appendChild(b);
+      }
+      var dots = slider.querySelectorAll('.ts-dot');
+      var track = slider.querySelector('.ts-track');
+
+      // Lock track height to the tallest slide so the page doesn't jump
+      function lockHeight() {
+        track.style.minHeight = '';
+        var max = 0;
+        slides.forEach(function (s) {
+          var prevDisplay = s.style.display;
+          var prevVis = s.style.visibility;
+          var prevOpacity = s.style.opacity;
+          var prevPos = s.style.position;
+          s.style.display = 'flex';
+          s.style.visibility = 'hidden';
+          s.style.opacity = '0';
+          s.style.position = 'static';
+          if (s.offsetHeight > max) max = s.offsetHeight;
+          s.style.display = prevDisplay;
+          s.style.visibility = prevVis;
+          s.style.opacity = prevOpacity;
+          s.style.position = prevPos;
+        });
+        track.style.minHeight = max + 'px';
+      }
+
+      function show(i) {
+        current = (i + total) % total;
+        slides.forEach(function (s, idx) { s.classList.toggle('active', idx === current); });
+        dots.forEach(function (d, idx) { d.classList.toggle('active', idx === current); });
+      }
+
+      prev.addEventListener('click', function () { show(current - 1); });
+      next.addEventListener('click', function () { show(current + 1); });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () {
+          show(parseInt(d.dataset.index, 10));
+        });
+      });
+
+      lockHeight();
+      // Recompute after fonts/images settle and on resize
+      window.addEventListener('load', lockHeight);
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(lockHeight, 150);
+      });
     })();
   </script>
 
