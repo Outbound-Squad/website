@@ -4,3 +4,41 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+
+# HTML pages: always revalidate so updates show up immediately
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Pretty URLs also serve HTML
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/clients/*
+  Cache-Control: public, max-age=0, must-revalidate
+/our-team/*
+  Cache-Control: public, max-age=0, must-revalidate
+/podcast/*
+  Cache-Control: public, max-age=0, must-revalidate
+/contact/*
+  Cache-Control: public, max-age=0, must-revalidate
+/privacy-policy/*
+  Cache-Control: public, max-age=0, must-revalidate
+/resources/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Static assets: short 5-minute cache so stale files clear quickly
+/*.css
+  Cache-Control: public, max-age=300, must-revalidate
+/*.js
+  Cache-Control: public, max-age=300, must-revalidate
+/*.jpg
+  Cache-Control: public, max-age=300, must-revalidate
+/*.jpeg
+  Cache-Control: public, max-age=300, must-revalidate
+/*.png
+  Cache-Control: public, max-age=300, must-revalidate
+/*.webp
+  Cache-Control: public, max-age=300, must-revalidate
+/*.svg
+  Cache-Control: public, max-age=300, must-revalidate
+/*.ico
+  Cache-Control: public, max-age=300, must-revalidate
