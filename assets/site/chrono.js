@@ -31,6 +31,7 @@
     var qEnd = new Date(now.getFullYear(), Math.floor(now.getMonth() / 3) * 3 + 3, 1);
     var days = Math.round((qEnd - today) / 86400000);
     els.forEach(function (el) { el.textContent = days; });
+    if (days === 1) document.querySelectorAll('[data-q-unit]').forEach(function (el) { el.textContent = el.getAttribute('data-q-unit'); });
   })();
 
   /* Podcast episode search */
