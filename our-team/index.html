@@ -1,1424 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Team | Outbound Squad</title>
-  <meta name="description" content="Meet the Outbound Squad team. Active sales practitioners who make cold calls, send cold emails, and coach reps every single week.">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../favicon.png">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    /* ========================================
-       Outbound Squad - Our Team Page
-       Matches homepage design system
-       ======================================== */
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      font-size: 17px;
-      line-height: 1.6;
-      color: #444444;
-      background: #FFFFFF;
-      overflow-x: hidden;
-    }
-
-    /* ========================================
-       v8 Polish Layer
-       ======================================== */
-    ::selection { background: rgba(248, 106, 62, 0.2); color: #1B2235; }
-
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-      outline: 2px solid #F86A3E;
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    .btn-orange, .btn { will-change: transform; }
-    .btn-orange:hover, a.btn-orange:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(248, 106, 62, 0.32); }
-    .btn-orange:active, a.btn-orange:active { transform: translateY(0); }
-
-    .tm-card, .client-result-card, .why-card, .pack-card, .ep-card {
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform;
-    }
-    .tm-card:hover, .client-result-card:hover, .why-card:hover, .pack-card:hover, .ep-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(27, 34, 53, 0.10);
-    }
-
-    @keyframes os-float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-3px); }
-    }
-    .hero-pill, .badge-pill, .ep-pill {
-      animation: os-float 4.5s ease-in-out infinite;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      color: #00A2FF;
-      text-decoration: none;
-    }
-
-    /* ========================================
-       Scroll Animations
-       ======================================== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* ========================================
-       Layout
-       ======================================== */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .container-wide {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .text-center { text-align: center; }
-
-    .section {
-      padding: 96px 0;
-    }
-
-    .section-headline {
-      font-size: 40px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      letter-spacing: -0.5px;
-    }
-
-    .section-sub {
-      font-size: 18px;
-      color: #666666;
-      margin-bottom: 40px;
-      line-height: 1.6;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ========================================
-       Buttons
-       ======================================== */
-    .btn {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      padding: 14px 28px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-    .btn:active { transform: translateY(0); }
-
-    .btn-orange {
-      background: #F86A3E;
-      color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(248, 106, 62, 0.3);
-    }
-
-    .btn-orange:hover {
-      background: #e55a2e;
-      box-shadow: 0 6px 20px rgba(248, 106, 62, 0.4);
-    }
-
-    .btn-navy-outline {
-      background: transparent;
-      color: #1B2235;
-      border: 2px solid #1B2235;
-      padding: 12px 26px;
-    }
-
-    .btn-navy-outline:hover {
-      background: #1B2235;
-      color: #FFFFFF;
-    }
-
-    .btn-lg {
-      font-size: 18px;
-      padding: 16px 36px;
-    }
-
-    .btn-nav {
-      font-size: 15px;
-      padding: 10px 20px;
-    }
-
-    .nav-cta .btn-orange,
-    .nav-cta a.btn-orange,
-    .nav-links .btn-orange {
-      color: #FFFFFF !important;
-    }
-
-    .nav-cta .btn-orange:hover,
-    .nav-cta a.btn-orange:hover,
-    .nav-links .btn-orange:hover {
-      color: #FFFFFF !important;
-    }
-
-    /* ========================================
-       NAVIGATION
-       ======================================== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 16px 0;
-      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-    }
-
-    .nav.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: saturate(180%) blur(12px);
-      -webkit-backdrop-filter: saturate(180%) blur(12px);
-      box-shadow: 0 1px 0 rgba(27, 34, 53, 0.08);
-      padding: 10px 0;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .nav-logo img {
-      height: 48px;
-      width: auto;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 15px;
-      font-weight: 500;
-      color: #1B2235;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #00A2FF;
-    }
-
-    .nav-links a.active {
-      color: #00A2FF;
-    }
-
-    .nav-cta {
-      margin-left: 8px;
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      width: 40px;
-      height: 40px;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #1B2235;
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .nav-toggle.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-toggle.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* ========================================
-       HERO
-       ======================================== */
-    .hero {
-      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 35%, #F3F7FC 75%, #FFFFFF 100%);
-      padding: 160px 0 100px;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: #F86A3E;
-      background: rgba(248, 106, 62, 0.1);
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-    }
-
-    .hero-headline {
-      font-size: 64px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.05;
-      margin-bottom: 24px;
-      letter-spacing: -1.5px;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-sub {
-      font-size: 20px;
-      color: #444444;
-      line-height: 1.6;
-      margin: 0 auto;
-      max-width: 720px;
-    }
-
-    /* ========================================
-       TEAM MEMBER CARDS
-       ======================================== */
-    .team-section {
-      padding: 80px 0 40px;
-      background: #FFFFFF;
-    }
-
-    .team-intro {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .team-member {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 64px;
-      align-items: center;
-      padding: 56px 0;
-      position: relative;
-    }
-
-    .team-member + .team-member {
-      border-top: 1px solid #F0F2F7;
-    }
-
-    .team-member.photo-right {
-      grid-template-columns: 1fr 320px;
-    }
-
-    .team-member.photo-right .tm-photo {
-      order: 2;
-    }
-
-    .team-member.photo-right .tm-content {
-      order: 1;
-    }
-
-    /* Photo */
-    .tm-photo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .tm-photo-inner {
-      position: relative;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 12px 40px rgba(27, 34, 53, 0.12);
-    }
-
-    .tm-photo-inner::after {
-      content: "";
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 3px solid transparent;
-      pointer-events: none;
-    }
-
-    .tm-photo-orange .tm-photo-inner {
-      box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 8px #F86A3E, 0 12px 40px rgba(248, 106, 62, 0.18);
-    }
-
-    .tm-photo-blue .tm-photo-inner {
-      box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 8px #00A2FF, 0 12px 40px rgba(0, 162, 255, 0.18);
-    }
-
-    .tm-photo-inner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Placeholder (initials) */
-    .tm-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #E4E8F0 0%, #CBD3E0 100%);
-      color: #7a8299;
-      font-size: 72px;
-      font-weight: 700;
-      letter-spacing: -1px;
-    }
-
-    /* Content */
-    .tm-content {
-      max-width: 620px;
-    }
-
-    .tm-name {
-      font-size: 34px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.1;
-      letter-spacing: -0.6px;
-      margin-bottom: 6px;
-    }
-
-    .tm-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #F86A3E;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 6px;
-    }
-
-    .tm-bio {
-      font-size: 17px;
-      color: #444444;
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    /* Fun facts grid */
-    .tm-facts {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .tm-fact {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 12px;
-      background: #F4F8FD;
-      border: 1px solid rgba(0, 162, 255, 0.08);
-    }
-
-    .tm-fact.alt {
-      background: #FDF1EC;
-      border-color: rgba(248, 106, 62, 0.1);
-    }
-
-    .tm-fact-emoji {
-      font-size: 22px;
-      line-height: 1.2;
-      flex-shrink: 0;
-    }
-
-    .tm-fact-body {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .tm-fact-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: #1B2235;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .tm-fact-value {
-      font-size: 14px;
-      color: #444444;
-      line-height: 1.45;
-    }
-
-    /* LinkedIn inline link (under the title) */
-    .tm-linkedin {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #7a8299;
-      background: transparent;
-      border: none;
-      padding: 0;
-      margin-bottom: 18px;
-      transition: color 0.2s;
-    }
-
-    .tm-linkedin:hover {
-      color: #1B2235;
-      background: transparent;
-      transform: none;
-    }
-
-    .tm-linkedin svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .tm-title {
-      margin-bottom: 6px;
-    }
-
-    /* ========================================
-       SUPPORTING TEAM
-       ======================================== */
-    .support-section {
-      padding: 80px 0 96px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F7FAFD 100%);
-    }
-
-    .support-heading {
-      font-size: 28px;
-      font-weight: 800;
-      color: #1B2235;
-      letter-spacing: -0.3px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .support-kicker {
-      font-size: 16px;
-      color: #7a8299;
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .support-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .support-card {
-      background: #FFFFFF;
-      border-radius: 18px;
-      padding: 36px 32px;
-      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.06);
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .support-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(27, 34, 53, 0.1);
-    }
-
-    .support-photo {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 20px;
-      box-shadow: 0 0 0 3px #FFFFFF, 0 0 0 6px #E6F0FA;
-    }
-
-    .support-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .support-photo .tm-placeholder {
-      font-size: 34px;
-    }
-
-    .support-name {
-      font-size: 22px;
-      font-weight: 800;
-      color: #1B2235;
-      letter-spacing: -0.3px;
-      margin-bottom: 4px;
-    }
-
-    .support-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #F86A3E;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 14px;
-    }
-
-    .support-bio {
-      font-size: 15px;
-      color: #555555;
-      line-height: 1.6;
-    }
-
-    /* ========================================
-       FINAL CTA
-       ======================================== */
-    .cta-section {
-      background: linear-gradient(180deg, #FCEFE9 0%, #FDF5F1 55%, #FFFFFF 100%);
-      padding: 96px 0;
-      text-align: center;
-    }
-
-    .cta-section .section-headline {
-      margin-bottom: 16px;
-    }
-
-    .cta-section .section-sub {
-      margin-bottom: 32px;
-    }
-
-    /* ========================================
-       FOOTER
-       ======================================== */
-    .footer {
-      background: #FFFFFF;
-      padding: 48px 0 40px;
-
-    }
-
-    .footer-logo {
-      width: 140px;
-      margin: 0 auto 20px;
-      opacity: 0.9;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 28px;
-      margin-bottom: 24px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 15px;
-      color: #1B2235;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: #00A2FF;
-      text-decoration: underline;
-    }
-
-    .footer-legal {
-      gap: 8px 20px;
-      margin-bottom: 16px;
-    }
-
-    .footer-legal a {
-      font-size: 13px;
-      color: #7a8299;
-      font-weight: 400;
-    }
-
-    .footer-legal a:hover {
-      color: #1B2235;
-      text-decoration: underline;
-    }
-
-    .footer-copy {
-      font-size: 13px;
-      color: #999999;
-      text-align: center;
-    }
-
-    /* ========================================
-       RESPONSIVE
-       ======================================== */
-    @media (max-width: 960px) {
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: min(320px, 85vw);
-        background: #FFFFFF;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 84px 32px 32px;
-        gap: 20px;
-        box-shadow: -8px 0 32px rgba(0,0,0,0.1);
-        transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .nav-links.open {
-        transform: translateX(0);
-      }
-
-      .nav-links a {
-        font-size: 18px;
-      }
-
-      .nav-cta {
-        margin-left: 0;
-        margin-top: 8px;
-      }
-
-      .nav-toggle {
-        display: flex;
-        z-index: 110;
-      }
-
-      .team-member,
-      .team-member.photo-right {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        padding: 48px 0;
-        text-align: center;
-      }
-
-      .team-member.photo-right .tm-photo { order: 0; }
-      .team-member.photo-right .tm-content { order: 0; }
-
-      .tm-content { margin: 0 auto; }
-      .tm-facts { text-align: left; }
-    }
-
-    @media (max-width: 768px) {
-      .section { padding: 64px 0; }
-
-      .hero {
-        padding: 120px 0 72px;
-      }
-
-      .hero-headline { font-size: 44px; letter-spacing: -1px; }
-      .hero-sub { font-size: 17px; }
-
-      .section-headline { font-size: 30px; }
-
-      .team-section { padding: 48px 0 24px; }
-      .support-section { padding: 56px 0 72px; }
-      .cta-section { padding: 72px 0; }
-
-      .tm-photo-inner {
-        width: 200px;
-        height: 200px;
-      }
-
-      .tm-placeholder { font-size: 56px; }
-
-      .tm-name { font-size: 26px; }
-
-      .tm-facts {
-        grid-template-columns: 1fr;
-      }
-
-      .support-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-headline { font-size: 36px; }
-      .tm-photo-inner { width: 180px; height: 180px; }
-      .tm-placeholder { font-size: 48px; }
-    }
-      /* ========================================
-       FINAL CTA (shared homepage style)
-       ======================================== */
-    .final-cta-section {
-      padding: 96px 0 112px;
-      background: #FFFFFF;
-    }
-
-    .final-cta-card {
-      position: relative;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 72px 56px;
-      border-radius: 28px;
-      background: #F9EBE7;
-      overflow: hidden;
-      color: #1B2235;
-      box-shadow: 0 20px 60px rgba(248, 106, 62, 0.15);
-    }
-
-    .final-cta-card::before {
-      content: "";
-      position: absolute;
-      top: -180px;
-      right: -120px;
-      width: 540px;
-      height: 540px;
-      background: radial-gradient(circle, rgba(248, 106, 62, 0.18) 0%, rgba(248, 106, 62, 0) 70%);
-      pointer-events: none;
-    }
-
-    .final-cta-card::after {
-      content: "";
-      position: absolute;
-      bottom: -200px;
-      left: -120px;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(248, 106, 62, 0.12) 0%, rgba(248, 106, 62, 0) 70%);
-      pointer-events: none;
-    }
-
-    .final-cta-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .final-cta-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: #F86A3E;
-      margin-bottom: 20px;
-    }
-
-    .final-cta-eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 2px;
-      background: #F86A3E;
-      border-radius: 2px;
-    }
-
-    .final-cta-headline {
-      font-size: 36px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.12;
-      letter-spacing: -0.6px;
-      margin: 0 0 20px;
-    }
-
-    .final-cta-headline .accent {
-      color: #F86A3E;
-    }
-
-    .final-cta-sub {
-      font-size: 17px;
-      line-height: 1.6;
-      color: #444444;
-      margin: 0;
-    }
-
-    .final-cta-side {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      align-items: flex-start;
-      padding-top: 52px;
-    }
-
-    .final-cta-side .btn {
-      width: 100%;
-      max-width: 320px;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 10px 28px rgba(248, 106, 62, 0.4);
-    }
-
-    .final-cta-host {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding-top: 22px;
-      margin-top: 4px;
-      border-top: 1px solid rgba(27, 34, 53, 0.1);
-      width: 100%;
-      max-width: 320px;
-    }
-
-    .final-cta-host img {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(27, 34, 53, 0.12);
-      flex-shrink: 0;
-    }
-
-    .final-cta-host-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1B2235;
-      letter-spacing: -0.1px;
-    }
-
-    .final-cta-host-role {
-      font-size: 13px;
-      color: #666666;
-      margin-top: 3px;
-    }
-
-    @media (max-width: 900px) {
-      .final-cta-section { padding: 64px 0 80px; }
-      .final-cta-card { padding: 48px 28px; border-radius: 22px; }
-      .final-cta-inner { grid-template-columns: 1fr; gap: 36px; }
-      .final-cta-headline { font-size: 26px; }
-      .final-cta-side { padding-top: 0; }
-      .final-cta-side .btn { max-width: 100%; }
-      .final-cta-host { max-width: 100%; }
-    }
-
-</style>
-  <!-- Magellan AI tracking pixel (iHeartMedia radio + podcast attribution) -->
-  <script>
-    (function(w, d, n){
-        if (w.MAI) return;
-        w.MAI = w.MAI || {emit: function() {(w.MAI.q = w.MAI.q || []).push(arguments);}};
-        var e = d.createElement(n);
-        e.async = 1;
-        e.src = 'https://cdn.mgln.ai/pixel.min.js';
-        var s = d.getElementsByTagName(n)[0];
-        s.parentNode.insertBefore(e, s);
-    })(window, document, 'script');
-    MAI.emit('conf', '019e46ce8ab271c392fbd39cb44a87c6');
-    MAI.emit('view');
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team | Outbound Squad</title>
+<meta name="description" content="Meet the Outbound Squad team. Active sales practitioners who make cold calls, send cold emails, and coach reps every single week.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/base.css">
+<link rel="stylesheet" href="/assets/site/theme.css">
+<!-- Magellan AI tracking pixel (iHeartMedia radio + podcast attribution) -->
+<script>
+  (function(w, d, n){
+      if (w.MAI) return;
+      w.MAI = w.MAI || {emit: function() {(w.MAI.q = w.MAI.q || []).push(arguments);}};
+      var e = d.createElement(n);
+      e.async = 1;
+      e.src = 'https://cdn.mgln.ai/pixel.min.js';
+      var s = d.getElementsByTagName(n)[0];
+      s.parentNode.insertBefore(e, s);
+  })(window, document, 'script');
+  MAI.emit('conf', '019e46ce8ab271c392fbd39cb44a87c6');
+  MAI.emit('view');
+</script>
 </head>
 <body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="Outbound Squad home"><img src="/assets/site/logo.png" alt="Outbound Squad"></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="https://masterclass.outboundsquad.com/">Free Masterclass</a></li>
+      <li><a href="/clients/">Our Clients</a></li>
+      <li><a href="/our-team/" class="is-current" aria-current="page">Our Team</a></li>
+      <li><a href="/podcast/">Podcast</a></li>
+      <li><a class="btn btn-primary" href="/contact/">Book A Call</a></li>
+    </ul>
+  </div>
+</header>
 
-  <!-- ========================================
-       NAVIGATION
-       ======================================== -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Outbound Squad home">
-        <img src="../logo.png" alt="Outbound Squad">
-      </a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
-        <li><a href="/clients/">Our Clients</a></li>
-        <li><a href="/our-team/" class="active">Our Team</a></li>
-        <li><a href="/podcast/">Podcast</a></li>
-        <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ========================================
-       HERO
-       ======================================== -->
-  <section class="hero">
-    <div class="container">
-      <span class="hero-eyebrow reveal">The Squad</span>
-      <h1 class="hero-headline reveal">Meet the Team</h1>
-      <p class="hero-sub reveal">Meet our world-class team of trainers and supporting staff to help you execute the Outbound Squad methodology, pack your pipeline with qualified meetings, and win more deals.</p>
-    </div>
-  </section>
-
-  <!-- ========================================
-       TEAM MEMBERS
-       ======================================== -->
-  <section class="team-section">
-    <div class="container">
-
-      <!-- Jason Bay - photo left, orange border -->
-      <article class="team-member photo-left">
-        <div class="tm-photo tm-photo-orange reveal-left">
-          <div class="tm-photo-inner">
-            <img src="../headshots/jason-bay.jpg" alt="Jason Bay">
-          </div>
-        </div>
-        <div class="tm-content reveal-right">
-          <h2 class="tm-name">Jason Bay</h2>
-          <p class="tm-title">CEO &amp; Founder</p>
-          <a href="https://www.linkedin.com/in/jasondbay/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Jason Bay on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn &rarr;
-          </a>
-          <p class="tm-bio">Jason has over a decade and a half of experience selling and leading sales teams. He led many of the training engagements with AEs and SDRs at Gong, Zoom, Medallia, Rippling, and many more prior to stepping into a CEO role to help Outbound Squad scale.</p>
-          <div class="tm-facts">
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💰</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Largest Deal Closed</span>
-                <span class="tm-fact-value">$317k</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📞</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Outbound Channel of Choice</span>
-                <span class="tm-fact-value">Phone all day</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📚</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Favorite Sales Book</span>
-                <span class="tm-fact-value">Selling With by Nate Nasralla</span>
-              </div>
-            </div>
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Best Sales Advice</span>
-                <span class="tm-fact-value">Your pipeline should look less like a pipeline and more like a martini glass. Disqualify early and go deeper on fewer opportunities.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Clara Johnson - photo right, blue border -->
-      <article class="team-member photo-right">
-        <div class="tm-photo tm-photo-blue reveal-right">
-          <div class="tm-photo-inner">
-            <img src="../headshots/clara-johnson.jpg" alt="Clara Johnson">
-          </div>
-        </div>
-        <div class="tm-content reveal-left">
-          <h2 class="tm-name">Clara Johnson</h2>
-          <p class="tm-title">Head of Client Transformation</p>
-          <a href="http://linkedin.com/in/clarahughesjohnson/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Clara Johnson on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn &rarr;
-          </a>
-          <p class="tm-bio">Clara has a track record of winning President's Club, hitting 200%+ quota as a rep, and managing top teams as a leader at companies like Outreach, Catalyst, and more. At Outbound Squad, she leads our client transformation team.</p>
-          <div class="tm-facts">
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💰</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Largest Deal Closed</span>
-                <span class="tm-fact-value">$480k (multi-year agreement)</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📱</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Outbound Channel of Choice</span>
-                <span class="tm-fact-value">Honestly, ALL OF THEM :)</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📚</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Favorite Sales Book</span>
-                <span class="tm-fact-value">The Power of One More by Ed Mylett</span>
-              </div>
-            </div>
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Best Sales Advice</span>
-                <span class="tm-fact-value">Focus on the things you don't want to do first, that's where you grow the most.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Amanda Long - photo left, orange border -->
-      <article class="team-member photo-left">
-        <div class="tm-photo tm-photo-orange reveal-left">
-          <div class="tm-photo-inner">
-            <img src="../headshots/amanda-long.jpg" alt="Amanda Long">
-          </div>
-        </div>
-        <div class="tm-content reveal-right">
-          <h2 class="tm-name">Amanda Long</h2>
-          <p class="tm-title">Pipeline Consultant</p>
-          <a href="https://www.linkedin.com/in/its-amandalong/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Amanda Long on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn &rarr;
-          </a>
-          <p class="tm-bio">Amanda has 10+ years of sales experience as a top-performing Account Executive, front-line leader, and building world-class enablement programs. At Outbound Squad, she leads training engagements with SDR teams, AE teams, and front-line leaders.</p>
-          <div class="tm-facts">
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💰</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Largest Deal Closed</span>
-                <span class="tm-fact-value">$420K</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📞</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Outbound Channel of Choice</span>
-                <span class="tm-fact-value">Phone &amp; Social</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📚</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Favorite Sales Book</span>
-                <span class="tm-fact-value">Trillion Dollar Coach by Eric Schmidt, Jonathan Rosenberg, &amp; Alan Eagle</span>
-              </div>
-            </div>
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Best Sales Advice</span>
-                <span class="tm-fact-value">Complacency is what digs the rut for you. If you want to be successful, you can never get too comfortable with your pipeline.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Aaron Milner - photo right, blue border -->
-      <article class="team-member photo-right">
-        <div class="tm-photo tm-photo-blue reveal-right">
-          <div class="tm-photo-inner">
-            <img src="../headshots/aaron-milner.jpg" alt="Aaron Milner">
-          </div>
-        </div>
-        <div class="tm-content reveal-left">
-          <h2 class="tm-name">Aaron Milner</h2>
-          <p class="tm-title">Pipeline Consultant</p>
-          <a href="https://www.linkedin.com/in/aaronsmilner/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Aaron Milner on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn &rarr;
-          </a>
-          <p class="tm-bio">Aaron went to school to be a History Teacher and truly loves to help people. He ended up in sales and has trained over 1,000 SDRs. He is a multiple-time President's Club winner as an Enterprise SaaS AE and a longtime Sales Leader.</p>
-          <div class="tm-facts">
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💰</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Largest Deal Closed</span>
-                <span class="tm-fact-value">$1.3 million</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📞</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Outbound Channel of Choice</span>
-                <span class="tm-fact-value">Phone, of course</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📚</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Favorite Sales Book</span>
-                <span class="tm-fact-value">SNAP Selling by Jill Konrath</span>
-              </div>
-            </div>
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Best Sales Advice</span>
-                <span class="tm-fact-value">Sell the problem, not a promise.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Dan Strauss - photo left, orange border -->
-      <article class="team-member photo-left">
-        <div class="tm-photo tm-photo-orange reveal-left">
-          <div class="tm-photo-inner">
-            <img src="../headshots/dan-strauss.jpg" alt="Dan Strauss">
-          </div>
-        </div>
-        <div class="tm-content reveal-right">
-          <h2 class="tm-name">Dan Strauss</h2>
-          <p class="tm-title">Advisor</p>
-          <a href="https://www.linkedin.com/in/ciguy/" target="_blank" rel="noopener" class="tm-linkedin" aria-label="Dan Strauss on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            Connect on LinkedIn &rarr;
-          </a>
-          <p class="tm-bio">Dan has a track record of closing the largest deals in previous roles at ZoomInfo, OpenGov, Chorus.ai, and many others. He's personally closed deals with Adobe, Uber, DocuSign, Zoom, Motorola, Toast, Qualtrics, The City of Seattle, BMC Software and many more. Dan advises Outbound Squad on the latest and greatest strategies world-class sales teams are using to open and close more deals.</p>
-          <div class="tm-facts">
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💰</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Largest Deal Closed</span>
-                <span class="tm-fact-value">$2,004,743.52</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">🎯</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Outbound Channel of Choice</span>
-                <span class="tm-fact-value">Multichannel is the only way!</span>
-              </div>
-            </div>
-            <div class="tm-fact alt">
-              <span class="tm-fact-emoji">📚</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Favorite Sales Book</span>
-                <span class="tm-fact-value">Nudge by Richard Thaler &amp; Cass Sunstein</span>
-              </div>
-            </div>
-            <div class="tm-fact">
-              <span class="tm-fact-emoji">💡</span>
-              <div class="tm-fact-body">
-                <span class="tm-fact-label">Best Sales Advice</span>
-                <span class="tm-fact-value">I've always found I'm at my best when I find clients with real, big problems, and help to solve them, genuinely, with deep curiosity and an outside perspective. Be honest with what you don't know.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ========================================
-       SUPPORTING TEAM
-       ======================================== -->
-  <section class="support-section">
-    <div class="container">
-      <h2 class="support-heading reveal">Behind the Scenes</h2>
-      <p class="support-kicker reveal">The operators who keep everything running smoothly.</p>
-      <div class="support-grid">
-        <div class="support-card reveal">
-          <div class="support-photo">
-            <img src="../headshots/marga-adarlo.jpg" alt="Marga Adarlo">
-          </div>
-          <h3 class="support-name">Marga Adarlo</h3>
-          <p class="support-title">Client Ops Manager</p>
-          <p class="support-bio">Marga has been with the team since 2018 and assists in client delivery initiatives to make sure projects run smoothly.</p>
-        </div>
-        <div class="support-card reveal">
-          <div class="support-photo">
-            <img src="../headshots/lica-mojica.jpg" alt="Lica Mojica">
-          </div>
-          <h3 class="support-name">Lica Mojica</h3>
-          <p class="support-title">Revenue Ops Manager</p>
-          <p class="support-bio">Lica has also been with the team since 2018 and assists in marketing &amp; sales projects.</p>
+<main id="top">
+  <section class="front front-inner">
+    <div class="container-wide">
+      <div class="masthead"><div class="rule"><span class="caps">The Squad</span></div></div>
+      <div class="deco reveal">
+        <div class="ad">
+          <div><span class="caps blue">The Squad</span>
+            <h1>Meet the <span class="it">Team.</span></h1>
+            <p class="dek">Meet our world-class team of trainers and supporting staff to help you execute the Outbound Squad methodology, pack your pipeline with qualified meetings, and win more deals.</p>
+            <div class="ad-ctas"><a class="btn btn-primary" href="/contact/">Book a Call <span class="arrow">&rarr;</span></a><a class="text-link" href="#roster">Meet the Squad</a></div></div>
+          <div class="hero-side"><svg class="roster" viewBox="0 0 400 400" role="img" aria-label="The Outbound Squad team"><defs><clipPath id="c0"><circle cx="200.0" cy="82.0" r="40"/></clipPath><clipPath id="c1"><circle cx="312.2" cy="163.5" r="40"/></clipPath><clipPath id="c2"><circle cx="269.4" cy="295.5" r="40"/></clipPath><clipPath id="c3"><circle cx="130.6" cy="295.5" r="40"/></clipPath><clipPath id="c4"><circle cx="87.8" cy="163.5" r="40"/></clipPath></defs><circle cx="200" cy="200" r="186" fill="#FBF8F1" stroke="#1B2235" stroke-width="1"/><circle cx="200" cy="200" r="178" fill="none" stroke="#1B2235" stroke-width="0.5" opacity="0.5"/><line x1="200.0" y1="24.0" x2="200.0" y2="32.0" stroke="#1B2235" stroke-width="1.6"/><line x1="218.4" y1="25.0" x2="218.0" y2="28.9" stroke="#1B2235" stroke-width="0.6"/><line x1="236.6" y1="27.8" x2="235.8" y2="31.8" stroke="#1B2235" stroke-width="0.6"/><line x1="254.4" y1="32.6" x2="253.2" y2="36.4" stroke="#1B2235" stroke-width="0.6"/><line x1="271.6" y1="39.2" x2="270.0" y2="42.9" stroke="#1B2235" stroke-width="0.6"/><line x1="288.0" y1="47.6" x2="284.0" y2="54.5" stroke="#1B2235" stroke-width="1.6"/><line x1="303.5" y1="57.6" x2="301.1" y2="60.8" stroke="#1B2235" stroke-width="0.6"/><line x1="317.8" y1="69.2" x2="315.1" y2="72.2" stroke="#1B2235" stroke-width="0.6"/><line x1="330.8" y1="82.2" x2="327.8" y2="84.9" stroke="#1B2235" stroke-width="0.6"/><line x1="342.4" y1="96.5" x2="339.2" y2="98.9" stroke="#1B2235" stroke-width="0.6"/><line x1="352.4" y1="112.0" x2="345.5" y2="116.0" stroke="#1B2235" stroke-width="1.6"/><line x1="360.8" y1="128.4" x2="357.1" y2="130.0" stroke="#1B2235" stroke-width="0.6"/><line x1="367.4" y1="145.6" x2="363.6" y2="146.8" stroke="#1B2235" stroke-width="0.6"/><line x1="372.2" y1="163.4" x2="368.2" y2="164.2" stroke="#1B2235" stroke-width="0.6"/><line x1="375.0" y1="181.6" x2="371.1" y2="182.0" stroke="#1B2235" stroke-width="0.6"/><line x1="376.0" y1="200.0" x2="368.0" y2="200.0" stroke="#1B2235" stroke-width="1.6"/><line x1="375.0" y1="218.4" x2="371.1" y2="218.0" stroke="#1B2235" stroke-width="0.6"/><line x1="372.2" y1="236.6" x2="368.2" y2="235.8" stroke="#1B2235" stroke-width="0.6"/><line x1="367.4" y1="254.4" x2="363.6" y2="253.2" stroke="#1B2235" stroke-width="0.6"/><line x1="360.8" y1="271.6" x2="357.1" y2="270.0" stroke="#1B2235" stroke-width="0.6"/><line x1="352.4" y1="288.0" x2="345.5" y2="284.0" stroke="#1B2235" stroke-width="1.6"/><line x1="342.4" y1="303.5" x2="339.2" y2="301.1" stroke="#1B2235" stroke-width="0.6"/><line x1="330.8" y1="317.8" x2="327.8" y2="315.1" stroke="#1B2235" stroke-width="0.6"/><line x1="317.8" y1="330.8" x2="315.1" y2="327.8" stroke="#1B2235" stroke-width="0.6"/><line x1="303.5" y1="342.4" x2="301.1" y2="339.2" stroke="#1B2235" stroke-width="0.6"/><line x1="288.0" y1="352.4" x2="284.0" y2="345.5" stroke="#1B2235" stroke-width="1.6"/><line x1="271.6" y1="360.8" x2="270.0" y2="357.1" stroke="#1B2235" stroke-width="0.6"/><line x1="254.4" y1="367.4" x2="253.2" y2="363.6" stroke="#1B2235" stroke-width="0.6"/><line x1="236.6" y1="372.2" x2="235.8" y2="368.2" stroke="#1B2235" stroke-width="0.6"/><line x1="218.4" y1="375.0" x2="218.0" y2="371.1" stroke="#1B2235" stroke-width="0.6"/><line x1="200.0" y1="376.0" x2="200.0" y2="368.0" stroke="#1B2235" stroke-width="1.6"/><line x1="181.6" y1="375.0" x2="182.0" y2="371.1" stroke="#1B2235" stroke-width="0.6"/><line x1="163.4" y1="372.2" x2="164.2" y2="368.2" stroke="#1B2235" stroke-width="0.6"/><line x1="145.6" y1="367.4" x2="146.8" y2="363.6" stroke="#1B2235" stroke-width="0.6"/><line x1="128.4" y1="360.8" x2="130.0" y2="357.1" stroke="#1B2235" stroke-width="0.6"/><line x1="112.0" y1="352.4" x2="116.0" y2="345.5" stroke="#1B2235" stroke-width="1.6"/><line x1="96.5" y1="342.4" x2="98.9" y2="339.2" stroke="#1B2235" stroke-width="0.6"/><line x1="82.2" y1="330.8" x2="84.9" y2="327.8" stroke="#1B2235" stroke-width="0.6"/><line x1="69.2" y1="317.8" x2="72.2" y2="315.1" stroke="#1B2235" stroke-width="0.6"/><line x1="57.6" y1="303.5" x2="60.8" y2="301.1" stroke="#1B2235" stroke-width="0.6"/><line x1="47.6" y1="288.0" x2="54.5" y2="284.0" stroke="#1B2235" stroke-width="1.6"/><line x1="39.2" y1="271.6" x2="42.9" y2="270.0" stroke="#1B2235" stroke-width="0.6"/><line x1="32.6" y1="254.4" x2="36.4" y2="253.2" stroke="#1B2235" stroke-width="0.6"/><line x1="27.8" y1="236.6" x2="31.8" y2="235.8" stroke="#1B2235" stroke-width="0.6"/><line x1="25.0" y1="218.4" x2="28.9" y2="218.0" stroke="#1B2235" stroke-width="0.6"/><line x1="24.0" y1="200.0" x2="32.0" y2="200.0" stroke="#1B2235" stroke-width="1.6"/><line x1="25.0" y1="181.6" x2="28.9" y2="182.0" stroke="#1B2235" stroke-width="0.6"/><line x1="27.8" y1="163.4" x2="31.8" y2="164.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.6" y1="145.6" x2="36.4" y2="146.8" stroke="#1B2235" stroke-width="0.6"/><line x1="39.2" y1="128.4" x2="42.9" y2="130.0" stroke="#1B2235" stroke-width="0.6"/><line x1="47.6" y1="112.0" x2="54.5" y2="116.0" stroke="#1B2235" stroke-width="1.6"/><line x1="57.6" y1="96.5" x2="60.8" y2="98.9" stroke="#1B2235" stroke-width="0.6"/><line x1="69.2" y1="82.2" x2="72.2" y2="84.9" stroke="#1B2235" stroke-width="0.6"/><line x1="82.2" y1="69.2" x2="84.9" y2="72.2" stroke="#1B2235" stroke-width="0.6"/><line x1="96.5" y1="57.6" x2="98.9" y2="60.8" stroke="#1B2235" stroke-width="0.6"/><line x1="112.0" y1="47.6" x2="116.0" y2="54.5" stroke="#1B2235" stroke-width="1.6"/><line x1="128.4" y1="39.2" x2="130.0" y2="42.9" stroke="#1B2235" stroke-width="0.6"/><line x1="145.6" y1="32.6" x2="146.8" y2="36.4" stroke="#1B2235" stroke-width="0.6"/><line x1="163.4" y1="27.8" x2="164.2" y2="31.8" stroke="#1B2235" stroke-width="0.6"/><line x1="181.6" y1="25.0" x2="182.0" y2="28.9" stroke="#1B2235" stroke-width="0.6"/><g stroke="#1B2235" stroke-width="0.35" opacity="0.07"><line x1="200.0" y1="180.0" x2="200.0" y2="35.0"/><line x1="201.0" y1="180.0" x2="208.6" y2="35.2"/><line x1="202.1" y1="180.1" x2="217.2" y2="35.9"/><line x1="203.1" y1="180.2" x2="225.8" y2="37.0"/><line x1="204.2" y1="180.4" x2="234.3" y2="38.6"/><line x1="205.2" y1="180.7" x2="242.7" y2="40.6"/><line x1="206.2" y1="181.0" x2="251.0" y2="43.1"/><line x1="207.2" y1="181.3" x2="259.1" y2="46.0"/><line x1="208.1" y1="181.7" x2="267.1" y2="49.3"/><line x1="209.1" y1="182.2" x2="274.9" y2="53.0"/><line x1="210.0" y1="182.7" x2="282.5" y2="57.1"/><line x1="210.9" y1="183.2" x2="289.9" y2="61.6"/><line x1="211.8" y1="183.8" x2="297.0" y2="66.5"/><line x1="212.6" y1="184.5" x2="303.8" y2="71.8"/><line x1="213.4" y1="185.1" x2="310.4" y2="77.4"/><line x1="214.1" y1="185.9" x2="316.7" y2="83.3"/><line x1="214.9" y1="186.6" x2="322.6" y2="89.6"/><line x1="215.5" y1="187.4" x2="328.2" y2="96.2"/><line x1="216.2" y1="188.2" x2="333.5" y2="103.0"/><line x1="216.8" y1="189.1" x2="338.4" y2="110.1"/><line x1="217.3" y1="190.0" x2="342.9" y2="117.5"/><line x1="217.8" y1="190.9" x2="347.0" y2="125.1"/><line x1="218.3" y1="191.9" x2="350.7" y2="132.9"/><line x1="218.7" y1="192.8" x2="354.0" y2="140.9"/><line x1="219.0" y1="193.8" x2="356.9" y2="149.0"/><line x1="219.3" y1="194.8" x2="359.4" y2="157.3"/><line x1="219.6" y1="195.8" x2="361.4" y2="165.7"/><line x1="219.8" y1="196.9" x2="363.0" y2="174.2"/><line x1="219.9" y1="197.9" x2="364.1" y2="182.8"/><line x1="220.0" y1="199.0" x2="364.8" y2="191.4"/><line x1="220.0" y1="200.0" x2="365.0" y2="200.0"/><line x1="220.0" y1="201.0" x2="364.8" y2="208.6"/><line x1="219.9" y1="202.1" x2="364.1" y2="217.2"/><line x1="219.8" y1="203.1" x2="363.0" y2="225.8"/><line x1="219.6" y1="204.2" x2="361.4" y2="234.3"/><line x1="219.3" y1="205.2" x2="359.4" y2="242.7"/><line x1="219.0" y1="206.2" x2="356.9" y2="251.0"/><line x1="218.7" y1="207.2" x2="354.0" y2="259.1"/><line x1="218.3" y1="208.1" x2="350.7" y2="267.1"/><line x1="217.8" y1="209.1" x2="347.0" y2="274.9"/><line x1="217.3" y1="210.0" x2="342.9" y2="282.5"/><line x1="216.8" y1="210.9" x2="338.4" y2="289.9"/><line x1="216.2" y1="211.8" x2="333.5" y2="297.0"/><line x1="215.5" y1="212.6" x2="328.2" y2="303.8"/><line x1="214.9" y1="213.4" x2="322.6" y2="310.4"/><line x1="214.1" y1="214.1" x2="316.7" y2="316.7"/><line x1="213.4" y1="214.9" x2="310.4" y2="322.6"/><line x1="212.6" y1="215.5" x2="303.8" y2="328.2"/><line x1="211.8" y1="216.2" x2="297.0" y2="333.5"/><line x1="210.9" y1="216.8" x2="289.9" y2="338.4"/><line x1="210.0" y1="217.3" x2="282.5" y2="342.9"/><line x1="209.1" y1="217.8" x2="274.9" y2="347.0"/><line x1="208.1" y1="218.3" x2="267.1" y2="350.7"/><line x1="207.2" y1="218.7" x2="259.1" y2="354.0"/><line x1="206.2" y1="219.0" x2="251.0" y2="356.9"/><line x1="205.2" y1="219.3" x2="242.7" y2="359.4"/><line x1="204.2" y1="219.6" x2="234.3" y2="361.4"/><line x1="203.1" y1="219.8" x2="225.8" y2="363.0"/><line x1="202.1" y1="219.9" x2="217.2" y2="364.1"/><line x1="201.0" y1="220.0" x2="208.6" y2="364.8"/><line x1="200.0" y1="220.0" x2="200.0" y2="365.0"/><line x1="199.0" y1="220.0" x2="191.4" y2="364.8"/><line x1="197.9" y1="219.9" x2="182.8" y2="364.1"/><line x1="196.9" y1="219.8" x2="174.2" y2="363.0"/><line x1="195.8" y1="219.6" x2="165.7" y2="361.4"/><line x1="194.8" y1="219.3" x2="157.3" y2="359.4"/><line x1="193.8" y1="219.0" x2="149.0" y2="356.9"/><line x1="192.8" y1="218.7" x2="140.9" y2="354.0"/><line x1="191.9" y1="218.3" x2="132.9" y2="350.7"/><line x1="190.9" y1="217.8" x2="125.1" y2="347.0"/><line x1="190.0" y1="217.3" x2="117.5" y2="342.9"/><line x1="189.1" y1="216.8" x2="110.1" y2="338.4"/><line x1="188.2" y1="216.2" x2="103.0" y2="333.5"/><line x1="187.4" y1="215.5" x2="96.2" y2="328.2"/><line x1="186.6" y1="214.9" x2="89.6" y2="322.6"/><line x1="185.9" y1="214.1" x2="83.3" y2="316.7"/><line x1="185.1" y1="213.4" x2="77.4" y2="310.4"/><line x1="184.5" y1="212.6" x2="71.8" y2="303.8"/><line x1="183.8" y1="211.8" x2="66.5" y2="297.0"/><line x1="183.2" y1="210.9" x2="61.6" y2="289.9"/><line x1="182.7" y1="210.0" x2="57.1" y2="282.5"/><line x1="182.2" y1="209.1" x2="53.0" y2="274.9"/><line x1="181.7" y1="208.1" x2="49.3" y2="267.1"/><line x1="181.3" y1="207.2" x2="46.0" y2="259.1"/><line x1="181.0" y1="206.2" x2="43.1" y2="251.0"/><line x1="180.7" y1="205.2" x2="40.6" y2="242.7"/><line x1="180.4" y1="204.2" x2="38.6" y2="234.3"/><line x1="180.2" y1="203.1" x2="37.0" y2="225.8"/><line x1="180.1" y1="202.1" x2="35.9" y2="217.2"/><line x1="180.0" y1="201.0" x2="35.2" y2="208.6"/><line x1="180.0" y1="200.0" x2="35.0" y2="200.0"/><line x1="180.0" y1="199.0" x2="35.2" y2="191.4"/><line x1="180.1" y1="197.9" x2="35.9" y2="182.8"/><line x1="180.2" y1="196.9" x2="37.0" y2="174.2"/><line x1="180.4" y1="195.8" x2="38.6" y2="165.7"/><line x1="180.7" y1="194.8" x2="40.6" y2="157.3"/><line x1="181.0" y1="193.8" x2="43.1" y2="149.0"/><line x1="181.3" y1="192.8" x2="46.0" y2="140.9"/><line x1="181.7" y1="191.9" x2="49.3" y2="132.9"/><line x1="182.2" y1="190.9" x2="53.0" y2="125.1"/><line x1="182.7" y1="190.0" x2="57.1" y2="117.5"/><line x1="183.2" y1="189.1" x2="61.6" y2="110.1"/><line x1="183.8" y1="188.2" x2="66.5" y2="103.0"/><line x1="184.5" y1="187.4" x2="71.8" y2="96.2"/><line x1="185.1" y1="186.6" x2="77.4" y2="89.6"/><line x1="185.9" y1="185.9" x2="83.3" y2="83.3"/><line x1="186.6" y1="185.1" x2="89.6" y2="77.4"/><line x1="187.4" y1="184.5" x2="96.2" y2="71.8"/><line x1="188.2" y1="183.8" x2="103.0" y2="66.5"/><line x1="189.1" y1="183.2" x2="110.1" y2="61.6"/><line x1="190.0" y1="182.7" x2="117.5" y2="57.1"/><line x1="190.9" y1="182.2" x2="125.1" y2="53.0"/><line x1="191.9" y1="181.7" x2="132.9" y2="49.3"/><line x1="192.8" y1="181.3" x2="140.9" y2="46.0"/><line x1="193.8" y1="181.0" x2="149.0" y2="43.1"/><line x1="194.8" y1="180.7" x2="157.3" y2="40.6"/><line x1="195.8" y1="180.4" x2="165.7" y2="38.6"/><line x1="196.9" y1="180.2" x2="174.2" y2="37.0"/><line x1="197.9" y1="180.1" x2="182.8" y2="35.9"/><line x1="199.0" y1="180.0" x2="191.4" y2="35.2"/></g><text x="200" y="192" font-family="DM Sans, sans-serif" font-weight="700" font-size="10" letter-spacing="3" fill="#1B2235" text-anchor="middle">OUTBOUND SQUAD</text><text x="200" y="216" font-family="DM Serif Display, Georgia, serif" font-style="italic" font-size="22" fill="#1B2235" text-anchor="middle">The Squad</text><circle cx="200" cy="200" r="54" fill="none" stroke="#00A2FF" stroke-width="1.2"/><a href="#jason-bay" class="ring-p"><circle cx="200.0" cy="82.0" r="44" fill="#fff" stroke="#1B2235" stroke-width="1"/><image href="/assets/site/headshots/jason-bay.jpg" x="160.0" y="42.0" width="80" height="80" preserveAspectRatio="xMidYMid slice" clip-path="url(#c0)"/><title>Jason Bay</title></a><a href="#clara-johnson" class="ring-p"><circle cx="312.2" cy="163.5" r="44" fill="#fff" stroke="#1B2235" stroke-width="1"/><image href="/assets/site/headshots/clara-johnson.jpg" x="272.2" y="123.5" width="80" height="80" preserveAspectRatio="xMidYMid slice" clip-path="url(#c1)"/><title>Clara Johnson</title></a><a href="#amanda-long" class="ring-p"><circle cx="269.4" cy="295.5" r="44" fill="#fff" stroke="#1B2235" stroke-width="1"/><image href="/assets/site/headshots/amanda-long.jpg" x="229.4" y="255.5" width="80" height="80" preserveAspectRatio="xMidYMid slice" clip-path="url(#c2)"/><title>Amanda Long</title></a><a href="#aaron-milner" class="ring-p"><circle cx="130.6" cy="295.5" r="44" fill="#fff" stroke="#1B2235" stroke-width="1"/><image href="/assets/site/headshots/aaron-milner.jpg" x="90.6" y="255.5" width="80" height="80" preserveAspectRatio="xMidYMid slice" clip-path="url(#c3)"/><title>Aaron Milner</title></a><a href="#dan-strauss" class="ring-p"><circle cx="87.8" cy="163.5" r="44" fill="#fff" stroke="#1B2235" stroke-width="1"/><image href="/assets/site/headshots/dan-strauss.jpg" x="47.8" y="123.5" width="80" height="80" preserveAspectRatio="xMidYMid slice" clip-path="url(#c4)"/><title>Dan Strauss</title></a></svg><p class="hero-note">Tap a portrait to jump to that profile.</p></div>
+          
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================
-       FINAL CTA
-       ======================================== -->
-  <section class="final-cta-section">
-    <div class="container">
-      <div class="final-cta-card reveal">
-        <div class="final-cta-inner">
-          <div class="final-cta-text">
-            <span class="final-cta-eyebrow">Next Steps</span>
-            <h2 class="final-cta-headline">Ready to <span class="accent">build pipeline</span> like Shopify, iHeartMedia, Rippling, and more?</h2>
-            <p class="final-cta-sub">Our clients increase qualified pipeline by 20% or more within 90 days. The next step is a 30-minute call with our CEO, Jason Bay, to learn about your situation and see if we're a fit.</p>
+  <section class="section" id="roster">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">The roster</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>The trainers and advisors.</h2></div>
+      <article class="deco member feature reveal" id="jason-bay">
+          <div class="m-side">
+            <div class="oval"><img src="/assets/site/headshots/jason-bay.jpg" alt="Jason Bay" loading="lazy"></div>
+            <span class="m-no">No. 01</span>
           </div>
-          <div class="final-cta-side">
-            <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
-            <div class="final-cta-host">
-              <img src="../headshots/jason-bay.jpg" alt="Jason Bay" loading="lazy">
-              <div>
-                <div class="final-cta-host-name">Jason Bay</div>
-                <div class="final-cta-host-role">CEO, Outbound Squad</div>
-              </div>
-            </div>
+          <div class="m-body">
+            <h3>Jason Bay</h3>
+            <div class="role">CEO &amp; Founder</div>
+            <p class="bio">Jason has over a decade and a half of experience selling and leading sales teams. He led many of the training engagements with AEs and SDRs at Gong, Zoom, Medallia, Rippling, and many more prior to stepping into a CEO role to help Outbound Squad scale.</p>
+            <dl class="spec">
+              <div class="deal-row"><dt>Largest deal closed</dt><dd><b class="deal" data-count="317" data-dec="0" data-prefix="$" data-suffix="k" data-dur="2200">$317k</b></dd></div>
+              <div><dt>Outbound channel of choice</dt><dd>Phone all day</dd></div>
+              <div><dt>Favorite sales book</dt><dd>Selling With by Nate Nasralla</dd></div>
+            </dl>
+            <blockquote class="advice"><span>Best sales advice</span>Your pipeline should look less like a pipeline and more like a martini glass. Disqualify early and go deeper on fewer opportunities.</blockquote>
+            <a class="text-link sm" href="https://www.linkedin.com/in/jasondbay/">Connect on LinkedIn &rarr;</a>
           </div>
+        </article>
+        <div class="member-grid"><article class="deco member reveal" id="clara-johnson">
+          <div class="m-side">
+            <div class="oval"><img src="/assets/site/headshots/clara-johnson.jpg" alt="Clara Johnson" loading="lazy"></div>
+            <span class="m-no">No. 02</span>
+          </div>
+          <div class="m-body">
+            <h3>Clara Johnson</h3>
+            <div class="role">Head of Client Transformation</div>
+            <p class="bio">Clara has a track record of winning President's Club, hitting 200%+ quota as a rep, and managing top teams as a leader at companies like Outreach, Catalyst, and more. At Outbound Squad, she leads our client transformation team.</p>
+            <dl class="spec">
+              <div class="deal-row"><dt>Largest deal closed</dt><dd><b class="deal" data-count="480" data-dec="0" data-prefix="$" data-suffix="k" data-dur="2200">$480k</b><small>(multi-year agreement)</small></dd></div>
+              <div><dt>Outbound channel of choice</dt><dd>Honestly, ALL OF THEM :)</dd></div>
+              <div><dt>Favorite sales book</dt><dd>The Power of One More by Ed Mylett</dd></div>
+            </dl>
+            <blockquote class="advice"><span>Best sales advice</span>Focus on the things you don't want to do first, that's where you grow the most.</blockquote>
+            
+          </div>
+        </article>
+        <article class="deco member reveal" id="amanda-long">
+          <div class="m-side">
+            <div class="oval"><img src="/assets/site/headshots/amanda-long.jpg" alt="Amanda Long" loading="lazy"></div>
+            <span class="m-no">No. 03</span>
+          </div>
+          <div class="m-body">
+            <h3>Amanda Long</h3>
+            <div class="role">Pipeline Consultant</div>
+            <p class="bio">Amanda has 10+ years of sales experience as a top-performing Account Executive, front-line leader, and building world-class enablement programs. At Outbound Squad, she leads training engagements with SDR teams, AE teams, and front-line leaders.</p>
+            <dl class="spec">
+              <div class="deal-row"><dt>Largest deal closed</dt><dd><b class="deal" data-count="420" data-dec="0" data-prefix="$" data-suffix="K" data-dur="2200">$420K</b></dd></div>
+              <div><dt>Outbound channel of choice</dt><dd>Phone &amp; Social</dd></div>
+              <div><dt>Favorite sales book</dt><dd>Trillion Dollar Coach by Eric Schmidt, Jonathan Rosenberg, &amp; Alan Eagle</dd></div>
+            </dl>
+            <blockquote class="advice"><span>Best sales advice</span>Complacency is what digs the rut for you. If you want to be successful, you can never get too comfortable with your pipeline.</blockquote>
+            <a class="text-link sm" href="https://www.linkedin.com/in/its-amandalong/">Connect on LinkedIn &rarr;</a>
+          </div>
+        </article>
+        <article class="deco member reveal" id="aaron-milner">
+          <div class="m-side">
+            <div class="oval"><img src="/assets/site/headshots/aaron-milner.jpg" alt="Aaron Milner" loading="lazy"></div>
+            <span class="m-no">No. 04</span>
+          </div>
+          <div class="m-body">
+            <h3>Aaron Milner</h3>
+            <div class="role">Pipeline Consultant</div>
+            <p class="bio">Aaron went to school to be a History Teacher and truly loves to help people. He ended up in sales and has trained over 1,000 SDRs. He is a multiple-time President's Club winner as an Enterprise SaaS AE and a longtime Sales Leader.</p>
+            <dl class="spec">
+              <div class="deal-row"><dt>Largest deal closed</dt><dd><b class="deal" data-count="1.3" data-dec="1" data-prefix="$" data-suffix=" million" data-dur="2200">$1.3 million</b></dd></div>
+              <div><dt>Outbound channel of choice</dt><dd>Phone, of course</dd></div>
+              <div><dt>Favorite sales book</dt><dd>SNAP Selling by Jill Konrath</dd></div>
+            </dl>
+            <blockquote class="advice"><span>Best sales advice</span>Sell the problem, not a promise.</blockquote>
+            <a class="text-link sm" href="https://www.linkedin.com/in/aaronsmilner/">Connect on LinkedIn &rarr;</a>
+          </div>
+        </article>
+        <article class="deco member reveal" id="dan-strauss">
+          <div class="m-side">
+            <div class="oval"><img src="/assets/site/headshots/dan-strauss.jpg" alt="Dan Strauss" loading="lazy"></div>
+            <span class="m-no">No. 05</span>
+          </div>
+          <div class="m-body">
+            <h3>Dan Strauss</h3>
+            <div class="role">Advisor</div>
+            <p class="bio">Dan has a track record of closing the largest deals in previous roles at ZoomInfo, OpenGov, Chorus.ai, and many others. He's personally closed deals with Adobe, Uber, DocuSign, Zoom, Motorola, Toast, Qualtrics, The City of Seattle, BMC Software and many more. Dan advises Outbound Squad on the latest and greatest strategies world-class sales teams are using to open and close more deals.</p>
+            <dl class="spec">
+              <div class="deal-row"><dt>Largest deal closed</dt><dd><b class="deal" data-count="2004743.52" data-dec="2" data-prefix="$" data-suffix="" data-dur="2200">$2,004,743.52</b></dd></div>
+              <div><dt>Outbound channel of choice</dt><dd>Multichannel is the only way!</dd></div>
+              <div><dt>Favorite sales book</dt><dd>Nudge by Richard Thaler &amp; Cass Sunstein</dd></div>
+            </dl>
+            <blockquote class="advice"><span>Best sales advice</span>I've always found I'm at my best when I find clients with real, big problems, and help to solve them, genuinely, with deep curiosity and an outside perspective. Be honest with what you don't know.</blockquote>
+            <a class="text-link sm" href="https://www.linkedin.com/in/ciguy/">Connect on LinkedIn &rarr;</a>
+          </div>
+        </article>
         </div>
+    </div>
+  </section>
+
+  <section class="conditions bts-sec">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">Behind the scenes</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>The operators who keep everything running smoothly.</h2></div>
+      <div class="bts">
+        <article class="bts-card reveal"><div class="oval sm"><img src="/assets/site/headshots/marga-adarlo.jpg" alt="Marga Adarlo" loading="lazy"></div><div><span class="since">Since 2018</span><h3>Marga Adarlo</h3><div class="role">Client Ops Manager</div><p>Marga has been with the team since 2018 and assists in client delivery initiatives to make sure projects run smoothly.</p></div></article>
+        <article class="bts-card reveal"><div class="oval sm"><img src="/assets/site/headshots/lica-mojica.jpg" alt="Lica Mojica" loading="lazy"></div><div><span class="since">Since 2018</span><h3>Lica Mojica</h3><div class="role">Revenue Ops Manager</div><p>Lica has also been with the team since 2018 and assists in marketing &amp; sales projects.</p></div></article>
       </div>
     </div>
   </section>
 
-  <!-- ========================================
-       FOOTER
-       ======================================== -->
-  <footer class="footer">
-    <div class="container text-center">
-      <img src="../logo.png" alt="Outbound Squad" class="footer-logo">
-      <ul class="footer-links footer-nav">
-        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
-        <li><a href="/clients/">Our Clients</a></li>
-        <li><a href="/our-team/">Our Team</a></li>
-        <li><a href="/podcast/">Podcast</a></li>
-        <li><a href="/contact/">Book A Call</a></li>
-      </ul>
-      <ul class="footer-links footer-legal">
-        <li><a href="/privacy-policy/">Privacy Policy</a></li>
-        <li><a href="/terms-of-service/">Terms of Service</a></li>
-      </ul>
-      <p class="footer-copy">2026 Outbound Squad</p>
+  <section class="close" id="book-a-call">
+    <div class="container-wide">
+      <div class="deco reveal">
+        <div>
+          <span class="caps blue">Next steps</span>
+          <h2>Ready to build pipeline like Shopify, iHeartMedia, Rippling, and more?</h2>
+          <p>Our clients increase qualified pipeline by 20% or more within 90 days. The next step is a 30-minute call with our CEO, Jason Bay, to learn about your situation and see if we're a fit.</p>
+          <a class="btn btn-primary" href="/contact/">Book a Call <span class="arrow">&rarr;</span></a>
+        </div>
+        <figure><div class="oval"><img src="/assets/site/headshots/jason-bay.jpg" alt="Jason Bay"></div><figcaption><b>Jason Bay</b>CEO, Outbound Squad</figcaption></figure>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    /* Sticky nav background on scroll */
-    (function () {
-      var nav = document.getElementById('nav');
-      function onScroll() {
-        if (window.scrollY > 12) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
+</main>
 
-    /* Mobile hamburger menu */
-    (function () {
-      var toggle = document.getElementById('navToggle');
-      var links = document.getElementById('navLinks');
-      toggle.addEventListener('click', function () {
-        var isOpen = links.classList.toggle('open');
-        toggle.classList.toggle('open', isOpen);
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-      links.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          if (links.classList.contains('open')) {
-            links.classList.remove('open');
-            toggle.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    })();
-
-    /* Smooth scroll for in-page anchor links */
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-      anchor.addEventListener('click', function (e) {
-        var href = this.getAttribute('href');
-        if (href === '#' || href.length < 2) return;
-        var target = document.querySelector(href);
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    /* Scroll reveal (covers .reveal, .reveal-left, .reveal-right) */
-    (function () {
-      var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      reveals.forEach(function (el) { observer.observe(el); });
-    })();
-  </script>
-
+<footer>
+  <div class="container-wide foot">
+    <img src="/assets/site/logo.png" alt="Outbound Squad">
+    <nav><a href="https://masterclass.outboundsquad.com/">Free Masterclass</a><a href="/clients/">Our Clients</a><a href="/our-team/">Our Team</a><a href="/podcast/">Podcast</a><a href="/contact/">Book A Call</a></nav>
+    <small>&copy; 2026 Outbound Squad <a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a></small>
+  </div>
+</footer>
+<script src="/assets/site/shared.js"></script>
+<script src="/assets/site/chrono.js"></script>
 </body>
 </html>

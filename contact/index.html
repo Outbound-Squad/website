@@ -1,721 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Call | Outbound Squad</title>
-  <meta name="description" content="Let's talk. Fill out the form and our team will be in touch.">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../favicon.png">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    /* ========================================
-       Outbound Squad Contact / Book a Call
-       Minimal, focused, single-purpose page
-       ======================================== */
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      font-size: 17px;
-      line-height: 1.6;
-      color: #444444;
-      background: #FFFFFF;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-    }
-
-    html { overflow-x: hidden; }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      color: #F86A3E;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: #1B2235;
-    }
-
-    /* ========================================
-       Background: subtle light blue gradient at top
-       ======================================== */
-    .page-bg {
-      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 180px, #FFFFFF 520px);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ========================================
-       Header (logo only, no nav)
-       ======================================== */
-    .site-header {
-      padding: 32px 24px;
-    }
-
-    .site-header .logo-link {
-      display: inline-block;
-    }
-
-    .site-header img {
-      height: 44px;
-      width: auto;
-    }
-
-    /* ========================================
-       Main container
-       ======================================== */
-    main {
-      flex: 1;
-      padding: 24px 24px 96px;
-    }
-
-    .hero-block {
-      max-width: 720px;
-      margin: 0 auto 56px;
-      text-align: center;
-      padding-top: 32px;
-    }
-
-    .headline {
-      font-size: 44px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.15;
-      letter-spacing: -0.8px;
-      margin-bottom: 20px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      line-height: 1.55;
-      color: #4a5568;
-      max-width: 580px;
-      margin: 0 auto 20px;
-    }
-
-    .booking-note {
-      display: inline-block;
-      font-size: 14px;
-      color: #6b7280;
-      background: rgba(248, 106, 62, 0.08);
-      border: 1px solid rgba(248, 106, 62, 0.18);
-      padding: 8px 16px;
-      border-radius: 999px;
-      margin-top: 8px;
-    }
-
-    /* ========================================
-       Form Section
-       ======================================== */
-    .form-wrap {
-      max-width: 640px;
-      margin: 0 auto;
-      background: #FFFFFF;
-      border: 1px solid #E5EAF2;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 4px 24px rgba(27, 34, 53, 0.06);
-    }
-
-    /* HubSpot form overrides to match brand */
-    .form-wrap .hs-form-field {
-      margin-bottom: 20px;
-    }
-
-    .form-wrap .hs-form-field > label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      color: #1B2235;
-      margin-bottom: 6px;
-    }
-
-    .form-wrap .hs-form-field > label .hs-form-required {
-      color: #F86A3E;
-      margin-left: 2px;
-    }
-
-    .form-wrap input[type="text"],
-    .form-wrap input[type="email"],
-    .form-wrap input[type="tel"],
-    .form-wrap input[type="number"],
-    .form-wrap input[type="url"],
-    .form-wrap textarea,
-    .form-wrap select {
-      width: 100% !important;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      color: #1B2235;
-      background: #FFFFFF;
-      border: 1px solid #D6DCE6;
-      border-radius: 8px;
-      padding: 12px 14px;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .form-wrap input[type="text"]:focus,
-    .form-wrap input[type="email"]:focus,
-    .form-wrap input[type="tel"]:focus,
-    .form-wrap input[type="number"]:focus,
-    .form-wrap input[type="url"]:focus,
-    .form-wrap textarea:focus,
-    .form-wrap select:focus {
-      outline: none;
-      border-color: #F86A3E;
-      box-shadow: 0 0 0 3px rgba(248, 106, 62, 0.15);
-    }
-
-    .form-wrap textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-wrap .hs-error-msgs {
-      list-style: none;
-      margin-top: 6px;
-      padding: 0;
-    }
-
-    .form-wrap .hs-error-msg,
-    .form-wrap .hs-error-msgs label {
-      color: #dc2626;
-      font-size: 13px;
-    }
-
-    .form-wrap .hs-submit {
-      margin-top: 8px;
-    }
-
-    .form-wrap .hs-button,
-    .form-wrap input[type="submit"] {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: #FFFFFF;
-      background: #F86A3E;
-      border: none;
-      border-radius: 10px;
-      padding: 14px 28px;
-      cursor: pointer;
-      transition: background 0.15s ease, transform 0.15s ease;
-      width: 100%;
-    }
-
-    .form-wrap .hs-button:hover,
-    .form-wrap input[type="submit"]:hover {
-      background: #e85828;
-    }
-
-    .form-wrap .hs-button:active,
-    .form-wrap input[type="submit"]:active {
-      transform: translateY(1px);
-    }
-
-    .form-wrap fieldset {
-      max-width: none !important;
-      border: 0;
-    }
-
-    .form-wrap .hs-richtext,
-    .form-wrap .hs-richtext p {
-      font-size: 14px;
-      color: #6b7280;
-      margin-bottom: 16px;
-    }
-
-    .form-wrap .legal-consent-container {
-      font-size: 13px;
-      color: #6b7280;
-      margin-top: 16px;
-    }
-
-    .form-wrap .inputs-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .form-wrap .hs-form-checkbox,
-    .form-wrap .hs-form-radio {
-      margin-bottom: 8px;
-    }
-
-    /* HubSpot often uses two-column rows */
-    .form-wrap .form-columns-2 .hs-form-field {
-      float: none;
-      width: 100%;
-    }
-
-    @media (min-width: 600px) {
-      .form-wrap .form-columns-2 {
-        display: flex;
-        gap: 16px;
-      }
-      .form-wrap .form-columns-2 .hs-form-field {
-        flex: 1;
-      }
-    }
-
-    /* ========================================
-       Social Proof Strip
-       ======================================== */
-    /* Marquee */
-    .marquee-section {
-      max-width: 1240px;
-      width: 100%;
-      margin: 96px auto 0;
-      padding: 0 24px;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .marquee-label {
-      font-size: 12px;
-      color: #7a8299;
-      text-align: center;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 600;
-    }
-
-    .marquee {
-      overflow: hidden;
-      position: relative;
-      mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 72px;
-      width: max-content;
-      animation: marquee-scroll 56s linear infinite;
-    }
-
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      height: 48px;
-      background: transparent;
-    }
-
-    .marquee-item img {
-      height: 30px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
-      background: transparent;
-      mix-blend-mode: multiply;
-      filter: grayscale(1);
-      opacity: 0.8;
-      transition: filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    .marquee-item:hover img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    @keyframes marquee-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .results-cta-wrap {
-      display: flex;
-      justify-content: center;
-      margin-top: 48px;
-    }
-
-    .results-cta {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: #FFFFFF;
-      background: #F86A3E;
-      text-decoration: none;
-      border-radius: 10px;
-      padding: 16px 36px;
-      box-shadow: 0 6px 18px rgba(27, 34, 53, 0.12);
-      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .results-cta:hover {
-      background: #e85828;
-      box-shadow: 0 8px 22px rgba(27, 34, 53, 0.18);
-    }
-
-    .results-cta:active {
-      transform: translateY(1px);
-    }
-
-    @media (max-width: 768px) {
-      .results-cta-wrap { margin-top: 36px; }
-      .results-cta { font-size: 16px; padding: 14px 28px; width: 100%; max-width: 360px; text-align: center; }
-    }
-
-    /* Client Results Section */
-    .client-results-section {
-      background: linear-gradient(180deg, #FFFFFF 0%, #F7FAFD 50%, #FFFFFF 100%);
-      padding: 96px 24px;
-      margin-top: 64px;
-    }
-
-    .client-results-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .results-eyebrow {
-      display: block;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: #00A2FF;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 14px;
-    }
-
-    .results-headline {
-      max-width: 820px;
-      margin: 0 auto 48px;
-      text-align: center;
-      font-size: 40px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.12;
-      letter-spacing: -1px;
-    }
-
-    .results-stats {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-      margin: 0 auto 48px;
-      max-width: 960px;
-    }
-
-    .results-stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 8px 48px;
-      border-right: 1px solid #E6ECF5;
-      flex: 1 1 0;
-    }
-
-    .results-stat:last-child {
-      border-right: none;
-    }
-
-    .results-num {
-      display: block;
-      font-size: 44px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.05;
-      letter-spacing: -1.2px;
-      margin-bottom: 8px;
-    }
-
-    .results-label {
-      display: block;
-      font-size: 13px;
-      color: #7a8299;
-      line-height: 1.45;
-      font-weight: 500;
-      max-width: 200px;
-    }
-
-    .client-results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .client-result-card {
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 32px 24px;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .client-result-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .client-company-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 64px;
-      margin-bottom: 18px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #E5E7EB;
-      background: transparent;
-    }
-
-    .client-company-logo img {
-      max-height: 36px;
-      max-width: 140px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      margin: 0 auto;
-      background: transparent;
-      mix-blend-mode: multiply;
-      filter: grayscale(1);
-      opacity: 0.9;
-      transition: filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    .client-result-card:hover .client-company-logo img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    .client-result-text {
-      font-size: 15px;
-      color: #444444;
-      line-height: 1.55;
-    }
-
-    .client-result-pct {
-      color: #00A2FF;
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: -0.3px;
-    }
-
-    @media (max-width: 960px) {
-      .client-results-grid { grid-template-columns: repeat(2, 1fr); }
-      .results-headline { font-size: 32px; }
-    }
-
-    @media (max-width: 768px) {
-      .results-stats { flex-direction: column; gap: 28px; }
-      .results-stat { border-right: none; padding: 0; }
-      .results-num { font-size: 36px; }
-      .client-results-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ========================================
-       Footer
-       ======================================== */
-    .site-footer {
-      padding: 40px 24px;
-      text-align: center;
-      font-size: 14px;
-      color: #9aa3b2;
-      background: #FFFFFF;
-    }
-
-    .site-footer .footer-links {
-      margin-bottom: 10px;
-    }
-
-    .site-footer a {
-      color: #6b7280;
-      font-weight: 500;
-    }
-
-    .site-footer a:hover {
-      color: #1B2235;
-    }
-
-    /* ========================================
-       Responsive
-       ======================================== */
-    @media (max-width: 720px) {
-      .headline {
-        font-size: 32px;
-        letter-spacing: -0.5px;
-      }
-
-      .subtitle {
-        font-size: 16px;
-      }
-
-      .site-header {
-        padding: 24px 20px;
-      }
-
-      .site-header img {
-        height: 38px;
-      }
-
-      main {
-        padding: 16px 20px 64px;
-      }
-
-      .hero-block {
-        margin-bottom: 40px;
-        padding-top: 16px;
-      }
-
-      .form-wrap {
-        padding: 24px 20px;
-        border-radius: 12px;
-      }
-
-      .marquee-section {
-        margin-top: 64px;
-      }
-
-      .client-results-section {
-        padding: 64px 20px;
-      }
-    }
-  </style>
-  <!-- Magellan AI tracking pixel (iHeartMedia radio + podcast attribution) -->
-  <script>
-    (function(w, d, n){
-        if (w.MAI) return;
-        w.MAI = w.MAI || {emit: function() {(w.MAI.q = w.MAI.q || []).push(arguments);}};
-        var e = d.createElement(n);
-        e.async = 1;
-        e.src = 'https://cdn.mgln.ai/pixel.min.js';
-        var s = d.getElementsByTagName(n)[0];
-        s.parentNode.insertBefore(e, s);
-    })(window, document, 'script');
-    MAI.emit('conf', '019e46ce8ab271c392fbd39cb44a87c6');
-    MAI.emit('view');
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Call | Outbound Squad</title>
+<meta name="description" content="Let's talk. Fill out the form and our team will be in touch.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/base.css">
+<link rel="stylesheet" href="/assets/site/theme.css">
+<!-- Magellan AI tracking pixel (iHeartMedia radio + podcast attribution) -->
+<script>
+  (function(w, d, n){
+      if (w.MAI) return;
+      w.MAI = w.MAI || {emit: function() {(w.MAI.q = w.MAI.q || []).push(arguments);}};
+      var e = d.createElement(n);
+      e.async = 1;
+      e.src = 'https://cdn.mgln.ai/pixel.min.js';
+      var s = d.getElementsByTagName(n)[0];
+      s.parentNode.insertBefore(e, s);
+  })(window, document, 'script');
+  MAI.emit('conf', '019e46ce8ab271c392fbd39cb44a87c6');
+  MAI.emit('view');
+</script>
 </head>
 <body>
-  <div class="page-bg">
-    <header class="site-header">
-      <a href="/" class="logo-link" aria-label="Outbound Squad home">
-        <img src="../logo.png" alt="Outbound Squad">
-      </a>
-    </header>
-
-    <main>
-      <section class="hero-block" id="lets-talk">
-        <h1 class="headline">Let's talk</h1>
-        <p class="subtitle">If you're an enablement or sales leader ready to increase pipeline by 20% or more, fill out the form below and let us know how we can support you.</p>
-        <div class="booking-note">We're typically booked out 6+ weeks. Please plan accordingly.<br>Programs start at $64.5k USD.</div>
-      </section>
-
-      <section class="form-wrap" aria-label="Book a call form">
-        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-        <script>
-          hbspt.forms.create({
-            region: "na1",
-            portalId: "22498808",
-            formId: "15378ea1-ae60-44e6-85c9-d2e8e08500be"
-          });
-        </script>
-      </section>
-
-    </main>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="Outbound Squad home"><img src="/assets/site/logo.png" alt="Outbound Squad"></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="https://masterclass.outboundsquad.com/">Free Masterclass</a></li>
+      <li><a href="/clients/">Our Clients</a></li>
+      <li><a href="/our-team/">Our Team</a></li>
+      <li><a href="/podcast/">Podcast</a></li>
+      <li><a class="btn btn-primary" href="/contact/">Book A Call</a></li>
+    </ul>
   </div>
+</header>
 
-  <!-- Client Results -->
-  <section class="client-results-section" aria-label="Client results">
-    <div class="client-results-inner">
-      <span class="results-eyebrow">Proven Results Within 90 Days</span>
-      <h2 class="results-headline">Winning sales teams partner with Outbound Squad</h2>
-      <div class="results-stats">
-        <div class="results-stat">
-          <span class="results-num">22.3%</span>
-          <span class="results-label">Average pipeline increase within 90 days</span>
-        </div>
-        <div class="results-stat">
-          <span class="results-num">250+</span>
-          <span class="results-label">Sales teams transformed</span>
-        </div>
-        <div class="results-stat">
-          <span class="results-num">20,000+</span>
-          <span class="results-label">Reps trained</span>
-        </div>
-      </div>
-      <div class="client-results-grid">
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></div>
-          <p class="client-result-text">AE team increased meetings set/held by <span class="client-result-pct">29.8%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></div>
-          <p class="client-result-text">AE/SDR mid-market team increased qualified opps created by <span class="client-result-pct">38%+</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/optimizely.png" alt="Optimizely" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased pipeline sourced per rep by <span class="client-result-pct">20.8%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/digicert.png" alt="Digicert" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased outbound opps created by <span class="client-result-pct">54%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/varonis.png" alt="Varonis" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased pipeline sourced by <span class="client-result-pct">21%</span> YoY</p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/hyland.png" alt="Hyland" loading="lazy"></div>
-          <p class="client-result-text">SDR team had their biggest month of pipeline generated by <span class="client-result-pct">270%+</span></p>
-        </div>
-      </div>
-      <div class="results-cta-wrap">
-        <a href="#lets-talk" class="results-cta" data-scroll-to-form>Book a call</a>
+<main id="top">
+  <section class="front front-inner contact-hero">
+    <div class="container-wide">
+      <div class="masthead"><div class="rule"><span class="caps">Increase pipeline by 20%+</span></div></div>
+      <div class="ad ad-open">
+        <div class="reveal"><span class="caps blue">Book a call</span>
+            <h1>Let's <span class="it">talk.</span></h1>
+            <p class="dek">If you're an enablement or sales leader ready to increase pipeline by 20% or more, fill out the form below and let us know how we can support you.</p>
+            <div class="terms">
+              <div class="term"><span>Availability</span><b>We're typically booked out 6+ weeks.</b><small>Please plan accordingly.</small></div>
+              <div class="term"><span>Investment</span><b>Programs start at <em data-count="64.5" data-dec="1" data-prefix="$" data-suffix="k">$64.5k</em> USD.</b></div>
+            </div>
+            <div class="meet"><div class="oval sm"><img src="/assets/site/headshots/jason-bay.jpg" alt="Jason Bay"></div><p>The next step is a 30-minute call with our CEO, <b>Jason Bay</b>, to learn about your situation and see if we're a fit.</p></div></div>
+        <div class="hero-side"><div class="deco os-form hs-wrap reveal">
+              <span class="caps blue">Request a call</span>
+              <div id="hs-form" class="hs-target"></div>
+            </div></div>
       </div>
     </div>
   </section>
+  <section class="tape" aria-label="Client results ticker">
+    <div class="container-wide"><div class="tape-inner"><div class="tape-track"><span class="tk"><b>iHeartMedia</b><em>&#9650; 29.8%</em>meetings set/held</span><span class="tk"><b>Shopify</b><em>&#9650; 38%+</em>qualified opps created</span><span class="tk"><b>Optimizely</b><em>&#9650; 20.8%</em>pipeline sourced per rep</span><span class="tk"><b>DigiCert</b><em>&#9650; 54%</em>outbound opps created</span><span class="tk"><b>Varonis</b><em>&#9650; 21%</em>pipeline sourced YoY</span><span class="tk"><b>Hyland</b><em>&#9650; 270%+</em>biggest month of pipeline</span><span aria-hidden="true" class="dup"><span class="tk"><b>iHeartMedia</b><em>&#9650; 29.8%</em>meetings set/held</span><span class="tk"><b>Shopify</b><em>&#9650; 38%+</em>qualified opps created</span><span class="tk"><b>Optimizely</b><em>&#9650; 20.8%</em>pipeline sourced per rep</span><span class="tk"><b>DigiCert</b><em>&#9650; 54%</em>outbound opps created</span><span class="tk"><b>Varonis</b><em>&#9650; 21%</em>pipeline sourced YoY</span><span class="tk"><b>Hyland</b><em>&#9650; 270%+</em>biggest month of pipeline</span></span></div></div></div>
+  </section>
 
-  <footer class="site-footer">
-    <div class="footer-links">
-      <a href="/">Back to homepage</a>
+  <section class="section" id="results">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">Proven results within 90 days</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>Winning sales teams partner with Outbound Squad</h2></div>
+      <div class="stat-row reveal"><div class="ticker stand">
+            <div><b data-count="22.3" data-dec="1" data-suffix="%">22.3%</b><span>Average pipeline increase within 90 days</span></div>
+            <div><b data-count="250" data-suffix="+">250+</b><span>Sales teams trained</span></div>
+            <div><b data-count="20000" data-suffix="+">20,000+</b><span>Reps trained</span></div>
+          </div></div>
+      <div class="certs">
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 01</span><span>AE TEAM</span></div><img src="/assets/site/logos/iheartmedia.png" alt="iHeartMedia"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:-0.6deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="29.8" data-dec="1" data-suffix="%">29.8%</b><p>AE team increased meetings set/held by 29.8%</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 02</span><span>AE/SDR</span></div><img src="/assets/site/logos/shopify.png" alt="Shopify"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:24.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="38" data-dec="0" data-suffix="%+">38%+</b><p>AE/SDR mid-market team increased qualified opps created by 38%+</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 03</span><span>SDR TEAM</span></div><img src="/assets/site/logos/optimizely.png" alt="Optimizely"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:-27.6deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="20.8" data-dec="1" data-suffix="%">20.8%</b><p>SDR team increased pipeline sourced per rep by 20.8%</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 04</span><span>SDR TEAM</span></div><img src="/assets/site/logos/digicert.png" alt="DigiCert"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:72.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="54" data-dec="0" data-suffix="%">54%</b><p>SDR team increased outbound opps created by 54%</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 05</span><span>SDR TEAM</span></div><img src="/assets/site/logos/varonis.png" alt="Varonis"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:-27.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="21" data-dec="0" data-suffix="%">21%</b><p>SDR team increased pipeline sourced by 21% YoY</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 06</span><span>SDR TEAM</span></div><img src="/assets/site/logos/hyland.png" alt="Hyland"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:96.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/><text x="90" y="6" font-family="DM Sans, sans-serif" font-weight="700" font-size="7" letter-spacing="1.2" fill="#0077BD" text-anchor="middle">OFF THE SCALE &#9656;</text></svg><b data-count="270" data-dec="0" data-suffix="%+">270%+</b><p>SDR team had their biggest month of pipeline generated by 270%+</p></div>
+      </div>
+      <p class="src">Results reported by client in first 90 days of working with Outbound Squad.</p>
     </div>
-    <div>&copy; 2026 Outbound Squad</div>
-  </footer>
+  </section>
 
-  <script>
-    document.querySelectorAll('a[data-scroll-to-form]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var target = document.getElementById('lets-talk');
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  </script>
+</main>
+
+<footer>
+  <div class="container-wide foot">
+    <img src="/assets/site/logo.png" alt="Outbound Squad">
+    <nav><a href="https://masterclass.outboundsquad.com/">Free Masterclass</a><a href="/clients/">Our Clients</a><a href="/our-team/">Our Team</a><a href="/podcast/">Podcast</a><a href="/contact/">Book A Call</a></nav>
+    <small>&copy; 2026 Outbound Squad <a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a></small>
+  </div>
+</footer>
+<script src="/assets/site/shared.js"></script>
+<script src="/assets/site/chrono.js"></script>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({ region: "na1", portalId: "22498808", formId: "15378ea1-ae60-44e6-85c9-d2e8e08500be", target: "#hs-form" });
+</script>
 </body>
 </html>

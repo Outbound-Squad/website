@@ -1,2176 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Clients | Outbound Squad</title>
-  <meta name="description" content="Meet the 250+ sales teams we've helped build pipeline that compounds.">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../favicon.png">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    /* ========================================
-       Outbound Squad - Our Clients
-       Matches homepage design system
-       ======================================== */
-
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      font-size: 17px;
-      line-height: 1.6;
-      color: #444444;
-      background: #FFFFFF;
-      overflow-x: hidden;
-    }
-
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: #00A2FF; text-decoration: none; }
-
-    /* ========================================
-       v8 Polish Layer
-       ======================================== */
-    ::selection { background: rgba(248, 106, 62, 0.2); color: #1B2235; }
-
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-      outline: 2px solid #F86A3E;
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    .btn-orange, .btn { will-change: transform; }
-    .btn-orange:hover, a.btn-orange:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(248, 106, 62, 0.32); }
-    .btn-orange:active, a.btn-orange:active { transform: translateY(0); }
-
-    .client-result-card,
-    .why-card,
-    .step-card,
-    .pack-card,
-    .tm-card,
-    .case-card,
-    .ep-card {
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform;
-    }
-    .client-result-card:hover,
-    .why-card:hover,
-    .step-card:hover,
-    .pack-card:hover,
-    .tm-card:hover,
-    .case-card:hover,
-    .ep-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(27, 34, 53, 0.10);
-    }
-
-    .client-result-card .client-company-logo img,
-    .case-card img {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-    }
-    .client-result-card:hover .client-company-logo img {
-      transform: scale(1.06);
-    }
-
-    @keyframes os-float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-3px); }
-    }
-    .hero-pill, .badge-pill, .ep-pill {
-      animation: os-float 4.5s ease-in-out infinite;
-    }
-
-    @keyframes os-numIn {
-      from { opacity: 0; transform: translateY(8px) scale(0.95); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    .reveal.visible .results-num,
-    .reveal.visible .stat-num {
-      animation: os-numIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Layout */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .container-wide {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .container-xwide {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .text-center { text-align: center; }
-
-    /* Sections */
-    .section { padding: 96px 0; }
-    .section-white { background: #FFFFFF; }
-    .section-lightblue {
-      background: linear-gradient(180deg, #EAF1FA 0%, #E6F0FA 50%, #EAF1FA 100%);
-    }
-    .section-lightorange {
-      background: linear-gradient(180deg, #FCEFE9 0%, #FCEFE9 100%);
-    }
-    .bg-fade-white-to-blue { background: linear-gradient(180deg, #FFFFFF 0%, #EAF1FA 100%); }
-    .bg-fade-blue-to-white { background: linear-gradient(180deg, #EAF1FA 0%, #FFFFFF 100%); }
-    .bg-fade-white-to-orange { background: linear-gradient(180deg, #FFFFFF 0%, #FCEFE9 100%); }
-    .bg-fade-orange-to-white { background: linear-gradient(180deg, #FCEFE9 0%, #FFFFFF 100%); }
-
-    .section-headline {
-      font-size: 40px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      letter-spacing: -0.5px;
-    }
-
-    .section-sub {
-      font-size: 18px;
-      color: #666666;
-      margin-bottom: 40px;
-      line-height: 1.6;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      padding: 14px 28px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn:active { transform: translateY(0); }
-
-    .btn-orange {
-      background: #F86A3E;
-      color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(248, 106, 62, 0.3);
-    }
-    .btn-orange:hover {
-      background: #e55a2e;
-      box-shadow: 0 6px 20px rgba(248, 106, 62, 0.4);
-    }
-
-    .btn-lg { font-size: 18px; padding: 16px 36px; }
-    .btn-nav { font-size: 15px; padding: 10px 20px; }
-
-    .nav-cta .btn-orange,
-    .nav-cta a.btn-orange,
-    .nav-links .btn-orange {
-      color: #FFFFFF !important;
-    }
-    .nav-cta .btn-orange:hover,
-    .nav-cta a.btn-orange:hover,
-    .nav-links .btn-orange:hover {
-      color: #FFFFFF !important;
-    }
-
-    /* ========================================
-       NAVIGATION
-       ======================================== */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 16px 0;
-      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-    }
-
-    .nav.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: saturate(180%) blur(12px);
-      -webkit-backdrop-filter: saturate(180%) blur(12px);
-      box-shadow: 0 1px 0 rgba(27, 34, 53, 0.08);
-      padding: 10px 0;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .nav-logo img { height: 48px; width: auto; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 15px;
-      font-weight: 500;
-      color: #1B2235;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #00A2FF; }
-    .nav-links a.active { color: #00A2FF; font-weight: 700; }
-
-    .nav-cta { margin-left: 8px; }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      width: 40px;
-      height: 40px;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #1B2235;
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ========================================
-       HERO
-       ======================================== */
-    .hero {
-      background: linear-gradient(180deg, #E6F0FA 0%, #EAF1FA 35%, #F3F7FC 75%, #FFFFFF 100%);
-      padding: 160px 0 100px;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .hero-headline {
-      font-size: 52px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -1px;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-sub {
-      font-size: 19px;
-      color: #444444;
-      line-height: 1.6;
-      margin: 0 auto;
-      max-width: 720px;
-    }
-
-    /* ========================================
-       MARQUEE
-       ======================================== */
-    .marquee-wrap {
-      margin-top: 0;
-    }
-
-    .marquee-label {
-      font-size: 12px;
-      color: #7a8299;
-      text-align: center;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 600;
-    }
-
-    .marquee {
-      overflow: hidden;
-      position: relative;
-      mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 72px;
-      width: max-content;
-      animation: marquee-scroll 56s linear infinite;
-    }
-
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      height: 48px;
-      background: transparent;
-    }
-
-    .marquee-item img {
-      height: 30px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
-      background: transparent;
-      mix-blend-mode: multiply;
-      filter: grayscale(1);
-      opacity: 0.8;
-      transition: filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    .marquee-item:hover img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    @keyframes marquee-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ========================================
-       VIDEO INTERVIEWS
-       ======================================== */
-    .filter-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 48px;
-    }
-
-    .filter-tab {
-      background: transparent;
-      color: #1B2235;
-      border: 2px solid #d0d6e2;
-      border-radius: 999px;
-      padding: 10px 22px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .filter-tab:hover {
-      border-color: #1B2235;
-    }
-
-    .filter-tab.active {
-      background: #1B2235;
-      color: #FFFFFF;
-      border-color: #1B2235;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .video-card {
-      background: #FFFFFF;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .video-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(27, 34, 53, 0.12);
-    }
-
-    .video-card.hidden {
-      display: none;
-    }
-
-    .video-card.fade-in {
-      animation: fadeInUp 0.4s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .video-thumb {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, #2a324a 0%, #1B2235 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      width: 100%;
-      padding: 0;
-      font: inherit;
-    }
-
-    .video-thumb img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .video-thumb::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(27,34,53,0) 50%, rgba(27,34,53,0.25) 100%);
-      pointer-events: none;
-    }
-
-    .play-btn {
-      position: relative;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.95);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 22px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .video-card:hover .play-btn {
-      transform: scale(1.08);
-      background: #F86A3E;
-    }
-
-    .play-btn svg {
-      transition: transform 0.2s ease;
-    }
-
-    .video-card:hover .play-btn svg path {
-      fill: #FFFFFF;
-    }
-
-    .video-body {
-      padding: 24px 24px 26px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .video-name {
-      font-size: 18px;
-      font-weight: 700;
-      color: #1B2235;
-      margin-bottom: 6px;
-      line-height: 1.35;
-      letter-spacing: -0.2px;
-    }
-
-    .video-title {
-      font-size: 14px;
-      color: #7a8299;
-      line-height: 1.5;
-    }
-
-    .video-quote {
-      font-size: 15px;
-      font-style: italic;
-      color: #444444;
-      line-height: 1.55;
-      border-left: 3px solid #F86A3E;
-      padding-left: 14px;
-      margin-top: auto;
-    }
-
-    /* ========================================
-       VIDEO MODAL
-       ======================================== */
-    .video-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: rgba(15, 20, 35, 0.85);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-    }
-
-    .video-modal.open {
-      display: flex;
-      opacity: 1;
-    }
-
-    .video-modal-stage {
-      position: relative;
-      width: 100%;
-      max-width: 1040px;
-    }
-
-    .video-modal-inner {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .video-modal-inner iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .video-modal-close {
-      position: absolute;
-      top: -48px;
-      right: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .video-modal-close:hover {
-      background: rgba(255, 255, 255, 0.28);
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      .video-modal-close {
-        top: -44px;
-        width: 36px;
-        height: 36px;
-      }
-    }
-
-    /* ========================================
-       ICP SEGMENTS
-       ======================================== */
-    .icp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 24px;
-    }
-
-    .icp-card {
-      background: #FFFFFF;
-      border-radius: 20px;
-      padding: 40px 36px;
-      box-shadow: 0 4px 24px rgba(27, 34, 53, 0.06);
-      border-top: 6px solid transparent;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .icp-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 32px rgba(27, 34, 53, 0.1);
-    }
-
-    .icp-card.scaling { border-top-color: #F86A3E; }
-    .icp-card.building { border-top-color: #00A2FF; }
-
-    .icp-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: #1B2235;
-      letter-spacing: -0.4px;
-      margin-bottom: 8px;
-    }
-
-    .icp-subtitle {
-      font-size: 14px;
-      font-weight: 600;
-      color: #7a8299;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .icp-bullets {
-      list-style: none;
-      margin-bottom: 28px;
-      flex: 1;
-    }
-
-    .icp-bullets li {
-      position: relative;
-      padding-left: 26px;
-      font-size: 16px;
-      color: #444444;
-      line-height: 1.55;
-      margin-bottom: 14px;
-    }
-
-    .icp-bullets li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 9px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    .icp-card.scaling .icp-bullets li::before { background: #F86A3E; }
-    .icp-card.building .icp-bullets li::before { background: #00A2FF; }
-
-    .icp-logos {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 22px 0 0;
-      border-top: 1px solid #EDF0F5;
-      margin-top: auto;
-    }
-
-    .icp-logo {
-      flex: 1 1 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 32px;
-      min-width: 0;
-    }
-
-    .icp-logo img {
-      height: 22px;
-      width: auto;
-      max-width: 100%;
-      max-height: 32px;
-      mix-blend-mode: multiply;
-      object-fit: contain;
-      filter: grayscale(1);
-      opacity: 0.75;
-      transition: filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    .icp-card:hover .icp-logo img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    .icp-logo[data-size="small"] img {
-      height: 18px;
-      max-width: 72px;
-    }
-
-    .icp-logo-img {
-      height: 24px;
-      width: auto;
-      object-fit: contain;
-      filter: grayscale(1);
-      opacity: 0.7;
-      transition: filter 0.2s, opacity 0.2s;
-    }
-    .icp-card:hover .icp-logo-img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    .icp-stat {
-      margin-top: auto;
-      padding: 18px 20px;
-      border-radius: 12px;
-      font-size: 17px;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .icp-card.scaling .icp-stat {
-      background: #FDF0EC;
-      color: #F86A3E;
-    }
-
-    .icp-card.building .icp-stat {
-      background: #E6F0FA;
-      color: #00A2FF;
-    }
-
-    /* ========================================
-       RESULTS STATS BAR + CLIENT RESULTS GRID
-       ======================================== */
-    .results-stats {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-      margin: 0 0 28px;
-    }
-
-    .results-stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 8px 40px;
-      background: transparent;
-      border-radius: 0;
-      box-shadow: none;
-      border-right: 1px solid #e2d5cf;
-    }
-
-    .results-stat:last-child {
-      border-right: none;
-    }
-
-    .results-num {
-      display: block;
-      font-size: 40px;
-      font-weight: 800;
-      color: #00A2FF;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      margin-bottom: 4px;
-    }
-
-    .results-label {
-      display: block;
-      font-size: 13px;
-      color: #7a8299;
-      line-height: 1.4;
-      font-weight: 500;
-      max-width: 180px;
-    }
-
-    .client-results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    @media (max-width: 960px) {
-      .client-results-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .client-results-grid {
-        grid-template-columns: 1fr;
-      }
-      .results-stats {
-        flex-direction: column;
-        gap: 20px;
-      }
-      .results-stat {
-        border-right: none;
-        border-bottom: 1px solid #e2d5cf;
-        padding: 12px 0;
-      }
-      .results-stat:last-child { border-bottom: none; }
-      .results-num { font-size: 36px; }
-    }
-
-    .client-result-card {
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 32px 24px;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .client-result-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .client-company-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 64px;
-      margin-bottom: 18px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #E5E7EB;
-      background: transparent;
-    }
-
-    .client-company-logo img {
-      max-height: 36px;
-      max-width: 140px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      margin: 0 auto;
-      background: transparent;
-      mix-blend-mode: multiply;
-      filter: grayscale(1);
-      opacity: 0.9;
-      transition: filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    .client-result-card:hover .client-company-logo img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    .client-result-text {
-      font-size: 15px;
-      color: #444444;
-      line-height: 1.55;
-    }
-
-    .client-result-pct {
-      color: #00A2FF;
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: -0.3px;
-    }
-
-    /* ========================================
-       CASE STUDY SLIDER
-       ======================================== */
-    .cs-slider {
-      position: relative;
-      max-width: 1100px;
-      margin: 32px auto 0;
-      padding: 0 60px;
-    }
-
-    .cs-viewport {
-      overflow: hidden;
-    }
-
-    .cs-track {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      gap: 24px;
-    }
-
-    .cs-card {
-      flex: 0 0 calc(50% - 12px);
-      background: #FFFFFF;
-      border-radius: 18px;
-      padding: 40px 36px;
-      box-shadow: 0 4px 22px rgba(27, 34, 53, 0.07);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      min-height: 240px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .cs-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(27, 34, 53, 0.12);
-    }
-
-    .cs-company {
-      font-size: 30px;
-      font-weight: 800;
-      color: #1B2235;
-      letter-spacing: -0.6px;
-      margin-bottom: 16px;
-      line-height: 1.1;
-    }
-
-    .cs-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 70px;
-      margin-bottom: 20px;
-    }
-
-    .cs-logo img {
-      max-width: 160px;
-      max-height: 56px;
-      width: auto;
-      mix-blend-mode: multiply;
-      height: auto;
-      object-fit: contain;
-      filter: grayscale(1);
-      opacity: 0.85;
-      transition: filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    .cs-card:hover .cs-logo img {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-
-    .cs-result {
-      font-size: 17px;
-      color: #444444;
-      line-height: 1.55;
-    }
-
-    .cs-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      border: 1px solid #e2d5cf;
-      color: #1B2235;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-      z-index: 2;
-    }
-
-    .cs-arrow:hover {
-      background: #F86A3E;
-      border-color: #F86A3E;
-      color: #FFFFFF;
-    }
-
-    .cs-prev { left: 0; }
-    .cs-next { right: 0; }
-
-    .cs-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 28px;
-    }
-
-    .cs-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #d4c5be;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .cs-dot:hover { background: #b39d93; }
-
-    .cs-dot.active {
-      background: #F86A3E;
-      transform: scale(1.25);
-    }
-
-    /* ========================================
-       TESTIMONIAL.TO EMBEDS
-       ======================================== */
-    .testimonial-embed {
-      max-width: 1440px;
-      margin: 0 auto;
-      display: none;
-    }
-    .testimonial-embed.active { display: block; }
-    .testimonial-embed + .testimonial-embed.active { margin-top: 32px; }
-
-    /* ========================================
-       REVIEWS (legacy kept for compatibility)
-       ======================================== */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .review-card {
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 36px 32px 32px;
-      box-shadow: 0 2px 16px rgba(27, 34, 53, 0.06);
-      position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .review-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(27, 34, 53, 0.1);
-    }
-
-    .review-card.hidden { display: none; }
-
-    .review-card.fade-in {
-      animation: fadeInUp 0.4s ease forwards;
-    }
-
-    .review-quote-mark {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 72px;
-      font-weight: 800;
-      color: #F9EBE7;
-      line-height: 1;
-      position: absolute;
-      top: 14px;
-      left: 22px;
-      z-index: 0;
-      user-select: none;
-    }
-
-    .review-text {
-      position: relative;
-      z-index: 1;
-      font-size: 16px;
-      color: #1B2235;
-      line-height: 1.6;
-      margin-bottom: 22px;
-      flex: 1;
-    }
-
-    .review-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1B2235;
-    }
-
-    .review-role {
-      font-size: 14px;
-      color: #7a8299;
-      margin-top: 2px;
-    }
-
-    /* ========================================
-       FINAL CTA
-       ======================================== */
-    .final-cta { text-align: center; }
-    .final-cta .section-headline { margin-bottom: 16px; }
-    .final-cta .section-sub { margin-bottom: 32px; }
-    .final-cta-note {
-      font-size: 13px;
-      color: #7a8299;
-      margin-top: 16px;
-    }
-
-    /* ========================================
-       FOOTER
-       ======================================== */
-    .footer {
-      background: #FFFFFF;
-      padding: 48px 0 40px;
-
-    }
-
-    .footer-logo {
-      width: 140px;
-      margin: 0 auto 20px;
-      opacity: 0.9;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 28px;
-      margin-bottom: 24px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 15px;
-      color: #1B2235;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: #00A2FF; text-decoration: underline; }
-
-    .footer-legal {
-      gap: 8px 20px;
-      margin-bottom: 16px;
-    }
-
-    .footer-legal a {
-      font-size: 13px;
-      color: #7a8299;
-      font-weight: 400;
-    }
-
-    .footer-legal a:hover {
-      color: #1B2235;
-      text-decoration: underline;
-    }
-
-    .footer-copy {
-      font-size: 13px;
-      color: #999999;
-      text-align: center;
-    }
-
-    /* ========================================
-       RESPONSIVE
-       ======================================== */
-    @media (max-width: 960px) {
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: min(320px, 85vw);
-        background: #FFFFFF;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 84px 32px 32px;
-        gap: 20px;
-        box-shadow: -8px 0 32px rgba(0,0,0,0.1);
-        transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .nav-links.open { transform: translateX(0); }
-      .nav-links a { font-size: 18px; }
-      .nav-cta { margin-left: 0; margin-top: 8px; }
-      .nav-toggle { display: flex; z-index: 110; }
-
-      .marquee-track { gap: 56px; }
-
-      .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .icp-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cs-card {
-        flex: 0 0 100%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .section { padding: 64px 0; }
-
-      .hero { padding: 120px 0 72px; }
-      .hero-headline { font-size: 38px; letter-spacing: -0.6px; }
-      .hero-sub { font-size: 17px; }
-
-      .section-headline { font-size: 30px; }
-
-      .marquee-track { gap: 48px; }
-      .marquee-item img { height: 30px; }
-
-      .video-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .icp-card {
-        padding: 32px 24px;
-      }
-
-      .icp-title { font-size: 24px; }
-
-      .icp-logos {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 14px 22px;
-      }
-      .icp-logo {
-        flex: 0 0 auto;
-      }
-      .icp-logo img { height: 24px; max-width: 100px; }
-
-      .reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .cs-slider { padding: 0 16px; }
-      .cs-card { padding: 32px 24px; min-height: auto; }
-      .cs-company { font-size: 24px; }
-      .cs-result { font-size: 15px; }
-
-      .cs-arrow {
-        width: 36px;
-        height: 36px;
-        top: auto;
-        bottom: -54px;
-        transform: none;
-      }
-
-      .cs-prev { left: calc(50% - 50px); }
-      .cs-next { right: calc(50% - 50px); }
-
-      .cs-dots { margin-top: 64px; }
-
-      .btn-lg { font-size: 16px; padding: 14px 28px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-headline { font-size: 30px; }
-      .section-headline { font-size: 26px; }
-      .filter-tab { font-size: 13px; padding: 8px 16px; }
-    }
-      /* ========================================
-       FINAL CTA (shared homepage style)
-       ======================================== */
-    .final-cta-section {
-      padding: 96px 0 112px;
-      background: #FFFFFF;
-    }
-
-    .final-cta-card {
-      position: relative;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 72px 56px;
-      border-radius: 28px;
-      background: #F9EBE7;
-      overflow: hidden;
-      color: #1B2235;
-      box-shadow: 0 20px 60px rgba(248, 106, 62, 0.15);
-    }
-
-    .final-cta-card::before {
-      content: "";
-      position: absolute;
-      top: -180px;
-      right: -120px;
-      width: 540px;
-      height: 540px;
-      background: radial-gradient(circle, rgba(248, 106, 62, 0.18) 0%, rgba(248, 106, 62, 0) 70%);
-      pointer-events: none;
-    }
-
-    .final-cta-card::after {
-      content: "";
-      position: absolute;
-      bottom: -200px;
-      left: -120px;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(248, 106, 62, 0.12) 0%, rgba(248, 106, 62, 0) 70%);
-      pointer-events: none;
-    }
-
-    .final-cta-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .final-cta-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: #F86A3E;
-      margin-bottom: 20px;
-    }
-
-    .final-cta-eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 2px;
-      background: #F86A3E;
-      border-radius: 2px;
-    }
-
-    .final-cta-headline {
-      font-size: 36px;
-      font-weight: 800;
-      color: #1B2235;
-      line-height: 1.12;
-      letter-spacing: -0.6px;
-      margin: 0 0 20px;
-    }
-
-    .final-cta-headline .accent {
-      color: #F86A3E;
-    }
-
-    .final-cta-sub {
-      font-size: 17px;
-      line-height: 1.6;
-      color: #444444;
-      margin: 0;
-    }
-
-    .final-cta-side {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      align-items: flex-start;
-      padding-top: 52px;
-    }
-
-    .final-cta-side .btn {
-      width: 100%;
-      max-width: 320px;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 10px 28px rgba(248, 106, 62, 0.4);
-    }
-
-    .final-cta-host {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding-top: 22px;
-      margin-top: 4px;
-      border-top: 1px solid rgba(27, 34, 53, 0.1);
-      width: 100%;
-      max-width: 320px;
-    }
-
-    .final-cta-host img {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(27, 34, 53, 0.12);
-      flex-shrink: 0;
-    }
-
-    .final-cta-host-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1B2235;
-      letter-spacing: -0.1px;
-    }
-
-    .final-cta-host-role {
-      font-size: 13px;
-      color: #666666;
-      margin-top: 3px;
-    }
-
-    @media (max-width: 900px) {
-      .final-cta-section { padding: 64px 0 80px; }
-      .final-cta-card { padding: 48px 28px; border-radius: 22px; }
-      .final-cta-inner { grid-template-columns: 1fr; gap: 36px; }
-      .final-cta-headline { font-size: 26px; }
-      .final-cta-side { padding-top: 0; }
-      .final-cta-side .btn { max-width: 100%; }
-      .final-cta-host { max-width: 100%; }
-    }
-
-    /* ========================================
-       HERO TESTIMONIAL SLIDER
-       ======================================== */
-    .testimonial-slider {
-      position: relative;
-      max-width: 760px;
-      margin: 0 auto;
-      background: #FFFFFF;
-      border-radius: 20px;
-      box-shadow: 0 4px 28px rgba(27, 34, 53, 0.08);
-      padding: 32px 72px 20px;
-      text-align: center;
-    }
-    .ts-track {
-      position: relative;
-      display: block;
-    }
-    .ts-slide {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    .ts-slide.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      animation: ts-fade 0.5s ease;
-    }
-    @keyframes ts-fade {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .ts-photo {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 14px rgba(27, 34, 53, 0.12);
-    }
-    .ts-quote {
-      font-size: 18px;
-      font-style: italic;
-      color: #1B2235;
-      line-height: 1.55;
-      max-width: 560px;
-      margin: 0 auto 18px;
-    }
-    .ts-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1B2235;
-      margin-bottom: 2px;
-    }
-    .ts-role {
-      font-size: 14px;
-      color: #7a8299;
-    }
-    .ts-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      border: 1px solid #e2e6ee;
-      color: #1B2235;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
-      z-index: 2;
-    }
-    .ts-arrow:hover {
-      background: #F86A3E;
-      border-color: #F86A3E;
-      color: #FFFFFF;
-    }
-    .ts-prev { left: 16px; }
-    .ts-next { right: 16px; }
-    .ts-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    .ts-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #d0d6e2;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .ts-dot:hover { background: #9aa3b7; }
-    .ts-dot.active {
-      background: #F86A3E;
-      transform: scale(1.25);
-    }
-    @media (max-width: 768px) {
-      .testimonial-slider {
-        padding: 32px 24px 24px;
-      }
-      .ts-quote { font-size: 16px; }
-      .ts-arrow {
-        width: 34px;
-        height: 34px;
-      }
-      .ts-prev { left: 6px; }
-      .ts-next { right: 6px; }
-    }
-</style>
-  <!-- Magellan AI tracking pixel (iHeartMedia radio + podcast attribution) -->
-  <script>
-    (function(w, d, n){
-        if (w.MAI) return;
-        w.MAI = w.MAI || {emit: function() {(w.MAI.q = w.MAI.q || []).push(arguments);}};
-        var e = d.createElement(n);
-        e.async = 1;
-        e.src = 'https://cdn.mgln.ai/pixel.min.js';
-        var s = d.getElementsByTagName(n)[0];
-        s.parentNode.insertBefore(e, s);
-    })(window, document, 'script');
-    MAI.emit('conf', '019e46ce8ab271c392fbd39cb44a87c6');
-    MAI.emit('view');
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Clients | Outbound Squad</title>
+<meta name="description" content="Meet the 250+ sales teams we've helped build pipeline that compounds.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/base.css">
+<link rel="stylesheet" href="/assets/site/theme.css">
+<!-- Magellan AI tracking pixel (iHeartMedia radio + podcast attribution) -->
+<script>
+  (function(w, d, n){
+      if (w.MAI) return;
+      w.MAI = w.MAI || {emit: function() {(w.MAI.q = w.MAI.q || []).push(arguments);}};
+      var e = d.createElement(n);
+      e.async = 1;
+      e.src = 'https://cdn.mgln.ai/pixel.min.js';
+      var s = d.getElementsByTagName(n)[0];
+      s.parentNode.insertBefore(e, s);
+  })(window, document, 'script');
+  MAI.emit('conf', '019e46ce8ab271c392fbd39cb44a87c6');
+  MAI.emit('view');
+</script>
 </head>
 <body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="Outbound Squad home"><img src="/assets/site/logo.png" alt="Outbound Squad"></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="https://masterclass.outboundsquad.com/">Free Masterclass</a></li>
+      <li><a href="/clients/" class="is-current" aria-current="page">Our Clients</a></li>
+      <li><a href="/our-team/">Our Team</a></li>
+      <li><a href="/podcast/">Podcast</a></li>
+      <li><a class="btn btn-primary" href="/contact/">Book A Call</a></li>
+    </ul>
+  </div>
+</header>
 
-  <!-- ========================================
-       NAVIGATION
-       ======================================== -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Outbound Squad home">
-        <img src="../logo.png" alt="Outbound Squad">
-      </a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="https://masterclass.outboundsquad.com" target="_blank">Free Masterclass</a></li>
-        <li><a href="/clients/" class="active">Our Clients</a></li>
-        <li><a href="/our-team/">Our Team</a></li>
-        <li><a href="/podcast/">Podcast</a></li>
-        <li class="nav-cta"><a href="/contact/" class="btn btn-orange btn-nav">Book A Call</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ========================================
-       1. HERO
-       ======================================== -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="hero-headline">Meet Our Clients</h1>
-      <p class="hero-sub">Meet the leaders who partnered with Outbound Squad to transform their sales organizations.</p>
-    </div>
-  </section>
-
-  <!-- ========================================
-       1B. HERO TESTIMONIAL SLIDER
-       ======================================== -->
-  <section class="section" style="background: #FFFFFF; padding: 0 0 64px;">
-    <div class="container">
-      <div class="testimonial-slider reveal" id="testimonialSlider" aria-roledescription="carousel" aria-label="Client testimonials">
-        <button class="ts-arrow ts-prev" aria-label="Previous testimonial" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="ts-track">
-          <div class="ts-slide active">
-            <img class="ts-photo" src="../headshots/diana-gates.jpg" alt="Diana Gates" width="100" height="100">
-            <p class="ts-quote">"As a direct result of the training, we've seen a 25% increase in conversion rates across all teams! The adoption of these new tactics has been off the charts."</p>
-            <p class="ts-name">Diana Gates</p>
-            <p class="ts-role">Head of Sales Development, Shopify</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/bert-brokaw-new.jpg" alt="Bert Brokaw" width="100" height="100">
-            <p class="ts-quote">"When building out our SDR outbound team at Rippling, we shopped around for a variety of sales trainers, but were unable to find a solution that was TRULY tailored towards outbound SDRs, then we found Outbound Squad."</p>
-            <p class="ts-name">Bert Brokaw</p>
-            <p class="ts-role">Senior Director of Sales Development, Rippling</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/kris-foley.jpg" alt="Kris Foley" width="100" height="100">
-            <p class="ts-quote">"They'll flip the way your team starts new conversations. You'll see lights go off when you apply their approach."</p>
-            <p class="ts-name">Kris Foley</p>
-            <p class="ts-role">Division President, iHeartMedia</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/eric-burchett.jpg" alt="Eric Burchett" width="100" height="100">
-            <p class="ts-quote">"Outbound Squad gave us a great framework to work from that early on has already shown to be positive. We had the tech/AI pre-built in house that makes PG easy and automated but we lacked a data driven framework to have the right conversations and messaging. Outbound Squad gave us that."</p>
-            <p class="ts-name">Eric Burchett</p>
-            <p class="ts-role">VP of Sales, ServiceTrade</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/rod-harand.jpg" alt="Rod Harand" width="100" height="100">
-            <p class="ts-quote">"Outbound Squad delivered a training course that provided updated perspectives, data-driven insights, and supporting tools. The program effectively addressed key aspects of outbound operations. Definitely a relevant option for organizations or individuals seeking to refresh their outbound processes or bring it to the next level."</p>
-            <p class="ts-name">Rod Harand</p>
-            <p class="ts-role">CRO, YesWeHack</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/chad-oconnor.jpg" alt="Chad O'Connor" width="100" height="100">
-            <p class="ts-quote">"Outbound Squad's innovative prospecting approach and style were well received by all sales generations within our GTM teams, motivating them to learn and implement a revitalized motion of effective prospecting in today's challenging economy."</p>
-            <p class="ts-name">Chad O'Connor</p>
-            <p class="ts-role">Former CRO, People.ai</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/jamie-armstrong.jpg" alt="Jamie Armstrong" width="100" height="100">
-            <p class="ts-quote">"We hired Outbound Squad in Q3 of 2024 to help our team level up OB. They were extremely tactical in their trainings. The real difference maker for me was how deep they got on our product, customer and sales motion. OB is up 100% QoQoQ (Q2&gt;Q3&gt;Q4)!"</p>
-            <p class="ts-name">Jamie Armstrong</p>
-            <p class="ts-role">Director of Revenue Retail, Shopify</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/cary-dunning.jpg" alt="Cary Dunning" width="100" height="100">
-            <p class="ts-quote">"I can't recommend Outbound Squad highly enough for anyone needing outside expertise to improve their team's outbound selling capabilities. Their ability to customize to our organization's unique sales message and their connection to modern outbound selling trends was a great way to refresh our team's approach. Excellent reviews from our team, and we've seen a quick tangible impact."</p>
-            <p class="ts-name">Cary Dunning</p>
-            <p class="ts-role">VP of Sales, Brooksource</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/mark-wilchynski.jpg" alt="Mark Wilchynski" width="100" height="100">
-            <p class="ts-quote">"I've had the pleasure of working with Outbound Squad while at two separate organizations. During both engagements and after, we saw immediate results of improved prospect engagement, conversion rates and just confidence across the team. They're masters of their craft and it's both a pleasure and time well spent!"</p>
-            <p class="ts-name">Mark Wilchynski</p>
-            <p class="ts-role">RVP, Harness</p>
-          </div>
-          <div class="ts-slide">
-            <img class="ts-photo" src="../headshots/rob-anderson.jpg" alt="Rob Anderson" width="100" height="100">
-            <p class="ts-quote">"I highly recommend working with Outbound Squad for Outbound and TOFU consulting. In as little as 8 weeks, our team worked with Outbound Squad to create a new playbook that covers process, phone messaging, email messaging and more that was totally tailored to our business. I have built many teams, and if I could go back and do some things differently, I would have started on day 1 getting a standardized playbook that was this easy to follow along with."</p>
-            <p class="ts-name">Rob Anderson</p>
-            <p class="ts-role">Former Director of Inside Sales, Gong</p>
-          </div>
-        </div>
-        <button class="ts-arrow ts-next" aria-label="Next testimonial" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="ts-dots" role="tablist" aria-label="Select testimonial"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       2. CLIENT RESULTS (stats + 6-tile grid)
-       ======================================== -->
-  <section id="results" class="section" style="background: #FFFFFF; padding: 72px 0 80px;">
-    <div class="container">
-      <div class="results-stats reveal">
-        <div class="results-stat">
-          <span class="results-num">22.3%</span>
-          <span class="results-label">Average pipeline increase within 90 days</span>
-        </div>
-        <div class="results-stat">
-          <span class="results-num">250+</span>
-          <span class="results-label">Sales teams transformed</span>
-        </div>
-        <div class="results-stat">
-          <span class="results-num">20,000+</span>
-          <span class="results-label">Reps trained</span>
-        </div>
-      </div>
-
-      <div class="client-results-grid reveal" style="margin-top: 48px;">
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></div>
-          <p class="client-result-text">AE team increased meetings set/held by <span class="client-result-pct">29.8%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></div>
-          <p class="client-result-text">AE/SDR mid-market team increased qualified opps created by <span class="client-result-pct">38%+</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/optimizely.png" alt="Optimizely" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased pipeline sourced per rep by <span class="client-result-pct">20.8%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/digicert.png" alt="Digicert" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased outbound opps created by <span class="client-result-pct">54%</span></p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/varonis.png" alt="Varonis" loading="lazy"></div>
-          <p class="client-result-text">SDR team increased pipeline sourced by <span class="client-result-pct">21%</span> YoY</p>
-        </div>
-        <div class="client-result-card">
-          <div class="client-company-logo"><img src="../logos/hyland.png" alt="Hyland" loading="lazy"></div>
-          <p class="client-result-text">SDR team had their biggest month of pipeline generated by <span class="client-result-pct">270%+</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       3. TWO ICP SEGMENTS
-       ======================================== -->
-  <section class="section section-white">
+<main id="top">
+  <section class="front front-inner">
     <div class="container-wide">
-      <h2 class="section-headline text-center reveal">The types of sales orgs we partner with</h2>
+      <div class="masthead"><div class="rule"><span class="caps">Proven results within 90 days</span></div></div>
+      <div class="deco reveal">
+        <div class="ad">
+          <div><span class="caps blue">Our clients</span>
+            <h1>Meet Our <span class="it">Clients.</span></h1>
+            <p class="dek">Meet the leaders who partnered with Outbound Squad to transform their sales organizations.</p>
+            <div class="ad-ctas"><a class="btn btn-primary" href="/contact/">Book a Call <span class="arrow">&rarr;</span></a><a class="text-link" href="#correspondence">Read the Letters</a></div></div>
+          <div class="hero-side"><figure class="feature-quote">
+              <span class="caps blue">Featured result</span>
+              <svg class="mini big" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:-15.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg>
+              <div class="fq-num"><b data-count="25" data-suffix="%">25%</b><span>increase in conversion rates across all teams</span></div>
+              <blockquote>"As a direct result of the training, we've seen a <mark>25% increase in conversion rates</mark> across all teams! The adoption of these new tactics has been off the charts."</blockquote>
+              <figcaption><div class="oval sm"><img src="/assets/site/headshots/diana-gates.jpg" alt="Diana Gates"></div><div><b>Diana Gates</b><span>Head of Sales Development, Shopify</span></div></figcaption>
+            </figure></div>
+          <div class="ticker">
+            <div><b data-count="22.3" data-dec="1" data-suffix="%">22.3%</b><span>Average pipeline increase within 90 days</span></div>
+            <div><b data-count="250" data-suffix="+">250+</b><span>Sales teams trained</span></div>
+            <div><b data-count="20000" data-suffix="+">20,000+</b><span>Reps trained</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="tape" aria-label="Client results ticker">
+    <div class="container-wide"><div class="tape-inner"><div class="tape-track"><span class="tk"><b>iHeartMedia</b><em>&#9650; 29.8%</em>meetings set/held</span><span class="tk"><b>Shopify</b><em>&#9650; 38%+</em>qualified opps created</span><span class="tk"><b>Optimizely</b><em>&#9650; 20.8%</em>pipeline sourced per rep</span><span class="tk"><b>DigiCert</b><em>&#9650; 54%</em>outbound opps created</span><span class="tk"><b>Varonis</b><em>&#9650; 21%</em>pipeline sourced YoY</span><span class="tk"><b>Hyland</b><em>&#9650; 270%+</em>biggest month of pipeline</span><span aria-hidden="true" class="dup"><span class="tk"><b>iHeartMedia</b><em>&#9650; 29.8%</em>meetings set/held</span><span class="tk"><b>Shopify</b><em>&#9650; 38%+</em>qualified opps created</span><span class="tk"><b>Optimizely</b><em>&#9650; 20.8%</em>pipeline sourced per rep</span><span class="tk"><b>DigiCert</b><em>&#9650; 54%</em>outbound opps created</span><span class="tk"><b>Varonis</b><em>&#9650; 21%</em>pipeline sourced YoY</span><span class="tk"><b>Hyland</b><em>&#9650; 270%+</em>biggest month of pipeline</span></span></div></div></div>
+  </section>
 
-      <div class="icp-grid reveal">
-        <article class="icp-card building">
-          <h3 class="icp-title">Early Stage</h3>
-          <p class="icp-subtitle">Seed to Series C &nbsp;|&nbsp; 5-99 reps</p>
-          <ul class="icp-bullets">
+  <section class="section" id="results">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">Exhibit 1 &middot; The record</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>Winning sales teams partner with Outbound Squad.</h2></div>
+      <div class="certs">
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 01</span><span>AE TEAM</span></div><img src="/assets/site/logos/iheartmedia.png" alt="iHeartMedia"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:-0.6deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="29.8" data-dec="1" data-suffix="%">29.8%</b><p>AE team increased meetings set/held by 29.8%</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 02</span><span>AE/SDR</span></div><img src="/assets/site/logos/shopify.png" alt="Shopify"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:24.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="38" data-dec="0" data-suffix="%+">38%+</b><p>AE/SDR mid-market team increased qualified opps created by 38%+</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 03</span><span>SDR TEAM</span></div><img src="/assets/site/logos/optimizely.png" alt="Optimizely"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:-27.6deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="20.8" data-dec="1" data-suffix="%">20.8%</b><p>SDR team increased pipeline sourced per rep by 20.8%</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 04</span><span>SDR TEAM</span></div><img src="/assets/site/logos/digicert.png" alt="DigiCert"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:72.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="54" data-dec="0" data-suffix="%">54%</b><p>SDR team increased outbound opps created by 54%</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 05</span><span>SDR TEAM</span></div><img src="/assets/site/logos/varonis.png" alt="Varonis"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:-27.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/></svg><b data-count="21" data-dec="0" data-suffix="%">21%</b><p>SDR team increased pipeline sourced by 21% YoY</p></div>
+        <div class="deco cert reveal"><div class="no"><span>RESULT NO. 06</span><span>SDR TEAM</span></div><img src="/assets/site/logos/hyland.png" alt="Hyland"><svg class="mini" viewBox="0 0 180 100" aria-hidden="true"><path d="M24.0,92.0 A66,66 0 0 1 156.0,92.0" fill="none" stroke="#1B2235" stroke-width="0.8" opacity="0.5"/><path d="M54.5,30.5 A71,71 0 0 1 161.0,92.0" fill="none" stroke="#00A2FF" stroke-width="3"/><line x1="24.0" y1="92.0" x2="34.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="44.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">0</text><line x1="26.2" y1="74.9" x2="31.1" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="32.8" y1="59.0" x2="37.2" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="43.3" y1="45.3" x2="46.9" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="57.0" y1="34.8" x2="62.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="67.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">20</text><line x1="72.9" y1="28.2" x2="74.2" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="90.0" y1="26.0" x2="90.0" y2="31.0" stroke="#1B2235" stroke-width="0.6"/><line x1="107.1" y1="28.2" x2="105.8" y2="33.1" stroke="#1B2235" stroke-width="0.6"/><line x1="123.0" y1="34.8" x2="118.0" y2="43.5" stroke="#1B2235" stroke-width="1.4"/><text x="113.0" y="52.2" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">40</text><line x1="136.7" y1="45.3" x2="133.1" y2="48.9" stroke="#1B2235" stroke-width="0.6"/><line x1="147.2" y1="59.0" x2="142.8" y2="61.5" stroke="#1B2235" stroke-width="0.6"/><line x1="153.8" y1="74.9" x2="148.9" y2="76.2" stroke="#1B2235" stroke-width="0.6"/><line x1="156.0" y1="92.0" x2="146.0" y2="92.0" stroke="#1B2235" stroke-width="1.4"/><text x="136.0" y="92.0" font-family="DM Sans, sans-serif" font-weight="700" font-size="8" fill="#1B2235" text-anchor="middle" dominant-baseline="central" opacity="0.7">60</text><g class="needle" style="--from:-90deg;--to:96.0deg;transform-origin:90px 92px"><polygon points="90,32 93,92 90,100 87,92" fill="#1B2235"/><line x1="90" y1="32" x2="90" y2="48" stroke="#00A2FF" stroke-width="2" stroke-linecap="round"/></g><circle cx="90" cy="92" r="4" fill="#1B2235"/><text x="90" y="6" font-family="DM Sans, sans-serif" font-weight="700" font-size="7" letter-spacing="1.2" fill="#0077BD" text-anchor="middle">OFF THE SCALE &#9656;</text></svg><b data-count="270" data-dec="0" data-suffix="%+">270%+</b><p>SDR team had their biggest month of pipeline generated by 270%+</p></div>
+      </div>
+      <p class="src">Results reported by client in first 90 days of working with Outbound Squad.</p>
+    </div>
+  </section>
+
+  <section class="section logo-sec">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">The client list</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>Trusted by world-class sales teams.</h2></div>
+      <div class="logo-wall reveal"><div class="lw"><img src="/assets/site/logos/shopify.png" alt="shopify" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/rippling.png" alt="rippling" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/iheartmedia.png" alt="iheartmedia" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/gong.png" alt="gong" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/zoom.png" alt="zoom" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/optimizely.png" alt="optimizely" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/digicert.png" alt="digicert" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/varonis.png" alt="varonis" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/hyland.png" alt="hyland" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/carta.png" alt="carta" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/armis.png" alt="armis" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/goguardian.png" alt="goguardian" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/nextroll.png" alt="nextroll" loading="lazy"></div><div class="lw"><img src="/assets/site/logos/paddle.png" alt="paddle" loading="lazy"></div></div>
+    </div>
+  </section>
+
+  <section class="section letters-sec" id="correspondence">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">Correspondence</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>What leaders are saying.</h2><p>More from the leaders who partnered with Outbound Squad to transform their sales organizations.</p></div>
+      <div class="letters">
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/bert-brokaw-new.jpg" alt="Bert Brokaw" loading="lazy"></div><div><div class="name">Bert Brokaw</div><div class="role">Senior Director of Sales Development, Rippling</div></div></header>
+          <blockquote>When building out our SDR outbound team at Rippling, we shopped around for a variety of sales trainers, but were unable to find a solution that was <mark>TRULY tailored towards outbound SDRs</mark>, then we found Outbound Squad.</blockquote>
+          <footer class="letter-no">Correspondence No. 02</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/kris-foley.jpg" alt="Kris Foley" loading="lazy"></div><div><div class="name">Kris Foley</div><div class="role">Division President, iHeartMedia</div></div></header>
+          <blockquote>They'll flip the way your team starts new conversations. <mark>You'll see lights go off</mark> when you apply their approach.</blockquote>
+          <footer class="letter-no">Correspondence No. 03</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/jamie-armstrong.jpg" alt="Jamie Armstrong" loading="lazy"></div><div><div class="name">Jamie Armstrong</div><div class="role">Director of Revenue Retail, Shopify</div></div></header>
+          <blockquote>We hired Outbound Squad in Q3 of 2024 to help our team level up OB. They were extremely tactical in their trainings. The real difference maker for me was how deep they got on our product, customer and sales motion. <mark>OB is up 100% QoQoQ</mark> (Q2&gt;Q3&gt;Q4)!</blockquote>
+          <footer class="letter-no">Correspondence No. 04</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/eric-burchett.jpg" alt="Eric Burchett" loading="lazy"></div><div><div class="name">Eric Burchett</div><div class="role">VP of Sales, ServiceTrade</div></div></header>
+          <blockquote>Outbound Squad gave us a great framework to work from that early on has already shown to be positive. We had the tech/AI pre-built in house that makes PG easy and automated but we lacked a <mark>data driven framework</mark> to have the right conversations and messaging. Outbound Squad gave us that.</blockquote>
+          <footer class="letter-no">Correspondence No. 05</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/rob-anderson.jpg" alt="Rob Anderson" loading="lazy"></div><div><div class="name">Rob Anderson</div><div class="role">Former Director of Inside Sales, Gong</div></div></header>
+          <blockquote>I highly recommend working with Outbound Squad for Outbound and TOFU consulting. <mark>In as little as 8 weeks</mark>, our team worked with Outbound Squad to create a new playbook that covers process, phone messaging, email messaging and more that was totally tailored to our business. I have built many teams, and if I could go back and do some things differently, I would have started on day 1 getting a standardized playbook that was this easy to follow along with.</blockquote>
+          <footer class="letter-no">Correspondence No. 06</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/rod-harand.jpg" alt="Rod Harand" loading="lazy"></div><div><div class="name">Rod Harand</div><div class="role">CRO, YesWeHack</div></div></header>
+          <blockquote>Outbound Squad delivered a training course that provided updated perspectives, <mark>data-driven insights</mark>, and supporting tools. The program effectively addressed key aspects of outbound operations. Definitely a relevant option for organizations or individuals seeking to refresh their outbound processes or bring it to the next level.</blockquote>
+          <footer class="letter-no">Correspondence No. 07</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/chad-oconnor.jpg" alt="Chad O&#x27;Connor" loading="lazy"></div><div><div class="name">Chad O&#x27;Connor</div><div class="role">Former CRO, People.ai</div></div></header>
+          <blockquote>Outbound Squad's innovative prospecting approach and style were <mark>well received by all sales generations</mark> within our GTM teams, motivating them to learn and implement a revitalized motion of effective prospecting in today's challenging economy.</blockquote>
+          <footer class="letter-no">Correspondence No. 08</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/cary-dunning.jpg" alt="Cary Dunning" loading="lazy"></div><div><div class="name">Cary Dunning</div><div class="role">VP of Sales, Brooksource</div></div></header>
+          <blockquote>I can't recommend Outbound Squad highly enough for anyone needing outside expertise to improve their team's outbound selling capabilities. Their ability to customize to our organization's unique sales message and their connection to modern outbound selling trends was a great way to refresh our team's approach. Excellent reviews from our team, and <mark>we've seen a quick tangible impact</mark>.</blockquote>
+          <footer class="letter-no">Correspondence No. 09</footer>
+        </article>
+        <article class="letter reveal">
+          <header><div class="oval sm"><img src="/assets/site/headshots/mark-wilchynski.jpg" alt="Mark Wilchynski" loading="lazy"></div><div><div class="name">Mark Wilchynski</div><div class="role">RVP, Harness</div></div></header>
+          <blockquote>I've had the pleasure of working with Outbound Squad while at <mark>two separate organizations</mark>. During both engagements and after, we saw immediate results of improved prospect engagement, conversion rates and just confidence across the team. They're masters of their craft and it's both a pleasure and time well spent!</blockquote>
+          <footer class="letter-no">Correspondence No. 10</footer>
+        </article>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews" id="reviews">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">On the record</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>What reps and leaders are saying</h2></div>
+      <div class="rev-tabs reveal" role="tablist" aria-label="Filter reviews">
+        <button class="rev-tab is-on" data-rev="reps" type="button" role="tab" aria-selected="true">From Reps</button>
+        <button class="rev-tab" data-rev="leaders" type="button" role="tab" aria-selected="false">From Leaders</button>
+      </div>
+      <div class="deco rev-frame is-clipped reveal">
+        <div class="rev-embed is-on" data-rev-panel="reps">
+          <iframe id="testimonialto-5be5e2cf-9f1f-4620-8401-987f294762b8" src="https://embed-v2.testimonial.to/w/outbound-sprint?id=5be5e2cf-9f1f-4620-8401-987f294762b8" frameborder="0" scrolling="no" width="100%" title="Reviews from reps"></iframe>
+        </div>
+        <div class="rev-embed" data-rev-panel="leaders">
+          <iframe id="testimonialto-a52acec9-c85e-41f5-8b05-47be4aff771a" src="https://embed-v2.testimonial.to/w/outbound-squad-b2b?id=a52acec9-c85e-41f5-8b05-47be4aff771a" frameborder="0" scrolling="no" width="100%" title="Reviews from leaders"></iframe>
+        </div>
+      </div>
+      <div class="rev-more"><button class="btn btn-ghost rev-tab" type="button" data-rev-more>Show all reviews</button></div>
+    </div>
+  </section>
+
+  <section class="conditions">
+    <div class="container-wide">
+      <div class="head reveal"><span class="caps">Who we work with</span><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><h2>The types of sales orgs we partner with.</h2></div>
+      <div class="profiles">
+        <article class="deco profile reveal">
+          <span class="caps blue">Profile A</span>
+          <h3>Early Stage</h3>
+          <dl class="spec"><div><dt>Funding</dt><dd>Seed to Series C</dd></div><div><dt>Team size</dt><dd>5-99 reps</dd></div></dl>
+          <ul class="dia">
             <li>You're standing up or scaling outbound for the first time</li>
             <li>Reps are figuring it out on their own with no playbook</li>
             <li>Your enablement team has limited bandwidth to support</li>
           </ul>
-          <div class="icp-logos">
-            <span class="icp-logo"><img src="../logos/armis.png" alt="Armis" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/nextroll.png" alt="NextRoll" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/goguardian.png" alt="GoGuardian" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/carta.png" alt="Carta" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/paddle.png" alt="Paddle" loading="lazy"></span>
-          </div>
         </article>
-
-        <article class="icp-card scaling">
-          <h3 class="icp-title">Late Stage</h3>
-          <p class="icp-subtitle">Series D+ or Public &nbsp;|&nbsp; 100-1,000+ reps</p>
-          <ul class="icp-bullets">
+        <article class="deco profile reveal">
+          <span class="caps blue">Profile B</span>
+          <h3>Late Stage</h3>
+          <dl class="spec"><div><dt>Funding</dt><dd>Series D+ or Public</dd></div><div><dt>Team size</dt><dd>100-1,000+ reps</dd></div></dl>
+          <ul class="dia">
             <li>Inbound won't scale your growth to the next level</li>
             <li>A common outbound approach is needed (that works)</li>
             <li>Front-line managers aren't equipped to reinforce and hold reps accountable</li>
           </ul>
-          <div class="icp-logos">
-            <span class="icp-logo"><img src="../logos/shopify.png" alt="Shopify" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/gong.png" alt="Gong" loading="lazy"></span>
-            <span class="icp-logo" data-size="small"><img src="../logos/zoom.png" alt="Zoom" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/rippling.png" alt="Rippling" loading="lazy"></span>
-            <span class="icp-logo"><img src="../logos/iheartmedia.png" alt="iHeartMedia" loading="lazy"></span>
-          </div>
         </article>
       </div>
-
     </div>
   </section>
 
-  <!-- ========================================
-       4. CTA AFTER ICP
-       ======================================== -->
-  <section class="final-cta-section">
-    <div class="container">
-      <div class="final-cta-card reveal">
-        <div class="final-cta-inner">
-          <div class="final-cta-text">
-            <span class="final-cta-eyebrow">Next Steps</span>
-            <h2 class="final-cta-headline">Ready to <span class="accent">build pipeline</span> like Shopify, iHeartMedia, Rippling, and more?</h2>
-            <p class="final-cta-sub">Our clients increase qualified pipeline by 20% or more within 90 days. The next step is a 30-minute call with our CEO, Jason Bay, to learn about your situation and see if we're a fit.</p>
-          </div>
-          <div class="final-cta-side">
-            <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
-            <div class="final-cta-host">
-              <img src="../headshots/jason-bay.jpg" alt="Jason Bay" loading="lazy">
-              <div>
-                <div class="final-cta-host-name">Jason Bay</div>
-                <div class="final-cta-host-role">CEO, Outbound Squad</div>
-              </div>
-            </div>
-          </div>
+  <section class="close" id="book-a-call">
+    <div class="container-wide">
+      <div class="deco reveal">
+        <div>
+          <span class="caps blue">Next steps</span>
+          <h2>Ready to build pipeline like Shopify, iHeartMedia, Rippling, and more?</h2>
+          <p>Our clients increase qualified pipeline by 20% or more within 90 days. The next step is a 30-minute call with our CEO, Jason Bay, to learn about your situation and see if we're a fit.</p>
+          <a class="btn btn-primary" href="/contact/">Book a Call <span class="arrow">&rarr;</span></a>
         </div>
+        <figure><div class="oval"><img src="/assets/site/headshots/jason-bay.jpg" alt="Jason Bay"></div><figcaption><b>Jason Bay</b>CEO, Outbound Squad</figcaption></figure>
       </div>
     </div>
   </section>
 
-  <!-- ========================================
-       5. REVIEWS
-       ======================================== -->
-  <section class="section section-white">
-    <div class="container-xwide">
-      <h2 class="section-headline text-center reveal">What reps and leaders are saying</h2>
+</main>
 
-      <div class="filter-tabs reveal" role="tablist" aria-label="Filter reviews">
-        <button class="filter-tab active" data-review-filter="reps" type="button">From Reps</button>
-        <button class="filter-tab" data-review-filter="leaders" type="button">From Leaders</button>
-      </div>
-
-      <div class="testimonial-embed active reveal" id="embedReps">
-        <iframe id="testimonialto-5be5e2cf-9f1f-4620-8401-987f294762b8"
-          src="https://embed-v2.testimonial.to/w/outbound-sprint?id=5be5e2cf-9f1f-4620-8401-987f294762b8"
-          frameborder="0" scrolling="no" width="100%"></iframe>
-      </div>
-
-      <div class="testimonial-embed reveal" id="embedLeaders">
-        <iframe id="testimonialto-a52acec9-c85e-41f5-8b05-47be4aff771a"
-          src="https://embed-v2.testimonial.to/w/outbound-squad-b2b?id=a52acec9-c85e-41f5-8b05-47be4aff771a"
-          frameborder="0" scrolling="no" width="100%"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       FINAL CTA
-       ======================================== -->
-  <section class="final-cta-section">
-    <div class="container">
-      <div class="final-cta-card reveal">
-        <div class="final-cta-inner">
-          <div class="final-cta-text">
-            <span class="final-cta-eyebrow">Next Steps</span>
-            <h2 class="final-cta-headline">Ready to <span class="accent">build pipeline</span> like Shopify, iHeartMedia, Rippling, and more?</h2>
-            <p class="final-cta-sub">Our clients increase qualified pipeline by 20% or more within 90 days. The next step is a 30-minute call with our CEO, Jason Bay, to learn about your situation and see if we're a fit.</p>
-          </div>
-          <div class="final-cta-side">
-            <a href="/contact/" class="btn btn-orange btn-lg">Book a Call</a>
-            <div class="final-cta-host">
-              <img src="../headshots/jason-bay.jpg" alt="Jason Bay" loading="lazy">
-              <div>
-                <div class="final-cta-host-name">Jason Bay</div>
-                <div class="final-cta-host-role">CEO, Outbound Squad</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       FOOTER
-       ======================================== -->
-  <footer class="footer">
-    <div class="container text-center">
-      <img src="../logo.png" alt="Outbound Squad" class="footer-logo">
-      <ul class="footer-links footer-nav">
-        <li><a href="https://masterclass.outboundsquad.com" target="_blank" rel="noopener">Free Masterclass</a></li>
-        <li><a href="/clients/">Our Clients</a></li>
-        <li><a href="/our-team/">Our Team</a></li>
-        <li><a href="/podcast/">Podcast</a></li>
-        <li><a href="/contact/">Book A Call</a></li>
-      </ul>
-      <ul class="footer-links footer-legal">
-        <li><a href="/privacy-policy/">Privacy Policy</a></li>
-        <li><a href="/terms-of-service/">Terms of Service</a></li>
-      </ul>
-      <p class="footer-copy">2026 Outbound Squad</p>
-    </div>
-  </footer>
-
-  <!-- ========================================
-       VIDEO MODAL
-       ======================================== -->
-  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player">
-    <div class="video-modal-stage">
-      <button class="video-modal-close" id="videoModalClose" aria-label="Close video" type="button">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-      </button>
-      <div class="video-modal-inner">
-        <iframe id="videoModalFrame" src="" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-    </div>
+<footer>
+  <div class="container-wide foot">
+    <img src="/assets/site/logo.png" alt="Outbound Squad">
+    <nav><a href="https://masterclass.outboundsquad.com/">Free Masterclass</a><a href="/clients/">Our Clients</a><a href="/our-team/">Our Team</a><a href="/podcast/">Podcast</a><a href="/contact/">Book A Call</a></nav>
+    <small>&copy; 2026 Outbound Squad <a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a></small>
   </div>
-
-  <!-- testimonial.to iFrame resizer (loaded once) -->
-  <script type="text/javascript" src="https://testimonial.to/js/iframeResizer.min.js"></script>
-  <script type="text/javascript">
-    if (typeof iFrameResize === 'function') {
-      iFrameResize({log: false, checkOrigin: false}, '#testimonialto-5be5e2cf-9f1f-4620-8401-987f294762b8');
-      iFrameResize({log: false, checkOrigin: false}, '#testimonialto-a52acec9-c85e-41f5-8b05-47be4aff771a');
-    }
-  </script>
-
-  <script>
-    /* Sticky nav background on scroll */
-    (function () {
-      var nav = document.getElementById('nav');
-      function onScroll() {
-        if (window.scrollY > 12) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
-
-    /* Mobile hamburger menu */
-    (function () {
-      var toggle = document.getElementById('navToggle');
-      var links = document.getElementById('navLinks');
-      toggle.addEventListener('click', function () {
-        var isOpen = links.classList.toggle('open');
-        toggle.classList.toggle('open', isOpen);
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+</footer>
+<script src="/assets/site/shared.js"></script>
+<script src="/assets/site/chrono.js"></script>
+<script type="text/javascript" src="https://testimonial.to/js/iframeResizer.min.js"></script>
+<script>
+  (function () {
+    function fit() { if (typeof iFrameResize === 'function') { iFrameResize({ log: false, checkOrigin: false }, '#testimonialto-5be5e2cf-9f1f-4620-8401-987f294762b8'); iFrameResize({ log: false, checkOrigin: false }, '#testimonialto-a52acec9-c85e-41f5-8b05-47be4aff771a'); } }
+    fit();
+    var more = document.querySelector('[data-rev-more]');
+    if (more) more.addEventListener('click', function () { document.querySelector('.rev-frame').classList.remove('is-clipped'); more.parentNode.hidden = true; });
+    document.querySelectorAll('.rev-tab[data-rev]').forEach(function (t) {
+      t.addEventListener('click', function () {
+        var k = t.getAttribute('data-rev');
+        document.querySelectorAll('.rev-tab[data-rev]').forEach(function (x) { var on = x === t; x.classList.toggle('is-on', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        document.querySelectorAll('.rev-embed').forEach(function (p) { p.classList.toggle('is-on', p.getAttribute('data-rev-panel') === k); });
+        fit();
       });
-      links.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          if (links.classList.contains('open')) {
-            links.classList.remove('open');
-            toggle.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    })();
-
-    /* Scroll reveal */
-    (function () {
-      var reveals = document.querySelectorAll('.reveal');
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      reveals.forEach(function (el) { observer.observe(el); });
-    })();
-
-    /* Video filter tabs */
-    (function () {
-      var tabs = document.querySelectorAll('.filter-tab[data-filter]');
-      var cards = document.querySelectorAll('#videoGrid .video-card');
-      if (!tabs.length) return;
-
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          var filter = tab.dataset.filter;
-          tabs.forEach(function (t) { t.classList.toggle('active', t === tab); });
-          cards.forEach(function (card) {
-            var match = filter === 'all' || card.dataset.category === filter;
-            if (match) {
-              card.classList.remove('hidden');
-              card.classList.remove('fade-in');
-              // force reflow
-              void card.offsetWidth;
-              card.classList.add('fade-in');
-            } else {
-              card.classList.add('hidden');
-            }
-          });
-        });
-      });
-    })();
-
-    /* Reviews filter tabs - testimonial.to embed toggle */
-    (function () {
-      var tabs = document.querySelectorAll('.filter-tab[data-review-filter]');
-      var embedReps = document.getElementById('embedReps');
-      var embedLeaders = document.getElementById('embedLeaders');
-      if (!tabs.length || !embedReps || !embedLeaders) return;
-
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          var filter = tab.dataset.reviewFilter;
-          tabs.forEach(function (t) { t.classList.toggle('active', t === tab); });
-          if (filter === 'leaders') {
-            embedReps.classList.remove('active');
-            embedLeaders.classList.add('active');
-          } else {
-            embedReps.classList.add('active');
-            embedLeaders.classList.remove('active');
-          }
-        });
-      });
-    })();
-
-    /* Video modal - YouTube iframe swap */
-    (function () {
-      var modal = document.getElementById('videoModal');
-      var frame = document.getElementById('videoModalFrame');
-      var closeBtn = document.getElementById('videoModalClose');
-      var thumbs = document.querySelectorAll('.video-thumb[data-video-id]');
-      if (!modal || !frame) return;
-
-      function openModal(videoId) {
-        frame.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modal.classList.remove('open');
-        frame.src = '';
-        document.body.style.overflow = '';
-      }
-
-      thumbs.forEach(function (t) {
-        t.addEventListener('click', function () {
-          var id = t.dataset.videoId;
-          if (id) openModal(id);
-        });
-      });
-
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeModal();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-      });
-    })();
-
-    /* Case study slider */
-    (function () {
-      var slider = document.getElementById('csSlider');
-      if (!slider) return;
-      var track = document.getElementById('csTrack');
-      var cards = track.querySelectorAll('.cs-card');
-      var prev = slider.querySelector('.cs-prev');
-      var next = slider.querySelector('.cs-next');
-      var dotsWrap = document.getElementById('csDots');
-
-      var cardsPerView = window.innerWidth <= 960 ? 1 : 2;
-      var totalPages = Math.ceil(cards.length / cardsPerView);
-      var current = 0;
-
-      // Build dots
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        for (var i = 0; i < totalPages; i++) {
-          var b = document.createElement('button');
-          b.className = 'cs-dot' + (i === 0 ? ' active' : '');
-          b.type = 'button';
-          b.setAttribute('aria-label', 'Go to page ' + (i + 1));
-          b.dataset.index = i;
-          b.addEventListener('click', function (e) {
-            show(parseInt(e.currentTarget.dataset.index, 10));
-          });
-          dotsWrap.appendChild(b);
-        }
-      }
-
-      function show(i) {
-        current = (i + totalPages) % totalPages;
-        var offsetPercent = -(current * 100);
-        track.style.transform = 'translateX(' + offsetPercent + '%)';
-        dotsWrap.querySelectorAll('.cs-dot').forEach(function (d, idx) {
-          d.classList.toggle('active', idx === current);
-        });
-      }
-
-      prev.addEventListener('click', function () { show(current - 1); });
-      next.addEventListener('click', function () { show(current + 1); });
-
-      // Handle viewport resize (recalc cardsPerView)
-      var resizeTimer;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-          var newCardsPerView = window.innerWidth <= 960 ? 1 : 2;
-          if (newCardsPerView !== cardsPerView) {
-            cardsPerView = newCardsPerView;
-            totalPages = Math.ceil(cards.length / cardsPerView);
-            current = 0;
-            buildDots();
-            show(0);
-          }
-        }, 150);
-      });
-
-      buildDots();
-      show(0);
-    })();
-
-    /* ========================================
-       Hero testimonial slider
-       ======================================== */
-    (function () {
-      var slider = document.getElementById('testimonialSlider');
-      if (!slider) return;
-      var slides = slider.querySelectorAll('.ts-slide');
-      var dotsWrap = slider.querySelector('.ts-dots');
-      var prev = slider.querySelector('.ts-prev');
-      var next = slider.querySelector('.ts-next');
-      var current = 0;
-      var total = slides.length;
-      var autoplayTimer = null;
-
-      // Build dots dynamically
-      for (var i = 0; i < total; i++) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'ts-dot' + (i === 0 ? ' active' : '');
-        b.dataset.index = i;
-        b.setAttribute('aria-label', 'Testimonial ' + (i + 1));
-        dotsWrap.appendChild(b);
-      }
-      var dots = slider.querySelectorAll('.ts-dot');
-      var track = slider.querySelector('.ts-track');
-
-      // Lock track height to the tallest slide so the page doesn't jump
-      function lockHeight() {
-        track.style.minHeight = '';
-        var max = 0;
-        slides.forEach(function (s) {
-          var prevDisplay = s.style.display;
-          var prevVis = s.style.visibility;
-          var prevOpacity = s.style.opacity;
-          var prevPos = s.style.position;
-          s.style.display = 'flex';
-          s.style.visibility = 'hidden';
-          s.style.opacity = '0';
-          s.style.position = 'static';
-          if (s.offsetHeight > max) max = s.offsetHeight;
-          s.style.display = prevDisplay;
-          s.style.visibility = prevVis;
-          s.style.opacity = prevOpacity;
-          s.style.position = prevPos;
-        });
-        track.style.minHeight = max + 'px';
-      }
-
-      function show(i) {
-        current = (i + total) % total;
-        slides.forEach(function (s, idx) { s.classList.toggle('active', idx === current); });
-        dots.forEach(function (d, idx) { d.classList.toggle('active', idx === current); });
-      }
-
-      prev.addEventListener('click', function () { show(current - 1); });
-      next.addEventListener('click', function () { show(current + 1); });
-      dots.forEach(function (d) {
-        d.addEventListener('click', function () {
-          show(parseInt(d.dataset.index, 10));
-        });
-      });
-
-      lockHeight();
-      // Recompute after fonts/images settle and on resize
-      window.addEventListener('load', lockHeight);
-      var resizeTimer;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(lockHeight, 150);
-      });
-    })();
-  </script>
-
+    });
+  })();
+</script>
 </body>
 </html>
