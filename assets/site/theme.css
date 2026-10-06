@@ -294,6 +294,11 @@
 .person .q1 { margin-top: 22px; }
 @media (max-width: 900px) { .movement { padding: 310px 0; } }
 
+/* Quarter countdown */
+.close .qline { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); font-family: var(--serif); font-style: italic; font-size: 21px; line-height: 1.35; color: var(--ink); }
+.close .qline b { font-weight: 400; font-style: normal; color: #0077BD; }
+.close .qline + .btn { margin-top: 22px; }
+
 /* ===== Inner pages ===== */
 .nav-links a.is-current { box-shadow: inset 0 -2px 0 #00A2FF; padding-bottom: 4px; }
 .hero-side { position: relative; }

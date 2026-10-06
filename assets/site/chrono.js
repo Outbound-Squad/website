@@ -23,6 +23,16 @@
     document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
   }
 
+  /* Quarter countdown: days left in the visitor's current calendar quarter (counts today) */
+  (function () {
+    var els = document.querySelectorAll('[data-q-days]');
+    if (!els.length) return;
+    var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var qEnd = new Date(now.getFullYear(), Math.floor(now.getMonth() / 3) * 3 + 3, 1);
+    var days = Math.round((qEnd - today) / 86400000);
+    els.forEach(function (el) { el.textContent = days; });
+  })();
+
   /* Podcast episode search */
   var search = document.getElementById('episode-search');
   if (search) {
