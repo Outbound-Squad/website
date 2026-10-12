@@ -523,3 +523,63 @@ ul.dia li::before { content: ""; position: absolute; left: 2px; top: 8px; width:
 .rev-frame.is-clipped::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 220px; background: linear-gradient(180deg, rgba(251,248,241,0) 0%, #FBF8F1 85%); pointer-events: none; }
 .rev-more { display: flex; justify-content: center; margin-top: 26px; }
 .rev-more[hidden] { display: none; }
+
+
+/* ---- Compact laptop pass (2026-10-12): fit the hero in one 13" screen, tighten every section ---- */
+@media (min-width: 1025px) {
+  .nav-inner { height: 64px; }
+  .front { padding: 12px 0 44px; }
+  .front .masthead { padding: 0 0 12px; }
+  .front .ad { padding: 28px 48px 18px; gap: 44px; align-items: center; }
+  .front .ad h1 { font-size: clamp(40px, min(4.3vw, 7.4vh), 66px); margin: 12px 0 16px; }
+  .front .ad .dek { font-size: 18px; line-height: 1.5; }
+  .front .ad-ctas { margin-top: 22px; }
+  .dial { max-width: min(330px, 40vh); }
+  .dial-list { margin-top: 14px; padding-top: 12px; font-size: 13.5px; gap: 6px 22px; max-width: 400px; }
+  .ticker { margin-top: 4px; }
+  .ticker div { padding: 12px 16px 2px; }
+  .ticker b { font-size: clamp(30px, min(3vw, 5vh), 42px); }
+  .ticker span { font-size: 13px; }
+  .front-inner .ad h1 { font-size: clamp(40px, min(4.8vw, 8vh), 72px); }
+
+  .section { padding: 72px 0; }
+  .head { margin-bottom: 36px; }
+  .head h2 { font-size: clamp(32px, 3.6vw, 48px); margin-top: 10px; }
+  .head p { margin-top: 10px; }
+  .cert { padding: 22px 24px 22px; }
+  .cert img { margin: 14px auto 10px; }
+  .cert b { font-size: 46px; }
+  .cert p { margin-top: 8px; }
+  .certs { gap: 24px; }
+
+  .conditions { padding: 96px 0; }
+  .cond { padding: 22px 22px 24px; }
+
+  .movement { background: linear-gradient(180deg, #F4EEE2 0px, #ECE6DC 30px, #CFCDCA 66px, #8F94A0 102px, #4C5265 135px, #283044 159px, #1B2235 180px, #1B2235 calc(100% - 180px), #283044 calc(100% - 159px), #4C5265 calc(100% - 135px), #8F94A0 calc(100% - 102px), #CFCDCA calc(100% - 66px), #ECE6DC calc(100% - 30px), #F4EEE2 100%); padding: 190px 0; }
+  .movement .head h2 { font-size: clamp(40px, 4.6vw, 64px); }
+  .movement .head { margin-bottom: 32px; }
+  .bars { margin-bottom: 40px; padding: 22px 30px 18px; }
+  .part { padding: 30px 30px; }
+  .part h3 { font-size: 32px; }
+  .move-foot { margin-top: 34px; }
+
+  .person { padding: 26px 26px 24px; }
+  .person .oval { width: 100px; height: 126px; margin-bottom: 12px; }
+  .person .q1 { margin-top: 14px; }
+  .person h4 { margin: 14px 0 6px; }
+  .people { gap: 24px; }
+
+  .close { padding: 36px 0 80px; }
+  .close .deco { padding: 42px 48px; }
+  .close .oval { width: 150px; height: 190px; }
+  .close .qline { margin-top: 16px; padding-top: 14px; }
+  .close .qline + .btn { margin-top: 16px; }
+  .foot { padding: 26px 24px; }
+  .mini { width: 160px; margin: 0 auto 8px; }
+  .cert .no { padding-bottom: 8px; }
+  .src { margin-top: 20px; }
+  .person p { font-size: 14.5px; line-height: 1.55; }
+  .person .q1 { font-size: 18px; }
+  .window { padding: 0 0 20px; }
+  .window .deco { padding: 22px 34px; }
+}
