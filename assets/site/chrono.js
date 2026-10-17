@@ -31,6 +31,16 @@
     var qEnd = new Date(now.getFullYear(), Math.floor(now.getMonth() / 3) * 3 + 3, 1);
     var days = Math.round((qEnd - today) / 86400000);
     els.forEach(function (el) { el.textContent = days; });
+    /* The dial window rolls down from 90 like a date wheel, once, when the hero appears */
+    var roll = document.querySelector('.qwin [data-q-days]');
+    if (roll && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && days < 90) {
+      var v = 90; roll.textContent = v;
+      setTimeout(function tick() {
+        v = Math.max(days, v - Math.max(1, Math.round((v - days) / 6)));
+        roll.textContent = v;
+        if (v > days) setTimeout(tick, 55);
+      }, 1200);
+    }
     if (days === 1) document.querySelectorAll('[data-q-unit]').forEach(function (el) { el.textContent = el.getAttribute('data-q-unit'); });
   })();
 
