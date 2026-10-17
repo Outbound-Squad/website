@@ -735,9 +735,31 @@ footer::before { content: ""; position: absolute; left: 50%; top: -9px; width: 1
 
 /* ==== 2026-10-17 edits: plain paper behind the conditions, eased tan-to-navy fade (OKLab, smootherstep), solid dark panels ==== */
 .conditions { background: transparent; padding: 110px 0; }
-.movement { background: linear-gradient(180deg, #F4EEE2 0px, #F2ECE0 16px, #EFE9DD 32px, #ECE6DB 48px, #E6E1D8 64px, #DAD7D4 80px, #CDCDCE 96px, #C4C5CA 112px, #BABCC5 128px, #A8ADBA 144px, #969DAF 160px, #8991A7 176px, #7C859C 192px, #687188 208px, #545C75 224px, #454D66 240px, #3C445C 256px, #2F374E 272px, #262E44 288px, #20283C 304px, #1B2235 320px, #1B2235 calc(100% - 320px), #20283C calc(100% - 304px), #262E44 calc(100% - 288px), #2F374E calc(100% - 272px), #3C445C calc(100% - 256px), #454D66 calc(100% - 240px), #545C75 calc(100% - 224px), #687188 calc(100% - 208px), #7C859C calc(100% - 192px), #8991A7 calc(100% - 176px), #969DAF calc(100% - 160px), #A8ADBA calc(100% - 144px), #BABCC5 calc(100% - 128px), #C4C5CA calc(100% - 112px), #CDCDCE calc(100% - 96px), #DAD7D4 calc(100% - 80px), #E6E1D8 calc(100% - 64px), #ECE6DB calc(100% - 48px), #EFE9DD calc(100% - 32px), #F2ECE0 calc(100% - 16px), #F4EEE2 calc(100% - 0px)); padding: 320px 0; }
-@media (max-width: 900px) { .conditions { padding: 84px 0; } .movement { background: linear-gradient(180deg, #F4EEE2 0px, #F2ECE0 14px, #EFE9DD 28px, #ECE6DB 42px, #E6E1D8 56px, #DAD7D4 70px, #CDCDCE 84px, #C4C5CA 98px, #BABCC5 112px, #A8ADBA 126px, #969DAF 140px, #8991A7 154px, #7C859C 168px, #687188 182px, #545C75 196px, #454D66 210px, #3C445C 224px, #2F374E 238px, #262E44 252px, #20283C 266px, #1B2235 280px, #1B2235 calc(100% - 280px), #20283C calc(100% - 266px), #262E44 calc(100% - 252px), #2F374E calc(100% - 238px), #3C445C calc(100% - 224px), #454D66 calc(100% - 210px), #545C75 calc(100% - 196px), #687188 calc(100% - 182px), #7C859C calc(100% - 168px), #8991A7 calc(100% - 154px), #969DAF calc(100% - 140px), #A8ADBA calc(100% - 126px), #BABCC5 calc(100% - 112px), #C4C5CA calc(100% - 98px), #CDCDCE calc(100% - 84px), #DAD7D4 calc(100% - 70px), #E6E1D8 calc(100% - 56px), #ECE6DB calc(100% - 42px), #EFE9DD calc(100% - 28px), #F2ECE0 calc(100% - 14px), #F4EEE2 calc(100% - 0px)); padding: 290px 0; } }
-@media (min-width: 1025px) { .conditions { padding: 72px 0; } .movement { background: linear-gradient(180deg, #F4EEE2 0px, #F2ECE0 14px, #EFE9DD 28px, #ECE6DB 42px, #E6E1D8 56px, #DAD7D4 70px, #CDCDCE 84px, #C4C5CA 98px, #BABCC5 112px, #A8ADBA 126px, #969DAF 140px, #8991A7 154px, #7C859C 168px, #687188 182px, #545C75 196px, #454D66 210px, #3C445C 224px, #2F374E 238px, #262E44 252px, #20283C 266px, #1B2235 280px, #1B2235 calc(100% - 280px), #20283C calc(100% - 266px), #262E44 calc(100% - 252px), #2F374E calc(100% - 238px), #3C445C calc(100% - 224px), #454D66 calc(100% - 210px), #545C75 calc(100% - 196px), #687188 calc(100% - 182px), #7C859C calc(100% - 168px), #8991A7 calc(100% - 154px), #969DAF calc(100% - 140px), #A8ADBA calc(100% - 126px), #BABCC5 calc(100% - 112px), #C4C5CA calc(100% - 98px), #CDCDCE calc(100% - 84px), #DAD7D4 calc(100% - 70px), #E6E1D8 calc(100% - 56px), #ECE6DB calc(100% - 42px), #EFE9DD calc(100% - 28px), #F2ECE0 calc(100% - 14px), #F4EEE2 calc(100% - 0px)); padding: 280px 0; } }
+.movement { background: #1B2235; }
+@media (max-width: 900px) { .conditions { padding: 84px 0; } .movement { background: #1B2235; } }
+@media (min-width: 1025px) { .conditions { padding: 72px 0; } .movement { background: #1B2235; } }
 .movement .bars { background: #2B3345; border-color: rgba(244,238,226,0.28); box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 24px 44px -26px rgba(0,0,0,0.65); }
 .movement .deco.dark { background: #2B3345; box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 30px 60px -30px rgba(0,0,0,0.65); }
 .movement .deco.dark::before, .movement .deco.dark::after { background: radial-gradient(circle, #9FD8FF 0 1.6px, transparent 2.2px), #2B3345; }
+
+/* ==== 2026-10-17: deliberate edge for the navy section (Jason approved a hard edge here, replacing the fade).
+   A fluted watch-bezel edge, a fine cream double rule set just inside it, and a pinned diamond at center. Mirrored at the bottom. ==== */
+.movement { --fl: 9px; padding: 128px 0; }
+.movement > .bezel { position: absolute; left: 0; right: 0; height: 64px; z-index: 2; pointer-events: none; }
+.movement > .bezel.top { top: 0; }
+.movement > .bezel.bottom { bottom: 0; transform: scaleY(-1); }
+/* the flutes: navy half-coins rising into the paper */
+.movement > .bezel::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--fl);
+  background: radial-gradient(circle at 50% 100%, #1B2235 calc(var(--fl) - 0.5px), var(--paper) var(--fl)) 50% 0 / calc(var(--fl) * 2) var(--fl) repeat-x; }
+/* fine double rule inside the edge */
+.movement > .bezel::after { content: ""; position: absolute; left: 24px; right: 24px; top: 26px; height: 4px;
+  border-top: 1px solid rgba(244,238,226,0.38); border-bottom: 1px solid rgba(244,238,226,0.18); }
+/* centered pinned diamond sitting on the rule, with a navy plate so the rule breaks around it */
+.movement > .bezel i { position: absolute; left: 50%; top: 21px; width: 14px; height: 14px; margin-left: -7px; transform: rotate(45deg); z-index: 1;
+  border: 1px solid rgba(244,238,226,0.7); background: radial-gradient(circle, #9FD8FF 0 1.6px, transparent 2.2px), #1B2235; box-shadow: 0 0 0 7px #1B2235; }
+.movement::before { -webkit-mask-image: linear-gradient(180deg, transparent 4%, #000 22%, #000 78%, transparent 96%); mask-image: linear-gradient(180deg, transparent 4%, #000 22%, #000 78%, transparent 96%); }
+.movement::after { -webkit-mask-image: linear-gradient(180deg, transparent 6%, #000 20%, #000 80%, transparent 94%); mask-image: linear-gradient(180deg, transparent 6%, #000 20%, #000 80%, transparent 94%); }
+.section:has(+ .movement) { padding-bottom: 96px; }
+@media (min-width: 1025px) { .movement { padding: 112px 0; } .section:has(+ .movement) { padding-bottom: 72px; } }
+@media (max-width: 900px) { .movement { padding: 104px 0; } .section:has(+ .movement) { padding-bottom: 72px; } }
+@media (max-width: 600px) { .movement { --fl: 7px; } .movement > .bezel::after { left: 14px; right: 14px; top: 22px; } .movement > .bezel i { top: 17px; } }
